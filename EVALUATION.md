@@ -38,11 +38,11 @@ Each pipeline stage has measurable outputs. For each stage, we define: what good
 
 | Metric | How to Measure | Good | Bad | What Bad Means |
 | :---- | :---- | :---- | :---- | :---- |
-| Coverage | Count unique sources that produced at least 1 signal | ≥10 distinct source platforms | \<5 sources | You are only seeing one corner of the internet. Signals are biased toward one community. |
-| Volume | Total signals collected | 200-2000 per run | \<50 | Not enough data to cluster meaningfully. Either your queries are too narrow or your sources are too few. |
-| Schema completeness | % of signals with all required fields filled (raw\_text, source\_url, source\_platform, engagement, date\_posted) | \>90% | \<70% | Missing fields mean you cannot tag, cluster, or trace back. Usually means the scraping/collection is sloppy. |
-| Freshness | % of signals posted within last 12 months | \>50% | \<20% | You are collecting stale pain. The problem may already be solved. Old signals are useful as durability evidence but should not dominate. |
-| Duplication rate | % of signals with identical source\_url | \<5% | \>15% | Your queries overlap too much, or you are scraping the same content from multiple aggregators. Deduplicate by URL, but keep both records — different collection paths to the same signal are metadata, not waste. |
+| Coverage | Count unique sources that produced at least 1 signal | ≥10 distinct source platforms | <5 sources | You are only seeing one corner of the internet. Signals are biased toward one community. |
+| Volume | Total signals collected | 200-2000 per run | <50 | Not enough data to cluster meaningfully. Either your queries are too narrow or your sources are too few. |
+| Schema completeness | % of signals with all required fields filled (raw_text, source_url, source_platform, engagement, date_posted) | >90% | <70% | Missing fields mean you cannot tag, cluster, or trace back. Usually means the scraping/collection is sloppy. |
+| Freshness | % of signals posted within last 12 months | >50% | <20% | You are collecting stale pain. The problem may already be solved. Old signals are useful as durability evidence but should not dominate. |
+| Duplication rate | % of signals with identical source_url | <5% | >15% | Your queries overlap too much, or you are scraping the same content from multiple aggregators. Deduplicate by URL, but keep both records — different collection paths to the same signal are metadata, not waste. |
 
 ## **Stage 2: Tag**
 
@@ -50,11 +50,11 @@ Each pipeline stage has measurable outputs. For each stage, we define: what good
 
 | Metric | How to Measure | Good | Bad | What Bad Means |
 | :---- | :---- | :---- | :---- | :---- |
-| Tag accuracy (sample audit) | Randomly select 30 signals. Read the raw text. Independently assign tags. Compare your tags to the pipeline’s tags. | \>80% agreement on pain\_type, \>70% on industry and buyer\_persona | \<60% agreement | The tagging logic (whether human or LLM) is misreading signals. Retrain or re-prompt. |
-| Tag coverage | % of signals where pain\_type is not ‘unknown’ | \>85% | \<60% | Too many signals are ambiguous. Either the signals are too vague (collection problem) or the tagging categories are too narrow (taxonomy problem). |
-| Intensity distribution | Histogram of pain\_intensity across all signals | Bell curve centered on 2-3, with a meaningful tail at 4-5 | Almost everything is 1-2 or almost everything is 4-5 | If everything is low-intensity, your sources are surfacing annoyances, not real pain. If everything is high-intensity, your tagging is inflated — not every signal is a crisis. |
-| Workaround detection rate | % of signals tagged has\_workaround=yes where the raw text actually describes a workaround | \>90% precision | \<70% precision | False positives on workarounds are dangerous because workaround count is a primary cluster quality signal. Audit these carefully. |
-| Spend detection rate | % of signals tagged has\_spend=yes where the raw text actually mentions money | \>95% precision | \<80% precision | False positives on spend signals corrupt your willingness-to-pay estimates downstream. |
+| Tag accuracy (sample audit) | Randomly select 30 signals. Read the raw text. Independently assign tags. Compare your tags to the pipeline’s tags. | >80% agreement on pain_type, >70% on industry and buyer_persona | <60% agreement | The tagging logic (whether human or LLM) is misreading signals. Retrain or re-prompt. |
+| Tag coverage | % of signals where pain_type is not ‘unknown’ | >85% | <60% | Too many signals are ambiguous. Either the signals are too vague (collection problem) or the tagging categories are too narrow (taxonomy problem). |
+| Intensity distribution | Histogram of pain_intensity across all signals | Bell curve centered on 2-3, with a meaningful tail at 4-5 | Almost everything is 1-2 or almost everything is 4-5 | If everything is low-intensity, your sources are surfacing annoyances, not real pain. If everything is high-intensity, your tagging is inflated — not every signal is a crisis. |
+| Workaround detection rate | % of signals tagged has_workaround=yes where the raw text actually describes a workaround | >90% precision | <70% precision | False positives on workarounds are dangerous because workaround count is a primary cluster quality signal. Audit these carefully. |
+| Spend detection rate | % of signals tagged has_spend=yes where the raw text actually mentions money | >95% precision | <80% precision | False positives on spend signals corrupt your willingness-to-pay estimates downstream. |
 
 ## **Stage 3: Cluster**
 
@@ -62,12 +62,12 @@ Each pipeline stage has measurable outputs. For each stage, we define: what good
 
 | Metric | How to Measure | Good | Bad | What Bad Means |
 | :---- | :---- | :---- | :---- | :---- |
-| Cluster coherence (sample audit) | For each of the top 10 clusters: read 5 random member signals. Do they all describe the same underlying problem? | 4-5 out of 5 signals clearly describe the same problem in each cluster | 2 or fewer match | Clusters are too loose. Signals about different problems are being grouped together. Reduce min\_cluster\_size or refine the clustering prompt. |
-| Orphan rate | % of signals that belong to no cluster | \<20% | \>40% | Too many signals are unclustered. Either your clustering is too strict, or many of your signals are genuinely unique (which suggests your queries are too broad). |
-| Cluster count | Total number of clusters | 15-50 from 200-2000 signals | \<5 or \>100 | \<5 means your clustering is too aggressive and merging distinct problems. \>100 means it is too granular and splitting one problem into fragments. |
+| Cluster coherence (sample audit) | For each of the top 10 clusters: read 5 random member signals. Do they all describe the same underlying problem? | 4-5 out of 5 signals clearly describe the same problem in each cluster | 2 or fewer match | Clusters are too loose. Signals about different problems are being grouped together. Reduce min_cluster_size or refine the clustering prompt. |
+| Orphan rate | % of signals that belong to no cluster | <20% | >40% | Too many signals are unclustered. Either your clustering is too strict, or many of your signals are genuinely unique (which suggests your queries are too broad). |
+| Cluster count | Total number of clusters | 15-50 from 200-2000 signals | <5 or >100 | <5 means your clustering is too aggressive and merging distinct problems. >100 means it is too granular and splitting one problem into fragments. |
 | Signal-per-cluster distribution | Histogram of cluster sizes | Power law: a few large clusters (10-50 signals), many small ones (3-10) | All clusters same size (5-10 each) | Uniform distribution suggests arbitrary grouping rather than natural clustering. Real demand is uneven — some problems are much more widespread than others. |
-| Cross-cluster signal overlap | % of signals that belong to \>1 cluster | 5-20% | \>40% or 0% | \>40% means your clusters are not distinct enough. 0% means you are forcing single membership and missing that some signals touch multiple opportunities. |
-| Source diversity per cluster | Average number of unique source platforms per cluster | \>2 for top clusters | 1 for most clusters | If top clusters only draw from one source, they may be echo chambers. Cross-platform confirmation is what separates real demand from community bias. |
+| Cross-cluster signal overlap | % of signals that belong to >1 cluster | 5-20% | >40% or 0% | >40% means your clusters are not distinct enough. 0% means you are forcing single membership and missing that some signals touch multiple opportunities. |
+| Source diversity per cluster | Average number of unique source platforms per cluster | >2 for top clusters | 1 for most clusters | If top clusters only draw from one source, they may be echo chambers. Cross-platform confirmation is what separates real demand from community bias. |
 
 ## **Stage 4: Enrich**
 
@@ -75,9 +75,9 @@ Each pipeline stage has measurable outputs. For each stage, we define: what good
 
 | Metric | How to Measure | Good | Bad | What Bad Means |
 | :---- | :---- | :---- | :---- | :---- |
-| Enrichment completeness | For each enriched cluster, count how many of the 8 enrichment data points are filled | \>6 out of 8 filled for every enriched cluster | \<4 filled | You are scoring with insufficient data. Scores based on thin enrichment are guesses, not assessments. |
+| Enrichment completeness | For each enriched cluster, count how many of the 8 enrichment data points are filled | >6 out of 8 filled for every enriched cluster | <4 filled | You are scoring with insufficient data. Scores based on thin enrichment are guesses, not assessments. |
 | Competitor discovery | For each enriched cluster, count identified competitors | ≥3 direct competitors found | 0 competitors found | Either the market truly does not exist (kill signal) or your search was too narrow. Try broader queries before concluding. |
-| Pricing data availability | % of enriched clusters with at least one competitor’s pricing documented | \>80% | \<50% | Without pricing benchmarks, your revenue path scoring is pure speculation. |
+| Pricing data availability | % of enriched clusters with at least one competitor’s pricing documented | >80% | <50% | Without pricing benchmarks, your revenue path scoring is pure speculation. |
 | Data recency | Age of the enrichment data (competitor websites, funding rounds, Google Trends) | All data from last 6 months | Data older than 18 months | Stale enrichment data means your competitive landscape may have shifted. Refresh before scoring. |
 
 ## **Stage 5: Score**
@@ -87,10 +87,10 @@ Each pipeline stage has measurable outputs. For each stage, we define: what good
 | Metric | How to Measure | Good | Bad | What Bad Means |
 | :---- | :---- | :---- | :---- | :---- |
 | Score-evidence linkage | For each score on each criterion: does the evidence cited actually support the score? | 100% of scores have at least one specific evidence link | Any score without evidence | Unlinked scores are opinions. They will not survive scrutiny and should not drive decisions. |
-| Inter-rater reliability | Have 2 people independently score the same cluster. Compare scores per criterion. | Scores differ by ≤1 point on each criterion | Scores differ by ≥3 on any criterion | The scoring rubric is ambiguous. The criterion definitions need to be more specific, or the evidence is being interpreted differently. |
+| Inter-rater reliability | Score the same cluster twice with two independent runs of the scoring step: one with the default scoring prompt, one with a paraphrased prompt that conveys the same rubric in different words. (Optional human cross-check on the top-3 clusters.) Compare scores per criterion. | Scores differ by ≤1 point on each criterion | Scores differ by ≥3 on any criterion | The scoring rubric is ambiguous — the model latches onto incidental wording in the prompt. Tighten criterion definitions until paraphrasing the prompt does not change the score. |
 | Score range utilization | Distribution of scores across all clusters and criteria | Scores span 1-5 with meaningful spread | All scores cluster around 3-4 | If everything scores 3-4, the rubric is not discriminating. Either the criteria are too vague or you are unconsciously avoiding extreme scores. Force yourself to use 1s and 5s. |
-| Rank stability | Re-score the same clusters one week later without looking at original scores. Does the ranking change? | Same top-3 in both runs | Completely different top-3 | Your scoring is sensitive to mood, not data. The evidence is too ambiguous to produce stable judgments. You need more enrichment data. |
-| Confidence coverage | % of scores rated ‘high confidence’ vs ‘low confidence’ | \>50% high confidence for top-3 clusters | \<30% high confidence for top-3 | You are about to commit to an opportunity where most of your knowledge is guesswork. Go back to Stage 4 and enrich more before deciding. |
+| Rank stability | Score the same clusters across N=5 scoring runs at temperature 0.7 (instead of the default 0.2). How often does the top-3 set change? | Same top-3 set in ≥4 of 5 runs | Different top-3 set in ≥3 of 5 runs | Your scoring is sensitive to sampling noise, not data. The evidence is too ambiguous to produce stable judgments. You need more enrichment data before scoring. |
+| Confidence coverage | % of scores rated ‘high confidence’ vs ‘low confidence’ | >50% high confidence for top-3 clusters | <30% high confidence for top-3 | You are about to commit to an opportunity where most of your knowledge is guesswork. Go back to Stage 4 and enrich more before deciding. |
 
 ## **Stage 6: Model**
 
@@ -99,7 +99,7 @@ Each pipeline stage has measurable outputs. For each stage, we define: what good
 | Metric | How to Measure | Good | Bad | What Bad Means |
 | :---- | :---- | :---- | :---- | :---- |
 | Input traceability | Can every model input (ARPU, churn, acquisition rate, market size) be traced to a specific enrichment data point? | 100% traceable | Any input is a guess without source | Your projection is fiction built on assumptions. It will tell you whatever you want to hear. |
-| Scenario spread | Ratio between optimistic and conservative MRR at month 18 | 2-5x difference | \<1.5x or \>10x difference | \<1.5x means your scenarios are not actually testing different assumptions. \>10x means your inputs are so uncertain the model is meaningless. |
+| Scenario spread | Ratio between optimistic and conservative MRR at month 18 | 2-5x difference | <1.5x or >10x difference | <1.5x means your scenarios are not actually testing different assumptions. >10x means your inputs are so uncertain the model is meaningless. |
 | Conservative case viability | Does the conservative scenario reach target MRR within 24 months? | Yes | No | If even the worst case does not work, the opportunity fails regardless of how good the optimistic case looks. |
 | Sensitivity identification | Which single input, if wrong by 2x, changes the recommendation? | Clearly identified with a named risk | Not tested | You do not know what could kill the business. This is the most dangerous blind spot. |
 
@@ -125,7 +125,7 @@ The key requirement is **outcome blindness during signal collection.** You must 
 
 | Metric | How to Compute | Pass Threshold | What Failure Means |
 | :---- | :---- | :---- | :---- |
-| Separation | Average score of the 5 successes minus average score of the 5 failures | \>1.0 point difference | The pipeline cannot distinguish winners from losers. The scoring criteria or weights are wrong. |
+| Separation | Average score of the 5 successes minus average score of the 5 failures | >1.0 point difference | The pipeline cannot distinguish winners from losers. The scoring criteria or weights are wrong. |
 | Top-3 precision | Of the 3 highest-scored cases, how many are actual successes? | ≥2 out of 3 | The pipeline ranks failures above successes. Either scoring is miscalibrated or the signal collection missed critical evidence. |
 | Bottom-3 precision | Of the 3 lowest-scored cases, how many are actual failures? | ≥2 out of 3 | The pipeline does not reliably filter bad ideas. The kill criteria are too lenient. |
 | Kill criterion sensitivity | For each failure: did at least one kill criterion fire? | 4 out of 5 failures hit ≥1 kill criterion | The kill criteria are missing the patterns that cause real-world failure. |
@@ -145,7 +145,7 @@ The backtest has inherent limitations you must acknowledge:
 
 * **Category-creators are out of scope.** The pipeline is designed for painkiller opportunities. Products like the iPhone, which created demand that did not previously exist, will not be surfaced. This is a feature, not a bug — category creation requires resources a solo founder does not have.
 
-* **Market timing is invisible in hindsight.** Plausible benefited from GDPR enforcement rulings in 2022 that nobody could have predicted in 2019\. The pipeline cannot score future regulatory tailwinds. It can only score what is visible now.
+* **Market timing is invisible in hindsight.** Plausible benefited from GDPR enforcement rulings in 2022 that nobody could have predicted in 2019. The pipeline cannot score future regulatory tailwinds. It can only score what is visible now.
 
 # **Forward Test Protocol**
 
@@ -155,15 +155,15 @@ The forward test is the ultimate evaluation: run the pipeline blind on a fresh d
 
 Do not run a forward test until:
 
-* **The backtest passes** with separation \>1.0 and top-3 precision ≥2/3.
+* **The backtest passes** with separation >1.0 and top-3 precision ≥2/3.
 
 * **Stage-level metrics are clean** — no stage has a ‘bad’ rating on any metric.
 
-* **The top-ranked opportunity scores \>3.5** with \>50% high-confidence scores.
+* **The top-ranked opportunity scores >3.5** with >50% high-confidence scores.
 
 * **The conservative scenario reaches target MRR** within 24 months.
 
-* **You have personally validated Stage 4 validation** — at least Rung 2 (solution interviews) completed with real humans.
+* **You have completed at least five solution interviews with humans matching the buyer persona** for the top-ranked cluster. The interviews confirm the cluster's pain in the interviewee's own words and at least three of the five express interest in a paid solution. (This is the qualitative gate the pipeline cannot run for you.)
 
 ## **Forward Test Metrics**
 
@@ -172,12 +172,12 @@ Once you commit and build, track these metrics to evaluate whether the pipeline�
 | Metric | Check At | Pipeline Was Right If... | Pipeline Was Wrong If... |
 | :---- | :---- | :---- | :---- |
 | Problem confirmation | Week 1-4 (customer interviews) | 80%+ of interviewees confirm the pain exists and describe it consistently with the cluster signals | Fewer than 50% recognize the problem, or they describe a fundamentally different pain |
-| Willingness to pay | Week 4-8 (landing page \+ pricing test) | Landing page converts \>3% of qualified visitors. At least 3 people give you money before the product is finished. | Nobody converts. People say ‘cool but I wouldn’t pay for it.’ |
-| Build time accuracy | Week 6-10 (MVP shipped) | MVP shipped within 2x the estimated build time | MVP took \>3x estimated time, indicating solo feasibility was overscored |
+| Willingness to pay | Week 4-8 (landing page + pricing test) | Landing page converts >3% of qualified visitors. At least 3 people give you money before the product is finished. | Nobody converts. People say ‘cool but I wouldn’t pay for it.’ |
+| Build time accuracy | Week 6-10 (MVP shipped) | MVP shipped within 2x the estimated build time | MVP took >3x estimated time, indicating solo feasibility was overscored |
 | First 10 customers | Day 90 | 10 paying customers acquired | Fewer than 3 paying customers despite outreach to 100+ prospects |
 | $1k MRR | Month 4-6 | Reached $1k MRR | Still below $500 MRR with no clear growth trend |
 | Distribution channel validation | Month 3-6 | At least one acquisition channel produces ≥3 customers/month repeatably | All customers came from personal network; no scalable channel found |
-| Churn reality vs model | Month 6+ | Monthly churn within 2x of the modeled estimate | Churn is \>3x the modeled estimate, meaning the model was fundamentally wrong about retention |
+| Churn reality vs model | Month 6+ | Monthly churn within 2x of the modeled estimate | Churn is >3x the modeled estimate, meaning the model was fundamentally wrong about retention |
 | Target MRR | Month 12-18 | Reached target MRR or is on a trajectory that projects reaching it within 24 months | Growth has plateaued well below target with no clear path to reach it |
 
 ## **Interpreting Forward Test Results**
@@ -192,7 +192,7 @@ The forward test does not just validate the specific opportunity — it validate
 
 * **If the opportunity failed at distribution:** The pipeline’s distribution scoring was wrong. This is the most common failure mode for technical founders. Audit: did you have evidence of a scalable channel, or did you assume you would figure it out? The distribution criterion needs to be weighted higher or evaluated more rigorously.
 
-* **If the opportunity failed at churn:** The pipeline’s enrichment of buyer persona and product-market fit was wrong. The product solves the problem but users do not stick. Audit: was the pain intense enough (pain\_intensity ≥4) to justify ongoing subscription? Or was this a one-time-use problem disguised as a recurring need?
+* **If the opportunity failed at churn:** The pipeline’s enrichment of buyer persona and product-market fit was wrong. The product solves the problem but users do not stick. Audit: was the pain intense enough (pain_intensity ≥4) to justify ongoing subscription? Or was this a one-time-use problem disguised as a recurring need?
 
 # **The Feedback Loop**
 

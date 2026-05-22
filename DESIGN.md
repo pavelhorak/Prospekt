@@ -42,7 +42,7 @@ prospect/
 ├── results.tsv             ← experiment log: run_id, metrics, status, description
 │
 ├── runs/
-│   └── {run_id}/           ← one directory per pipeline run
+│   └── {run_id}/           ← one directory per pipeline run (run_id = YYYY-MM-DDTHH-MM-SS UTC)
 │       ├── run.yaml        ← run metadata: timestamp, config snapshot, stages run
 │       ├── metrics.yaml    ← stage-level metrics for this run
 │       │
@@ -50,6 +50,10 @@ prospect/
 │       │   ├── index.yaml  ← signal manifest: count, sources, date range
 │       │   └── {platform}/
 │       │       └── {signal_id}.yaml  ← one file per signal
+│       │
+│       ├── attachments/    ← binary blobs referenced by signal files (screenshots, PDFs)
+│       │   └── {signal_id}/
+│       │       └── {filename}
 │       │
 │       ├── tags/
 │       │   └── {signal_id}.yaml  ← one file per tagged signal
@@ -80,10 +84,11 @@ prospect/
 │   └── {test_id}.yaml      ← real-world milestones vs predictions
 │
 ├── calibration/
-│   ├── history.yaml        ← per-run metrics over time (the improvement record)
-│   ├── source_quality.yaml ← signal-to-noise per source across runs
-│   ├── bias_log.yaml       ← predicted vs actual scores, per criterion
-│   └── weight_history.yaml ← how scoring weights changed and why
+│   ├── history.yaml          ← per-run metrics over time (the improvement record)
+│   ├── source_quality.yaml   ← signal-to-noise per source across runs
+│   ├── bias_log.yaml         ← predicted vs actual scores, per criterion
+│   ├── weight_history.yaml   ← how scoring weights changed and why
+│   └── backtest_status.yaml  ← last backtest id, age, pass/fail, gating the loop
 │
 └── prompts/
     ├── tagging.md          ← current LLM prompt for Stage 2
@@ -95,8 +100,8 @@ prospect/
 ### Signal file example
 
 ```yaml
-# runs/2026-04-14/signals/reddit/sig_a1b2c3d4.yaml
-signal_id: a1b2c3d4
+# runs/2026-04-14T09-12-08/signals/reddit/sig_a1b2c3d4.yaml
+signal_id: sig_a1b2c3d4
 raw_text: |
   We spend 3 hours every Friday manually compiling engineering metrics
   from Jira and GitHub into a Google Sheet that nobody reads...
@@ -110,12 +115,24 @@ engagement:
 date_posted: 2026-01-15
 date_collected: 2026-04-14
 collection_query: "frustrated with" in r/ExperiencedDevs, sorted by top, past year
+
+# Optional. Source-specific structured data preserved in addition to raw_text.
+# Examples: G2/Capterra → {rating, pros, cons, role, company_size};
+# competitor pricing page → {tiers: [...], billing: per_seat|flat|usage};
+# job posting → {title, company, location, salary_range};
+# Google Trends → {keyword, series: [[date, value], ...]}
+structured: {}
+
+# Optional. Paths (relative to the run directory) to binary attachments.
+# Screenshots, archived HTML, PDFs. The signal file is the source of truth;
+# attachments are referenced, never inlined.
+attachments: []
 ```
 
 ### Cluster file example
 
 ```yaml
-# runs/2026-04-14/clusters/clust_017.yaml
+# runs/2026-04-14T09-12-08/clusters/clust_017.yaml
 cluster_id: clust_017
 cluster_label: "Engineering teams lack visibility into code review bottlenecks"
 cluster_summary: |
@@ -141,6 +158,20 @@ metrics:
   competitor_mentions: {LinearB: 8, Swarmia: 3, Haystack: 2, Jellyfish: 1}
 method: hdbscan
 ```
+
+### ID format
+
+Every ID has a stable prefix so files are self-identifying when read out of context:
+
+| Kind | Prefix | Example |
+|:--|:--|:--|
+| Signal | `sig_` | `sig_a1b2c3d4e5f6` |
+| Cluster | `clust_` | `clust_017` |
+| Run | none | `2026-04-14T09-12-08` (UTC timestamp) |
+| Backtest | `bt_` | `bt_2026-05-01a` |
+| Forward test | `ft_` | `ft_001` |
+
+Signal IDs are the first 12 hex chars of a UUID4 with the `sig_` prefix — short enough to type, long enough to avoid collisions inside a single run. The same ID is used as the filename (without extension) and as the value of `signal_id:` inside the file.
 
 ### Design rules
 
@@ -237,7 +268,12 @@ ingest:
 ```
 LOOP FOREVER:
 
-1. Read the current pipeline.yaml and prompts/*.md
+1. Read the current pipeline.yaml, prompts/*.md, and calibration/history.yaml.
+   Read calibration/backtest_status.yaml — if `last_backtest_age_days > 30` or
+   `last_backtest_passed = false`, the next proposed change MUST be either
+   (a) a backtest run, or (b) a change explicitly targeting the failing
+   backtest metric. The loop refuses to optimize against `pipeline_score`
+   alone when the backtest signal is stale or failing.
 2. Propose one change:
    - Modify a tagging prompt to improve tag accuracy
    - Adjust clustering thresholds to improve coherence
@@ -249,11 +285,17 @@ LOOP FOREVER:
 4. Run the pipeline: prospect run --eval > run.log 2>&1
 5. Read the results: grep "pipeline_score:" run.log
 6. Log to results.tsv:
-   commit, pipeline_score, tag_quality, cluster_quality, status, description
+   commit, pipeline_score, tag_quality, cluster_quality, backtest_mult, status, description
 7. If pipeline_score improved → keep (advance the branch)
-   If pipeline_score equal or worse → discard (git reset)
+   If pipeline_score equal or worse → discard:
+     - `git checkout HEAD~1 -- pipeline.yaml prompts/`  (revert config only)
+     - the run directory under `runs/` is NOT deleted; it stays as a
+       failed-experiment record with `status: discard` in run.yaml
+     - commit the revert with "discard: <reason>" so results.tsv stays linear
 8. Go to 1.
 ```
+
+**Why config-only reset.** Design rule §2 says runs are immutable snapshots. Deleting a discarded run via `git reset --hard` would violate that and erase evidence of what was tried. Resetting only `pipeline.yaml` and `prompts/` keeps the experiment log complete while ensuring the next iteration starts from the last *kept* configuration.
 
 ### What the agent can change
 
@@ -274,8 +316,8 @@ LOOP FOREVER:
 
 ### What the agent cannot change
 
-- `prospect.py` — the pipeline engine and metric computation
-- `prepare.py` — data preparation utilities
+- `prospect.py` — the pipeline engine, source adapters, and metric computation
+- The composite-metric weights inside `prospect.py` (see §4)
 - The evaluation metric definitions
 - The backtest case definitions
 - The signal files from previous runs
@@ -305,18 +347,37 @@ pipeline_score = (
 
 Each component is normalized to 0.0–1.0. The `backtest_multiplier` scales the whole score by how well the pipeline separates known successes from failures.
 
+**Where these weights live.** The six component weights and the `backtest_multiplier` formula are defined as frozen constants inside `prospect.py`. They are *not* exposed in `pipeline.yaml` and the agent cannot modify them — changing the metric definition mid-experiment makes longitudinal comparisons meaningless. Per §6.3, changing the metric requires a human-edited code change.
+
+> Don't confuse these with the 7-criterion *scoring* weights (market_demand, distribution, …) that the agent tunes in `pipeline.yaml`. Those rank clusters within a run. These six rank the pipeline against itself across runs.
+
 ### Component definitions
 
 #### `ingest_quality` (0.0–1.0)
 
 ```
 ingest_quality = mean(
-    min(coverage / 10, 1.0),                      # ≥10 sources → 1.0
+    min(coverage / 10, 1.0),                       # ≥10 sources → 1.0
     min(volume / 500, 1.0),                        # ≥500 signals → 1.0
-    schema_completeness,                            # % with all required fields
-    clamp(freshness, 0.2, 0.8) normalized to 0–1,  # 50% within 12mo is ideal
-    1.0 - clamp(duplication_rate, 0.0, 0.15) / 0.15
+    schema_completeness,                           # % with all required fields
+    freshness_score,                               # see below
+    duplication_score                              # see below
 )
+
+# freshness_score: tent function peaking at the target band 0.5–0.7
+# (i.e. 50–70% of signals posted within the last 12 months is ideal).
+# Penalize both stale-only and fire-hose-of-just-this-week corpora.
+f = fraction_within_12_months
+freshness_score = 1.0                   if 0.5 ≤ f ≤ 0.7
+                = f / 0.5                if f < 0.5
+                = max(0, 1.0 - (f - 0.7) / 0.3)  if f > 0.7
+
+# duplication_score: 0% to 5% is fine; 5% to 15% degrades linearly;
+# above 15% the corpus is too contaminated to trust.
+d = fraction_with_duplicate_source_url
+duplication_score = 1.0                  if d ≤ 0.05
+                  = 1.0 - (d - 0.05) / 0.10   if 0.05 < d ≤ 0.15
+                  = 0.0                  if d > 0.15
 ```
 
 Measured automatically from the signal files in the run directory. No human input needed.
@@ -327,14 +388,14 @@ Measured automatically from the signal files in the run directory. No human inpu
 tag_quality = mean(
     tag_coverage,                         # % where pain_type != 'unknown'
     intensity_distribution_health,        # penalize if >70% on one value
-    workaround_precision,                 # from audit or LLM self-check
-    spend_precision                       # from audit or LLM self-check
+    workaround_precision,                 # cold-context audit (see below)
+    spend_precision                       # cold-context audit (see below)
 )
 ```
 
 `intensity_distribution_health`: entropy of the intensity histogram, normalized so max entropy (uniform across 1–5) = 1.0, min entropy (everything on one value) = 0.0. Target is 0.5–0.8 (bell curve, not uniform).
 
-`workaround_precision` and `spend_precision`: when no manual audit is available, the pipeline runs a self-check — re-reads 20 random signals tagged `has_workaround=yes` and `has_spend=yes`, asks the LLM "does this signal actually describe a workaround/spend?", counts agreement rate. Weaker than human audit but automatable.
+`workaround_precision` and `spend_precision` (cold-context audit): the pipeline samples 20 signals tagged `has_workaround=yes` (and 20 tagged `has_spend=yes`), and passes ONLY the `raw_text` field — no tags, no prior reasoning, no tagging prompt — to an *auditor* model that is configured to be different from the tagger (different model family if available, otherwise same model with a fresh system prompt and temperature 0). The auditor answers a single yes/no question: "Does this text describe a manual workaround for a software problem?" (resp. "Does this text mention money spent on a software product or budget for one?"). Precision = #yes / 20. Manual override: if a `tag_audit.yaml` file exists for the run, its labels supersede the auditor's. The auditor is a weaker signal than a human spot-check but is genuinely independent of the tagger.
 
 #### `cluster_quality` (0.0–1.0)
 
@@ -342,7 +403,7 @@ The most important component. Bad clusters corrupt everything downstream.
 
 ```
 cluster_quality = mean(
-    coherence_score,                      # LLM self-check or manual audit
+    coherence_score,                      # cold-context auditor (see below)
     1.0 - clamp(orphan_rate, 0, 0.4),    # <20% orphans → 0.5+
     cluster_count_health,                 # penalize <5 or >100
     size_distribution_health,             # power-law is good, uniform is bad
@@ -351,7 +412,7 @@ cluster_quality = mean(
 )
 ```
 
-`coherence_score` (automated): for each of the top 10 clusters, sample 5 signals, ask the LLM "do all 5 describe the same underlying problem? rate 0–5." Average across clusters, normalize to 0–1.
+`coherence_score` (cold-context auditor): for each of the top 10 clusters, sample 5 signals and pass ONLY their `raw_text` fields to the auditor model (the same independent model used for `tag_quality`). The cluster's label and summary are NOT provided. The auditor answers: "Do these 5 texts describe the same underlying problem? Rate 0–5." Average across the 10 clusters, normalize to 0–1. Because the auditor never sees the LLM-generated cluster label, it cannot rationalize an incoherent grouping.
 
 `cluster_count_health`: 1.0 if count is 15–50, linearly decreasing to 0.0 below 5 or above 100.
 
@@ -606,6 +667,40 @@ These deltas feed directly back into the agent's loop:
 - `willingness_to_pay` delta > 0.2 → agent increases `revenue_path` weight, tightens spend evidence requirements
 - `build_time` delta > 50% → agent adjusts feasibility scoring to be more conservative
 - `churn` delta > 2× → agent adds churn-relevant tagging signals (one-time-use indicators)
+
+#### `calibration/bias_log.yaml`
+
+Each forward-test result is appended to `bias_log.yaml`. This is the system's
+record of where its predictions diverge from reality, broken out by criterion
+so per-criterion miscalibration is visible.
+
+```yaml
+# calibration/bias_log.yaml
+entries:
+  - run_id: "2026-04-14T09-12-08"
+    cluster_id: clust_017
+    test_id: test_001
+    closed_at: 2026-10-20         # date the milestone was reached
+    criterion_deltas:             # predicted score (1-5) → observed score (1-5)
+      market_demand:      {predicted: 4, observed: 4, delta:  0}
+      distribution:       {predicted: 4, observed: 2, delta: -2}
+      competition:        {predicted: 3, observed: 3, delta:  0}
+      founder_market_fit: {predicted: 5, observed: 4, delta: -1}
+      solo_feasibility:   {predicted: 4, observed: 2, delta: -2}
+      revenue_path:       {predicted: 4, observed: 2, delta: -2}
+      defensibility:      {predicted: 2, observed: 2, delta:  0}
+    milestone_deltas: { ... copy from forward_tests/test_NNN.yaml ... }
+
+# Aggregates (recomputed by `prospect calibrate`)
+per_criterion_bias:
+  distribution:       {n: 3, mean_delta: -1.7, stddev: 0.6}   # consistently overscored
+  solo_feasibility:   {n: 3, mean_delta: -1.3, stddev: 0.9}
+  market_demand:      {n: 3, mean_delta:  0.0, stddev: 0.4}
+```
+
+`mean_delta` is what the agent reads when it considers a weight adjustment.
+A criterion with consistent negative delta and low stddev is a systematic
+over-scoring bias and should be down-weighted or have its rubric tightened.
 
 ### 5.5 The meta-metric
 
