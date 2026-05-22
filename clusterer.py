@@ -22,8 +22,8 @@ from __future__ import annotations
 
 import datetime as _dt
 import hashlib
-import os
 import re
+import shutil
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
@@ -31,10 +31,7 @@ from typing import Any
 import numpy as np
 import yaml
 
-try:
-    import anthropic
-except ImportError:  # pragma: no cover
-    anthropic = None  # type: ignore
+from llm import Anthropic, APIError
 
 try:
     from sentence_transformers import SentenceTransformer
@@ -52,10 +49,6 @@ _YAML_FENCE = re.compile(r"```(?:yaml)?\s*\n(.*?)```", re.DOTALL)
 
 def cluster_signals(config: dict, rdir: Path) -> None:
     _check_deps()
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        raise RuntimeError("ANTHROPIC_API_KEY not set; needed for LLM cluster labeling")
-
     ccfg = config.get("clustering") or {}
     embedding_model_name = ccfg.get("embedding_model", "all-MiniLM-L6-v2")
     min_cluster_size = int(ccfg.get("min_cluster_size", 3))
@@ -101,7 +94,7 @@ def cluster_signals(config: dict, rdir: Path) -> None:
 
     print(f"  labeling {len(centroids)} clusters via {label_model}...")
     prompt_template = Path(prompt_file).read_text()
-    client = anthropic.Anthropic(api_key=api_key)
+    client = Anthropic()
     label_records: dict[int, dict] = {}
     for cid in sorted(centroids.keys()):
         reps = _select_reps(signals, embeddings, primary_by_cluster[cid], centroids[cid], n=5)
@@ -168,13 +161,13 @@ def _check_deps() -> None:
         missing.append("sentence-transformers")
     if HDBSCAN is None:
         missing.append("scikit-learn>=1.3")
-    if anthropic is None:
-        missing.append("anthropic")
+    if not shutil.which("claude"):
+        missing.append("claude CLI (install Claude Code)")
     if missing:
         raise RuntimeError(
             "stage_cluster missing dependencies: "
             + ", ".join(missing)
-            + ". Install via `pip install -r requirements.txt`."
+            + ". Install via `pip install -r requirements.txt` and ensure `claude` is in PATH."
         )
 
 
@@ -348,7 +341,7 @@ def _llm_label(
             temperature=temperature,
             messages=[{"role": "user", "content": msg}],
         )
-    except anthropic.APIError as e:
+    except APIError as e:
         return {"cluster_label": "ERROR", "cluster_summary": str(e), "method": "llm_error"}
 
     text = "".join(b.text for b in resp.content if getattr(b, "type", None) == "text")

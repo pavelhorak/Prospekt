@@ -12,7 +12,7 @@ back to the original Reddit post, G2 review, or Upwork job that contributed.
 
 ## Status
 
-**Stages 1–2 wired; clustering → modeling still stubbed.**
+**All six stages wired. LLM backend is the `claude` CLI — no API key required.**
 
 Stage 1 ingest produces real signal corpora via `adapters.py`:
 
@@ -28,7 +28,7 @@ Google Trends signals from the second run.
 
 Stage 2 tag calls Claude via `tagger.py` against `prompts/tagging.md`
 in batches; writes one tag file per signal with verbatim justification
-quotes. Requires `ANTHROPIC_API_KEY`. Resume-safe.
+quotes. Resume-safe.
 
 Stage 3 cluster runs `clusterer.py`: sentence-transformers MiniLM
 embeddings (disk-cached), sklearn HDBSCAN, greedy centroid merge,
@@ -62,14 +62,22 @@ Risk factors are enumerated from the upstream data.
 components using the pure metric functions in `prospect.py`, writes
 `runs/{rid}/metrics.yaml`, and appends to `calibration/history.yaml`
 and `results.tsv`. The cold-context auditor (`auditor.py`) runs by
-default when `ANTHROPIC_API_KEY` is set; `--no-audits` skips it.
+default when `claude` is in PATH; `--no-audits` skips it.
 First eval against the existing 318-signal corpus: `pipeline_score =
 0.1013` (ingest_quality 0.675; downstream components = 0 — those
 stages haven't run on this corpus yet).
 
-**All six stages wired.** End-to-end `prospect run --eval` will
-produce a real composite score against any signal corpus once
-`ANTHROPIC_API_KEY` is set.
+## LLM backend
+
+All Claude calls go through `llm.py`, a drop-in `anthropic.Anthropic`
+shim that shells out to the `claude` CLI. The pipeline runs on the
+user's Claude Code subscription instead of a paid API key. The
+anthropic SDK is NOT a dependency. Per-call overhead is the subprocess
+startup (~1–2s) plus model thinking time. The wrapper runs `claude`
+from a temp cwd so the project's `CLAUDE.md`, hooks, and memory don't
+bleed into pipeline prompts. Only `WebSearch` is in `--allowed-tools`;
+Bash/Read/Write/Edit are blocked so a stray model can't shell out on
+the user's machine.
 
 G2, Capterra, Upwork, LinkedIn — adapters not yet wired (Cloudflare /
 anti-bot / paid API).

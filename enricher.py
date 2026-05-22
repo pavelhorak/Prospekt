@@ -15,28 +15,18 @@ enrichment.triggers thresholds AND its label isn't INCOHERENT/PARSE_ERROR.
 
 from __future__ import annotations
 
-import os
 import re
 from pathlib import Path
 
 import yaml
 
-try:
-    import anthropic
-except ImportError:  # pragma: no cover
-    anthropic = None  # type: ignore
+from llm import Anthropic, APIError
 
 
 _YAML_FENCE = re.compile(r"```(?:yaml)?\s*\n(.*?)```", re.DOTALL)
 
 
 def enrich_clusters(config: dict, rdir: Path) -> None:
-    if anthropic is None:
-        raise RuntimeError("anthropic not installed; `pip install anthropic`")
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        raise RuntimeError("ANTHROPIC_API_KEY not set; needed for cluster enrichment")
-
     ecfg = config.get("enrichment") or {}
     prompt_file = ecfg.get("prompt_file", "prompts/enrichment.md")
     triggers = ecfg.get("triggers") or {}
@@ -67,7 +57,7 @@ def enrich_clusters(config: dict, rdir: Path) -> None:
         return
 
     prompt_template = Path(prompt_file).read_text()
-    client = anthropic.Anthropic(api_key=api_key)
+    client = Anthropic()
 
     for c in pending:
         label = (c.get("cluster_label") or "")[:80]
@@ -122,16 +112,11 @@ def _research_cluster(
     if "intensity_mean" in metrics:
         user_msg += f"intensity_mean: {metrics['intensity_mean']}\n"
     user_msg += (
-        "\nUse the web_search tool freely to fill the enrichment fields. "
+        "\nUse the WebSearch tool freely to fill the enrichment fields. "
+        f"Aim for at most {max_searches} searches total. "
         "Cite the URL you found each fact at in the output's `source:` fields. "
         "If a field is genuinely unknown after a reasonable search, set it to null with a note explaining why."
     )
-
-    tools = [{
-        "type": "web_search_20250305",
-        "name": "web_search",
-        "max_uses": max_searches,
-    }]
 
     try:
         resp = client.messages.create(
@@ -139,9 +124,8 @@ def _research_cluster(
             max_tokens=max_tokens,
             temperature=temperature,
             messages=[{"role": "user", "content": user_msg}],
-            tools=tools,
         )
-    except anthropic.APIError as e:
+    except APIError as e:
         return {
             "cluster_id": cluster["cluster_id"],
             "enrichment_status": "api_error",

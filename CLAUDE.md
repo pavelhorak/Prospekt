@@ -6,18 +6,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Prospect is a six-stage pipeline (**ingest → tag → cluster → enrich → score → model**) that turns internet pain signals into ranked solo-founder business opportunities, wrapped in a Karpathy-style autoresearch loop that tunes itself via git commits.
 
-**Status: ingest → tag → cluster → enrich wired; score + model still stubbed. `cmd_eval` produces real `pipeline_score`.**
+**All six pipeline stages wired. LLM backend is the `claude` CLI (no API key needed).**
 
 - `stage_ingest` (`adapters.py`): HN, Stack Overflow, GitHub Issues, Google Trends (trendspy), Reddit. Reddit needs `REDDIT_CLIENT_ID` + `REDDIT_CLIENT_SECRET`; the rest are zero-config.
-- `stage_tag` (`tagger.py`): Claude calls via `prompts/tagging.md`, batches per `tagging.batch_size`, resume-safe via tag-file presence. Needs `ANTHROPIC_API_KEY`.
+- `stage_tag` (`tagger.py`): Claude tagging via `prompts/tagging.md`, batches per `tagging.batch_size`, resume-safe via tag-file presence.
 - `stage_cluster` (`clusterer.py`): sentence-transformers embed (disk-cached in `runs/{rid}/.cache/`), sklearn HDBSCAN, greedy centroid merge, stratified rep selection (≤2 per source_platform), Claude labels via `prompts/clustering.md`, capped cross-assignment. `cluster_fingerprint = sha256(sorted(top-3 central signal_ids))[:12]` for cross-run identity.
-- `stage_enrich` (`enricher.py`): Claude with the `web_search_20250305` tool, per-cluster research producing the 8 enrichment data points from SPEC §Stage 4 with citations. Filters by `enrichment.triggers` and skips INCOHERENT/PARSE_ERROR clusters.
-- `stage_score` (`scorer.py`): 7-criterion scoring of enriched clusters via Claude using `prompts/scoring.md`. Applies `scoring.weights` for `weighted_total`, applies `scoring.kill_criteria` to mark unviable clusters. Emits `scores/{cluster_id}.yaml` + `scores/ranking.yaml`. Needs `ANTHROPIC_API_KEY`.
-- `stage_model` (`modeler.py`): pure Python — derives ARPU from competitor pricing tiers in enrichment, build_weeks from solo_feasibility score, new_customers/mo from distribution score. Projects 24-month MRR per scenario (conservative/base/optimistic), identifies the single input that flips conservative viability (the killing_input), and enumerates risk factors from upstream signals.
-- `cmd_eval` (`evaluator.py`): walks the run dir, computes all six component scores using `prospect.py`'s pure metric functions, writes `runs/{rid}/metrics.yaml`, appends to `calibration/history.yaml`, appends to `results.tsv`. `--no-audits` skips the cold-context auditor.
-- **Cold-context auditor** (`auditor.py`): per DESIGN.md §4, uses a *different* model from the tagger/clusterer (configured in `pipeline.yaml:audit.model`), fed only raw_text. Computes `workaround_precision`, `spend_precision`, and `coherence_score`. Skipped when `ANTHROPIC_API_KEY` is missing.
+- `stage_enrich` (`enricher.py`): Claude with web search, per-cluster research producing the 8 enrichment data points with citations. Filters by `enrichment.triggers` and skips INCOHERENT/PARSE_ERROR clusters.
+- `stage_score` (`scorer.py`): 7-criterion scoring via `prompts/scoring.md`. Applies `scoring.weights` for `weighted_total`, applies `scoring.kill_criteria` to mark unviable clusters.
+- `stage_model` (`modeler.py`): pure Python (no LLM). Derives ARPU from competitor pricing tiers, build_weeks from solo_feasibility score, new_customers/mo from distribution score. Projects 24-month MRR per scenario, identifies the killing_input via 2× perturbation, enumerates risk factors.
+- `cmd_eval` (`evaluator.py`): walks the run dir, computes all six component scores using the pure metric functions in `prospect.py`, writes `runs/{rid}/metrics.yaml`, appends to `calibration/history.yaml` and `results.tsv`. `--no-audits` skips the cold-context auditor.
+- **Cold-context auditor** (`auditor.py`): per DESIGN.md §4, uses a *different* model from the tagger/clusterer (configured in `pipeline.yaml:audit.model`), fed only raw_text. Computes `workaround_precision`, `spend_precision`, and `coherence_score`. Skipped when `claude` is not in PATH.
 
-**All six pipeline stages are wired.** No more `NotImplementedError`. End-to-end `prospect run --eval` will produce a real `pipeline_score` against any signal corpus once the API keys are set.
+### LLM backend (`llm.py`)
+
+All Claude calls go through `llm.py`, a drop-in `anthropic.Anthropic` / `anthropic.APIError` shim that shells out to `claude -p`. No `ANTHROPIC_API_KEY` is needed — auth lives in Claude Code. Per-call overhead is the subprocess startup (~1-2s) plus model thinking time. The wrapper runs claude from a temp cwd so the project's `CLAUDE.md`, hooks, and memory don't bleed into pipeline prompts. Only `WebSearch` is in `--allowed-tools` (used by enricher); Bash/Read/Write/Edit are blocked so a stray model can't shell out on the user's machine.
 
 `cmd_run` now finalizes `run.yaml` on exit: success sets `status: completed` + `finished_at`; exceptions set `status: failed`, `failed_stage`, `error`, `finished_at` — and the exception still propagates so CI can detect failure.
 

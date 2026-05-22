@@ -5,20 +5,19 @@ tunes prompts/tagging.md (the semantic contract — what each tag means)
 and pipeline.yaml (model, batch_size, temperature, max_tokens). The
 batching mechanics, retry/parse logic, and resume-from-tagged behavior
 live here.
+
+LLM calls go through llm.py, which shells out to `claude -p`. No
+ANTHROPIC_API_KEY needed; auth lives in Claude Code.
 """
 
 from __future__ import annotations
 
-import os
 import re
 from pathlib import Path
 
 import yaml
 
-try:
-    import anthropic
-except ImportError:  # pragma: no cover — soft-skip when SDK missing
-    anthropic = None  # type: ignore
+from llm import Anthropic, APIError
 
 
 # Tagger appends this to prompts/tagging.md so the same prompt file can
@@ -33,14 +32,6 @@ BATCH_INSTRUCTION = (
 
 def tag_signals(config: dict, rdir: Path) -> None:
     """Tag every signal under rdir/signals/ that doesn't already have a tag file."""
-    if anthropic is None:
-        raise RuntimeError("anthropic SDK not installed; `pip install anthropic`")
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        raise RuntimeError(
-            "ANTHROPIC_API_KEY not set. Export your Anthropic key before running stage_tag."
-        )
-
     tcfg = config.get("tagging") or {}
     prompt_file = tcfg.get("prompt_file", "prompts/tagging.md")
     batch_size = int(tcfg.get("batch_size", 15))
@@ -67,7 +58,7 @@ def tag_signals(config: dict, rdir: Path) -> None:
 
     print(f"  tagging {len(pending)} signals in batches of {batch_size} ({model})")
 
-    client = anthropic.Anthropic(api_key=api_key)
+    client = Anthropic()
     batches = [pending[i:i + batch_size] for i in range(0, len(pending), batch_size)]
     total_tagged = 0
 
@@ -81,7 +72,7 @@ def tag_signals(config: dict, rdir: Path) -> None:
                 temperature=temperature,
                 messages=[{"role": "user", "content": user_msg}],
             )
-        except anthropic.APIError as e:
+        except APIError as e:
             print(f"    batch {bi}/{len(batches)}: API error: {e}; skipping")
             continue
 

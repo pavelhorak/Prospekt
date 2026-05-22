@@ -13,16 +13,12 @@ Emits scores/{cluster_id}.yaml per cluster + scores/ranking.yaml.
 
 from __future__ import annotations
 
-import os
 import re
 from pathlib import Path
 
 import yaml
 
-try:
-    import anthropic
-except ImportError:  # pragma: no cover
-    anthropic = None  # type: ignore
+from llm import Anthropic, APIError
 
 
 _YAML_FENCE = re.compile(r"```(?:yaml)?\s*\n(.*?)```", re.DOTALL)
@@ -34,12 +30,6 @@ CRITERIA = [
 
 
 def score_clusters(config: dict, rdir: Path) -> None:
-    if anthropic is None:
-        raise RuntimeError("anthropic not installed; `pip install anthropic`")
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        raise RuntimeError("ANTHROPIC_API_KEY not set")
-
     scfg = config.get("scoring") or {}
     prompt_file = scfg.get("prompt_file", "prompts/scoring.md")
     weights = scfg.get("weights") or {}
@@ -85,7 +75,7 @@ def score_clusters(config: dict, rdir: Path) -> None:
     )
 
     prompt_template = Path(prompt_file).read_text()
-    client = anthropic.Anthropic(api_key=api_key)
+    client = Anthropic()
 
     for c in pending:
         cid = c["cluster_id"]
@@ -153,7 +143,7 @@ def _score_one(client, model, temperature, max_tokens, prompt_template,
             model=model, max_tokens=max_tokens, temperature=temperature,
             messages=[{"role": "user", "content": user_msg}],
         )
-    except anthropic.APIError as e:
+    except APIError as e:
         return {"cluster_id": cid, "cluster_label": cluster.get("cluster_label"),
                 "status": "api_error", "error": str(e), "scoring_model": model}
 

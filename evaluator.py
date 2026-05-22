@@ -3,8 +3,8 @@
 Walks runs/{rid}/ for signals, tags, clusters, enrichments. Computes each
 component score using the pure math functions in prospect.py. Cold-context
 audits (workaround_precision, spend_precision, coherence_score) are run
-only when ANTHROPIC_API_KEY is set; otherwise the components are computed
-without them and metrics.yaml records `audits_skipped: true`.
+only when the `claude` CLI is available; otherwise the components are
+computed without them and metrics.yaml records the skipped reason.
 
 Score / model components default to 0.0 since stage_score and stage_model
 aren't wired yet — honest representation of an incomplete pipeline.
@@ -18,7 +18,7 @@ Writes:
 from __future__ import annotations
 
 import datetime as _dt
-import os
+import shutil
 import subprocess
 from collections import Counter
 from pathlib import Path
@@ -51,7 +51,7 @@ def evaluate_run(rid: str, root: Path, run_audits: bool = True) -> dict:
         tag_stats = _tag_stats(tags)
         wp: float | None = None
         sp: float | None = None
-        if run_audits and os.environ.get("ANTHROPIC_API_KEY"):
+        if run_audits and shutil.which("claude"):
             audits_attempted = True
             try:
                 from auditor import audit_tag_precision
@@ -76,7 +76,7 @@ def evaluate_run(rid: str, root: Path, run_audits: bool = True) -> dict:
     if clusters:
         cluster_stats = _cluster_stats(clusters, cluster_index, signals)
         coh: float | None = None
-        if run_audits and os.environ.get("ANTHROPIC_API_KEY"):
+        if run_audits and shutil.which("claude"):
             try:
                 from auditor import audit_cluster_coherence
                 coh = audit_cluster_coherence(clusters, signals, audit_cfg)
@@ -141,7 +141,7 @@ def evaluate_run(rid: str, root: Path, run_audits: bool = True) -> dict:
             "succeeded": audits_ok,
             "skipped_reason": (
                 None if audits_attempted else
-                "ANTHROPIC_API_KEY not set" if not os.environ.get("ANTHROPIC_API_KEY") else
+                "claude CLI not in PATH" if not shutil.which("claude") else
                 "no tags/clusters to audit"
             ),
         },

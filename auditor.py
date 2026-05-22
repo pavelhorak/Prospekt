@@ -12,17 +12,13 @@ sizes, and the auditor model via pipeline.yaml.
 
 from __future__ import annotations
 
-import os
 import random
 from pathlib import Path
 from typing import Optional
 
 import yaml
 
-try:
-    import anthropic
-except ImportError:  # pragma: no cover
-    anthropic = None  # type: ignore
+from llm import Anthropic, APIError
 
 
 _WORKAROUND_Q = (
@@ -46,12 +42,8 @@ _COHERENCE_Q_HEAD = (
 )
 
 
-def _audit_client(audit_cfg: dict) -> "anthropic.Anthropic":
-    if anthropic is None:
-        raise RuntimeError("anthropic not installed")
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        raise RuntimeError("ANTHROPIC_API_KEY not set")
-    return anthropic.Anthropic()
+def _audit_client(audit_cfg: dict) -> Anthropic:
+    return Anthropic()
 
 
 def _ask_yes_no(client, model: str, temperature: float, question: str, raw_text: str) -> Optional[bool]:
@@ -114,7 +106,7 @@ def audit_tag_precision(
             continue
         try:
             verdict = _ask_yes_no(client, model, temperature, question, sig["raw_text"])
-        except anthropic.APIError:
+        except APIError:
             continue
         if verdict is None:
             continue
@@ -170,7 +162,7 @@ def audit_cluster_coherence(
                 temperature=temperature,
                 messages=[{"role": "user", "content": prompt}],
             )
-        except anthropic.APIError:
+        except APIError:
             continue
         txt = "".join(b.text for b in resp.content if getattr(b, "type", None) == "text").strip()
         # Pull the first integer/float in the response
