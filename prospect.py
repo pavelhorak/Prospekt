@@ -344,9 +344,12 @@ def stage_cluster(config: dict, rid: str) -> None:
 
 
 def stage_enrich(config: dict, rid: str) -> None:
-    # TODO(enrich): for clusters meeting config["enrichment"]["triggers"],
-    # gather the 8 enrichment data points; write enrichments/{cluster_id}.yaml.
-    raise NotImplementedError("stage_enrich: market-data adapters not yet wired")
+    """Enrich triggered clusters via Claude + web_search.
+
+    See enricher.py. Requires ANTHROPIC_API_KEY.
+    """
+    from enricher import enrich_clusters
+    enrich_clusters(config, run_dir(rid))
 
 
 def stage_score(config: dict, rid: str) -> None:
@@ -461,12 +464,18 @@ def cmd_run(args: argparse.Namespace) -> None:
         cmd_eval(argparse.Namespace(run_id=rid))
 
 
-def cmd_eval(_args: argparse.Namespace) -> None:
-    raise NotImplementedError(
-        "cmd_eval: walk the run directory, compute the six component scores, "
-        "look up backtest_multiplier from calibration/backtest_status.yaml, "
-        "write metrics.yaml, append to calibration/history.yaml."
-    )
+def cmd_eval(args: argparse.Namespace) -> None:
+    """Compute pipeline_score for a run."""
+    from evaluator import evaluate_run
+    rid = getattr(args, "run_id", None) or latest_run_id()
+    if not rid:
+        sys.exit("no runs found; run `prospect run` first")
+    run_audits = not getattr(args, "no_audits", False)
+    metrics = evaluate_run(rid, ROOT, run_audits=run_audits)
+    print(f"\nrun {rid}: pipeline_score = {metrics['pipeline_score']:.4f}")
+    for k, v in metrics["components"].items():
+        print(f"  {k:22s} {v:.4f}")
+    print(f"  backtest_multiplier    {metrics['backtest_multiplier']:.4f}")
 
 
 def cmd_chart(_args: argparse.Namespace) -> None:
@@ -517,7 +526,10 @@ def main(argv: list[str] | None = None) -> None:
     run_p.add_argument("--run-id", dest="run_id")
     run_p.add_argument("--eval", action="store_true")
 
-    sub.add_parser("eval", help="compute metrics for latest run")
+    eval_p = sub.add_parser("eval", help="compute metrics for a run")
+    eval_p.add_argument("--run-id", dest="run_id", help="defaults to latest")
+    eval_p.add_argument("--no-audits", action="store_true",
+                        help="skip cold-context auditors (no API calls)")
     sub.add_parser("chart", help="render improvement chart")
     sub.add_parser("history", help="print results.tsv")
 

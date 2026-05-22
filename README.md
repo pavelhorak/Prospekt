@@ -38,8 +38,22 @@ metrics (primary vs total counts, source/context diversity, temporal
 trend, intensity histogram and competitor mentions when tags exist).
 Emits `runs/{rid}/clusters/clust_NNN.yaml` + `clusters/index.yaml`.
 
-Stages 4–6 (enrich → score → model) raise `NotImplementedError` with
-a one-line "what to wire next" note.
+Stage 4 enrich runs `enricher.py`: Claude with the `web_search_20250305`
+tool researches the 8 enrichment data points per cluster (competitors,
+pricing, weaknesses, market size, search demand, funding, regulatory,
+distribution channels). Filters by `enrichment.triggers` and skips
+INCOHERENT/PARSE_ERROR clusters. Citations are preserved in the output.
+
+`prospect eval` walks a run dir, computes the six `pipeline_score`
+components using the pure metric functions in `prospect.py`, writes
+`runs/{rid}/metrics.yaml`, and appends to `calibration/history.yaml`
+and `results.tsv`. The cold-context auditor (`auditor.py`) runs by
+default when `ANTHROPIC_API_KEY` is set; `--no-audits` skips it.
+First eval against the existing 318-signal corpus: `pipeline_score =
+0.1013` (ingest_quality 0.675; tag/cluster/enrich = 0 — those stages
+haven't run on that corpus yet).
+
+Stages 5–6 (score → model) raise `NotImplementedError`.
 
 G2, Capterra, Upwork, LinkedIn — adapters not yet wired (Cloudflare /
 anti-bot / paid API).

@@ -6,12 +6,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Prospect is a six-stage pipeline (**ingest → tag → cluster → enrich → score → model**) that turns internet pain signals into ranked solo-founder business opportunities, wrapped in a Karpathy-style autoresearch loop that tunes itself via git commits.
 
-**Status: ingest + tag + cluster wired; enrich → model still stubbed.** The CLI dispatches, the directory layout is created, all pure-math metrics are implemented.
+**Status: ingest → tag → cluster → enrich wired; score + model still stubbed. `cmd_eval` produces real `pipeline_score`.**
 
-- `stage_ingest` produces real signal corpora via `adapters.py` (HN, Stack Overflow, GitHub Issues, Google Trends via trendspy, Reddit). Reddit needs `REDDIT_CLIENT_ID` + `REDDIT_CLIENT_SECRET`; the rest are zero-config.
-- `stage_tag` calls Claude via `tagger.py` using `prompts/tagging.md`, batches per `pipeline.yaml:tagging.batch_size`, writes per-signal tag files with verbatim justification quotes. Requires `ANTHROPIC_API_KEY`. Resume-safe.
-- `stage_cluster` runs `clusterer.py`: sentence-transformers embed (disk-cached per `sha256(raw_text)` in `runs/{rid}/.cache/`), sklearn HDBSCAN, greedy centroid merge above `merge_threshold`, stratified rep selection (≤2 per source_platform), Claude labeling via `prompts/clustering.md` (INCOHERENT escape hatch), capped cross-assignment, primary vs total counts, `cluster_fingerprint = sha256(sorted(top-3 central signal_ids))[:12]`. Tag-dependent metrics (intensity histogram, industry spread, workaround/spend counts, competitor mentions) populate only when `runs/{rid}/tags/` is non-empty.
-- `stage_enrich` through `stage_model` raise `NotImplementedError` with a one-line "what to wire next" note.
+- `stage_ingest` (`adapters.py`): HN, Stack Overflow, GitHub Issues, Google Trends (trendspy), Reddit. Reddit needs `REDDIT_CLIENT_ID` + `REDDIT_CLIENT_SECRET`; the rest are zero-config.
+- `stage_tag` (`tagger.py`): Claude calls via `prompts/tagging.md`, batches per `tagging.batch_size`, resume-safe via tag-file presence. Needs `ANTHROPIC_API_KEY`.
+- `stage_cluster` (`clusterer.py`): sentence-transformers embed (disk-cached in `runs/{rid}/.cache/`), sklearn HDBSCAN, greedy centroid merge, stratified rep selection (≤2 per source_platform), Claude labels via `prompts/clustering.md`, capped cross-assignment. `cluster_fingerprint = sha256(sorted(top-3 central signal_ids))[:12]` for cross-run identity.
+- `stage_enrich` (`enricher.py`): Claude with the `web_search_20250305` tool, per-cluster research producing the 8 enrichment data points from SPEC §Stage 4 with citations. Filters by `enrichment.triggers` and skips INCOHERENT/PARSE_ERROR clusters.
+- `cmd_eval` (`evaluator.py`): walks the run dir, computes `ingest/tag/cluster/enrichment_quality` using `prospect.py`'s pure metric functions, writes `runs/{rid}/metrics.yaml`, appends to `calibration/history.yaml`, appends to `results.tsv`. Stage 5/6 components are 0 (honest about what's not implemented). `--no-audits` skips the cold-context auditor.
+- **Cold-context auditor** (`auditor.py`): per DESIGN.md §4, uses a *different* model from the tagger/clusterer (configured in `pipeline.yaml:audit.model`), fed only raw_text. Computes `workaround_precision`, `spend_precision`, and `coherence_score`. Plugged into the evaluator. Skipped when `ANTHROPIC_API_KEY` is missing.
+- `stage_score` and `stage_model` raise `NotImplementedError`.
 
 `cmd_run` now finalizes `run.yaml` on exit: success sets `status: completed` + `finished_at`; exceptions set `status: failed`, `failed_stage`, `error`, `finished_at` — and the exception still propagates so CI can detect failure.
 
