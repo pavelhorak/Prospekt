@@ -1,5 +1,5 @@
 run_id: 2026-05-22T06-56-28
-computed_at: '2026-05-22T07:48:17Z'
+computed_at: '2026-05-22T08:30:18Z'
 pipeline_score: 0.1013
 components:
   ingest_quality: 0.6752
@@ -28,9 +28,9 @@ stage_details:
   enrich:
     status: no_enrichments
   score:
-    status: not_implemented
+    status: no_scores
   model:
-    status: not_implemented
+    status: no_models
 audits:
   attempted: false
   succeeded: false

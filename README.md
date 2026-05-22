@@ -44,16 +44,32 @@ pricing, weaknesses, market size, search demand, funding, regulatory,
 distribution channels). Filters by `enrichment.triggers` and skips
 INCOHERENT/PARSE_ERROR clusters. Citations are preserved in the output.
 
-`prospect eval` walks a run dir, computes the six `pipeline_score`
+Stage 5 score runs `scorer.py`: Claude scores enriched clusters on
+the 7 criteria using `prompts/scoring.md`, applies the weights from
+`pipeline.yaml`, applies `kill_criteria` thresholds. Emits
+`scores/{cluster_id}.yaml` + `scores/ranking.yaml`.
+
+Stage 6 model runs `modeler.py` (pure Python — no LLM): derives ARPU
+from competitor pricing tiers in the enrichment, build_weeks from the
+solo_feasibility score, and acquisition rate from the distribution
+score. Projects 24-month MRR per scenario (conservative / base /
+optimistic), computes months_to_target, months_to_profitability, and
+steady_state_mrr. Sensitivity perturbs each input 2× to identify
+which single change flips conservative viability — the killing_input.
+Risk factors are enumerated from the upstream data.
+
+`prospect eval` walks a run dir, computes all six `pipeline_score`
 components using the pure metric functions in `prospect.py`, writes
 `runs/{rid}/metrics.yaml`, and appends to `calibration/history.yaml`
 and `results.tsv`. The cold-context auditor (`auditor.py`) runs by
 default when `ANTHROPIC_API_KEY` is set; `--no-audits` skips it.
 First eval against the existing 318-signal corpus: `pipeline_score =
-0.1013` (ingest_quality 0.675; tag/cluster/enrich = 0 — those stages
-haven't run on that corpus yet).
+0.1013` (ingest_quality 0.675; downstream components = 0 — those
+stages haven't run on this corpus yet).
 
-Stages 5–6 (score → model) raise `NotImplementedError`.
+**All six stages wired.** End-to-end `prospect run --eval` will
+produce a real composite score against any signal corpus once
+`ANTHROPIC_API_KEY` is set.
 
 G2, Capterra, Upwork, LinkedIn — adapters not yet wired (Cloudflare /
 anti-bot / paid API).

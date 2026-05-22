@@ -61,6 +61,12 @@ enrichment:
     min_workaround_count: 3
     min_median_intensity: 3
 
+modeling:
+  top_n: 3                      # model the top-N scored clusters
+  horizon_months: 24
+  target_mrr: 10000             # "you made it" threshold (USD/month)
+  monthly_cost: 600             # founder's monthly burn (EUR/USD-ish)
+
 scoring:
   prompt_file: prompts/scoring.md
   weights:

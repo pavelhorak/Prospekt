@@ -353,15 +353,15 @@ def stage_enrich(config: dict, rid: str) -> None:
 
 
 def stage_score(config: dict, rid: str) -> None:
-    # TODO(score): apply config["scoring"]["weights"] across 7 criteria with
-    # evidence-chain capture per prompts/scoring.md; emit ranking.yaml.
-    raise NotImplementedError("stage_score: scorer not yet wired")
+    """7-criterion scoring of enriched clusters via Claude."""
+    from scorer import score_clusters
+    score_clusters(config, run_dir(rid))
 
 
 def stage_model(config: dict, rid: str) -> None:
-    # TODO(model): three-scenario MRR projection over 24 months for top-3
-    # clusters; risk factors; sensitivity. Emit models/{cluster_id}.yaml.
-    raise NotImplementedError("stage_model: projection engine not yet wired")
+    """3-scenario MRR projection for top-N scored clusters (pure Python)."""
+    from modeler import model_clusters
+    model_clusters(config, run_dir(rid))
 
 
 STAGES: dict[str, Callable[[dict, str], None]] = {

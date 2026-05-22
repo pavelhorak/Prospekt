@@ -94,10 +94,15 @@ def evaluate_run(rid: str, root: Path, run_audits: bool = True) -> dict:
     enrich_stats = _enrich_stats(enrichments) if enrichments else None
     eq = P.enrichment_quality(enrich_stats) if enrich_stats else 0.0
 
-    # --- Stage 5: Score (not yet implemented) -------------------------------
-    sq = 0.0
-    # --- Stage 6: Model (not yet implemented) -------------------------------
-    mq = 0.0
+    # --- Stage 5: Score ------------------------------------------------------
+    score_files = _load_dir(rdir / "scores", glob_="clust_*.yaml")
+    score_stats = _score_stats(score_files) if score_files else None
+    sq = P.score_quality(score_stats) if score_stats else 0.0
+
+    # --- Stage 6: Model ------------------------------------------------------
+    model_files = _load_dir(rdir / "models", glob_="clust_*.yaml")
+    model_stats = _model_stats(model_files) if model_files else None
+    mq = P.model_quality(model_stats) if model_stats else 0.0
 
     # --- Backtest multiplier -------------------------------------------------
     bt_status = _load_yaml(root / "calibration" / "backtest_status.yaml") if (root / "calibration" / "backtest_status.yaml").exists() else None
@@ -128,8 +133,8 @@ def evaluate_run(rid: str, root: Path, run_audits: bool = True) -> dict:
             "tag": tag_stats if tag_stats else {"status": "no_tags"},
             "cluster": cluster_stats if cluster_stats else {"status": "no_clusters"},
             "enrich": enrich_stats if enrich_stats else {"status": "no_enrichments"},
-            "score": {"status": "not_implemented"},
-            "model": {"status": "not_implemented"},
+            "score": score_stats if score_stats else {"status": "no_scores"},
+            "model": model_stats if model_stats else {"status": "no_models"},
         },
         "audits": {
             "attempted": audits_attempted,
@@ -274,6 +279,109 @@ def _cluster_stats(clusters: list[dict], index: dict | None, signals: list[dict]
         "orphan_rate": round(orphan_rate, 3),
         "cross_platform_rate": round(cp, 3),
         "overlap_rate": round(overlap_rate, 3),
+    }
+
+
+_CRITERIA = [
+    "market_demand", "distribution", "competition", "founder_market_fit",
+    "solo_feasibility", "revenue_path", "defensibility",
+]
+
+
+def _score_stats(score_records: list[dict]) -> dict:
+    scored = [r for r in score_records if r.get("status") == "scored"]
+    all_values: list[int] = []
+    linked = 0
+    total_criteria = 0
+    for r in scored:
+        scores = r.get("scores") or {}
+        for crit in _CRITERIA:
+            s = scores.get(crit)
+            if not isinstance(s, dict):
+                continue
+            total_criteria += 1
+            v = s.get("value")
+            if isinstance(v, (int, float)):
+                all_values.append(int(v))
+            ev = s.get("evidence")
+            if ev:  # any non-empty evidence (list, dict, or str)
+                linked += 1
+    evidence_linkage = (linked / total_criteria) if total_criteria else 0.0
+
+    # range_utilization = entropy of the 1–5 value distribution / max entropy
+    import math
+    if all_values:
+        hist = Counter(all_values)
+        n = len(all_values)
+        probs = [hist.get(k, 0) / n for k in (1, 2, 3, 4, 5)]
+        entropy = -sum(p * math.log2(p) for p in probs if p > 0)
+        range_util = entropy / math.log2(5)
+    else:
+        range_util = 0.0
+
+    # confidence_coverage = % high-confidence in top-3 clusters' criterion scores
+    scored_sorted = sorted(scored, key=lambda r: -(r.get("weighted_total") or 0))[:3]
+    top_total = 0
+    top_high = 0
+    for r in scored_sorted:
+        for crit in _CRITERIA:
+            s = (r.get("scores") or {}).get(crit)
+            if not isinstance(s, dict):
+                continue
+            top_total += 1
+            if (s.get("confidence") or "").lower() == "high":
+                top_high += 1
+    confidence_coverage = (top_high / top_total) if top_total else 0.0
+
+    return {
+        "n_records": len(score_records),
+        "n_scored": len(scored),
+        "n_killed": sum(1 for r in score_records if r.get("status") == "killed"),
+        "evidence_linkage": round(evidence_linkage, 3),
+        "range_utilization": round(range_util, 3),
+        "confidence_coverage": round(confidence_coverage, 3),
+        "top_3_weighted_totals": [r.get("weighted_total") for r in scored_sorted],
+    }
+
+
+def _model_stats(model_records: list[dict]) -> dict:
+    if not model_records:
+        return {}
+    # input_traceability: % inputs with a `sources.<key>` entry
+    trace_num = 0
+    trace_den = 0
+    spreads: list[float] = []
+    conservative_viable = 0
+    sensitivity_found = 0
+    for r in model_records:
+        inputs = r.get("inputs") or {}
+        sources = (inputs.get("sources") or {})
+        for k in inputs:
+            if k == "sources":
+                continue
+            trace_den += 1
+            if k in sources:
+                trace_num += 1
+        scenarios = r.get("scenarios") or {}
+        opt = (scenarios.get("optimistic") or {}).get("final_mrr") or 0
+        cons = (scenarios.get("conservative") or {}).get("final_mrr") or 0
+        if cons > 0:
+            spreads.append(opt / cons)
+        if (scenarios.get("conservative") or {}).get("viable"):
+            conservative_viable += 1
+        if (r.get("sensitivity") or {}).get("killing_input"):
+            sensitivity_found += 1
+    input_traceability = (trace_num / trace_den) if trace_den else 0.0
+    avg_spread = sum(spreads) / len(spreads) if spreads else 0.0
+    # scenario_spread used by P.model_quality directly
+    return {
+        "n_modeled": len(model_records),
+        "input_traceability": round(input_traceability, 3),
+        "scenario_spread": round(avg_spread, 2),
+        "conservative_viable": conservative_viable == len(model_records) and len(model_records) > 0,
+        "sensitivity_identified": sensitivity_found == len(model_records) and len(model_records) > 0,
+        "conservative_viable_count": conservative_viable,
+        "sensitivity_identified_count": sensitivity_found,
     }
 
 
