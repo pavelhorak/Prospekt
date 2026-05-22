@@ -1,0 +1,14 @@
+signal_id: sig_87c64c1c1022
+raw_text: Integromat – A tool for automating manual processes
+source_platform: hackernews
+source_url: https://www.integromat.com
+source_context: HN Story
+author_info: integromat
+engagement:
+  points: 57
+  num_comments: 52
+date_posted: '2016-08-11'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: manual process'
+structured: {}
+attachments: []

@@ -1,0 +1,19 @@
+signal_id: sig_77a2a56539e5
+raw_text: 'Ask HN: Anyone else frustrated with ChatGPT''s filters?
+
+
+  I understand that OpenAI might get into trouble if their tech outputs hate speech
+  etc, but it drives me insane that such a useful AI is &quot;crippled&quot; and restricted
+  to such extent. What are your thoughts on this?'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=34719835
+source_context: HN Story
+author_info: behnamoh
+engagement:
+  points: 51
+  num_comments: 41
+date_posted: '2023-02-09'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

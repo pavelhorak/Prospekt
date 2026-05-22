@@ -1,0 +1,14 @@
+signal_id: sig_03c2c37f2a4c
+raw_text: What is the benefit of this over something that works system-wide, such
+  as Textexpander?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26038783
+source_context: HN Comment on story 26037816
+author_info: jnsie
+engagement:
+  parent: '26037816'
+date_posted: '2021-02-05'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

@@ -1,0 +1,16 @@
+signal_id: sig_68dde6cc2885
+raw_text: I work as a developer in US startup which creates medical apps. We have
+  started using SWIFT.It has been fun and equally challenging to work. But I think
+  swift is future and you should not have any second opinion about using swift in
+  production app
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=8386644
+source_context: HN Comment on story 8383976
+author_info: alekh88
+engagement:
+  parent: '8383976'
+date_posted: '2014-09-30'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

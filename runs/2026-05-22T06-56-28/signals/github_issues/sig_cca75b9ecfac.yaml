@@ -1,0 +1,20 @@
+signal_id: sig_cca75b9ecfac
+raw_text: Feature request
+source_platform: github_issues
+source_url: https://github.com/Jina-Dong/GitLab03/issues/2
+source_context: GitHub issue in Jina-Dong/GitLab03
+author_info: Jina-Dong
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-14'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: Jina-Dong/GitLab03
+attachments: []

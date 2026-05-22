@@ -1,0 +1,42 @@
+signal_id: sig_2584ab178bc0
+raw_text: 'How does Facebook disable the browser&#39;s integrated Developer Tools?
+
+
+  <p>So apparently because of the recent scams, the developer tools are exploited
+  by people to post spam and even used to &quot;hack&quot; accounts. Facebook has
+  blocked the developer tools, and I can''t even use the console.</p>
+
+  <p><img src="https://i.sstatic.net/Wiatp.png" alt="Enter image description here"
+  /></p>
+
+  <p>How did they do that?? <a href="https://stackoverflow.com/questions/7559409/disable-developer-tools">One
+  Stack Overflow post claimed it is impossible</a>, but Facebook has proven them wrong.</p>
+
+  <p>Just go to Facebook and open up the developer tools, type one character into
+  the console, and this warning pops up. No matter what you put in, it will not get
+  executed.</p>
+
+  <p>How is this possible?</p>
+
+  <p>They even blocked auto-complete in the console:</p>
+
+  <p><img src="https://i.sstatic.net/j0Zmx.png" alt="Enter image description here"
+  /></p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/21692646/how-does-facebook-disable-the-browsers-integrated-developer-tools
+source_context: 'SO question (tags: javascript, facebook, google-chrome-devtools)'
+author_info: Derek 朕會功夫
+engagement:
+  score: 1791
+  view_count: 315250
+  answer_count: 14
+  is_answered: true
+date_posted: '2014-02-11'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - javascript
+  - facebook
+  - google-chrome-devtools
+attachments: []

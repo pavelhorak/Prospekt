@@ -1,0 +1,37 @@
+signal_id: sig_9bce48c22e7d
+raw_text: 'Ask HN: How are you handling persistent memory across local Ollama sessions
+
+
+  I build a lot of small AI tools locally, mostly on top of Ollama, and the thing
+  I keep running into is that every session starts from zero. Whatever context I built
+  up the night before, whatever the model learned about how I like things structured,
+  whatever half-finished reasoning we were working through together, it is just gone
+  when I open a new terminal.<p>For a while I was just manually pasting in context
+  at the start of every session which is exactly as painful as it sounds. Eventually
+  I built a small proxy that sits between my client and Ollama and tries to solve
+  this. It embeds recent interactions, stores them locally, and injects the relevant
+  chunks when a new session starts. It
+
+  works well enough that I actually use it every day now, but I built it the way someone
+  with no formal CS background builds things, which means I patched it into shape
+  and I am not totally confident the architecture is right.<p>The part that still
+  bothers me is scoping. I work on a few different projects at the same time and I
+  do not want context from one bleeding into another. Right now I am managing that
+  by hand, basically just keeping separate directories and being careful, but that
+  feels like a workaround not a solution.<p>Genuinely curious what other people have
+  landed on. Are you using a vector DB for retrieval, or plain files, or something
+  MCP based, or have you just accepted that local sessions are stateless and built
+  your workflow around that? And if you have solved the scoping problem cleanly I
+  really want to know how.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=47295866
+source_context: HN Story
+author_info: null-phnix
+engagement:
+  points: 6
+  num_comments: 0
+date_posted: '2026-03-08'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

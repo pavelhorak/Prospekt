@@ -1,0 +1,19 @@
+signal_id: sig_0f7fca5a7696
+raw_text: Congrats on the launch!<p>Having worked on the SMB billing and accounting
+  space for 2 years in India - its a really really tough space to monetise profitably.
+  The market size seems huge from the outside but its a tough nut to crack.<p>The
+  space is also hyper-competitive now with khatabooks, dukaan etc spending 100s of
+  crores with no revenue.<p>Its seems like what you are building is a mini-ERP for
+  SMBs in India. If you are touching AP, AR - do you have tally integration? Pretty
+  much every SMBs auditors will ask for it.<p>All the best!
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=27982362
+source_context: HN Comment on story 27981659
+author_info: krishvs
+engagement:
+  parent: '27981659'
+date_posted: '2021-07-28'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

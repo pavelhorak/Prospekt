@@ -1,0 +1,16 @@
+signal_id: sig_627a3452da57
+raw_text: I&#x27;d get rid of the manual process of driving to the office every day
+  and replace it with collaboration tools to let people telecommute full time. We
+  actually use such tools, but have a &quot;no remote workers&quot; policy. Occasional
+  work from home is fine, just not full time.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=13337275
+source_context: HN Comment on story 13337024
+author_info: Johnny555
+engagement:
+  parent: '13337024'
+date_posted: '2017-01-06'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

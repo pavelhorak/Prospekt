@@ -1,0 +1,35 @@
+signal_id: sig_cbd5c7a8d7e5
+raw_text: 'Perform commands over ssh with Python
+
+
+  <p>I''m writing a script to automate some command line commands in Python. At the
+  moment, I''m doing calls like this:</p>
+
+  <pre><code>cmd = &quot;some unix command&quot;
+
+  retcode = subprocess.call(cmd,shell=True)
+
+  </code></pre>
+
+  <p>However, I need to run some commands on a remote machine. Manually, I would log
+  in using <code>ssh</code> and then run the commands. How would I automate this in
+  Python? I need to log in with a (known) password to the remote machine, so I can''t
+  just use <code>cmd = ssh user@remotehost</code>, I''m wondering if there''s a module
+  I should be using?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/3586106/perform-commands-over-ssh-with-python
+source_context: 'SO question (tags: python, ssh)'
+author_info: fredley
+engagement:
+  score: 233
+  view_count: 832619
+  answer_count: 16
+  is_answered: true
+date_posted: '2010-08-27'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - python
+  - ssh
+attachments: []

@@ -1,0 +1,15 @@
+signal_id: sig_2d68431078bf
+raw_text: Apple’s self driving Lexus SUV is like watching a toddler drive. It does
+  odd things and you just know it’ll take longer than normal. I just started expecting
+  the worst when dealing with it, and that strategy has been working well so far.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=17866370
+source_context: HN Comment on story 17865306
+author_info: rachelbythebay
+engagement:
+  parent: '17865306'
+date_posted: '2018-08-29'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

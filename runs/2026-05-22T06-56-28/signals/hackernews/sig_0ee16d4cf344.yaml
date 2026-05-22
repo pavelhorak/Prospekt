@@ -1,0 +1,19 @@
+signal_id: sig_0ee16d4cf344
+raw_text: How could a company break its stock up into a &#x27;dividend stock&#x27;
+  and a &#x27;capital appreciation&#x27; stock?<p>Valuing the &#x27;dividend stock&#x27;
+  would be pretty easy, but what about the &#x27;capital appreciation&#x27; stock?
+  What value does that take on? I&#x27;m assuming that voting rights would still be
+  split between the two - otherwise the company&#x27;s board wouldn&#x27;t concern
+  itself with dividend issues.<p>But really - without dividends or the future promise
+  of dividends, how would anyone value the &#x27;capital appreciation&#x27; stock?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=14294196
+source_context: HN Comment on story 14293366
+author_info: CountSessine
+engagement:
+  parent: '14293366'
+date_posted: '2017-05-08'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

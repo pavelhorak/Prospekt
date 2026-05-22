@@ -1,0 +1,29 @@
+signal_id: sig_c4eabea84b81
+raw_text: Hi HN!<p>I’m Alex from Parabola (<a href="https:&#x2F;&#x2F;parabola.io"
+  rel="nofollow">https:&#x2F;&#x2F;parabola.io</a>). Parabola is a visual programming
+  tool for creating functional data flows that everyone can use. It’s entirely drag-and-drop,
+  handles data sizes much larger than a traditional spreadsheet, calculates everything
+  live, and can run your flows on a schedule of your choosing.<p>I used to work in
+  strategy consulting, doing data analytics for SMBs and Fortune 500 companies. The
+  amount of time wasted on menial tasks was astounding. Things like cleaning data,
+  generating custom reports, creating human workflows to solve shortcomings in third
+  party tools, etc.<p>Non-technical people have to rely on doing things manually or
+  using fragile spreadsheets that solve only part of their use cases. We don&#x27;t
+  think everyone should have to learn to code in order to work productively (<a href="https:&#x2F;&#x2F;medium.com&#x2F;parabola-labs&#x2F;not-everyone-needs-to-learn-how-to-code-32f47ea7a171"
+  rel="nofollow">https:&#x2F;&#x2F;medium.com&#x2F;parabola-labs&#x2F;not-everyone-needs-to-learn...</a>).
+  That’s why we’re building the tools to help people stop wasting so much time on
+  manual processes, and instead focus on their actual core competencies.<p>We’ve made
+  some interesting decisions in the design of Parabola’s visual programming “language”.
+  We’d love to hear what you think and are happy to discuss our thought process in
+  the comments.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=17148242
+source_context: HN Comment on story 17147272
+author_info: alexyaseen
+engagement:
+  parent: '17147272'
+date_posted: '2018-05-24'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

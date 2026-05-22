@@ -1,0 +1,25 @@
+signal_id: sig_0f58fd3e7668
+raw_text: 'Ask HN: Good ways to capture institutional knowledge?
+
+
+  Successful companies institutionalize the knowledge of their employees; this leads
+  to better continuity and faster on-boarding. Things like huge monorepos of useful
+  code, internal tools, process manuals, etc. are example products of this. Young
+  companies tend to depend on the dedication and talent of key individuals, and in
+  maturation, must somehow make the jump to institutionalized knowledge (so that &quot;if
+  someone got hit by a bus&quot; things are ok). What are some successful methods
+  you have used or seen used to accomplish this transition? What are problems you
+  faced (skeptics, opponents, etc.)? I am involved with an organization that is slowly
+  growing, is about to lose key personnel, and is looking to prepare.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22454333
+source_context: HN Story
+author_info: alhirzel
+engagement:
+  points: 547
+  num_comments: 213
+date_posted: '2020-03-01'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: manual process'
+structured: {}
+attachments: []

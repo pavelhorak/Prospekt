@@ -1,0 +1,16 @@
+signal_id: sig_fc6a5bc2ff82
+raw_text: Text expanders are useful tools. But no matter how many extra features this
+  one has, as a Chrome extension it&#x27;s practically useless to me. This doubling-down
+  on &quot;users spending all their time in Chrome&quot; is unfortunate and a self-fulfilling
+  prophecy. :(
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26046540
+source_context: HN Comment on story 26037816
+author_info: chrisweekly
+engagement:
+  parent: '26037816'
+date_posted: '2021-02-06'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

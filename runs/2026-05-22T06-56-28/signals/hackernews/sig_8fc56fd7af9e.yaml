@@ -1,0 +1,19 @@
+signal_id: sig_8fc56fd7af9e
+raw_text: Congrats on the launch guys!<p>Full disclosure, I worked with Nick and Omar
+  at Gusto. I saw firsthand how much software can help an ops team. Since we didn&#x27;t
+  have Flowdash at Gusto, we often scrambled for resources to empower our operations
+  team. We also probably could&#x27;ve done a better job responding to user feedback
+  since we were so resource constrained.<p>Having a tool that the Ops team can truly
+  own is a game-changer for that iterative feedback loop and frees up the eng team.
+  Really looking forward to seeing this product grow.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22477401
+source_context: HN Comment on story 22476985
+author_info: dpcheng2003
+engagement:
+  parent: '22476985'
+date_posted: '2020-03-03'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

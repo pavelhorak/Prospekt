@@ -1,0 +1,18 @@
+signal_id: sig_dd8646488501
+raw_text: I&#x27;ve done this for two of my previous teams. One team was appreciative
+  and it saved us some time for elevation prep work.<p>I built something else that
+  was also for elevation prep work for my second team. It saved some time and boredom
+  by automating some reports running for 15-20 projects. They didn&#x27;t care. That
+  group was very concerned with status, conformity, and prestige as far as how you
+  got rated. So for people like me, nothing was ever good enough.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=23860034
+source_context: HN Comment on story 23836150
+author_info: giantg2
+engagement:
+  parent: '23836150'
+date_posted: '2020-07-16'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

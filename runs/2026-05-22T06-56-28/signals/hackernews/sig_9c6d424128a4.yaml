@@ -1,0 +1,14 @@
+signal_id: sig_9c6d424128a4
+raw_text: 'Peslac: We built an AI-driven tool to eliminate manual document processing'
+source_platform: hackernews
+source_url: https://peslac.com
+source_context: HN Story
+author_info: jibrilkala
+engagement:
+  points: 2
+  num_comments: 2
+date_posted: '2024-11-19'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: manual process'
+structured: {}
+attachments: []

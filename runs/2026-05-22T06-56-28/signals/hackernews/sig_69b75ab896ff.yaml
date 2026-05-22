@@ -1,0 +1,16 @@
+signal_id: sig_69b75ab896ff
+raw_text: Ok. Let&#x27;s see how your startup (ideasdb) has survived. Who is paying?
+  Do people who are already fully convinced with their own idea, listen to you saying
+  otherwise? How can you dismantle all the research they did, perceptions they got,
+  beliefs they developed, commitments they made?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46318262
+source_context: HN Comment on story 46316913
+author_info: zkmon
+engagement:
+  parent: '46316913'
+date_posted: '2025-12-18'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

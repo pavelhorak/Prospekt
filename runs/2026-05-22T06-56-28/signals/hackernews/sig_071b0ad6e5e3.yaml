@@ -1,0 +1,28 @@
+signal_id: sig_071b0ad6e5e3
+raw_text: Store readme markdown files in the sourcerepo along with the code itself.  Make
+  sure during review that changes to code are reflected in the markdown.<p>Doesn&#x27;t
+  need to be exhaustive docs - usually just a high- to medium-level explanation of
+  what why and how goes a long way.<p>Controversial&#x2F;surprising&#x2F;confusing
+  choices should be documented in several places - e.g. in the readme, in a bug&#x2F;ticket,
+  in the check-in comments and also a comment in the code referencing the readme&#x2F;bug&#x2F;ticket
+  for more info.<p>Over-communicating the confusing&#x2F;surprising stuff helps a
+  lot and helps to prevent the &quot;what the hell is this crap?  Let&#x27;s rewrite
+  it&quot; issues since there is a long paper-trail explaining why things were done
+  that way.  Putting code comments referencing bugs&#x2F;tickets etc (ideally with
+  clickable links direct to Jira or whatever - e.g. &quot;&#x2F;&#x2F; This does &lt;surprising&#x2F;confusing
+  thing&gt; - see the discussion in <a href="http:&#x2F;&#x2F;bug" rel="nofollow">http:&#x2F;&#x2F;bug</a>
+  tracker&#x2F;12345678&quot; ) means that the trail starts right there in the code,
+  and people have not had to trawl through some nonsense wiki to find the hidden nugget
+  of info (let&#x27;s face it - we&#x27;ll read code but hardly ever go out of our
+  way to find and read wikis etc first)
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22455678
+source_context: HN Comment on story 22454333
+author_info: mattlondon
+engagement:
+  parent: '22454333'
+date_posted: '2020-03-01'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

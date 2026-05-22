@@ -1,0 +1,102 @@
+signal_id: sig_01378fa38c93
+raw_text: 'How can I link with (or work around) two third-party static libraries that
+  define the same symbols?
+
+
+  <p>I can''t be the only one to run into this.</p>
+
+
+  <p>I have a C++ application that needs to link with one third-party and another
+  static library set in an SDK.  The SDK has, for some hideously frustrating reason,
+  recompiled a subset of that same third-party library into their own (renamed) lib,
+  although the symbols themselves are named the same and they are not encapsulated
+  within a namespace.  My application itself depends upon the same third-party library.</p>
+
+
+  <p>I''ve considered a few options, but maybe I''m missing something and hopefully
+  a fresh look will help me out.  Perhaps I''m close and someone will know the next
+  step for one of these . I''ll enumerate what I''ve tried and the shortcomings of
+  each solution so far:</p>
+
+
+  <ol>
+
+  <li><p>Link with both.
+
+  I get about 2500 lines of symbol redefinition / size change warnings and errors.  This
+  is when I first found that they defined the same symbols.  I''m trying to recompile
+  OpenSSL with g++ and drop it into a namespace at the moment...see edit below...</p></li>
+
+  <li><p>Link with the SDK only.
+
+  I get undefined symbols that my own code depends upon - this is when I found that
+  their recompile of the third party lib is a subset, or at least was configured with
+  one module disabled.</p></li>
+
+  <li><p>Link with the third party lib only.
+
+  I have a couple of undefined symbols reported by the SDK - one of them is actually
+  a #define in a header file within the third party lib, so all references in the
+  third party lib resolve to the definition, but references outside there do not.  I
+  moved that into the c file, which resolves that, however I still have two unresolved
+  functions I can''t find anywhere.  This is the closest I''ve gotten so far.</p></li>
+
+  <li><p>Strip conflicting symbols from one lib and link in both.
+
+  So far this hasn''t worked.  It could be a version issue between the lib statically
+  linked in the SDK and the versions I''ve tried using of the third-party lib, but
+  it looks like some functions were moved between symbols, so by removing a symbol,
+  I inadvertently remove a function that I need elsewhere.  There doesn''t seem to
+  be a perfect mapping between functions in symbols in the SDK vs functions in symbols
+  in the third-party lib.  Is it plausible to strip functions without having to manually
+  adjust addresses?</p></li>
+
+  </ol>
+
+
+  <p>I''ve been examining symbols in libs with:</p>
+
+
+  <pre><code>nm -C --defined-only lib&lt;name&gt;.a
+
+  </code></pre>
+
+
+  <p>And extracting entire objects with:</p>
+
+
+  <pre><code>ar -x lib&lt;name&gt;.a &lt;objname&gt;.o
+
+  </code></pre>
+
+
+  <p>Hopefully this will also help others who have had to link with third-party libs
+  that conflict with one another.  For the sake of specifics, the third-party lib
+  is <a href="http://www.openssl.org/" rel="noreferrer">OpenSSL</a>, and the SDK is
+  <a href="http://www.opsec.com/cp_products/opsec_sdk.html" rel="noreferrer">Opsec</a>
+  - libcpopenssl.a is the offending lib in Opsec.</p>
+
+
+  <p>**EDIT- A late entry possible workaround may be to recompile OpenSSL with g++
+  and put the whole thing in a namespace, and then link both libs.  I''m trying that
+  now...more to come...</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/13199870/how-can-i-link-with-or-work-around-two-third-party-static-libraries-that-defin
+source_context: 'SO question (tags: c++, c, linker, openssl, static-libraries)'
+author_info: rutgersmike
+engagement:
+  score: 27
+  view_count: 1766
+  answer_count: 2
+  is_answered: true
+date_posted: '2012-11-02'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - c++
+  - c
+  - linker
+  - openssl
+  - static-libraries
+attachments: []

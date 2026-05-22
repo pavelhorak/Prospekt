@@ -1,0 +1,43 @@
+signal_id: sig_fe6359a6b496
+raw_text: 'Feature Requests Feature
+
+
+  **Is your feature request related to a problem? Please describe.**
+
+  Provide users of the website an option to provide feedback and requests new features.
+
+
+  **Describe the solution you''d like**
+
+  Provide a link that will permit a user to open a new feature request or report a
+  bug using GitHub Issues in this repo.
+
+
+  **Describe alternatives you''ve considered**
+
+  Considered using GitHub Discussions.
+
+
+  **Additional context**
+
+  Users should be able to provide anonymous feedback.
+
+  Users should not be required to have a GitHub Account to provide feedback.'
+source_platform: github_issues
+source_url: https://github.com/tegataiprime/Platelet-Movie/issues/47
+source_context: GitHub issue in tegataiprime/Platelet-Movie
+author_info: tegataiprime
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-04'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: tegataiprime/Platelet-Movie
+attachments: []

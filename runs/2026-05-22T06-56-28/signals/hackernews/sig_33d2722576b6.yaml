@@ -1,0 +1,66 @@
+signal_id: sig_33d2722576b6
+raw_text: 'Ask HN: Is Claude Code bad for ADHD?
+
+
+  I think it might be.<p>I have ADHD. I&#x27;ve posted a little here on that. This
+  one was cool, 142 comments: https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=46610156.<p>Claude
+  is powerful. This week feels like it has moved up a notch (running for 20mins on
+  longer tasks and then getting stuff right). I don&#x27;t know if&#x2F;when&#x2F;how
+  it replaces devs, I know a lot on here have very strong thoughts on it. But for
+  someone like me it is like rocket fuel.<p>But then ADHD. I&#x27;ve realised a thought
+  I have for a product, an app, a website, an idea just no longer sits in a list of
+  cool ideas. Now I can do stuff. But do I need this stuff?<p>Is all this activity
+  healthy?<p>To give you an idea last 6 months I&#x27;ve built:<p>- A ChatGPT wrapper
+  with a few bells and whistles and lots of system prompt work and sold it to a big
+  IT company on a £30k annual retainer<p>- A tool that takes a spreadsheet of data
+  (think people&#x2F;company&#x2F;lead data) and allows you to construct a prompt
+  using placeholders for any of the data then run each line&#x2F;query through an
+  AI prompt. Need websites and mailing address for 30k companies. Easy. They paid
+  us £50k (they got a few other bits of marketing as well for this).<p>- I built an
+  internal tool for our SEO team which takes a blog post and does all the on-page,
+  and some off page optimisations for them at click of a button. So they can do more
+  interesting work. It sort of works, but they don&#x27;t use it.<p>- I built a widget
+  that I can push urls at and at end of the day get a personalised 2 person podcast
+  (GoogleLM style) so I can listen on my cycle home to what I couldn&#x27;t read.
+  The AI API is some 3rd party tool, its neat very like GoogleLM. It&#x27;s a cool
+  idea but I don&#x27;t use it<p>- I built a AI power content writing tool. Two panes.
+  Paste a content brief in left and it is mirrored right. Select text left and prompt
+  against the selection (&quot;Turn these bullet points into a flesh out para focusing
+  on the stats and shock of the data&quot;) and it appears in right hand pane. Slowly
+  your brief left turns into proper content right. Supports RAG for background docs.
+  I use it to write almost anything these days.<p>- An interactive AI report for my
+  business. &quot;20 AI experts and what their advice means for you&quot;. The link
+  to site includes an encoded work email of reader, we scrape Linkedin and personalise
+  text before they arrive. We use it as leadgen, its cool.<p>There are more, I won&#x27;t
+  go on.<p>But I did just build (and polish, and put &quot;out there&quot;) a tool
+  - https:&#x2F;&#x2F;tryultrathink.com - that uses a browser extension and electron
+  desktop widget to make it easy to capture any thought, note, text, audio, message,
+  link etc. Then you can sort, search, AI etc.. it&#x27;s cool. It&#x27;s an ADHD
+  dream I think. I&#x27;m using it every day.<p>But I made it to help my ADHD &quot;constant
+  stream of thoughts&quot;. And I used Claude Code to make it. And I think Claude
+  Code is actually the problem.<p>What do others think? Is it powerful when your &quot;list&quot;
+  can actually be worked on autonomously by AI agents? Deep research is another one.
+  When I have a thought, why would I not run a deep research or Pro prompt at it and
+  get some background. So when I come to it I can detail. I can. So why not? Maybe
+  water use is the reason? That&#x27;s a good reason.<p>On the one hand the future
+  (using basically existing AI tech, not even needing anything more advanced) is cool.
+  I can save every thought and before I come back to one of them it has been researched&#x2F;built&#x2F;some
+  how progressed. That&#x27;s cool. That&#x27;s productive.<p>On the other hand its
+  a ADHD nightmare. I can&#x27;t sleep. I building so much with not always selling,
+  testing, getting people to use. The other I fired up Claude Code and put it in my
+  bike basket so it carried on running on my cycle. I even had my laptop on passenger
+  seat in car and checked it at lights. That&#x27;s bad right?<p>In the mean time
+  I will keep using ultrathink (yes I named it in honour of Claude Code). Hit me up
+  for a free trial. Maybe it can help you?'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46639144
+source_context: HN Story
+author_info: chriswright1664
+engagement:
+  points: 6
+  num_comments: 4
+date_posted: '2026-01-15'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

@@ -1,0 +1,27 @@
+signal_id: sig_08d7f9a3b5b5
+raw_text: '[Feature Request] StatusValue
+
+
+  Would it be possible to allow `StatusValue` to support newline characters (`\n`
+  `^n`)?
+
+
+  Thank you for considering this request.'
+source_platform: github_issues
+source_url: https://github.com/goldclient-plus/GoldSrc-Tracker/issues/120
+source_context: GitHub issue in goldclient-plus/GoldSrc-Tracker
+author_info: GLoOoccK
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-18'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: goldclient-plus/GoldSrc-Tracker
+attachments: []

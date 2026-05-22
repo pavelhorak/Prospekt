@@ -1,0 +1,14 @@
+signal_id: sig_1164a1893e48
+raw_text: '&gt; We use OpenAI APIs to translate formulas.<p>It&#x27;s very uncool
+  that you don&#x27;t make this <i>very</i> clear on the landing page.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=40460009
+source_context: HN Comment on story 40457631
+author_info: LeoPanthera
+engagement:
+  parent: '40457631'
+date_posted: '2024-05-23'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

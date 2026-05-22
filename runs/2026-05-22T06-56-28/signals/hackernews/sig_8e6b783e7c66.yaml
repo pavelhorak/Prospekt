@@ -1,0 +1,14 @@
+signal_id: sig_8e6b783e7c66
+raw_text: '[under-the-rug stub]<p>[see <a href="https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45988611">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=45988611</a>
+  for explanation]'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46323968
+source_context: HN Comment on story 46314385
+author_info: tomhow
+engagement:
+  parent: '46314385'
+date_posted: '2025-12-19'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

@@ -1,0 +1,26 @@
+signal_id: sig_16c6ee3aab4e
+raw_text: 'Germany&#x27;s internet is slow because it relies heavily on unbundling,
+  implemented poorly: <a href="https:&#x2F;&#x2F;www.telekom.com&#x2F;en&#x2F;media&#x2F;media-information&#x2F;archive&#x2F;faqs-on-the-unbundled-local-loop-ull--358710"
+  rel="nofollow">https:&#x2F;&#x2F;www.telekom.com&#x2F;en&#x2F;media&#x2F;media-information&#x2F;archive&#x2F;f...</a>.
+  Telekom has little incentive to invest in upgrading its infrastructure because it
+  has to lease it out to its competitors anyway.<p>Contrasting Germany and the U.K.
+  offers a really good illustration of how important it is to set incentives correctly.
+  The U.K. also relies heavily on unbundling, through BT. But when British Telecom
+  was privatized, the U.K. intensely studied the issue of how to set the appropriate
+  incentives: <a href="http:&#x2F;&#x2F;www.bath.ac.uk&#x2F;management&#x2F;cri&#x2F;pubpdf&#x2F;Conference_seminar&#x2F;31_Model_Utility_Regulation.pdf"
+  rel="nofollow">http:&#x2F;&#x2F;www.bath.ac.uk&#x2F;management&#x2F;cri&#x2F;pubpdf&#x2F;Conference_semin...</a>.
+  The end result was a regulatory structure where rates were set such that BT ended
+  up being very profitable. (Last year, BT&#x27;s profit margin was around 16%, versus
+  3% for Telekom.) That created the incentive for BT to invest in pushing fiber further
+  into its DSL network.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=20615584
+source_context: HN Comment on story 20615126
+author_info: rayiner
+engagement:
+  parent: '20615126'
+date_posted: '2019-08-05'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

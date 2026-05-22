@@ -1,0 +1,14 @@
+signal_id: sig_e5e762783ab5
+raw_text: If you think NASA is frustrated with SpaceX, you’re probably right
+source_platform: hackernews
+source_url: https://arstechnica.co.uk/science/2017/02/if-you-think-nasa-is-frustrated-with-spacex-youre-probably-right/
+source_context: HN Story
+author_info: steeleduncan
+engagement:
+  points: 22
+  num_comments: 3
+date_posted: '2017-02-28'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

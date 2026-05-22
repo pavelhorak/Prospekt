@@ -1,0 +1,400 @@
+signal_id: sig_b39e534cb8be
+raw_text: "Reliable windowed vsync with OpenGL on Windows?\n\n<p>Update 2024-06-26:\
+  \ Question rewritten to include updated information and consolidate research results.</p>\n\
+  <p><strong>SUMMARY</strong></p>\n<p>It seems that vsync with OpenGL is broken on\
+  \ Windows in windowed mode. Even in very simple vsync-enabled scenarios, frames\
+  \ can often be dropped even in constrained environments where the is no plausible\
+  \ excuse for that many dropped frames.</p>\n<p>The basic structure is:</p>\n<pre><code>init_opengl_for_window_dc();\n\
+  wglSwapIntervalEXT(1); // or: -1\nwhile (true)\n{\n    glClear(...);\n    render_scene_with_opengl();\n\
+  \    SwapBuffers(...);\n    [optionally:] glFinish();\n    [optionally (see below):]\
+  \ DwmFlush();\n}\n</code></pre>\n<p>Regardless of whether or not this is optimal\
+  \ with regard to input latency, this should not drop frames as long as the scene\
+  \ is excrucatingly simple. But an unreasonably high number of frames are dropped,\
+  \ <em>unless</em> <code>DwmFlush</code> is added. <code>DwmFlush</code> appears\
+  \ to function as a reliable workaround, but it has implications.\nThe same structure,\
+  \ adapted to either D3D9 or D3D11, yields a rock solid frame rate with practically\
+  \ zero dropped frames, as expected.</p>\n<p>Tested and reproducible on several Intel\
+  \ + NVIDIA setups with screens ranging from 60 to 144 Hz, although increasingly\
+  \ difficult to observe on high frame rates. Have not been able to observe on any\
+  \ AMD setup (yet). Does not reproduce on all Intel + NVIDIA setups I've tried. If\
+  \ reproducible on a particular system, then it is always reproducible on that system.\
+  \ Have reproduced on Windows 7 and Windows 10. Have not had a chance to test on\
+  \ a Windows 11 Intel + NVIDIA system yet. None of the test systems had multiple\
+  \ monitors at the time of testing, nor was there anything else running that might\
+  \ have affected presentation, such as multimedia playback, screen recording software\
+  \ or similar. Also, while the recordings below show the VS debugger open, compiler\
+  \ optimizations or absence of debugging tools don't change anything.</p>\n<p>Problem\
+  \ is API independent. The test programs don't have any dependencies (other than\
+  \ Windows), but it doesn't matter whether libraries like SDL, glfw or SFML are used.</p>\n\
+  <hr />\n<p><strong>Measurement setup</strong></p>\n<p>The bug is difficult to observe\
+  \ by nature. It would be possible to render an object moving across the surface,\
+  \ recording that with a high-speed camera, and seeing if it's choppy.</p>\n<p>The\
+  \ method I've used uses 4 colored triangles in different positions, one of which\
+  \ is drawn in each frame, depending on the current frame counter. So each of the\
+  \ 4 triangles is flickering once every 4 frames. While you may not be able to judge\
+  \ whether motion is choppy or smooth, you can tell relatively easily if one of the\
+  \ 4 triangles was missing in a cycle.</p>\n<p><strong>!!! EPILEPSY WARNING !!!</strong>\
+  \ : Also note that the background color changes every frame to make it easier to\
+  \ spot</p>\n<p>Here are some high-speed recordings (240 fps, slowed down to 12.5\
+  \ %):</p>\n<p>Also disclaimer: I cannot guarantee that my research is correct. This\
+  \ topic has been very exhausting and frustrating, and collecting all the information\
+  \ has taken a long time simply because of how elusive this bug is. Initially I had\
+  \ no idea where to look. So. regarding the measurements and conclusions, you are\
+  \ welcome to question the results and reproduce them yourself, if you have an affected\
+  \ system.</p>\n<p>D3D9:</p>\n<p><a href=\"https://www.youtube.com/watch?v=nCffpRO216w\"\
+  \ rel=\"nofollow noreferrer\">https://www.youtube.com/watch?v=nCffpRO216w</a></p>\n\
+  <p>(The recording is short, but this practically never stutters).\nAlso, D3D11 behaves\
+  \ effectively the same as D3D9. There are no separate recordings for D3D11.</p>\n\
+  <p>OpenGL:</p>\n<p><a href=\"https://www.youtube.com/watch?v=GYsQTCqmoqE\" rel=\"\
+  nofollow noreferrer\">https://www.youtube.com/watch?v=GYsQTCqmoqE</a></p>\n<p>Can\
+  \ you see that? The missing frames are not problems with the recording. They're\
+  \ actually missing. Some dropped frames may be excusable, especially shortly after\
+  \ the application starts, since the process may still be winding up or whatever,\
+  \ but this is too many dropped frames.</p>\n<hr />\n<p>Some observerations</p>\n\
+  <p>The <code>SwapBuffers</code> (<code>Present</code> in D3D9) calls do block the\
+  \ CPU. Measuring the time with QPC, <code>SwapBuffers</code> appears more consistent\
+  \ around 16.6 ms, while weirdly enough <code>Present</code> in D3D fluctuates more,\
+  \ between 15 and 17 ms.</p>\n<p>If <code>glFinish</code> is added: On some systems,\
+  \ now this function eats the time that the next <code>SwapBuffers</code> would have\
+  \ eaten (as expected), however, the bug is not fixed. But on some systems, <code>glFinish</code>\
+  \ does not block at all after a <code>SwapBuffers</code>. This is in line with a\
+  \ potential bug description at the bottom of <a href=\"https://www.khronos.org/opengl/wiki/Swap_Interval\"\
+  \ rel=\"nofollow noreferrer\">this page</a>:</p>\n<blockquote>\n<p>In one test case,\
+  \ in which &quot;Wait for Vertical Refresh&quot; was set to Always on both setups,\
+  \ an Intel graphics chipset from a 2011 Sandy Bridge laptop was found to exclude\
+  \ the buffer swap from glFinish, thus churning 1000 frames per second</p>\n</blockquote>\n\
+  <p>The addition of <code>glClear</code> before <code>glFinish</code> doesn't fix\
+  \ it either. That technique is mentioned in <a href=\"https://community.khronos.org/t/swapbuffers-and-synchronization/107667/3\"\
+  \ rel=\"nofollow noreferrer\">this forum thread</a>.</p>\n<p><strong>Note on <code>glFinish</code>\
+  \ and <code>DwmFlush</code>:</strong> Even if those worked (which <code>glFinish</code>\
+  \ doesn't, at least not reliably), they're not necessarily a valid solution because\
+  \ they imply going from an effectively triple-buffered scenario to an effectively\
+  \ double-buffered scenario. Depending on the application, this may or may not be\
+  \ appropriate. Reliable frame presentation should work in a triple-buffered scenario\
+  \ as well.</p>\n<p>The most important observation here is that, <strong>when a frame\
+  \ is dropped, it is not because it is too late. Instead, it is because the <em>next</em>\
+  \ frame is too early</strong>. This is the case even if <code>glFinish</code> is\
+  \ used.</p>\n<p>This should be observable when implementing a simple mouse follower.\
+  \ Although a perfectly correct measurement environment would have a mechanical actuator\
+  \ move the mouse at constant speed, for a quick test, I've used <code>SetCursor</code>.</p>\n\
+  <p>D3D9 with follower:</p>\n<p><a href=\"https://www.youtube.com/watch?v=tr-DqshL9Tk\"\
+  \ rel=\"nofollow noreferrer\">https://www.youtube.com/watch?v=tr-DqshL9Tk</a></p>\n\
+  <p>OpenGL with follower:</p>\n<p><a href=\"https://www.youtube.com/watch?v=vP9wSLtTKog\"\
+  \ rel=\"nofollow noreferrer\">https://www.youtube.com/watch?v=vP9wSLtTKog</a></p>\n\
+  <p>It is choppy, and this time you can tell for sure, because <code>SetCursor</code>\
+  \ will reliably move the hardware mouse cursor every frame, while the follower (white\
+  \ triangle) lags behind (which is expected), but sometimes jumps forward a bit.</p>\n\
+  <p>The only reason I can come up with is that there must be a race condition in\
+  \ the OpenGL implementation of some graphics card drivers, which causes a frame\
+  \ submitted by <code>SwapBuffers</code> to mistakenly overwrite a frame that was\
+  \ already submitted, such that the new frame will accidentally be processed by DWM's\
+  \ <em>current</em> composition, instead of being queued up for its <em>next</em>\
+  \ composition. The previously submitted frame is lost.</p>\n<p>Due to the fact that\
+  \ this seems hardware dependent, I would assume that the bug is most likely in the\
+  \ OpenGL implementation of some of NVIDIA's graphics card drivers.</p>\n<p>Also,\
+  \ <strong>the bug goes away when the scene becomes sufficiently complex</strong>.\
+  \ Throw a VBO with a few million random triangles at it, and it will no longer happen.</p>\n\
+  <hr />\n<p>Some mentions from the previous version of this question</p>\n<p>When\
+  \ I googled <code>opengl vsync stutter</code> or <code>opengl vsync frame drop</code>\
+  \ or similar queries, I found that many people are having this issue (or a very\
+  \ similar one), yet there seems to be no coherent solution to the actual problem\
+  \ (many inadequately answered questions on the gamedev stackexchange, too; also\
+  \ many low-effort forums posts).</p>\n<p>This issue could be already known to the\
+  \ glfw team, although they don't have a real solution either:</p>\n<p><a href=\"\
+  https://github.com/glfw/glfw/blob/master/src/wgl_context.c#L330\" rel=\"nofollow\
+  \ noreferrer\">https://github.com/glfw/glfw/blob/master/src/wgl_context.c#L330</a></p>\n\
+  <p><a href=\"https://github.com/glfw/glfw/issues/148\" rel=\"nofollow noreferrer\"\
+  >https://github.com/glfw/glfw/issues/148</a></p>\n<p>To summarize my research: It\
+  \ seems that the compositing window manager (DWM) used in newer versions of Windows\
+  \ forces triple buffering, and that interferes with vsync. People suggest disabling\
+  \ DWM, not using vsync, or going fullscreen, all of which are not a solution to\
+  \ the original problem (FOOTNOTE1). I have also not found a detailed explanation\
+  \ why triple buffering causes this issue with vsync, or why it is technologically\
+  \ not possible to solve the problem.</p>\n<p>However: I've also tested that this\
+  \ does not occur on Linux, even on VERY weak PCs. Therefore it must be technically\
+  \ possible (at least in general) for OpenGL-based hardware acceleration to have\
+  \ functional vsync enabled without skipping frames.</p>\n<p>And lastly, there surely\
+  \ must be software for Windows, be it games, multimedia applications, creative production,\
+  \ 3D modeling/rendering programs or whatever, that use OpenGL and work properly\
+  \ in windowed mode while still rendering accurately, without busy-waiting on the\
+  \ CPU, and without frame drops.</p>\n<p>The question remains: Why does this happen,\
+  \ and how can it be reliably solved?</p>\n<hr />\n<p><strong>CODE</strong></p>\n\
+  <p>This is certainly not the cleanest code, but at least it has no dependencies,\
+  \ and it's all in one file (except for the shaders in the D3D11 version).</p>\n\
+  <p>Please note that with regard to this question, it doesn't matter whether you're\
+  \ using modern OpenGL instead of the <code>glVertex2f</code> hack presented here.\
+  \ This version is much shorter though.</p>\n<p><strong>D3D9</strong></p>\n<pre><code>#include\
+  \ &lt;stdio.h&gt;\n#define WIN32_LEAN_AND_MEAN\n#include &lt;Windows.h&gt;\n#include\
+  \ &lt;d3d9.h&gt;\n#include &lt;dwmapi.h&gt;\n\n#pragma comment(lib, &quot;d3d9.lib&quot;)\n\
+  #pragma comment(lib, &quot;dwmapi.lib&quot;)\n\nstatic ATOM RegisterWindowClass();\n\
+  static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);\n\
+  \n#define CUSTOMFVF (D3DFVF_XYZ | D3DFVF_DIFFUSE)\n\nstruct CUSTOMVERTEX\n{\n  \
+  \  FLOAT x, y, z;\n    DWORD color;\n};\n\nint main(int argc, char* argv[])\n{\n\
+  \    ATOM WindowClassAtom = RegisterWindowClass();\n    HWND hWnd = CreateWindowExW(0,\
+  \ (LPCWSTR)WindowClassAtom, L&quot;FlickerD3D9&quot;, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT,\
+  \ 0, 800, 600, nullptr, nullptr, nullptr, nullptr);\n\n    ShowWindow(hWnd, SW_SHOWNORMAL);\n\
+  \    ShowWindow(hWnd, SW_SHOWNORMAL);\n    UpdateWindow(hWnd);\n\n    IDirect3D9\
+  \ *d3d = Direct3DCreate9(D3D_SDK_VERSION);\n\n    D3DPRESENT_PARAMETERS d3dpp =\
+  \ {};\n\n    d3dpp.Windowed = TRUE;\n    d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;\n\
+  \    d3dpp.hDeviceWindow = hWnd;\n\n    IDirect3DDevice9 *d3ddev = nullptr;\n  \
+  \  d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_HARDWARE_VERTEXPROCESSING,\
+  \ &amp;d3dpp, &amp;d3ddev);\n\n    LPDIRECT3DVERTEXBUFFER9 v_buffer = nullptr;\n\
+  \n    LARGE_INTEGER perf_freq;\n    QueryPerformanceFrequency(&amp;perf_freq);\n\
+  \n    LARGE_INTEGER sw;\n    QueryPerformanceCounter(&amp;sw);\n\n    MSG msg;\n\
+  \    int frame_counter = 0;\n    while (true)\n    {\n        while (PeekMessageW(&amp;msg,\
+  \ nullptr, 0, 0, TRUE))\n        {\n            if (msg.message == WM_QUIT)\n  \
+  \          {\n                return 0;\n            }\n\n            TranslateMessage(&amp;msg);\n\
+  \            DispatchMessageW(&amp;msg);\n        }\n\n        RECT ClientRect;\n\
+  \        GetClientRect(hWnd, &amp;ClientRect);\n        SIZE ClientSize = { ClientRect.right,\
+  \ ClientRect.bottom };\n\n        if (ClientSize.cx != d3dpp.BackBufferWidth ||\n\
+  \            ClientSize.cy != d3dpp.BackBufferHeight)\n        {\n            //\
+  \ Resize viewport.\n            OutputDebugStringW(L&quot;Viewport size changed.\\\
+  r\\n&quot;);\n            d3dpp.BackBufferWidth = 0;\n            d3dpp.BackBufferHeight\
+  \ = 0;\n            d3ddev-&gt;Reset(&amp;d3dpp);\n\n            if (v_buffer !=\
+  \ nullptr)\n            {\n                v_buffer-&gt;Release();\n           \
+  \     v_buffer = nullptr;\n            }\n\n            D3DVIEWPORT9 viewport =\
+  \ {};\n            viewport.Width = ClientSize.cx;\n            viewport.Height\
+  \ = ClientSize.cy;\n            d3ddev-&gt;SetViewport(&amp;viewport);\n       \
+  \ }\n\n        if (v_buffer == nullptr)\n        {\n            d3ddev-&gt;CreateVertexBuffer(6\
+  \ * sizeof(CUSTOMVERTEX), 0, CUSTOMFVF, D3DPOOL_MANAGED, &amp;v_buffer, NULL);\n\
+  \        }\n\n        d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0,\
+  \ 40, 100), 1.0f, 0);\n\n        POINT CursorPos;\n        GetCursorPos(&amp;CursorPos);\n\
+  \        ScreenToClient(hWnd, &amp;CursorPos);\n\n        if (GetAsyncKeyState(VK_SPACE))\n\
+  \        {\n            CursorPos.x = (CursorPos.x + 10) % ClientSize.cx;\n    \
+  \        POINT CursorPosNew = CursorPos;\n            ClientToScreen(hWnd, &amp;CursorPosNew);\n\
+  \            SetCursorPos(CursorPosNew.x, CursorPosNew.y);\n        }\n\n      \
+  \  d3ddev-&gt;BeginScene();    // begins the 3D scene\n\n        D3DCOLOR color;\n\
+  \        switch (frame_counter % 4)\n        {\n        case 0:\n            color\
+  \ = D3DCOLOR_XRGB(255, 0, 0);\n            break;\n        case 1:\n           \
+  \ color = D3DCOLOR_XRGB(0, 255, 0);\n            break;\n        case 2:\n     \
+  \       color = D3DCOLOR_XRGB(0, 255, 255);\n            break;\n        case 3:\n\
+  \            color = D3DCOLOR_XRGB(255, 255, 0);\n            break;\n        }\n\
+  \n        int pos_l = 0 + (frame_counter % 4) * 40;\n        int pos_t = 0;\n  \
+  \      int pos_r = pos_l + 20;\n        int pos_b = pos_t + 20;\n\n        D3DCOLOR\
+  \ White = D3DCOLOR_XRGB(255, 255, 255);\n\n        CUSTOMVERTEX OurVertices[] =\n\
+  \        {\n            { pos_l / (ClientSize.cx / 2.0f), pos_t / (ClientSize.cy\
+  \ / 2.0f), 1.0f, color },\n            { pos_r / (ClientSize.cx / 2.0f), pos_t /\
+  \ (ClientSize.cy / 2.0f), 1.0f, color },\n            { pos_l / (ClientSize.cx /\
+  \ 2.0f), pos_b / (ClientSize.cy / 2.0f), 1.0f, color },\n            { -1.0f + (CursorPos.x\
+  \     ) / (ClientSize.cx / 2.0f), 1.0f + (-CursorPos.y     ) / (ClientSize.cy /\
+  \ 2.0f), 1.0f, White },\n            { -1.0f + (CursorPos.x + 20) / (ClientSize.cx\
+  \ / 2.0f), 1.0f + (-CursorPos.y     ) / (ClientSize.cy / 2.0f), 1.0f, White },\n\
+  \            { -1.0f + (CursorPos.x + 20) / (ClientSize.cx / 2.0f), 1.0f + (-CursorPos.y\
+  \ + 20) / (ClientSize.cy / 2.0f), 1.0f, White },\n        };\n\n        void* pVoid\
+  \ = nullptr;\n        v_buffer-&gt;Lock(0, sizeof(OurVertices), (void**)&amp;pVoid,\
+  \ 0);    // locks v_buffer, the buffer we made earlier\n        memcpy(pVoid, OurVertices,\
+  \ sizeof(OurVertices));    // copy vertices to the vertex buffer\n        v_buffer-&gt;Unlock();\
+  \    // unlock v_buffer\n\n        // select which vertex format we are using\n\
+  \        d3ddev-&gt;SetFVF(CUSTOMFVF);\n\n        d3ddev-&gt;SetRenderState(D3DRS_CULLMODE,\
+  \ D3DCULL_NONE);\n        d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, FALSE);\n\n\
+  \        // select the vertex buffer to display\n        d3ddev-&gt;SetStreamSource(0,\
+  \ v_buffer, 0, sizeof(CUSTOMVERTEX));\n\n        // copy the vertex buffer to the\
+  \ back buffer\n        d3ddev-&gt;DrawPrimitive(D3DPT_TRIANGLELIST, 0, 2);\n\n \
+  \       d3ddev-&gt;EndScene();    // ends the 3D scene\n\n        d3ddev-&gt;Present(NULL,\
+  \ NULL, NULL, NULL);    // displays the created frame\n\n        if (GetAsyncKeyState(VK_LBUTTON))\n\
+  \            DwmFlush();\n        if (GetAsyncKeyState(VK_RBUTTON))\n          \
+  \  Sleep(10);\n\n        LARGE_INTEGER sw_old = sw;\n        QueryPerformanceCounter(&amp;sw);\n\
+  \        float elapsed_ms = (sw.QuadPart - sw_old.QuadPart) * 1000.0f / perf_freq.QuadPart;\n\
+  \n        printf(&quot;%f\\r\\n&quot;, elapsed_ms);\n\n        frame_counter +=\
+  \ 1;\n    }\n\n    return 0;\n}\n\nstatic ATOM RegisterWindowClass()\n{\n    WNDCLASSEXW\
+  \ cls = {};\n\n    cls.cbSize = sizeof(cls);\n    cls.style = CS_HREDRAW | CS_VREDRAW;\n\
+  \    cls.lpfnWndProc = WndProc;\n    cls.hCursor = LoadCursorW(nullptr, IDC_ARROW);\n\
+  \    cls.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);\n    cls.lpszClassName = L&quot;FlickerD3D9&quot;;\n\
+  \n    return RegisterClassExW(&amp;cls);\n}\n\nstatic LRESULT CALLBACK WndProc(HWND\
+  \ hWnd, UINT message, WPARAM wParam, LPARAM lParam)\n{\n    switch (message)\n \
+  \   {\n    case WM_DESTROY:\n    {\n        PostQuitMessage(0);\n        break;\n\
+  \    }\n    }\n\n    return DefWindowProcW(hWnd, message, wParam, lParam);\n}\n\n\
+  </code></pre>\n<p><strong>OpenGL</strong></p>\n<pre><code>#include &lt;stdio.h&gt;\n\
+  #define WIN32_LEAN_AND_MEAN\n#include &lt;Windows.h&gt;\n#include &lt;gl/GL.h&gt;\n\
+  #include &lt;dwmapi.h&gt;\n\n#pragma comment(lib, &quot;opengl32.lib&quot;)\n#pragma\
+  \ comment(lib, &quot;dwmapi.lib&quot;)\n\nstatic ATOM RegisterWindowClass();\nstatic\
+  \ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);\n\
+  \nint main(int argc, char *argv[])\n{\n    ATOM WindowClassAtom = RegisterWindowClass();\n\
+  \    HWND hWnd = CreateWindowExW(0, (LPCWSTR)WindowClassAtom, L&quot;FlickerGL&quot;,\
+  \ WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, 0, 800, 600, nullptr, nullptr, nullptr, nullptr);\n\
+  \n    ShowWindow(hWnd, SW_SHOWNORMAL);\n    ShowWindow(hWnd, SW_SHOWNORMAL);\n \
+  \   UpdateWindow(hWnd);\n\n    HDC hdc = GetDC(hWnd);\n\n    PIXELFORMATDESCRIPTOR\
+  \ pfd = {};\n    pfd.nSize = sizeof(pfd);\n    pfd.nVersion = 1;\n    pfd.dwFlags\
+  \ = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;\n    pfd.iPixelType\
+  \ = PFD_TYPE_RGBA;\n    pfd.cColorBits = 32;\n    pfd.cAlphaBits = 8;\n    pfd.cDepthBits\
+  \ = 24;\n\n    int pixelFormatInt = ChoosePixelFormat(hdc, &amp;pfd);\n    SetPixelFormat(hdc,\
+  \ pixelFormatInt, &amp;pfd);\n\n    HGLRC glContext = wglCreateContext(hdc);\n \
+  \   wglMakeCurrent(hdc, glContext);\n\n    auto wglSwapIntervalEXT = (GLboolean(*)(GLint))wglGetProcAddress(&quot;wglSwapIntervalEXT&quot;);\n\
+  \    wglSwapIntervalEXT(1);\n\n    LARGE_INTEGER perf_freq;\n    QueryPerformanceFrequency(&amp;perf_freq);\n\
+  \n    LARGE_INTEGER sw;\n    QueryPerformanceCounter(&amp;sw);\n\n    MSG msg;\n\
+  \    int frame_counter = 0;\n    while (true)\n    {\n        while (PeekMessageW(&amp;msg,\
+  \ nullptr, 0, 0, TRUE))\n        {\n            if (msg.message == WM_QUIT)\n  \
+  \          {\n                return 0;\n            }\n\n            TranslateMessage(&amp;msg);\n\
+  \            DispatchMessageW(&amp;msg);\n        }\n\n        RECT ClientRect;\n\
+  \        GetClientRect(hWnd, &amp;ClientRect);\n        SIZE ClientSize = { ClientRect.right,\
+  \ ClientRect.bottom };\n\n        glViewport(0, 0, ClientSize.cx, ClientSize.cy);\n\
+  \n        POINT CursorPos;\n        GetCursorPos(&amp;CursorPos);\n        ScreenToClient(hWnd,\
+  \ &amp;CursorPos);\n\n        if (GetAsyncKeyState(VK_SPACE))\n        {\n     \
+  \       CursorPos.x = (CursorPos.x + 10) % ClientSize.cx;\n            POINT NewCursorPos\
+  \ = CursorPos;\n            ClientToScreen(hWnd, &amp;NewCursorPos);\n         \
+  \   SetCursorPos(NewCursorPos.x, NewCursorPos.y);\n        }\n\n        if (frame_counter\
+  \ % 2 == 0)\n            glClearColor(0.15f, 0.05f, 0.3f, 1.0f);\n        else\n\
+  \            glClearColor(0, 0, 0, 1.0f);\n        glClear(GL_COLOR_BUFFER_BIT |\
+  \ GL_DEPTH_BUFFER_BIT);\n\n        switch (frame_counter % 4)\n        {\n     \
+  \   case 0:\n            glColor3f(1.0f, 0, 0);\n            break;\n        case\
+  \ 1:\n            glColor3f(0, 1.0f, 0);\n            break;\n        case 2:\n\
+  \            glColor3f(0, 1.0f, 1.0f);\n            break;\n        case 3:\n  \
+  \          glColor3f(1.0f, 1.0f, 0);\n            break;\n        }\n\n        int\
+  \ pos_l = (frame_counter % 8) * 40;\n        int pos_t = 0;\n        int pos_r =\
+  \ pos_l + 20;\n        int pos_b = pos_t + 20;\n\n        glBegin(GL_TRIANGLES);\n\
+  \n        glVertex2f(pos_l / (ClientSize.cx / 2.0f), pos_t / (ClientSize.cy / 2.0f));\n\
+  \        glVertex2f(pos_l / (ClientSize.cx / 2.0f), pos_b / (ClientSize.cy / 2.0f));\n\
+  \        glVertex2f(pos_r / (ClientSize.cx / 2.0f), pos_t / (ClientSize.cy / 2.0f));\n\
+  \n        glColor3f(1.0f, 1.0f, 1.0f);\n        glVertex2f(CursorPos.x / (ClientSize.cx\
+  \ / 2.0f) - 1.0f, -CursorPos.y / (ClientSize.cy / 2.0f) + 1.0f);\n        glVertex2f(CursorPos.x\
+  \ / (ClientSize.cx / 2.0f) - 1.0f, -(CursorPos.y + 20) / (ClientSize.cy / 2.0f)\
+  \ + 1.0f);\n        glVertex2f((CursorPos.x + 20) / (ClientSize.cx / 2.0f) - 1.0f,\
+  \ -CursorPos.y / (ClientSize.cy / 2.0f) + 1.0f);\n\n        glEnd();\n        \n\
+  \        {\n            LARGE_INTEGER before;\n            QueryPerformanceCounter(&amp;before);\n\
+  \            SwapBuffers(hdc);\n            LARGE_INTEGER after;\n            QueryPerformanceCounter(&amp;after);\n\
+  \            float elapsed_ms = (after.QuadPart - before.QuadPart) * 1000.0f / perf_freq.QuadPart;\n\
+  \            printf(&quot;SwapBuffers: %f\\r\\n&quot;, elapsed_ms);\n        }\n\
+  \n        if (GetAsyncKeyState(VK_LBUTTON))\n            DwmFlush();\n        if\
+  \ (GetAsyncKeyState(VK_RBUTTON))\n        {\n            LARGE_INTEGER before;\n\
+  \            QueryPerformanceCounter(&amp;before);\n            glFinish();\n  \
+  \          LARGE_INTEGER after;\n            QueryPerformanceCounter(&amp;after);\n\
+  \            float elapsed_ms = (after.QuadPart - before.QuadPart) * 1000.0f / perf_freq.QuadPart;\n\
+  \            printf(&quot;glFinish: %f\\r\\n&quot;, elapsed_ms);\n        }\n  \
+  \      if (GetAsyncKeyState(VK_MBUTTON))\n        {\n            LARGE_INTEGER before;\n\
+  \            QueryPerformanceCounter(&amp;before);\n            glClear(GL_COLOR_BUFFER_BIT);\n\
+  \            glFinish();\n            LARGE_INTEGER after;\n            QueryPerformanceCounter(&amp;after);\n\
+  \            float elapsed_ms = (after.QuadPart - before.QuadPart) * 1000.0f / perf_freq.QuadPart;\n\
+  \            printf(&quot;glClear + glFinish: %f\\r\\n&quot;, elapsed_ms);\n   \
+  \     }\n\n        LARGE_INTEGER sw_old = sw;\n        QueryPerformanceCounter(&amp;sw);\n\
+  \        float elapsed_ms = (sw.QuadPart - sw_old.QuadPart) * 1000.0f / perf_freq.QuadPart;\n\
+  \n        printf(&quot;%f\\r\\n&quot;, elapsed_ms);\n\n        frame_counter +=\
+  \ 1;\n    }\n\n    return 0;\n}\n\nstatic ATOM RegisterWindowClass()\n{\n    WNDCLASSEXW\
+  \ cls = {};\n\n    cls.cbSize = sizeof(cls);\n    cls.style = CS_HREDRAW | CS_VREDRAW;\n\
+  \    cls.lpfnWndProc = WndProc;\n    cls.hCursor = LoadCursorW(nullptr, IDC_ARROW);\n\
+  \    cls.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);\n    cls.lpszClassName = L&quot;FlickerGL&quot;;\n\
+  \n    return RegisterClassExW(&amp;cls);\n}\n\nstatic LRESULT CALLBACK WndProc(HWND\
+  \ hWnd, UINT message, WPARAM wParam, LPARAM lParam)\n{\n    switch (message)\n \
+  \   {\n        case WM_DESTROY:\n        {\n            PostQuitMessage(0);\n  \
+  \          break;\n        }\n    }\n\n    return DefWindowProcW(hWnd, message,\
+  \ wParam, lParam);\n}\n</code></pre>\n<p><strong>D3D11</strong> (just for the sake\
+  \ of completeness)</p>\n<p>You must compile the shaders with fxc first, to pshader.pso\
+  \ and vshader.vso\nNothing to see here that you can't also see in the D3D9 version\
+  \ though!</p>\n<pre><code>#define WIN32_LEAN_AND_MEAN\n#include &lt;Windows.h&gt;\n\
+  #include &lt;stdio.h&gt;\n#include &lt;d3d11.h&gt;\n\n#pragma comment (lib, &quot;d3d11.lib&quot;)\n\
+  \nstatic ATOM RegisterWindowClass();\nstatic LRESULT CALLBACK WndProc(HWND hWnd,\
+  \ UINT message, WPARAM wParam, LPARAM lParam);\nstatic void ReadFile(void** data,\
+  \ int* length, LPCWSTR file);\n\nstatic IDXGISwapChain* swapchain;\nstatic ID3D11Device*\
+  \ dev;\nstatic ID3D11DeviceContext* devcon;\nstatic ID3D11RenderTargetView* backbuffer;\n\
+  static ID3D11VertexShader* pVS;\nstatic ID3D11PixelShader* pPS;\nstatic ID3D11InputLayout*\
+  \ pLayout;\nstatic ID3D11Buffer* pVBuffer;\n\nstruct D3DXCOLOR\n{\n    D3DXCOLOR()\n\
+  \        : R(0), G(0), B(0), A(0)\n    {}\n\n    D3DXCOLOR(FLOAT R, FLOAT G, FLOAT\
+  \ B, FLOAT A)\n        : R(R), G(G), B(B), A(A)\n    {\n    }\n\n    FLOAT R, G,\
+  \ B, A;\n};\n\nstruct VERTEX\n{\n    FLOAT X, Y, Z;\n    D3DXCOLOR Color;\n};\n\n\
+  int main(int argc, char* argv[])\n{\n    ATOM WindowClassAtom = RegisterWindowClass();\n\
+  \    HWND hWnd = CreateWindowExW(0, (LPCWSTR)WindowClassAtom, L&quot;FlickerD3D11&quot;,\
+  \ WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, 0, 800, 600, nullptr, nullptr, nullptr, nullptr);\n\
+  \n    ShowWindow(hWnd, SW_SHOWNORMAL);\n    ShowWindow(hWnd, SW_SHOWNORMAL);\n \
+  \   UpdateWindow(hWnd);\n\n    DXGI_SWAP_CHAIN_DESC scd = {};\n\n    scd.BufferCount\
+  \ = 2;\n    scd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;\n    scd.BufferDesc.Width\
+  \ = 800;\n    scd.BufferDesc.Height = 600;\n    scd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;\n\
+  \    scd.OutputWindow = hWnd;\n    scd.SampleDesc.Count = 1;\n    scd.Windowed =\
+  \ TRUE;\n    scd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;\n    scd.SwapEffect\
+  \ = DXGI_SWAP_EFFECT_FLIP_DISCARD;\n\n    D3D11CreateDeviceAndSwapChain(nullptr,\
+  \ D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, nullptr, 0, D3D11_SDK_VERSION, &amp;scd,\
+  \ &amp;swapchain, &amp;dev, nullptr, &amp;devcon);\n\n    void* vsdata = nullptr;\n\
+  \    int vslength = 0;\n    ReadFile(&amp;vsdata, &amp;vslength, L&quot;vshader.vso&quot;);\n\
+  \    dev-&gt;CreateVertexShader(vsdata, vslength, nullptr, &amp;pVS);\n    void*\
+  \ psdata;\n    int pslength;\n    ReadFile(&amp;psdata, &amp;pslength, L&quot;pshader.pso&quot;);\n\
+  \    dev-&gt;CreatePixelShader(psdata, pslength, nullptr, &amp;pPS);\n\n    D3D11_INPUT_ELEMENT_DESC\
+  \ ied[] =\n    {\n        {&quot;POSITION&quot;, 0, DXGI_FORMAT_R32G32B32_FLOAT,\
+  \ 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},\n        {&quot;COLOR&quot;, 0, DXGI_FORMAT_R32G32B32A32_FLOAT,\
+  \ 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0},\n    };\n\n    dev-&gt;CreateInputLayout(ied,\
+  \ 2, vsdata, vslength, &amp;pLayout);\n    \n    D3D11_BUFFER_DESC bd = {};\n\n\
+  \    bd.Usage = D3D11_USAGE_DYNAMIC;\n    bd.ByteWidth = sizeof(VERTEX) * 3;\n \
+  \   bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;\n    bd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;\n\
+  \n    dev-&gt;CreateBuffer(&amp;bd, NULL, &amp;pVBuffer);\n\n    D3D11_VIEWPORT\
+  \ viewport = {};\n\n    LARGE_INTEGER perf_freq;\n    QueryPerformanceFrequency(&amp;perf_freq);\n\
+  \n    LARGE_INTEGER sw;\n    QueryPerformanceCounter(&amp;sw);\n\n    MSG msg;\n\
+  \    int frame_counter = 0;\n    while (true)\n    {\n        while (PeekMessageW(&amp;msg,\
+  \ nullptr, 0, 0, TRUE))\n        {\n            if (msg.message == WM_QUIT)\n  \
+  \          {\n                return 0;\n            }\n\n            TranslateMessage(&amp;msg);\n\
+  \            DispatchMessageW(&amp;msg);\n        }\n\n        RECT ClientRect;\n\
+  \        GetClientRect(hWnd, &amp;ClientRect);\n        SIZE ClientSize = { ClientRect.right,\
+  \ ClientRect.bottom };\n\n        if (ClientSize.cx != viewport.Width ||\n     \
+  \       ClientSize.cy != viewport.Height)\n        {\n            devcon-&gt;OMSetRenderTargets(0,\
+  \ nullptr, nullptr);\n\n            if (backbuffer != nullptr)\n            {\n\
+  \                backbuffer-&gt;Release();\n                backbuffer = nullptr;\n\
+  \            }\n\n            swapchain-&gt;ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN,\
+  \ 0);\n        }\n\n        if (backbuffer == nullptr)\n        {\n            ID3D11Texture2D*\
+  \ pBackBuffer;\n            swapchain-&gt;GetBuffer(0, __uuidof(ID3D11Texture2D),\
+  \ (LPVOID*)&amp;pBackBuffer);\n\n            dev-&gt;CreateRenderTargetView(pBackBuffer,\
+  \ nullptr, &amp;backbuffer);\n            pBackBuffer-&gt;Release();\n\n       \
+  \     // Set the viewport\n            ZeroMemory(&amp;viewport, sizeof(D3D11_VIEWPORT));\n\
+  \n            viewport.TopLeftX = 0;\n            viewport.TopLeftY = 0;\n     \
+  \       viewport.Width = ClientRect.right;\n            viewport.Height = ClientRect.bottom;\n\
+  \n            devcon-&gt;RSSetViewports(1, &amp;viewport);\n        }\n\n      \
+  \  // set the render target as the back buffer\n        devcon-&gt;OMSetRenderTargets(1,\
+  \ &amp;backbuffer, nullptr);\n\n        // clear the back buffer to a deep blue\n\
+  \        float back_color[] = { 0.15f, 0.05f, 0.4f, 1.0f };\n        devcon-&gt;ClearRenderTargetView(backbuffer,\
+  \ back_color);\n\n        // do 3D rendering on the back buffer here\n\n       \
+  \ // set the shader objects\n        devcon-&gt;VSSetShader(pVS, 0, 0);\n      \
+  \  devcon-&gt;PSSetShader(pPS, 0, 0);\n        devcon-&gt;IASetInputLayout(pLayout);\n\
+  \n        D3DXCOLOR color;\n        int frame_counter_mod = frame_counter % 4;\n\
+  \        switch (frame_counter_mod)\n        {\n        case 0:\n            color\
+  \ = D3DXCOLOR( 1.0f, 0, 0, 1.0f );\n            break;\n        case 1:\n      \
+  \      color = D3DXCOLOR( 0, 1.0f, 0, 1.0f );\n            break;\n        case\
+  \ 2:\n            color = D3DXCOLOR( 0, 1.0f, 1.0f, 1.0f );\n            break;\n\
+  \        case 3:\n            color = D3DXCOLOR( 1.0f, 1.0f, 0, 1.0f );\n      \
+  \      break;\n        }\n\n        int pos_l = frame_counter_mod * 40;\n      \
+  \  int pos_t = 0;\n        int pos_r = pos_l + 20;\n        int pos_b = pos_t +\
+  \ 20;\n\n        VERTEX OurVertices[] =\n        {\n            { pos_l / (ClientSize.cx\
+  \ / 2.0f), -pos_t / (ClientSize.cy / 2.0f), 0.0f, color},\n            { pos_r /\
+  \ (ClientSize.cx / 2.0f), -pos_t / (ClientSize.cy / 2.0f), 0.0f, color },\n    \
+  \        { pos_l / (ClientSize.cx / 2.0f), -pos_b / (ClientSize.cy / 2.0f), 0.0f,\
+  \ color },\n        };\n\n        D3D11_MAPPED_SUBRESOURCE ms;\n        devcon-&gt;Map(pVBuffer,\
+  \ NULL, D3D11_MAP_WRITE_DISCARD, NULL, &amp;ms);\n        memcpy(ms.pData, OurVertices,\
+  \ sizeof(OurVertices));\n        devcon-&gt;Unmap(pVBuffer, NULL);\n\n        UINT\
+  \ stride = sizeof(VERTEX);\n        UINT offset = 0;\n        devcon-&gt;IASetVertexBuffers(0,\
+  \ 1, &amp;pVBuffer, &amp;stride, &amp;offset);\n\n        devcon-&gt;IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);\n\
+  \n        devcon-&gt;Draw(3, 0);\n\n        swapchain-&gt;Present(1, 0);\n\n   \
+  \     //DwmFlush();\n        //Sleep(100);\n\n        LARGE_INTEGER sw_old = sw;\n\
+  \        QueryPerformanceCounter(&amp;sw);\n        float elapsed_ms = (sw.QuadPart\
+  \ - sw_old.QuadPart) * 1000.0f / perf_freq.QuadPart;\n\n        printf(&quot;%f\\\
+  r\\n&quot;, elapsed_ms);\n\n        frame_counter += 1;\n    }\n\n    return 0;\n\
+  }\n\nstatic void ReadFile(void** data, int* length, LPCWSTR filename)\n{\n    FILE*\
+  \ file;\n    _wfopen_s(&amp;file, filename, L&quot;rb&quot;);\n    fseek(file, 0,\
+  \ SEEK_END);\n    *length = ftell(file);\n    fseek(file, 0, SEEK_SET);\n    *data\
+  \ = malloc(*length);\n    fread(*data, 1, *length, file);\n    fclose(file);\n}\n\
+  \nstatic ATOM RegisterWindowClass()\n{\n    WNDCLASSEXW cls = {};\n\n    cls.cbSize\
+  \ = sizeof(cls);\n    cls.style = CS_HREDRAW | CS_VREDRAW;\n    cls.lpfnWndProc\
+  \ = WndProc;\n    cls.hCursor = LoadCursorW(nullptr, IDC_ARROW);\n    cls.hbrBackground\
+  \ = (HBRUSH)(COLOR_WINDOW + 1);\n    cls.lpszClassName = L&quot;FlickerD3D11&quot;;\n\
+  \n    return RegisterClassExW(&amp;cls);\n}\n\nstatic LRESULT CALLBACK WndProc(HWND\
+  \ hWnd, UINT message, WPARAM wParam, LPARAM lParam)\n{\n    switch (message)\n \
+  \   {\n    case WM_DESTROY:\n    {\n        PostQuitMessage(0);\n        break;\n\
+  \    }\n    }\n\n    return DefWindowProcW(hWnd, message, wParam, lParam);\n}\n\n\
+  </code></pre>\n<p>shaders.hlsl</p>\n<pre><code>struct VOut\n{\n    float4 position\
+  \ : SV_POSITION;\n    float4 color : COLOR;\n};\n\nVOut VShader(float4 position\
+  \ : POSITION, float4 color : COLOR)\n{\n    VOut output;\n\n    output.position\
+  \ = position;\n    output.color = color;\n\n    return output;\n}\n\n\nfloat4 PShader(float4\
+  \ position : SV_POSITION, float4 color : COLOR) : SV_TARGET\n{\n    return color;\n\
+  }\n</code></pre>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/45676892/reliable-windowed-vsync-with-opengl-on-windows
+source_context: 'SO question (tags: c++, windows, opengl, rendering)'
+author_info: dialer
+engagement:
+  score: 29
+  view_count: 6139
+  answer_count: 1
+  is_answered: false
+date_posted: '2017-08-14'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - c++
+  - windows
+  - opengl
+  - rendering
+attachments: []

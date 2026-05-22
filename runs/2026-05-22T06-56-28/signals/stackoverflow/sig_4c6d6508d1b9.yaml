@@ -1,0 +1,24 @@
+signal_id: sig_4c6d6508d1b9
+raw_text: "Specify sudo password for Ansible\n\n<p>How do I specify a sudo password\
+  \ for Ansible in non-interactive way?</p>\n\n<p>I'm running Ansible playbook like\
+  \ this:</p>\n\n<pre><code>$ ansible-playbook playbook.yml -i inventory.ini \\\n\
+  \    --user=username --ask-sudo-pass\n</code></pre>\n\n<p>But I want to run it like\
+  \ this:</p>\n\n<pre><code>$ ansible-playbook playbook.yml -i inventory.ini \\\n\
+  \    --user=username` **--sudo-pass=12345**\n</code></pre>\n\n<p>Is there a way?\
+  \ I want to automate my project deployment as much as possible.</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/21870083/specify-sudo-password-for-ansible
+source_context: 'SO question (tags: ansible)'
+author_info: Slava Fomin II
+engagement:
+  score: 306
+  view_count: 519207
+  answer_count: 27
+  is_answered: true
+date_posted: '2014-02-19'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - ansible
+attachments: []

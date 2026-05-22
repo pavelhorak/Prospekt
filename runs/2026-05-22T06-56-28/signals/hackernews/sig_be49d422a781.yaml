@@ -1,0 +1,55 @@
+signal_id: sig_be49d422a781
+raw_text: 'Launch HN: Text Blaze (YC W21) Programmable snippets to automate tedious
+  typing
+
+
+  Hi HN! We’re Scott and Dan of Text Blaze (<a href="https:&#x2F;&#x2F;blaze.today"
+  rel="nofollow">https:&#x2F;&#x2F;blaze.today</a>). Text Blaze lets you create programmable
+  text snippets that you can insert anywhere in Chrome by typing a brief shortcut.<p>Before
+  Text Blaze, we designed and built internal tools for thousands of sales and support
+  reps at Google. As much as we tried though, our tools could never automate all repeated
+  work for all users. We saw that there were always tech savvy reps who would build
+  additional scripts to fill gaps and help save even more time. With Text Blaze, we
+  wanted to create something for those kinds of reps to speed up and automate their
+  boring repetitive work (and make it super easy for them to share with teammates).<p>Text
+  Blaze snippets help users to do this. You can start by taking all the repetitive
+  messaging that they have and making it insertable with a few keystrokes. Many of
+  our users easily save hours a month of typing just doing that.<p>Technical users
+  can go much further though. Our snippets can include form fields like text boxes
+  or drop down menus in them and have dynamic fields with formulas. Users can use
+  this to:<p>- calculate a 15% service charge automatically when entering a price
+  in a snippet text field.<p>- or automatically pulling in the name of contact when
+  sending a message in LinkedIn,<p>- or saving data to a Google Spreadsheet every
+  time they use a snippet,<p>- or create patient diagnostic templates where the snippet
+  may include a drop down to capture whether the patient is a smoker. If (and only
+  if) the answer is yes, a follow up question and text box (number of cigarettes a
+  day) will appear.<p>Think of Text Blaze a little like Zapier meets Emmet. Some of
+  the ways people use Text Blaze have amazed us. For example, the Customer Success
+  department at a European delivery company, uses Text Blaze to standardize their
+  comms with customers and drivers and automate much of the related processes. For
+  example, their snippets read conversations with drivers in Intercom and automatically
+  send a summary of the required information to a rep in the relevant Slack channel.<p>Our
+  most common users of Text Blaze are in customer support and recruiting, but we’re
+  also seeing a lot of adoption in other areas like education (especially with the
+  increased levels of remote learning with Covid).<p>Text Blaze is free to use for
+  many use cases and we have paid versions with additional features and improved collaboration
+  for teams.<p>Want to try Text Blaze out? You can get started by installing our extension
+  from the Chrome Web Store (<a href="https:&#x2F;&#x2F;chrome.google.com&#x2F;webstore&#x2F;detail&#x2F;text-blaze&#x2F;idgadaccgipmpannjkmfddolnnhmeklj"
+  rel="nofollow">https:&#x2F;&#x2F;chrome.google.com&#x2F;webstore&#x2F;detail&#x2F;text-blaze&#x2F;idgadac...</a>).<p>We’re
+  a Chrome Extension as we see more and more users are spending all their time in
+  Chrome and we want to be able to closely integrate with the different web applications
+  they use.<p>We would love your feedback on the Text Blaze here and your experiences
+  with tools for end-user automation in general. What’s worked for you and where are
+  there opportunities to improve existing approaches?'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26037816
+source_context: HN Story
+author_info: scottfr
+engagement:
+  points: 82
+  num_comments: 51
+date_posted: '2021-02-05'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

@@ -1,0 +1,43 @@
+signal_id: sig_8df72bb5d481
+raw_text: "How do I declare custom exceptions in modern Python?\n\n<p>How do I declare\
+  \ custom exception classes in modern Python? My primary goal is to follow whatever\
+  \ standard other exception classes have, so that (for instance) any extra string\
+  \ I include in the exception is printed out by whatever tool caught the exception.</p>\n\
+  <p>By &quot;modern Python&quot; I mean something that will run in Python 2.5 but\
+  \ be 'correct' for the Python 2.6 and Python 3.* way of doing things. And by &quot;custom&quot;\
+  \ I mean an <code>Exception</code> object that can include extra data about the\
+  \ cause of the error: a string, maybe also some other arbitrary object relevant\
+  \ to the exception.</p>\n<p>I was tripped up by the following deprecation warning\
+  \ in Python 2.6.2:</p>\n<pre><code>&gt;&gt;&gt; class MyError(Exception):\n... \
+  \    def __init__(self, message):\n...         self.message = message\n... \n&gt;&gt;&gt;\
+  \ MyError(&quot;foo&quot;)\n_sandbox.py:3: DeprecationWarning: BaseException.message\
+  \ has been deprecated as of Python 2.6\n</code></pre>\n<p>It seems crazy that <code>BaseException</code>\
+  \ has a special meaning for attributes named <code>message</code>. I gather from\
+  \ <A href=\"http://www.python.org/dev/peps/pep-0352/\" rel=\"noreferrer\">PEP-352</a>\
+  \ that attribute did have a special meaning in 2.5 they're trying to deprecate away,\
+  \ so I guess that name (and that one alone) is now forbidden? Ugh.</p>\n<p>I'm also\
+  \ fuzzily aware that <code>Exception</code> has some magic parameter <code>args</code>,\
+  \ but I've never known how to use it. Nor am I sure it's the right way to do things\
+  \ going forward; a lot of the discussion I found online suggested they were trying\
+  \ to do away with args in Python 3.</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/1319615/how-do-i-declare-custom-exceptions-in-modern-python
+source_context: 'SO question (tags: python, python-3.x, exception, python-dataclasses,
+  pep352)'
+author_info: Nelson
+engagement:
+  score: 1970
+  view_count: 1387160
+  answer_count: 17
+  is_answered: true
+date_posted: '2009-08-23'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - python
+  - python-3.x
+  - exception
+  - python-dataclasses
+  - pep352
+attachments: []

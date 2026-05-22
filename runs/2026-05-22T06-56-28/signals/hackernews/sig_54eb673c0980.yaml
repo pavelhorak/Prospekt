@@ -1,0 +1,15 @@
+signal_id: sig_54eb673c0980
+raw_text: The moat was never CUDA syntax. It was ten years of documented failure modes,
+  and that’s not something you can prompt your way out of. Whoever ends up owning
+  the serving layer inherits it.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=47740642
+source_context: HN Comment on story 47740552
+author_info: llmpold
+engagement:
+  parent: '47740552'
+date_posted: '2026-04-12'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

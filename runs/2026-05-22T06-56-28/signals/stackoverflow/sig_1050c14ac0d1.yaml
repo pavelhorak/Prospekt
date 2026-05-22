@@ -1,0 +1,47 @@
+signal_id: sig_1050c14ac0d1
+raw_text: "Can I constrain a type family?\n\n<p>In <a href=\"https://stackoverflow.com/a/14132830/828361\"\
+  >this recent answer of mine</a>, I happened to crack open this old chestnut (a program\
+  \ so old, half of it was written in the seventeenth century by Leibniz and written\
+  \ on a computer in the seventies by my dad). I'll leave out the modern bit to save\
+  \ space.</p>\n\n<pre><code>class Differentiable f where\n  type D f :: * -&gt; *\n\
+  \nnewtype K a     x  = K a\nnewtype I       x  = I x\ndata (f :+: g)  x  = L (f\
+  \ x)\n                   | R (g x)\ndata (f :*: g)  x  = f x :&amp;: g x\n\ninstance\
+  \ Differentiable (K a) where\n  type D (K a) = K Void\ninstance Differentiable I\
+  \ where\n  type D I = K ()\ninstance (Differentiable f, Differentiable g) =&gt;\
+  \ Differentiable (f :+: g) where\n  type D (f :+: g) = D f :+: D g\ninstance (Differentiable\
+  \ f, Differentiable g) =&gt; Differentiable (f :*: g) where\n  type D (f :*: g)\
+  \ = (D f :*: g) :+: (f :*: D g)\n</code></pre>\n\n<p>Now, here's the frustrating\
+  \ thing. I don't know how to stipulate that <code>D f</code> must <em>itself</em>\
+  \ be differentiable. Certainly, these instances respect that property, and there\
+  \ might well be fun programs you can write which make use of the ability to keep\
+  \ differentiating a functor, shooting holes in more and more places: Taylor expansions,\
+  \ that sort of thing.</p>\n\n<p>I'd like to be able to say something like</p>\n\n\
+  <pre><code>class Differentiable f where\n  type D f\n  instance Differentiable (D\
+  \ f)\n</code></pre>\n\n<p>and require a check that instance declarations have <code>type</code>\
+  \ definitions for which the necessary instances exist.</p>\n\n<p>Maybe more mundane\
+  \ stuff like</p>\n\n<pre><code>class SortContainer c where\n  type WhatsIn c\n \
+  \ instance Ord (WhatsIn c)\n  ...\n</code></pre>\n\n<p>would also be nice. That,\
+  \ of course, has the fundep workaround</p>\n\n<pre><code>class Ord w =&gt; SortContainer\
+  \ c w | c -&gt; w where ...\n</code></pre>\n\n<p>but to attempt the same trick for\
+  \ <code>Differentiable</code> seems... well... involuted.</p>\n\n<p>So, is there\
+  \ a nifty workaround that gets me repeatable differentiability? (I guess I could\
+  \ build a representation GADT and and and... but is there a way that works with\
+  \ classes?)</p>\n\n<p>And are there any obvious snags with the suggestion that we\
+  \ should be able to demand constraints on type (and, I suppose, data) families when\
+  \ we declare them, then check that the instances satisfy them?</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/14133121/can-i-constrain-a-type-family
+source_context: 'SO question (tags: haskell)'
+author_info: pigworker
+engagement:
+  score: 49
+  view_count: 6507
+  answer_count: 4
+  is_answered: true
+date_posted: '2013-01-03'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - haskell
+attachments: []

@@ -1,0 +1,38 @@
+signal_id: sig_9f67d756bb54
+raw_text: "Best practice for storing and protecting private API keys in applications\n\
+  \n<p>Most app developers will integrate some third party libraries into their apps.\
+  \ If it's to access a service, such as Dropbox or YouTube, or for logging crashes.\
+  \ The number of third party libraries and services is staggering. Most of those\
+  \ libraries and services are integrated by somehow authenticating with the service,\
+  \ most of the time, this happens through an API key. For security purposes, services\
+  \ usually generate a public and private, often also referred to as secret, key.\
+  \ Unfortunately, in order to connect to the services, this private key must be used\
+  \ to authenticate and hence, probably be part of the application. \nNeedless to\
+  \ say, that this faces in immense security problem. Public and private API keys\
+  \ can be extracted from APKs in a matter of minutes and can easily be automated.\
+  \ </p>\n\n<p>Assuming I have something similar to this, how can I protect the secret\
+  \ key:</p>\n\n<pre><code>public class DropboxService  {\n\n    private final static\
+  \ String APP_KEY = \"jk433g34hg3\";\n    private final static String APP_SECRET\
+  \ = \"987dwdqwdqw90\";\n    private final static AccessType ACCESS_TYPE = AccessType.DROPBOX;\n\
+  \n    // SOME MORE CODE HERE\n\n}\n</code></pre>\n\n<p>What is in your opinion the\
+  \ best and most secure way to store the private key? Obfuscation, encryption, what\
+  \ do you think?</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/14570989/best-practice-for-storing-and-protecting-private-api-keys-in-applications
+source_context: 'SO question (tags: android, reverse-engineering, proguard, api-key)'
+author_info: Basic Coder
+engagement:
+  score: 481
+  view_count: 266560
+  answer_count: 13
+  is_answered: true
+date_posted: '2013-01-28'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - android
+  - reverse-engineering
+  - proguard
+  - api-key
+attachments: []

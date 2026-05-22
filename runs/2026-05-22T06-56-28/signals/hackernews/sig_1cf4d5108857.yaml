@@ -1,0 +1,14 @@
+signal_id: sig_1cf4d5108857
+raw_text: Musk, frustrated with California laws, says SpaceX, X will move HQs to Texas
+source_platform: hackernews
+source_url: https://www.reuters.com/technology/musk-says-spacex-will-move-headquarters-texas-california-2024-07-16/
+source_context: HN Story
+author_info: JumpCrisscross
+engagement:
+  points: 14
+  num_comments: 2
+date_posted: '2024-07-16'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

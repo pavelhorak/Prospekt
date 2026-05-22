@@ -1,0 +1,23 @@
+signal_id: sig_80ed654eff9e
+raw_text: 'Cool idea, seems like the next logical (or rather the first) step in the
+  current analytics pipeline.<p>This being said, your doc could do with some fixing
+  &#x2F; editing :<p>&gt; <a href="https:&#x2F;&#x2F;www.avo.app&#x2F;docs&#x2F;help&#x2F;faq"
+  rel="nofollow">https:&#x2F;&#x2F;www.avo.app&#x2F;docs&#x2F;help&#x2F;faq</a>
+
+  Bad copy pasting of &quot;Does Avo send my events to its servers?&quot; instead
+  of &quot;Why does Avo want me to input my analytics tool API keys?&quot;<p>&gt;
+  <a href="https:&#x2F;&#x2F;www.avo.app&#x2F;docs&#x2F;reference&#x2F;languages"
+  rel="nofollow">https:&#x2F;&#x2F;www.avo.app&#x2F;docs&#x2F;reference&#x2F;languages</a>
+
+  Those are documented in detail in TBD.<p>Best of luck.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=19222463
+source_context: HN Comment on story 19209527
+author_info: lapnitnelav
+engagement:
+  parent: '19209527'
+date_posted: '2019-02-22'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

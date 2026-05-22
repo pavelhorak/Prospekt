@@ -1,0 +1,29 @@
+signal_id: sig_0fa93af65caa
+raw_text: Congratulations on the launch. You are definitely tackling an interesting
+  problem, but I will play a devil&#x27;s advocate here, because I&#x27;ve spent some
+  time researching similar use-cases for dealing mainly with triage of security &amp;
+  abuse incidents. From the demo, the application seems to be pretty basic, you accept
+  an input and allow users to set actions, take actions, and move tasks through the
+  tasks&#x27; life-cycle. You argue that your solution will lower the costs associated
+  with the implementation and maintenance of such applications, but is that really
+  the real added value of your solution for a customer?<p>In my experience, many teams
+  have already established flows and homebrew solutions that are working &quot;just
+  fine&quot;. With your solution in place, how do you convince these type of customers
+  to migrate? Why they should spend time on integrating with your application that
+  offers just fancy manual triage of tasks? You list numerous use-cases which I would
+  say are mission critical (onboarding of customers, triage of risk transactions,
+  etc.) and your solution doesn&#x27;t really help the operators (=humans) to resolve
+  the problem faster. In my experience, the operators often times have to deal with
+  so called &quot;alarm&#x2F;alert fatigue&quot;, how does your solution helps companies
+  do more with less?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22478485
+source_context: HN Comment on story 22476985
+author_info: tomashertus
+engagement:
+  parent: '22476985'
+date_posted: '2020-03-03'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

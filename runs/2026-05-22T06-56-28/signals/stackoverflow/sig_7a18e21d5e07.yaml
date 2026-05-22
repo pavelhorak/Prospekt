@@ -1,0 +1,66 @@
+signal_id: sig_7a18e21d5e07
+raw_text: "How can I get useful information (like stack traces) on C# Windows Store\
+  \ (Metro) Apps, when they crash?\n\n<p>So I'm doing my first steps in C# (and .NET/Visual\
+  \ Studio in general) and started by writing a simple tile puzzle as a portable library\
+  \ and writing UI's for different target platforms. I started with a Console UI and\
+  \ moved to a WPF Application. Then I tried \"Windows Store\" and for the most part\
+  \ I could copy the WPF code and just change some namespaces and method signatures.\
+  \ </p>\n\n<p>But some thing do behave a bit differently and it took me over an hour\
+  \ of googling to get it to give me any kind of information about the crashed I was\
+  \ having. So if for example I make something like this in the conventional WPF application:</p>\n\
+  \n<pre><code>Storyboard.SetTargetProperty(animation, \n     new PropertyPath(\"\
+  {Canvas.MispelledProperty}\"));\n</code></pre>\n\n<p>I get a .NET exception at the\
+  \ exact place where the exception is raised. If I do the same mistake in the Windows\
+  \ Store App all I get to see is this</p>\n\n<pre><code>#if DEBUG &amp;&amp; !DISABLE_XAML_GENERATED_BREAK_ON_UNHANDLED_EXCEPTION\n\
+  \        UnhandledException += (sender, e) =&gt;\n        {\n            if (global::System.Diagnostics.Debugger.IsAttached)\
+  \ global::System.Diagnostics.Debugger.Break();\n        };\n#endif\n</code></pre>\n\
+  \n<p>(Edit: this is in a file called <code>App.g.i.cs</code>)</p>\n\n<p>And then\
+  \ I have to carefully look at the output to find </p>\n\n<pre><code>WinRT information:\
+  \ Cannot resolve TargetProperty (Canvas.MispelledProperty) on specified object.\n\
+  </code></pre>\n\n<p>Now in some cases this might be enough but, but I really find\
+  \ it hard to believe that is all you can get. I got some problem related with nuances\
+  \ in the way Storyboar works sorted out pretty easily (Completed events attached\
+  \ directly to the animation where not being fired like in the WPF counterpart) but\
+  \ right now I'm completely clueless about a this error:</p>\n\n<pre><code>A first\
+  \ chance exception of type 'System.ArgumentOutOfRangeException' occurred\n</code></pre>\n\
+  \n<p>caused simply by wildly clicking around, which also crashes the entire app.\
+  \ </p>\n\n<p>Now my app is really trivial and it probably has something to do with\
+  \ how I handle <code>PointerPressed</code> and <code>PointerReleased</code> events\
+  \ but it's really frustrating not to have something better to start with. </p>\n\
+  \n<p>So I guess the actual question would be: Is it really supposed to be like this\
+  \ or can I configure the debugger to give me more useful information? And if not\
+  \ then: What kind of debugging techniques/workarounds do you guys use when developing\
+  \ Windows Store Apps? </p>\n\n<p><strong>UPDATE:</strong> </p>\n\n<p>Well at first\
+  \ I thought this only happened to WinRT related Exception that where happening outside\
+  \ the CLR and where not properly wrapped but it turns out all unhandled exceptions\
+  \ take you to  <code>App.g.i.cs</code> instead of the place where they happened.\
+  \ For instance I purposely tried to access a list out of it's ranges in a method\
+  \ to see if Visual Studio would take me there when the exception was raised but\
+  \ instead it took me again to <code>App.g.i.cs</code>. In the locals I get this\
+  \ <code>Windows.UI.Xaml.UnhandledExceptionEventArgs</code> and the message string\
+  \ has some information  that looks almost like  stack trace but has no line numbers.\
+  \ Here is an example of my intentional error:</p>\n\n<pre><code>System.ArgumentOutOfRangeException\n\
+  \   at System.ThrowHelper.ThrowArgumentOutOfRangeException()\n   at System.Collections.Generic.List`1.get_Item(Int32\
+  \ index)\n   at StorePuzzle.PuzzleRenderer.HandleTileReleased(Object sender, PointerRoutedEventArgs\
+  \ e)\n</code></pre>\n\n<p>All I want is Visual Studio to immediately take me to\
+  \ place where the exception is being raised instead of taking me to <code>App.g.i.cs</code>\
+  \ just like it does in \"Non Store Apps\". Now, that compiler preprocessor directives\
+  \ makes it look like I could just turn it off (<code>#if DEBUG &amp;&amp; !DISABLE_XAML_GENERATED_BREAK_ON_UNHANDLED_EXCEPTION</code>)\
+  \ but googleing it has not showed me any way of doing so. </p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/14554931/how-can-i-get-useful-information-like-stack-traces-on-c-windows-store-metro
+source_context: 'SO question (tags: c#, windows-store-apps)'
+author_info: Federico
+engagement:
+  score: 25
+  view_count: 5805
+  answer_count: 4
+  is_answered: true
+date_posted: '2013-01-28'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - c#
+  - windows-store-apps
+attachments: []

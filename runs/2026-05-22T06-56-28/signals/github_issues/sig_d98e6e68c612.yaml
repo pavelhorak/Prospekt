@@ -1,0 +1,28 @@
+signal_id: sig_d98e6e68c612
+raw_text: "[Feature Request]:\n\n### 检查项\n\n- [x] 我已经将插件更新为**最新版**\n- [x] 我拥有有效的 **Restful\
+  \ Fast Request** **许可证**\n- [x] 我查阅了 [功能文档](https://api-buddy.com/en/guide/features/)\
+  \ 并且没有发现该功能\n- [x] 我搜索了现有问题，没有其他人提出类似的功能\n- [x] 我认为 25% 以上的用户对此功能持积极态度\n\n### 描述功能\n\
+  \n<img width=\"1107\" height=\"830\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/24f04a01-ab78-459a-a53a-fee9cffaf6fc\"\
+  \ />\n\n1. 希望这里的标签 切换的时候 不要晃动，目前 被激活的标签 呗移动到最下面了，视觉跳动太大，\n2. 这个面板的脚本请求头等配置，希望是在环境级别要有一份。原因有几点\n\
+  \n    1. 、比如请求头，如果多环境，有角色不同平台 同时开发情况（管理端，门户端）用户和功能都是不一样的。此时测试接口每测试一个都要切换这个 请求头。虽然可以\
+  \ 通过脚本动态设置，很多个if 操作不直观。\n    2.、多端开发，脚本处理逻辑不同，比如登录前置处理 参数传递 各有特定的规则需要一定的逻辑处理。单纯呢通过\
+  \ if 判断环境 如果端前置处理 代码逻辑比较大，那么就显得混乱，而且如果后期有需求变动了逻辑在这里修改查询起来也比较麻烦，分开的好处就是 直接拿到对应端的\
+  \ 处理脚本稍作改动几个变量就可以运行了。\n\n\n     \n\n### 其他描述\n\n_No response_"
+source_platform: github_issues
+source_url: https://github.com/dromara/fast-request/issues/381
+source_context: GitHub issue in dromara/fast-request
+author_info: xiyuan-lgz
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-12'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: dromara/fast-request
+attachments: []

@@ -1,0 +1,37 @@
+signal_id: sig_5a76b1624385
+raw_text: 'How can I use Emacs Tramp to double hop ssh?
+
+
+  <p>My campus only lets ssh access through a gateway server. So to access the cluster
+  I am coding on I have to ssh to the gateway and then ssh to the machine I am working
+  on. The connection is very slow at times and is frustrating to work on.</p>
+
+
+  <p>I would love to use something like tramp which I understand would have the buffer
+  open on my local machine and only talk through the network when I save to disk.
+
+  I am not very familiar with tramp at all and struggling to get it to work, especially
+  through the double hop. The documentation says this is accomplished through defining
+  proxies in tramp, but I am unable to understand the syntax.</p>
+
+
+  <p>Does anyone know how to use emacs to code through a double hop or have an alternate
+  workaround for editing code through two ssh hops?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/715855/how-can-i-use-emacs-tramp-to-double-hop-ssh
+source_context: 'SO question (tags: emacs, ssh, tramp)'
+author_info: f4hy
+engagement:
+  score: 33
+  view_count: 11674
+  answer_count: 5
+  is_answered: true
+date_posted: '2009-04-03'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - emacs
+  - ssh
+  - tramp
+attachments: []

@@ -1,0 +1,53 @@
+signal_id: sig_91682e95e15d
+raw_text: 'Regular expression to match a line that doesn&#39;t contain a word
+
+
+  <p>I know it''s possible to match a word and then reverse the matches using other
+  tools (e.g. <code>grep -v</code>). However, is it possible to match lines that do
+  not contain a specific word, e.g. <code>hede</code>, using a regular expression?</p>
+
+  <h5>Input:</h5>
+
+  <pre><code>hoho
+
+  hihi
+
+  haha
+
+  hede
+
+  </code></pre>
+
+  <h5>Code:</h5>
+
+  <pre class="lang-bash prettyprint-override"><code>grep &quot;&lt;Regex for ''doesn''t
+  contain hede''&gt;&quot; input
+
+  </code></pre>
+
+  <h5>Desired output:</h5>
+
+  <pre><code>hoho
+
+  hihi
+
+  haha
+
+  </code></pre>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/406230/regular-expression-to-match-a-line-that-doesnt-contain-a-word
+source_context: 'SO question (tags: regex, regex-negation)'
+author_info: knaser
+engagement:
+  score: 5476
+  view_count: 5492991
+  answer_count: 35
+  is_answered: true
+date_posted: '2009-01-02'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - regex
+  - regex-negation
+attachments: []

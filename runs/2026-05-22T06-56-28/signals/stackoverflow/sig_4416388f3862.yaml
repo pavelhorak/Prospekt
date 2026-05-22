@@ -1,0 +1,59 @@
+signal_id: sig_4416388f3862
+raw_text: "Angular &quot;Unknown Provider&quot; error after minification with Grunt\
+  \ Build in Yeoman app\n\n<p>I'm having problems with <code>grunt build</code> on\
+  \ a Yeoman generated Angular app, using Coffee and Slim, with all libraries up-to-date.\
+  \ (The app was just generated a few days ago with the most recent generator.)</p>\n\
+  \n<p><code>grunt build</code> and <code>grunt server</code> both worked fine initially.\
+  \ But after a few days of development using <code>grunt server</code>, I discovered\
+  \ that <code>grunt build</code> had stopped working entirely. </p>\n\n<p>There were\
+  \ a few different problems that I fixed. The biggest one was that I had to abandon\
+  \ Slim entirely for my index file and use straight HTML, since <code>grunt build</code>\
+  \ was inexplicably removing 80% of the index file when it published to <code>/dist</code>.</p>\n\
+  \n<p>Unfortunately, after I got almost everything resolved, I started getting this\
+  \ error in one of my Angular directives:</p>\n\n<p><b>Uncaught Error: Unknown provider:\
+  \ aProvider &lt;- a</b></p>\n\n<p>The problem seems to be in uglify. I think it\
+  \ could possibly be the same problem reported <a href=\"https://stackoverflow.com/questions/20098680/angular-grunt-build-from-yeoman-breaks-my-app\"\
+  >here</a>, but I'm not absolutely sure. I tried a number a number of solutions,\
+  \ but the only thing that has worked for me was to manually generate clean js files\
+  \ from my coffeescript, copy the files into <code>/dist</code>, and then write the\
+  \ paths into <code>dist/index.html</code>.</p>\n\n<p>Obviously that's not optimal.\
+  \ I'm sure there's a neater way to do it in Grunt (probably by removing minification\
+  \ entirely from the build process, as that other user did in the link above), but\
+  \ I'm new to it and haven't yet figured out how to do that. Either way, it would\
+  \ be a workaround.</p>\n\n<p>My Gruntfile is pretty basic: I've only added grunt-connect-proxy,\
+  \ grunt-contrib-sass, and grunt-slim to the default file. In fact, I tried to bring\
+  \ in a clean, newly-generated Gruntfile but it didn't build any better. </p>\n\n\
+  <p>The directive that's failing is below. The error actually comes up right in the\
+  \ first line of the controller, <code>$scope.showInput = false</code>. What's frustrating\
+  \ is that everything works great in <code>grunt server</code>. The moment I build\
+  \ though, it falls apart entirely.</p>\n\n<pre><code>myModule.directive \"editable\"\
+  , -&gt;\n\n  controller = ($scope) -&gt;\n    $scope.showInput = false\n\n    $scope.saveContent\
+  \ = -&gt; \n      $scope.toggleContent()\n      $scope.save()\n\n  linker = (scope,\
+  \ element, attrs) -&gt;    \n    scope.toggleContent = -&gt; \n      scope.showInput\
+  \ = not scope.showInput\n      setTimeout((-&gt; element.find('input').focus()),\
+  \ 100)\n\n  return DDO = \n    restrict: 'E'\n    controller: controller\n    link:\
+  \ linker\n    templateUrl: \"template/editable.html\"\n    scope:\n      editableType:\
+  \ \"@\"\n      text: \"=\"\n      placeholder: \"@\"\n      save: \"&amp;\"\n</code></pre>\n\
+  \n<p>(The template isn't really important. It just has an <code>ng-switch</code>\
+  \ that toggles using <code>$scope.showInput</code>.)</p>\n\n<p>If anybody has any\
+  \ suggestions, I'd appreciate it.</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/20340644/angular-unknown-provider-error-after-minification-with-grunt-build-in-yeoman-a
+source_context: 'SO question (tags: javascript, angularjs, gruntjs, yeoman, uglifyjs)'
+author_info: javbotero
+engagement:
+  score: 32
+  view_count: 16576
+  answer_count: 1
+  is_answered: true
+date_posted: '2013-12-03'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - javascript
+  - angularjs
+  - gruntjs
+  - yeoman
+  - uglifyjs
+attachments: []

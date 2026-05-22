@@ -1,0 +1,27 @@
+signal_id: sig_d85200af4f17
+raw_text: Automate everything that can be automated. Avoid setting up things using
+  GUIs.<p>Starting a set of services should be as simple as &quot;docker-compose up&quot;,
+  building should be as simple as &quot;make&quot;, checking out the code should be
+  as simple as &quot;git clone&quot;, etc. You shouldn&#x27;t need a shitload of wiki
+  checklists that describe how to install dependencies and how to check out all the
+  git-directories with correct versions relative to each other. Save your wiki for
+  high level documentation<p>A must for this to work is to avoid configuration state
+  in your servers that is not captured in your source tree. This is the most critical
+  because it&#x27;s easy to forget and it can quickly become a blocker, not just for
+  RnD but also ops. You have this super important service that everybody depends on
+  and it always works, suddenly the server burns while go-to-guy is on vacation and
+  nobody knows how to bring it up again from a clean slate because it involves several
+  hours of clicking around in some proprietary GUI and ticking all the correct boxes.
+  If you can&#x27;t reproduce this service today, make a VM snapshot already, then
+  start work on fully declarative service configuration.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22455535
+source_context: HN Comment on story 22454333
+author_info: Too
+engagement:
+  parent: '22454333'
+date_posted: '2020-03-01'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

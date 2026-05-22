@@ -1,0 +1,61 @@
+signal_id: sig_52a22b6e3bc3
+raw_text: 'Launch HN: GoLinks (YC W19) – Internal short links for teams
+
+
+  Hello HN!<p>We’re Jorge, Kevin and Sean and we’re building GoLinks (<a href="https:&#x2F;&#x2F;www.golinks.io"
+  rel="nofollow">https:&#x2F;&#x2F;www.golinks.io</a>).<p>GoLinks is a platform that
+  allows you to easily manage and share links by letting teams create a short link
+  for any internal URL within a company. These links are easy to remember and share,
+  so you don&#x27;t have to bookmark or copy and paste them in emails.<p>Each day
+  we use and share hundreds of links to get our jobs done, without considering how
+  long it takes to access and share these resources. It’s one reason why many of us
+  leave tabs open in our browser: we don’t want to spend the 5 to 10 steps to navigate
+  back to that important page. With GoLinks, you’ll be able to deep-link directly
+  into any application with just a simple keyword entered into your address bar. This
+  allows links to be conversational. For example, one employee can create the keyword
+  “go&#x2F;review” to point to the annual review page in Workday. Later in a meeting,
+  that employee can mention, “Remember to visit go&#x2F;review to fill out your annual
+  reviews!” Now anyone in that meeting can remember and access the link “go&#x2F;review”,
+  without digging through their email or Slack.<p>Golink systems are commonly used
+  in many big tech companies such as Google, Linkedin, Twitter and Airbnb, built by
+  internal tools engineers in those companies. These systems have become an integral
+  part of the way tech companies share internal links.<p>When we started our careers
+  in tech, we would often visit each other for lunch at these tech companies and we
+  began to notice the same go&#x2F;links everywhere. In the hallways, cafes, break
+  rooms, posters. fliers and TVs, there would be these keywords prefixed with “go&#x2F;”
+  that allowed employees to quickly access information on their devices. The employee
+  could enter a shortened URL like go&#x2F;food into their mobile browser, or desktop,
+  and could access the lunch menu for that day. An easy and simple concept, but an
+  extremely powerful method for internal communication.<p>Although these systems are
+  ubiquitous in large tech companies, we noticed there was nothing on the market that
+  catered to startups, midsize, or non-tech companies. Companies usually don’t have
+  the time or the resources to build sophisticated internal tools, so we set out to
+  create GoLinks as a Service.<p>The challenge was building an internal tool for companies
+  that may not have any internal infrastructure. For example, large tech companies
+  have infrastructure so when you connect to the company Wifi or access the VPN, you
+  can access the internal company network. This allows users to access the “go” domain
+  on the network, which resolves the deep link redirection. For smaller and midsize
+  companies, employees might be 100% remote or working in a coworking space, or maybe
+  the company never got around to setting up an intranet. We had to build a product
+  that did not rely on assuming internal infrastructure.<p>We were able to replicate
+  the functionality of an internal network, and the simplicity of a short-link redirect
+  system, by creating browser extensions for each of the popular browsers. The extension
+  would proxy the “go” domain to our server and we authenticate and redirect the user
+  to the correct location. Now coworkers can be on any network and any wifi, and as
+  long as they authenticate in their current browser, we can find their company’s
+  internal links.<p>We are startup-friendly—anyone under 10 users can get started
+  completely free—but our main initial focus is on enterprise clients.<p>If you’ve
+  ever used our GoLinks or any company&#x27;s golink system, let us know how it’s
+  changed your daily workflow. Thanks for reading. We appreciate your ideas and feedback!'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=19340316
+source_context: HN Story
+author_info: jazamora
+engagement:
+  points: 88
+  num_comments: 93
+date_posted: '2019-03-08'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

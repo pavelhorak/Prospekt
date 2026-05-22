@@ -1,0 +1,16 @@
+signal_id: sig_acaf9facfefd
+raw_text: This feels like <a href="https:&#x2F;&#x2F;ballerina.io&#x2F;" rel="nofollow">https:&#x2F;&#x2F;ballerina.io&#x2F;</a>
+  but for non-programmers, and with SaaS integrations built-in. I&#x27;ve spent so
+  much time moving CSV between systems at an ecommerce company.<p>Congrats on the
+  launch, this looks awesome! Would love to learn more about how it was built.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=17148172
+source_context: HN Comment on story 17147272
+author_info: adamfeldman
+engagement:
+  parent: '17147272'
+date_posted: '2018-05-24'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

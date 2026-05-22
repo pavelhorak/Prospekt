@@ -1,0 +1,50 @@
+signal_id: sig_86e7e437fa53
+raw_text: 'feature request: Distortion
+
+
+  There is already `lens_distortion`, but it seems to be mostly zoomed in towards
+  center.
+
+  What I am referring to is more of a wavy effect, I am not sure how to describe it
+  so here''s a picture:
+
+
+  <img width="5120" height="1440" alt="Image" src="https://github.com/user-attachments/assets/dee1d382-ec23-4f86-b2da-eb8d996bb44d"
+  />
+
+
+  Here''s a short video too:
+
+  https://www.youtube.com/watch?v=r63YuRtqx9A
+
+
+  This was not made by me, I literally just asked gemini to give me the cheapest possible
+  shader for this, and I feel like it did a great job.
+
+  I then just asked it to apply it directly to `Shaders.hpp` since I couldn''t find
+  a shader file anywhere.
+
+  I didn''t make a PR since `Shaders.hpp` states on top it shouldn''t be edited, and
+  this is more of a proof of concept anyways, it''s not really customizable nor does
+  it look great.
+
+  I could send you the code if you''d like, or even make a PR so it''s easier for
+  you to see changes if you''d like to implement it.'
+source_platform: github_issues
+source_url: https://github.com/hyprnux/hyprglass/issues/36
+source_context: GitHub issue in hyprnux/hyprglass
+author_info: nnra6864
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-21'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: hyprnux/hyprglass
+attachments: []

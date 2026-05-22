@@ -1,0 +1,30 @@
+signal_id: sig_1440ba1f0ff9
+raw_text: 'There&#x27;s quite a few modern HR platforms floating around, like CharlieHR,
+  and it seems (as an outsider) that these platforms have explicitly decided not to
+  enter payroll because it&#x27;s such a nightmare. From my own experience, payroll
+  is very hands-on because of edge-cases: make one mistake with one employee and you&#x27;re
+  sixty emails deep with a payroll administrator trying to clear things up (I&#x27;ve
+  been on the receiving end of payroll hell quite a few times in my career!).<p>I
+  think applying best engineering practices to business problems (i.e: unit testing
+  your payroll logic) is a vastly undervalued opportunity and I think offering a payroll
+  API is a fantastic opportunity for companies like CharlieHR to gain this functionality.<p>1.
+  If we use CharlieHR as an example, how do you tackle building a relationship with
+  them as a service provider (Payroll API) while competing with them on the product
+  side? CharlieHR would need to disclose the relationship to their customers (since
+  the data would be shared) -- do you plan to spin out a separate &quot;brand&quot;
+  for the API?<p>2. How do you accommodate the inevitable Payroll hell: do you have
+  (or plan to have) a staff of payroll administrators (and accountants?) to handle
+  the edge-cases? Are you insured against any mistakes? Have you encountered any challenges
+  so far &#x2F; identified any big wins?<p>Thanks and good-luck, I&#x27;ll pass this
+  on to our HR team!'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=27831756
+source_context: HN Comment on story 27830978
+author_info: painroll
+engagement:
+  parent: '27830978'
+date_posted: '2021-07-14'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

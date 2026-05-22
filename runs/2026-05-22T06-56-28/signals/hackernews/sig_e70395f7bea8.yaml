@@ -1,0 +1,43 @@
+signal_id: sig_e70395f7bea8
+raw_text: I've worked with iCloud in conjunction with Core Data. It's as broken as
+  the article describes, and in fact has gotten worse over time.<p>No one really fully
+  knows WTF is going with iCloud - documentation is basically nonexistent, support
+  unavailable, implementation broken in trivial ways, and error messages inscrutable.
+  I was at an Mac/iOS conference recently where the Core Data iCloud talk morphed
+  from a standard talk into a "here's the mic, anybody have any idea what's going
+  on with this thing" affair. Helpful, but indicative of the state of things.<p>IMO,
+  from having studied this for many, many hours over many moons, is that what Apple
+  is trying to do is fundamentally hard, if not entirely unfeasible. They're trying
+  to replace a smart server with one that's dumb as a doorstop. More specifically,
+  they're trying to emulate a CRUD web service with a file sync engine.<p>Conflict
+  resolution is left up to individual clients, since the server doesn't do any "thinking".
+  Likewise, there is no canonical, authoritative state of the store, since the server
+  doesn't "think", only the clients do. Apple was hoping that by shoving a bunch of
+  diffs of your database onto the server, that clients can reliably reconstruct a
+  sane database by playing them back - except that multiple clients are updating the
+  diffs simultaneously and there is no server-side conflict resolution.<p>Oh, and
+  if stuff fails, there are no regular snapshot states to fall back to, because iCloud
+  is a file store, not a database engine. Your whole store is now corrupt. Enjoy.<p>Oh,
+  and there's no way to nuke the database and start over - there are metadata files
+  that are undocumented or that we don't even have sandbox access to, that interfere
+  with completely destroying the database.<p>At this point you might think "Fine!
+  I'll go to my Settings -&#62; iCloud -&#62; Manage Storage menu and delete everything
+  associated with that app and start it off on a clean slate!"<p>And then you find
+  out that, even today, in iOS 6.1.3 land, there is a bug from iOS 5.0 where if you
+  delete an app's iCloud bucket <i>it can never be created by that app, on that account,
+  ever again</i>. I wish I were exaggerating. <i>In perpetuity</i>. Presumably some
+  state gets fucked and now this app is forever more unable to store anything on iCloud.<p>To
+  make even the most trivial experiment on the iCloud API involves <i>creating a brand
+  new app</i>.<p>iCloud (in so far as it relates to Core Data and document storage)
+  isn't just buggy, isn't just poorly implemented - it's <i>non-functional</i>.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=5454729
+source_context: HN Comment on story 5454491
+author_info: potatolicious
+engagement:
+  parent: '5454491'
+date_posted: '2013-03-28'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

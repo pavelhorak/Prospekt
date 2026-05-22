@@ -1,0 +1,24 @@
+signal_id: sig_26ac55d6d3c7
+raw_text: 'Feature request
+
+
+  Please add a feature to pop up when media (audio/video) is detected to make it easier
+  to download and add an auto rename feature following the web title'
+source_platform: github_issues
+source_url: https://github.com/C-Yassin/FlameGet/issues/7
+source_context: GitHub issue in C-Yassin/FlameGet
+author_info: Dicko46
+engagement:
+  comments: 2
+  reactions: 0
+  state: open
+date_posted: '2026-05-18'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: C-Yassin/FlameGet
+attachments: []

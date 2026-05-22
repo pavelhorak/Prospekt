@@ -1,0 +1,15 @@
+signal_id: sig_05138fe5dd7a
+raw_text: 'Show HN: I was frustrated with pricing of PagerDuty et al., so made one
+  myself'
+source_platform: hackernews
+source_url: https://allquiet.app
+source_context: HN Story
+author_info: mads_quist
+engagement:
+  points: 188
+  num_comments: 130
+date_posted: '2023-04-23'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

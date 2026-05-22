@@ -1,0 +1,14 @@
+signal_id: sig_05adce84f5dd
+raw_text: Yes I am, Stan. Me too. Deeply frustrated with Firefox.
+source_platform: hackernews
+source_url: http://rovivor.com/2008/05/yes-i-am-stan-me-too-deeply-frustrated-with-firefox/
+source_context: HN Story
+author_info: rovivor
+engagement:
+  points: 17
+  num_comments: 25
+date_posted: '2008-05-04'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

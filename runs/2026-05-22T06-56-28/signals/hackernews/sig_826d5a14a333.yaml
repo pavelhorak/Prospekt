@@ -1,0 +1,18 @@
+signal_id: sig_826d5a14a333
+raw_text: Seems to be working for them but I would typically advise against too much
+  energy spent on automation and internal tools too early. Tools can really slow you
+  down in the early going when things are changing rapidly. And you can typically
+  throw inexpensive bodies at many of the tasks that are otherwise candidates for
+  automation.<p>The one thing I do like is that building tools gives more employees
+  experience in building product.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=8571779
+source_context: HN Comment on story 8569898
+author_info: pbreit
+engagement:
+  parent: '8569898'
+date_posted: '2014-11-07'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

@@ -1,0 +1,37 @@
+signal_id: sig_5867176f91e4
+raw_text: 'Show HN: Composify – Open-Source Visual Editor / Server-Driven UI for React
+
+
+  Everyone&#x27;s shipping AI tools right now, and here I am with a visual editor.
+  Still, I think many teams are very familiar with the problem of &quot;marketing
+  wants to change the landing page again.&quot;<p>I&#x27;ve run into this for years.
+  Campaign pages come in, engineers get pulled in, and tickets stack up. It&#x27;s
+  usually the same components, just rearranged.<p>A few years ago, at a startup I
+  worked at, we built an internal tool to deal with this. You register your existing
+  React components, they show up as drag-and-drop blocks, and the result is a JSX
+  string. No schema to learn, no changes to your component code.<p>We used it in production,
+  handling real traffic in a messy, legacy-heavy environment. It held up well. Over
+  time, it powered roughly 60% of our traffic. Marketing shipped pages without filing
+  tickets, and product teams ran layout-level A&#x2F;B tests. That experience eventually
+  led me to clean it up and open-source it.<p>Composify sits somewhere between a no-code
+  page builder and a headless CMS. Page builders like Wix or Squarespace offer drag-and-drop,
+  but lock you into their components. There are also solid tools like Builder.io,
+  Puck, and Storyblok, but many require you to adapt your components to their model.
+  Composify is intentionally minimal: it lets you use your actual production components
+  as they are.<p>It&#x27;s still early. The docs need work, and there are rough edges.
+  But it&#x27;s running in production and has solved a real problem for us. If you
+  already have a component library and want non-devs to compose pages from it, it
+  might be useful.<p>Homepage: <a href="https:&#x2F;&#x2F;composify.js.org" rel="nofollow">https:&#x2F;&#x2F;composify.js.org</a><p>Happy
+  to answer questions or hear feedback!'
+source_platform: hackernews
+source_url: https://github.com/composify-js/composify
+source_context: HN Story
+author_info: injung
+engagement:
+  points: 73
+  num_comments: 5
+date_posted: '2025-12-18'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

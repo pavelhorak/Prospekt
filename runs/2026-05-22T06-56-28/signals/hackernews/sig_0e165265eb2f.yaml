@@ -1,0 +1,67 @@
+signal_id: sig_0e165265eb2f
+raw_text: 'Launch HN: Avo (YC W19) – Minimize Human Errors When Implementing Analytics
+
+
+  Hi HN!
+
+  We’re Árni, Sölvi, Thora, and Stef – from Iceland. We make Avo (<a href="https:&#x2F;&#x2F;www.avo.app"
+  rel="nofollow">https:&#x2F;&#x2F;www.avo.app</a>),  a tool built to minimize human
+  errors and overhead when implementing analytics. We’re going for “simple made easy”
+  for maintaining tracking for cross platform consumer products, where a 1% change
+  in conversion funnels makes a difference. It’s a code-generated, type-safe tracking
+  library to accurately implement analytics events that are defined and maintained
+  in a single-source-of-truth web app.<p>We’re solving a personal pain point of broken
+  analytics and how much effort it was to have an overview of what was being tracked
+  across product teams and platforms. We all worked together on a game called QuizUp
+  (100M+ users) where we used metrics to make decisions.  The problem was we repeatedly
+  “broke” conversion funnels and retention charts we relied on when we shipped product
+  updates, by mistakenly removing or changing analytics implementation.<p>It was driving
+  everyone involved mad – so we built internal dev tools and processes that made implementation
+  easier and our data more reliable. What we built was never perfect, and it was clunky
+  in many ways:<p>1) There was no one that really <i>wanted</i> to maintain this –
+  but developers ended up agreeing to maintain it because it was better than the alternative
+  of frustrated data scientists requesting a fix for analytics implementation that
+  the developers worked on weeks or months ago.<p>2) JSON files (or the crappy web
+  apps we invested time in building on top of the JSON schemas) didn’t give us a “human-accessible”
+  overview of what was being tracked and when. So people who weren’t working on analytics
+  every day had no idea what data they should look at to dig into user behavior.<p>We
+  also discovered that a lot of companies build similar stuff – i.e. some version
+  of internal tools for data validation, either through code gen or through server-side
+  validation, often based on JSON schemas. The same seems to apply for those companies;
+  it’s clunky to update, doesn’t give a proper overview, and no one <i>wants</i> to
+  maintain it – yet it beats the alternative of not having it.<p>So now, six years
+  after we started maintaining tools like these internally, we’ve built Avo, to solve
+  these issues for more people.<p>Here’s how it works:<p>1) The web app is built to
+  optimize the experience of maintaining and version controlling complicated event
+  schemas. That means a few things, for example:<p>- we built a “differ” that feels
+  similar to git, but instead of line-based diff, it’s object-based<p>- when you make
+  updates, Avo gives you suggestions to maintain casing and reuse properties across
+  events.<p>- you can view the historical change of each object similar to Asana tasks<p>2)
+  The code gen is optimized for bringing type safety and rigour to analytics implementation:<p>-
+  You install a CLI to easily update (`avo pull`) your tracking library according
+  to the latest version of the event schema. The generated code contains a type-safe
+  function per each event.<p>- For example: A &quot;Cart Updated&quot; event with
+  an &quot;Item Count&quot; property, would generate `cartUpdated(itemCount: Int)`
+  for Swift. For dynamic languages, as well as for limitations which cannot be expressed
+  through type systems, such as min &#x2F; max, the runtime validation logs warnings
+  or errors for data structure errors.<p>Things to note:<p>- Avo does not store, process
+  or access your data – so no GDPR approval required.<p>- The Avo code generated libraries
+  wrap whatever analytics SDK you already use. You can use the Avo library alongside
+  the tracking you already have, or do a full migration to make sure all your events
+  are according to the specs in Avo.<p>- Avo is not another analytics or data pipeline
+  vendor. We love the ones that exist already. We’ve just built Avo to make sure we
+  can use the data we send into them.<p>Thanks for reading, HN. We would love to hear
+  your feedback, as well as stories of when you built this internally or when you
+  wish you had this.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=19209527
+source_context: HN Story
+author_info: stefaniabje
+engagement:
+  points: 66
+  num_comments: 12
+date_posted: '2019-02-20'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

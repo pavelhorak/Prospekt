@@ -1,0 +1,13 @@
+signal_id: sig_4a697fd6cbf9
+raw_text: link to site?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=48202485
+source_context: HN Comment on story 48199120
+author_info: memorexgpt
+engagement:
+  parent: '48199120'
+date_posted: '2026-05-20'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

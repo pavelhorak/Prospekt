@@ -1,0 +1,27 @@
+signal_id: sig_19130d21e358
+raw_text: Congrats on the launch!<p>I experienced ordering medicines over Whatsapp
+  for the first time from the local store in Mumbai a few weeks ago. Discussing order
+  items and them checking drawers was a PITA, so I just called them to get it done.
+  There often is no inventory management system - it&#x27;s a manual check.<p>It was
+  easy to tell that the person at the store didn&#x27;t quite grasp how things worked
+  around online payment, just that they knew how to follow instructions someone had
+  given them.<p>1. Generate physical invoice manually<p>2. Send customer a pic of
+  the invoice over Whatsapp to reconfirm order items and total amount<p>3. Send customer
+  a pic of the physical panel w&#x2F; QR code from payment provider over Whatsapp<p>4.
+  Wait for SMS from bank account confirming amount paid<p>5. Dispatch order<p><a href="https:&#x2F;&#x2F;m.imgur.com&#x2F;sssuU2e"
+  rel="nofollow">https:&#x2F;&#x2F;m.imgur.com&#x2F;sssuU2e</a><p>Not quite there
+  in terms of sending UPI &quot;collect requests&quot; or digital invoices, but it
+  works! Receiving a picture of a QR code was a bit odd but you can easily get around
+  that.<p>This space is definitely exciting, and you can already see the impact digital
+  payments are having on small biz. Good luck, and change the world!
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=27982194
+source_context: HN Comment on story 27981659
+author_info: sirius87
+engagement:
+  parent: '27981659'
+date_posted: '2021-07-28'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

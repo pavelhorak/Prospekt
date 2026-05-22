@@ -1,0 +1,33 @@
+signal_id: sig_f38258a07f91
+raw_text: "Complex DOIs not resolving as expected\n\n## Description\nApologies if\
+  \ I missed an existing open issue that covers this. In the [citations and bibliography](https://mystmd.org/guide/citations)\
+  \ guide, a note is made for dealing with complex DOIs. For both suggestions—shortdoi\
+  \ and encoded url—the rendered link is invalid despite the workarounds. I see this\
+  \ mentioned for shortdoi in [#1074](https://github.com/jupyter-book/mystmd/issues/1074#issue-2231476318)\
+  \ but the issue was marked resolved by [#1075](https://github.com/jupyter-book/mystmd/pull/1075).\
+  \ Clicking on the hyperlink returns a \"DOI not found,\" as does copying the full\
+  \ url and pasting into the address bar. Copying _only_ the DOI will at least return\
+  \ the proper reference via a web search.\n\n## Proposed solution\nHaving the adjusted\
+  \ link (either shortdoi or encoded url) appear instead of the complex DOI would\
+  \ avoid having an unusable hyperlink and allows users to simply click the link as\
+  \ they would any other rendered non-complex DOI.\n## Additional notes\nThis is the\
+  \ resolved citation using the shortdoi workaround as seen in the guide. \n<img width=\"\
+  874\" height=\"484\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/85095d9f-fd7f-4718-b7d0-f4da68ba8157\"\
+  \ />"
+source_platform: github_issues
+source_url: https://github.com/jupyter-book/mystmd/issues/2230
+source_context: GitHub issue in jupyter-book/mystmd
+author_info: bl-freeman
+engagement:
+  comments: 1
+  reactions: 0
+  state: open
+date_posted: '2025-08-07'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - bug
+  is_pull_request: false
+  repo: jupyter-book/mystmd
+attachments: []

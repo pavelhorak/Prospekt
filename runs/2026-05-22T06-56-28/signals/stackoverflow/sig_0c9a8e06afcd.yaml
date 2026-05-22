@@ -1,0 +1,85 @@
+signal_id: sig_0c9a8e06afcd
+raw_text: 'How to decide when to use Node.js?
+
+
+  <p>I am new to this kind of stuff, but lately I''ve been hearing a lot about how
+  good <a href="http://en.wikipedia.org/wiki/Node.js" rel="nofollow noreferrer">Node.js</a>
+  is. Considering how much I love working with jQuery and JavaScript in general, I
+  can''t help but wonder how to decide when to use Node.js. The web application I
+  have in mind is something like <a href="https://en.wikipedia.org/wiki/Bitly" rel="nofollow
+  noreferrer">Bitly</a> - takes some content, archives it. </p>
+
+
+  <p>From all the homework I have been doing in the last few days, I obtained the
+  following information. Node.js </p>
+
+
+  <ul>
+
+  <li>is a command-line tool that can be run as a regular web server and lets one
+  run JavaScript programs</li>
+
+  <li>utilizes the great <a href="http://en.wikipedia.org/wiki/V8_%28JavaScript_engine%29"
+  rel="nofollow noreferrer">V8 JavaScript engine</a></li>
+
+  <li>is very good when you need to do several things at the same time</li>
+
+  <li>is event-based so all the wonderful <a href="http://en.wikipedia.org/wiki/Ajax_%28programming%29"
+  rel="nofollow noreferrer">Ajax</a>-like stuff can be done on the server side</li>
+
+  <li>lets us share code between the browser and the backend</li>
+
+  <li>lets us talk with MySQL</li>
+
+  </ul>
+
+
+  <p>Some of the sources that I have come across are:</p>
+
+
+  <ul>
+
+  <li><a href="http://www.stoimen.com/blog/2010/11/16/diving-into-node-js-introduction-and-installation/"
+  rel="nofollow noreferrer">Diving into Node.js – Introduction and Installation</a></li>
+
+  <li><a href="http://debuggable.com/posts/understanding-node-js:4bd98440-45e4-4a9a-8ef7-0f7ecbdd56cb"
+  rel="nofollow noreferrer">Understanding NodeJS</a></li>
+
+  <li><a href="http://blog.osbutler.com/categories/node-by-example/?page=3" rel="nofollow
+  noreferrer">Node by Example</a> (<a href="http://archive.is/exhaR" rel="nofollow
+  noreferrer">Archive.is</a>)</li>
+
+  <li><a href="http://dailyjs.com/2010/11/01/node-tutorial/" rel="nofollow noreferrer">Let’s
+  Make a Web App: NodePad</a></li>
+
+  </ul>
+
+
+  <p>Considering that Node.js can be run almost out-of-the-box on <a href="http://en.wikipedia.org/wiki/Amazon_Elastic_Compute_Cloud"
+  rel="nofollow noreferrer">Amazon''s EC2</a> instances, I am trying to understand
+  what type of problems require Node.js as opposed to any of the mighty kings out
+  there like <a href="http://en.wikipedia.org/wiki/PHP" rel="nofollow noreferrer">PHP</a>,
+  <a href="http://en.wikipedia.org/wiki/Python_%28programming_language%29" rel="nofollow
+  noreferrer">Python</a> and <a href="http://en.wikipedia.org/wiki/Ruby_%28programming_language%29"
+  rel="nofollow noreferrer">Ruby</a>. I understand that it really depends on the expertise
+  one has on a language, but my question falls more into the general category of:
+  When to use a particular framework and what type of problems is it particularly
+  suited for?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/5062614/how-to-decide-when-to-use-node-js
+source_context: 'SO question (tags: javascript, node.js, web-applications)'
+author_info: Legend
+engagement:
+  score: 2191
+  view_count: 589934
+  answer_count: 17
+  is_answered: true
+date_posted: '2011-02-21'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - javascript
+  - node.js
+  - web-applications
+attachments: []

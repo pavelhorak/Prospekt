@@ -1,0 +1,30 @@
+signal_id: sig_11aae6e0872b
+raw_text: 'What&#39;s the easiest way to call a function every 5 seconds in jQuery?
+
+
+  <p>JQuery, how to call a function every 5 seconds.</p>
+
+
+  <p>I''m looking for a way to automate the changing of images in a slideshow.  </p>
+
+
+  <p>I''d rather not install any other 3rd party plugins if possible.</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/2170923/whats-the-easiest-way-to-call-a-function-every-5-seconds-in-jquery
+source_context: 'SO question (tags: javascript, jquery, jquery-plugins, timer)'
+author_info: ensnare
+engagement:
+  score: 651
+  view_count: 767890
+  answer_count: 7
+  is_answered: true
+date_posted: '2010-01-31'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - javascript
+  - jquery
+  - jquery-plugins
+  - timer
+attachments: []

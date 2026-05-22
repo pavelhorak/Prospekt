@@ -1,0 +1,51 @@
+signal_id: sig_359fac070625
+raw_text: '[Feature Request]:
+
+
+  ### 检查项
+
+
+  - [x] 我已经将插件更新为**最新版**
+
+  - [x] 我拥有有效的 **Restful Fast Request** **许可证**
+
+  - [x] 我查阅了 [功能文档](https://api-buddy.com/en/guide/features/) 并且没有发现该功能
+
+  - [x] 我搜索了现有问题，没有其他人提出类似的功能
+
+  - [x] 我认为 25% 以上的用户对此功能持积极态度
+
+
+  ### 描述功能
+
+
+  当项目中全局配置了jackson.property-naming-strategy=SNAKE_CASE,生成的请求参数body中json的key值统一是驼峰的格式，无法统一成SNAKE_CASE下划线的格式，需要一个个转换，有点繁琐，希望可以加个按钮，能一件转换成。
+
+
+  <img width="757" height="362" alt="Image" src="https://github.com/user-attachments/assets/7ea684e1-df4f-4406-bdc4-6f769b009c66"
+  />
+
+
+  ### 其他描述
+
+
+  _No response_'
+source_platform: github_issues
+source_url: https://github.com/dromara/fast-request/issues/383
+source_context: GitHub issue in dromara/fast-request
+author_info: Gobaio
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-13'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  - 2025.1.9
+  is_pull_request: false
+  repo: dromara/fast-request
+attachments: []

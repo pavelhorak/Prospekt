@@ -1,0 +1,46 @@
+signal_id: sig_c4dea6d9232d
+raw_text: "Thermostats seems complex to configure for simpler cases\n\n**Is your feature\
+  \ request related to a problem? Please describe:**\nThe example thermostat code\
+  \ is nice and simple, but is designed for a complex thermostat that performs heating\
+  \ and cooling and automatic operation (and hence has concepts like the deadband\
+  \ between heating and cooling temperatures), and allows the user to change mode\
+  \ between heat/cool/auto/off. I have tried to create a thermostat, heating only\
+  \ (so user-selectable states are only \"heat\" or \"off\") which is what I need\
+  \ for homebridge-balboa-spa plugin (and also for other thermostats around my house).\
+  \ I ran into all sorts of errors where Matter would try to validate things and not\
+  \ like the setup - many runtime errors in the log (both homebridge log and the plugin\
+  \ log).\n\nI believe I have something working now, but it involves a \"workaround\"\
+  \ which seem weird or unnecessary, and I wonder if they indicate bugs in the system\
+  \ or not. (1) I have to manually setup thermostatBehavior.cluster.supportedFeatures\
+  \ to be equal to thermostatBehavior.features (the sample thermostat code doesn't\
+  \ need to do this manual step). (I also ran into some issues with Presets, but I've\
+  \ managed to implement without using them at all, so some progress).\n\n**Describe\
+  \ the solution you'd like:**\n\nI'd love a clear example of how to code this cleanly\
+  \ and simply, with no runtime thermostat errors. I've failed to achieve that over\
+  \ several hours of work and debugging.\n\n**Describe alternatives you've considered:**\n\
+  \nWorkaround 1:\n\n```\n    const behaviorsStructure = (matterDeviceType as any)?.behaviors;\n\
+  \    if (behaviorsStructure) {\n      const behaviorsArray = Array.isArray(behaviorsStructure)\
+  \ \n        ? behaviorsStructure \n        : Object.values(behaviorsStructure);\n\
+  \      const thermostatBehavior = behaviorsArray.find((b: any) => \n        b?.cluster?.id\
+  \ === 0x201 || b?.id === 'thermostat',\n      );\n      \n      if (thermostatBehavior\
+  \ && thermostatBehavior.cluster && thermostatBehavior.features) {\n        thermostatBehavior.cluster.supportedFeatures\
+  \ = thermostatBehavior.features;\n        platform.log.info('[Matter Thermostat]\
+  \ Set cluster.supportedFeatures for Homebridge detection:', \n          JSON.stringify(thermostatBehavior.features));\n\
+  \      }\n    }\n\n```\n\n**Additional context:**\n\nhttps://github.com/vincedarley/homebridge-plugin-bwaspa/blob/master/src/matter/matterThermostatAccessory.ts"
+source_platform: github_issues
+source_url: https://github.com/homebridge-plugins/homebridge-matter/issues/4
+source_context: GitHub issue in homebridge-plugins/homebridge-matter
+author_info: vincedarley
+engagement:
+  comments: 1
+  reactions: 0
+  state: open
+date_posted: '2026-04-22'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: homebridge-plugins/homebridge-matter
+attachments: []

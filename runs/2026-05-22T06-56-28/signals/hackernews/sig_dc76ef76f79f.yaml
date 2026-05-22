@@ -1,0 +1,50 @@
+signal_id: sig_dc76ef76f79f
+raw_text: 'Show HN: RoastDB – A searchable database of 3,800 specialty coffee beans
+
+
+  Hi HN! We built RoastDB (<a href="https:&#x2F;&#x2F;roastdb.com" rel="nofollow">https:&#x2F;&#x2F;roastdb.com</a>)
+  – think Discogs for specialty coffee. A searchable index of beans from independent
+  roasters around the world.<p>*The problem*<p>We got into specialty coffee gradually.
+  Whenever we tried something we liked — a washed Colombian, a natural Ethiopian —
+  we&#x27;d save the bag. At some point we had drawers of empty coffee bags we couldn&#x27;t
+  bring ourselves to throw away.<p>Our flow was simple: go to a cafe we liked, drink
+  coffee, buy a bag of whatever they were roasting or stocking. Over time we started
+  noticing patterns — we kept reaching for naturals, for East African origins, for
+  anything with fruity notes. We&#x27;d try to seek out similar beans next time. Occasionally
+  we&#x27;d fall in love with something and start reordering it online.<p>But discovery
+  was limited to the few roasters we already knew. There was no easy way to find out
+  that a roaster across town — or in another country — had something we were going
+  to love. We knew great coffee existed out there. We just had no map.<p>So we built
+  one. RoastDB currently indexes 3,800+ beans from 420+ roasters — and growing every
+  week. Search by origin, process, variety, tasting notes. Save beans you want to
+  try. When you find something, you buy directly from the roaster — we&#x27;re a discovery
+  engine, not a store.<p>*How it works*<p>The hardest part isn&#x27;t the scraping
+  — it&#x27;s finding roasters worth indexing. We spend a lot of time hunting for
+  quality third-wave roasters: browsing coffee forums, following competition results,
+  exploring roasters in new cities. The selection is the real work.<p>Once we&#x27;ve
+  found a roaster, the pipeline runs on a €5&#x2F;month Hetzner VPS:<p>1. Scrapers
+  fetch product pages from roaster websites<p>2. LLMs extract structured data (origin,
+  variety, processing, price, tasting notes)<p>3. Normalization cleans up inconsistencies
+  (&quot;Äthiopien&quot; → &quot;Ethiopia&quot;, &quot;84,25&quot; → 84.25)<p>4. Non-English
+  descriptions get translated<p>5. Deduplication scores beans and merges duplicates<p>6.
+  Human review via an admin dashboard before publishing<p>The scrapers rerun weekly
+  with content hashing — we only re-extract pages that actually changed, which keeps
+  the data fresh without burning through API costs.<p>We built an internal tool that
+  gamifies the review process, making it easier to keep up with new beans. And we
+  control the whole pipeline through a Telegram bot — kick off scrapes, approve costs,
+  get notified of failures, all from our phones.<p>The web app is Next.js + SQLite.
+  The database file is ~15MB and serves directly from disk, no complexity.<p>*Feedback
+  welcome*<p>- Roasters we should add (especially outside Europe)<p>- Filter combinations
+  that would be useful<p>- Anything broken or confusing'
+source_platform: hackernews
+source_url: https://roastdb.com
+source_context: HN Story
+author_info: moabdelkader
+engagement:
+  points: 5
+  num_comments: 1
+date_posted: '2026-01-17'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

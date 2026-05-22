@@ -1,0 +1,23 @@
+signal_id: sig_7111a0436552
+raw_text: 'Feature Request
+
+
+  list out the features you want it can/ should have....'
+source_platform: github_issues
+source_url: https://github.com/aryancodesit/Desi_Detective/issues/1
+source_context: GitHub issue in aryancodesit/Desi_Detective
+author_info: aryancodesit
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-17'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: aryancodesit/Desi_Detective
+attachments: []

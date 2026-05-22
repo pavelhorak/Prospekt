@@ -1,0 +1,28 @@
+signal_id: sig_ee9b1dc98651
+raw_text: I think our company has a policy against using shortened URLs, namely because:<p>-
+  If the company goes out of business, then our documentation and business logs have
+  a lot of dead, useless links that can&#x27;t be fixed after the fact. If it&#x27;s
+  a business critical use case, then you just shot yourself in the foot.<p>- Related
+  to the above, it&#x27;s not human-parseable. If you&#x27;re on a mailing list and
+  you send out a hyperlink, you don&#x27;t immediately know if it&#x27;s relevant
+  to you and have to scan the rest of the text for context.<p>- It&#x27;s an unnecessary
+  abstraction on top of perfectly good HTTP URIs, that couples an Internet-scale protocol
+  to one particular company and its closed-source parsing logic.<p>I also don&#x27;t
+  get how this is product is &quot;sticky&quot; &#x2F; won&#x27;t be cut at the first
+  sign of a recession, how much overhead larger companies really have in maintaining
+  such an internal tool (I would think you make something like bit.ly once and keep
+  extending the suffix length by changing one number in a conf file), why smaller
+  companies might need this (I think larger companies just track everything because
+  human analytics at scale might have business value), and how it&#x27;s different
+  from other solutions on the market.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=19340757
+source_context: HN Comment on story 19340316
+author_info: yingw787
+engagement:
+  parent: '19340316'
+date_posted: '2019-03-08'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

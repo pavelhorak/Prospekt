@@ -1,0 +1,31 @@
+signal_id: sig_ac8a2df3aba8
+raw_text: 'ChatGPT''s biggest shortcoming? It can''t process Excel row by row
+
+
+  We kept running into the same issue: ChatGPT is great, but when it comes to generating
+  a new column based on each row of a spreadsheet , it just doesn’t cut it.<p>So we
+  built an internal tool that could.
+
+  It started as a way for our team to clean scraped data, extract key information,
+  enrich datasets with context , tasks that took hours manually. We tried Excel&#x2F;Gsheet
+  add-ins, but they’d often break midway or take too long to run row by row.
+
+  Now, with just a few inputs , your file and a task description, the tool gives you
+  a preview, and then processes the full file in seconds.<p>It handles everything
+  from cleaning messy text, summarizing long content, extracting keywords, and generating
+  contextual data for each row, anything that needs to run row by row.<p>We’ve used
+  it daily for months, and it’s been a game-changer for working with messy or large
+  datasets. We&#x27;re finally opening it up for public use.<p>Use this until ChatGPT
+  has it built-in :)'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=43707290
+source_context: HN Story
+author_info: mindcase
+engagement:
+  points: 4
+  num_comments: 1
+date_posted: '2025-04-16'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

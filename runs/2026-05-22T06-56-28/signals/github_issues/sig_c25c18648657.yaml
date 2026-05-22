@@ -1,0 +1,41 @@
+signal_id: sig_c25c18648657
+raw_text: "Feature | Add complex notifications\n\n### Impact\nMedium\n\n### Problem\
+  \ / Motivation\nCurrent API is `SendNotification(title, body)` only; no action buttons,\
+  \ progress, callbacks, or payload metadata.\n\n### Current behavior\nRelevant primitives\
+  \ exist in the files listed above, but this backlog item does not have a complete,\
+  \ explicit InfiniFrame contract with dedicated coverage.\n\n### Expected behavior\n\
+  Define explicit API/behavior for this migration item, implement in managed + native\
+  \ layers where needed, and add focused tests/documentation.\n\n### Proposed solution\n\
+  Implement this incrementally:\n1. Define/adjust the managed public API in `InfiniFrame.Shared`.\n\
+  2. Wire implementation in `InfiniFrame` and `InfiniFrame.Native` where required.\n\
+  3. Add focused tests (`tests/InfiniFrameTests*`) and docs updates (`docs/docs/guides/*`,\
+  \ `docs/docs/migration/*`).\n\n### Alternatives considered\n- Keep as unsupported\
+  \ and document migration limitation.\n- Provide a workaround-only approach without\
+  \ first-class API.\n\n### Use case\nApplications migrating from Photino expect this\
+  \ behavior and currently need custom handling for \"Add complex notifications\"\
+  .\n\n### Example implementation (current API)\n```csharp\nvar window = InfiniFrameWindowBuilder.Create()\n\
+  \    .SetNotificationsEnabled(true)\n    .SetNotificationRegistrationId(\"com.example.myapp\"\
+  )\n    .Build();\n\nwindow.SendNotification(\"Build finished\", \"All tasks completed.\"\
+  );\nwindow.WaitForClose();\n```\n### Technical proposal\nScope implementation to:\
+  \ native platform layer (`src/InfiniFrame.Native/*`) plus managed interop (`src/InfiniFrame.Shared/Native/*`).\
+  \ Keep behavior deterministic across Windows/Linux/macOS and document platform-specific\
+  \ limitations explicitly.\n\n### Additional context\nPhotino reference: https://github.com/tryphotino/photino.Native/pull/166\n\
+  \n### Checklist\n- [x] I searched existing issues\n- [x] This is not a support question"
+source_platform: github_issues
+source_url: https://github.com/InfiniLore/InfiniFrame/issues/288
+source_context: GitHub issue in InfiniLore/InfiniFrame
+author_info: AnnaSasDev
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-04'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - enhancement
+  - Photino Backlog
+  is_pull_request: false
+  repo: InfiniLore/InfiniFrame
+attachments: []

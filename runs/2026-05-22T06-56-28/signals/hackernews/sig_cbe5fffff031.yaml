@@ -1,0 +1,13 @@
+signal_id: sig_cbe5fffff031
+raw_text: Generating a XeLaTeX source document, then compiling it to produce the PDF.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=43795058
+source_context: HN Comment on story 43794583
+author_info: dClauzel
+engagement:
+  parent: '43794583'
+date_posted: '2025-04-25'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

@@ -1,0 +1,36 @@
+signal_id: sig_669d95ef1d8c
+raw_text: We&#x27;ve been using AccessOwl since March (came across them via the Slack
+  app store while searching for something to help with SOC 2).<p>My thoughts:<p>-
+  The founding team seem to know what they&#x27;re doing. I&#x27;ve put forward a
+  number of feature requests &#x2F; bug reports over the last 5 months and they&#x27;ve
+  generally very responsive, often fixing bugs the same day<p>- They&#x27;ve added
+  a number of larger feature requests over the last 5 months—one in particular being
+  something to help with quarterly access reviews, which has helped to alleviate a
+  real pain point we had<p>- Driving it from Slack seems to works pretty well for
+  the team and people seem to be using it<p>- AccessOwl see themselves as a single
+  source of truth for vendors, however, the reality is that it&#x27;s the vendors
+  themselves that are the source of truth. The accuracy of AccessOwl currently relies
+  on the team using it 100% of the time.<p>- The design of the product is a little
+  rough around the edges, however, as they seem on top of the product generally, I&#x27;m
+  personally happy to work around that for the time being<p>- Most of the workflows
+  work well enough. Offboarding users for example is better than what we had before.<p>-
+  Onboarding a new team member is one area that currently falls short. You&#x27;re
+  able to setup templates to onboard people with, that contain a bunch of apps you
+  want them to have access to, however, you&#x27;re only ever able to select one template—in
+  most cases for us, that means you can use a template to quickly onboard a new user
+  with about 1&#x2F;3 of the apps they need, but for the rest of them you&#x27;re
+  forced to do them one by one, and need to keep track of where you&#x27;re at outside
+  of the product—it&#x27;s extremely slow and cumbersome and much worse than our previous
+  method.<p>- On balance, they have got a promising product, and provided the new
+  user onboarding issues were fixed, would generally recommend it
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=32425980
+source_context: HN Comment on story 32422871
+author_info: wlj
+engagement:
+  parent: '32422871'
+date_posted: '2022-08-11'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

@@ -1,0 +1,312 @@
+signal_id: sig_8d609cfde800
+raw_text: "How do I get the @RolesAllowed annotation to work for my Web application?\n\
+  \n<p>I am making a Web application using Backbone.js, Bootstrap, NetBeans IDE 8.0,\
+  \ Java EE 7, JDK 8, WildFly server 8.1.0, JBoss RESTEasy (resteasy-jaxrs-3.0.8),\
+  \ JBoss 2.2.22, JBoss EJB 3.</p>\n\n<p>I am (relatively) new to Web development,\
+  \ and as such I have only just started to grasp a lot of basic concepts and technologies.\
+  \ I am trying to build a permission system with users and roles into a Web application,\
+  \ but I cannot seem to make the <em>@RolesAllowed annotation</em> to work in my\
+  \ RESTful Web Service. I am already working on this problem for a few days.</p>\n\
+  \n<p>I have a RESTful resource (Java Enterprise/Session Bean?) called <em>UserResource.java</em>,\
+  \ in here I have a method <em>create</em> to create a new user for the application:</p>\n\
+  \n<pre><code>import java.net.URI;\nimport java.security.Principal;\nimport java.util.List;\n\
+  import javax.annotation.security.PermitAll;\nimport javax.annotation.security.RolesAllowed;\n\
+  import javax.ejb.EJB;\nimport javax.ejb.Stateless;\nimport javax.ws.rs.*;\nimport\
+  \ javax.ws.rs.core.*;\nimport org.jboss.ejb3.annotation.SecurityDomain;\n\n@Stateless\n\
+  @SecurityDomain(\"other\")\n@Path(\"/user\")\npublic class UserResource {\n    @EJB(name\
+  \ = \"UserServiceImp\")\n    UserService userService;\n\n    @Context\n    private\
+  \ UriInfo uriInfo;\n\n    @RolesAllowed({\"admin\"})\n    @Path(\"create\")\n  \
+  \  @POST\n    public Response create(CreateRequest request) {        \n        try\
+  \ {\n            System.out.println(\"Start of create method\");\n            User\
+  \ user = userService.createUser(request);\n            return getCreateResponse(user);\n\
+  \        }\n        catch (Exception e){\n            return Response.status(401).entity(\"\
+  Failed to create user\").build();\n        }\n    }\n}\n</code></pre>\n\n<p>This\
+  \ <em>create</em> method works if I use the @PermitAll annotation, but it fails\
+  \ with an error if I use the @RolesAllowed annotation.</p>\n\n<p>I have this Backbone\
+  \ view <em>CreateUserView</em> which provides a form (in HTML) to an end user (with\
+  \ admin rights) for creating new users for the application. On clicking the submit\
+  \ button, JSON data gets send to the url 'rest/user/create' for creating a new user.\
+  \ Before the <em>create</em> method in <em>UserResource.java</em> gets executed,\
+  \ my <em>SecurityInterceptor.java</em> (which implements <em>javax.ws.rs.container.ContainerRequestFilter</em>)\
+  \ checks if the user has the required permissions. I have debugged this thorough\
+  \ and the Security Interceptor is functioning as it should. So after the Security\
+  \ Interceptor gives clear access, something goes wrong in <em>UserResource.java</em>.\
+  \ (As a side note, not sure if this is important, but I believe the Security Interceptor\
+  \ is based on <a href=\"http://howtodoinjava.com/2013/07/25/jax-rs-2-0-resteasy-3-0-2-final-security-tutorial/\"\
+  \ rel=\"noreferrer\">this blog post about RESTEasy security</a>. I was working on\
+  \ the application with another guy, he initially implemented it, so I'm not sure..\
+  \ but it looks almost identical. Anyway that guy has moved on to another project\
+  \ a few weeks ago.)</p>\n\n<p>The error I am getting (output from the server) is\
+  \ the following:</p>\n\n<pre><code>16:45:25,775 ERROR [org.jboss.as.ejb3.invocation]\
+  \ (default task-60) JBAS014134: EJB Invocation failed on component UserResource\
+  \ for method public javax.ws.rs.core.Response org.profit.pgb.rest.resource.UserResource.create(org.profit.pgb.rest.api.CreateRequest):\
+  \ javax.ejb.EJBAccessException: JBAS014502: Invocation on method: public javax.ws.rs.core.Response\
+  \ org.profit.pgb.rest.resource.UserResource.create(org.profit.pgb.rest.api.CreateRequest)\
+  \ of bean: UserResource is not allowed\n    at org.jboss.as.ejb3.security.AuthorizationInterceptor.processInvocation(AuthorizationInterceptor.java:135)\
+  \ [wildfly-ejb3-8.1.0.Final.jar:8.1.0.Final]\n    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.as.ejb3.security.SecurityContextInterceptor.processInvocation(SecurityContextInterceptor.java:95)\
+  \ [wildfly-ejb3-8.1.0.Final.jar:8.1.0.Final]\n    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.as.ejb3.component.interceptors.ShutDownInterceptorFactory$1.processInvocation(ShutDownInterceptorFactory.java:64)\
+  \ [wildfly-ejb3-8.1.0.Final.jar:8.1.0.Final]\n    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.as.ejb3.component.interceptors.LoggingInterceptor.processInvocation(LoggingInterceptor.java:59)\
+  \ [wildfly-ejb3-8.1.0.Final.jar:8.1.0.Final]\n    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.as.ee.component.NamespaceContextInterceptor.processInvocation(NamespaceContextInterceptor.java:50)\n\
+  \    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.as.ejb3.component.interceptors.AdditionalSetupInterceptor.processInvocation(AdditionalSetupInterceptor.java:55)\
+  \ [wildfly-ejb3-8.1.0.Final.jar:8.1.0.Final]\n    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.invocation.ContextClassLoaderInterceptor.processInvocation(ContextClassLoaderInterceptor.java:64)\n\
+  \    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.invocation.InterceptorContext.run(InterceptorContext.java:326)\n\
+  \    at org.wildfly.security.manager.WildFlySecurityManager.doChecked(WildFlySecurityManager.java:448)\n\
+  \    at org.jboss.invocation.AccessCheckingInterceptor.processInvocation(AccessCheckingInterceptor.java:61)\n\
+  \    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.invocation.InterceptorContext.run(InterceptorContext.java:326)\n\
+  \    at org.jboss.invocation.PrivilegedWithCombinerInterceptor.processInvocation(PrivilegedWithCombinerInterceptor.java:80)\n\
+  \    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:61)\n\
+  \    at org.jboss.as.ee.component.ViewService$View.invoke(ViewService.java:185)\n\
+  \    at org.jboss.as.ee.component.ViewDescription$1.processInvocation(ViewDescription.java:182)\n\
+  \    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:61)\n\
+  \    at org.jboss.as.ee.component.ProxyInvocationHandler.invoke(ProxyInvocationHandler.java:73)\n\
+  \    at org.profit.pgb.rest.resource.UserResource$$$view45.create(Unknown Source)\
+  \ [classes:]\n    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\
+  \ [rt.jar:1.8.0_11]\n    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\
+  \ [rt.jar:1.8.0_11]\n    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+  \ [rt.jar:1.8.0_11]\n    at java.lang.reflect.Method.invoke(Method.java:483) [rt.jar:1.8.0_11]\n\
+  \    at org.jboss.weld.util.reflection.Reflections.invokeAndUnwrap(Reflections.java:401)\
+  \ [weld-core-impl-2.1.2.Final.jar:2014-01-09 09:23]\n    at org.jboss.weld.bean.proxy.EnterpriseBeanProxyMethodHandler.invoke(EnterpriseBeanProxyMethodHandler.java:99)\
+  \ [weld-core-impl-2.1.2.Final.jar:2014-01-09 09:23]\n    at org.jboss.weld.bean.proxy.EnterpriseTargetBeanInstance.invoke(EnterpriseTargetBeanInstance.java:56)\
+  \ [weld-core-impl-2.1.2.Final.jar:2014-01-09 09:23]\n    at org.jboss.weld.bean.proxy.InjectionPointPropagatingEnterpriseTargetBeanInstance.invoke(InjectionPointPropagatingEnterpriseTargetBeanInstance.java:65)\
+  \ [weld-core-impl-2.1.2.Final.jar:2014-01-09 09:23]\n    at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:100)\
+  \ [weld-core-impl-2.1.2.Final.jar:2014-01-09 09:23]\n    at org.profit.pgb.rest.resource.UserResource$Proxy$_$$_Weld$EnterpriseProxy$.create(Unknown\
+  \ Source) [classes:]\n    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native\
+  \ Method) [rt.jar:1.8.0_11]\n    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\
+  \ [rt.jar:1.8.0_11]\n    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\
+  \ [rt.jar:1.8.0_11]\n    at java.lang.reflect.Method.invoke(Method.java:483) [rt.jar:1.8.0_11]\n\
+  \    at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:137)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:296)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:250)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:237)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:356)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:179)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.service(ServletContainerDispatcher.java:220)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:56)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:51)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)\
+  \ [jboss-servlet-api_3.1_spec-1.0.0.Final.jar:1.0.0.Final]\n    at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:85)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:61)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)\n\
+  \    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:113)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:56)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.security.handlers.AuthenticationConstraintHandler.handleRequest(AuthenticationConstraintHandler.java:51)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:45)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:61)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.ServletSecurityConstraintHandler.handleRequest(ServletSecurityConstraintHandler.java:56)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:58)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:70)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.security.handlers.SecurityInitialHandler.handleRequest(SecurityInitialHandler.java:76)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)\n\
+  \    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:240)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:227)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:73)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:146)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.Connectors.executeRootHandler(Connectors.java:177)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:727)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\
+  \ [rt.jar:1.8.0_11]\n    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\
+  \ [rt.jar:1.8.0_11]\n    at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_11]\n\
+  \n16:45:25,957 ERROR [io.undertow.request] (default task-60) UT005023: Exception\
+  \ handling request to /pgb/rest/user/create: org.jboss.resteasy.spi.UnhandledException:\
+  \ javax.ejb.EJBAccessException: JBAS014502: Invocation on method: public javax.ws.rs.core.Response\
+  \ org.profit.pgb.rest.resource.UserResource.create(org.profit.pgb.rest.api.CreateRequest)\
+  \ of bean: UserResource is not allowed\n    at org.jboss.resteasy.core.ExceptionHandler.handleApplicationException(ExceptionHandler.java:76)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.core.ExceptionHandler.handleException(ExceptionHandler.java:212)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.core.SynchronousDispatcher.writeException(SynchronousDispatcher.java:149)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:372)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:179)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.service(ServletContainerDispatcher.java:220)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:56)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:51)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)\
+  \ [jboss-servlet-api_3.1_spec-1.0.0.Final.jar:1.0.0.Final]\n    at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:85)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:61)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at org.wildfly.extension.undertow.security.SecurityContextAssociationHandler.handleRequest(SecurityContextAssociationHandler.java:78)\n\
+  \    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:113)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:56)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.security.handlers.AuthenticationConstraintHandler.handleRequest(AuthenticationConstraintHandler.java:51)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:45)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:61)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.ServletSecurityConstraintHandler.handleRequest(ServletSecurityConstraintHandler.java:56)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:58)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:70)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.security.handlers.SecurityInitialHandler.handleRequest(SecurityInitialHandler.java:76)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)\n\
+  \    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:25)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:240)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:227)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:73)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:146)\
+  \ [undertow-servlet-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.Connectors.executeRootHandler(Connectors.java:177)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:727)\
+  \ [undertow-core-1.0.15.Final.jar:1.0.15.Final]\n    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\
+  \ [rt.jar:1.8.0_11]\n    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\
+  \ [rt.jar:1.8.0_11]\n    at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_11]\n\
+  Caused by: javax.ejb.EJBAccessException: JBAS014502: Invocation on method: public\
+  \ javax.ws.rs.core.Response org.profit.pgb.rest.resource.UserResource.create(org.profit.pgb.rest.api.CreateRequest)\
+  \ of bean: UserResource is not allowed\n    at org.jboss.as.ejb3.security.AuthorizationInterceptor.processInvocation(AuthorizationInterceptor.java:135)\
+  \ [wildfly-ejb3-8.1.0.Final.jar:8.1.0.Final]\n    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.as.ejb3.security.SecurityContextInterceptor.processInvocation(SecurityContextInterceptor.java:95)\
+  \ [wildfly-ejb3-8.1.0.Final.jar:8.1.0.Final]\n    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at org.jboss.as.ejb3.component.interceptors.ShutDownInterceptorFactory$1.processInvocation(ShutDownInterceptorFactory.java:64)\
+  \ [wildfly-ejb3-8.1.0.Final.jar:8.1.0.Final]\n    at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:309)\n\
+  \    at ... etc. (not fully shown due to SO's character limit on questions..)\n\
+  </code></pre>\n\n<p>I've seen other people ask similar questions, some which remain\
+  \ unanswered to this day (e.g. <a href=\"https://stackoverflow.com/questions/19863311/jax-rs-service-rolesallowed-annotation-throwing-exception\"\
+  >jax-rs service RolesAllowed Annotation throwing exception</a>) and others which\
+  \ have solutions that either do not work for me or maybe I do not apply the solution\
+  \ correctly (e.g. <a href=\"https://stackoverflow.com/questions/24591782/resteasy-support-for-jax-rs-rolesallowed\"\
+  >RESTEasy support for JAX-RS @RolesAllowed</a>).</p>\n\n<p>I found this: <a href=\"\
+  https://developer.jboss.org/thread/177728?start=0&amp;tstart=0\" rel=\"noreferrer\"\
+  >https://developer.jboss.org/thread/177728?start=0&amp;tstart=0</a> (titled: <em>\"\
+  @RolesAllowed, @DenyAll require presence of org.jboss.ejb3.annotation.SecurityDomain?\"\
+  </em>), In tried the solution but I cannot get it to work for my project. Not sure\
+  \ if the solution is not applicable for my situation or if I'm just doing it wrong.</p>\n\
+  \n<p>I found this: <a href=\"https://developer.jboss.org/message/720815\" rel=\"\
+  noreferrer\">https://developer.jboss.org/message/720815</a> (titled: <em>\"is this\
+  \ a defect for processing org.jboss.ejb3.annotation.SecurityDomain ?\"</em>), but\
+  \ I do not understand where my <em>jboss-ejb-client.properties</em> are supposed\
+  \ to be. I think they set their project up quite different from me. So no luck with\
+  \ that.</p>\n\n<p>I found <a href=\"https://github.com/jboss-eap/quickstart/tree/master-eap6/ejb-security\"\
+  \ rel=\"noreferrer\">a guide on EJB3 security</a>, as suggested there, I provided\
+  \ the following code in my <em>standalone.xml</em>-file:</p>\n\n<pre><code>&lt;security-domain\
+  \ name=\"other\" cache-type=\"default\"&gt;\n    &lt;authentication&gt;\n      \
+  \  &lt;login-module code=\"Remoting\" flag=\"optional\"&gt;\n            &lt;module-option\
+  \ name=\"password-stacking\" value=\"useFirstPass\"/&gt;\n        &lt;/login-module&gt;\n\
+  \        &lt;login-module code=\"RealmDirect\" flag=\"required\"&gt;\n         \
+  \   &lt;module-option name=\"password-stacking\" value=\"useFirstPass\"/&gt;\n \
+  \       &lt;/login-module&gt;\n    &lt;/authentication&gt;\n&lt;/security-domain&gt;\n\
+  </code></pre>\n\n<p>But that did not solve anything at all. I am not sure if it\
+  \ did anything.</p>\n\n<p>Finally, I found this SO question: <a href=\"https://stackoverflow.com/questions/24591782/resteasy-support-for-jax-rs-rolesallowed\"\
+  >RESTEasy support for JAX-RS @RolesAllowed</a> (which references to the <a href=\"\
+  http://docs.jboss.org/resteasy/docs/3.0.5.Final/userguide/html/Securing_JAX-RS_and_RESTeasy.html\"\
+  \ rel=\"noreferrer\">RESTEasy Documentation</a>). Even though I also mentioned this\
+  \ question a few paragraphs up as containing a solution that does not work for me,\
+  \ it did change the error to another error. As suggested there I added a <em>&lt;context-param&gt;</em>-block\
+  \ to my <em>web.xml</em>-file:</p>\n\n<pre><code>&lt;?xml version=\"1.0\" encoding=\"\
+  UTF-8\"?&gt;\n&lt;web-app version=\"2.5\" xmlns=\"http://java.sun.com/xml/ns/javaee\"\
+  \ xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"\
+  http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd\"\
+  &gt;\n    &lt;security-constraint&gt;\n        &lt;web-resource-collection&gt;\n\
+  \            &lt;web-resource-name&gt;PGB&lt;/web-resource-name&gt;\n          \
+  \  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;\n            &lt;http-method&gt;GET&lt;/http-method&gt;\n\
+  \            &lt;http-method&gt;POST&lt;/http-method&gt;\n        &lt;/web-resource-collection&gt;\n\
+  \n        &lt;user-data-constraint&gt;\n            &lt;!-- use of SSL is required\
+  \ when CONFIDENTIAL is specified --&gt;\n            &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;\n\
+  \        &lt;/user-data-constraint&gt;\n    &lt;/security-constraint&gt;\n\n   \
+  \ &lt;context-param&gt;\n      &lt;param-name&gt;resteasy.role.based.security&lt;/param-name&gt;\n\
+  \      &lt;param-value&gt;true&lt;/param-value&gt;\n   &lt;/context-param&gt;\n\
+  &lt;/web-app&gt;\n</code></pre>\n\n<p>Which results in the following error if I\
+  \ try to create a new user (not completely posted here due to character limit of\
+  \ SO questions):</p>\n\n<pre><code>16:58:45,992 WARN  [org.jboss.resteasy.core.ExceptionHandler]\
+  \ (default task-61) failed to execute: javax.ws.rs.ForbiddenException: HTTP 403\
+  \ Forbidden\n    at org.jboss.resteasy.plugins.interceptors.RoleBasedSecurityFilter.filter(RoleBasedSecurityFilter.java:45)\
+  \ [resteasy-jaxrs-3.0.8.Final.jar:]\n    at ... etc.\n</code></pre>\n\n<p>This error\
+  \ is not very helpful either, in fact, I find even less information when I search\
+  \ on that error than when I search on the previous error. So, I am not sure if that\
+  \ is a step into the right direction. What is better to have returned from the server?\
+  \ A status 500 (Internal Server Error) or a status 403 (Forbidden)? Also, if after\
+  \ applying that \"solution\" I change the annotation to @PermitAll, then the creation\
+  \ of a new user works just as before, so it didn't really make the situation any\
+  \ worse.</p>\n\n<p>However, I can find <a href=\"https://github.com/resteasy/Resteasy/blob/master/jaxrs/resteasy-jaxrs/src/main/java/org/jboss/resteasy/plugins/interceptors/RoleBasedSecurityFilter.java\"\
+  \ rel=\"noreferrer\">the source code of RoleBasedSecurityFilter</a>, which shows\
+  \ that it throws the <code>ForbiddenException</code>. It shows that a certain <em>isUserInRole</em>\
+  \ method must return true, but it does not do that in my application. I can't get\
+  \ it to return true. It makes me wonder, <a href=\"https://stackoverflow.com/q/26039920/2541501\"\
+  >Is it possible to disable RoleBasedSecurityFilter.java of RESTEasy?</a></p>\n\n\
+  <p>I also found the following SO question: <a href=\"https://stackoverflow.com/questions/15188895/rolesallowed-cannot-be-resolved-with-jersey\"\
+  >@RolesAllowed cannot be resolved with Jersey</a>, which is answered by Abhijit\
+  \ Sarkar, and he refers to <a href=\"http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/twbs_jaxrs_impl_securejaxrs_webcont.html?cp=SSAW57_8.5.5%2F3-3-0-42-3-0\"\
+  \ rel=\"noreferrer\">an IBM article</a>. Maybe the solution to my problem lies in\
+  \ there, but I have not found it yet.. Anyway, it is suggested there that either\
+  \ adding a <em>security-role</em> block to my <em>web.xml</em>-file or adding a\
+  \ <em>@DeclareRoles</em> annotation to my <em>UserResource.java</em> file should\
+  \ solve the problem, but the HTTP 403 Forbidden warning still remains after I do\
+  \ so. It is very frustrating.</p>\n\n<p>My <em>security-role</em> block (in web.xml)\
+  \ looks as follows:</p>\n\n<pre><code>&lt;security-role id=\"role_admin\"&gt;\n\
+  \    &lt;description&gt;This is role 1 (admin)&lt;/description&gt;\n    &lt;role-name&gt;admin&lt;/role-name&gt;\n\
+  &lt;/security-role&gt;\n</code></pre>\n\n<p>And I added the following <em>security-constraint</em>\
+  \ block (in web.xml): (note the <em>auth-constraint</em>)</p>\n\n<pre><code>&lt;security-constraint&gt;\n\
+  \    &lt;web-resource-collection&gt;\n        &lt;web-resource-name&gt;PGB&lt;/web-resource-name&gt;\n\
+  \        &lt;url-pattern&gt;/rest/user/create&lt;/url-pattern&gt;\n        &lt;http-method&gt;GET&lt;/http-method&gt;\n\
+  \        &lt;http-method&gt;POST&lt;/http-method&gt;\n    &lt;/web-resource-collection&gt;\n\
+  \    &lt;auth-constraint id=\"AuthConstraint_createUser\"&gt;\n        &lt;description&gt;\
+  \ Only admin can create a new user&lt;/description&gt;\n        &lt;role-name&gt;admin&lt;/role-name&gt;\n\
+  \    &lt;/auth-constraint&gt;\n    &lt;user-data-constraint&gt;\n        &lt;!--\
+  \ use of SSL is required when CONFIDENTIAL is specified --&gt;\n        &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;\n\
+  \    &lt;/user-data-constraint&gt;\n&lt;/security-constraint&gt;\n</code></pre>\n\
+  \n<p>I realize now that my problem lies either in the deployment descriptors (<em>web.xml</em>)\
+  \ or the server configuration (WildFly's <em>standalone-full.xml</em>).</p>\n\n\
+  <p>I added a <code>login-config</code> element (with <a href=\"http://docs.oracle.com/cd/E19798-01/821-1841/bncbn/index.html\"\
+  \ rel=\"noreferrer\">FORM authentication</a>) to my <em>web.xml</em> file. Changed\
+  \ my login HTML page to fit <a href=\"http://docs.oracle.com/cd/E19798-01/821-1841/bncca/index.html\"\
+  \ rel=\"noreferrer\">the required format</a>. I followed some of the step of this\
+  \ article on <a href=\"http://docs.oracle.com/cd/E19798-01/821-1841/bncca/index.html\"\
+  \ rel=\"noreferrer\">migrating a Java EE App from GlassFish to WildFly</a>, but\
+  \ I think I still did something wrong because I always get at the login error page\
+  \ when trying to log in with valid user credentials.</p>\n\n<p>See here the <code>security-domain</code>\
+  \ element I added to my WildFly configuration:</p>\n\n<pre><code>&lt;security-domain\
+  \ name=\"app\" cache-type=\"default\"&gt;\n    &lt;authentication&gt;\n        &lt;login-module\
+  \ code=\"Database\" flag=\"required\"&gt;\n            &lt;module-option name=\"\
+  dsJndiName\" value=\"java:jboss/datasources/mySQL_pool_rel\"/&gt;\n            &lt;module-option\
+  \ name=\"principalsQuery\" value=\"select hashed_password from user where email_address=?\"\
+  /&gt;\n            &lt;module-option name=\"rolesQuery\" value=\"select role_name,\
+  \ 'Roles' from role r inner join user u on r.role_type = u.role_type where u.email_address\
+  \ = ?\"/&gt;\n            &lt;module-option name=\"hashAlgorithm\" value=\"SHA-256\"\
+  /&gt;\n            &lt;module-option name=\"hashEncoding\" value=\"BASE64\"/&gt;\n\
+  \            &lt;module-option name=\"unauthenticatedIdentity\" value=\"guest\"\
+  /&gt;\n        &lt;/login-module&gt;\n        &lt;login-module code=\"RoleMapping\"\
+  \ flag=\"required\"&gt;\n             &lt;module-option name=\"rolesProperties\"\
+  \ value=\"file:${jboss.server.config.dir}/app.properties\"/&gt;\n             &lt;module-option\
+  \ name=\"replaceRole\" value=\"false\"/&gt;\n        &lt;/login-module&gt;\n   \
+  \ &lt;/authentication&gt;\n&lt;/security-domain&gt;\n</code></pre>\n\n<p>I think\
+  \ something is wrong with my <em>rolesQuery</em> defined there, but I can't figure\
+  \ out what.</p>\n\n<p>I would love to know how to implement role-based security\
+  \ for my Web application. Therefore, I also accept other approaches to role-based\
+  \ security, as long as it works. Suggestions are welcome.</p>\n\n<p>I also placed\
+  \ <a href=\"https://developer.jboss.org/thread/248877\" rel=\"noreferrer\">my question\
+  \ on developer.jboss.org</a>, but I also got no response there yet.</p>\n\n<p>I\
+  \ provided one workaround solution to my problem as an answer to this question,\
+  \ but it is not a real solution (as explained in that answer). I am still interested\
+  \ in doing this the right way.</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/25851374/how-do-i-get-the-rolesallowed-annotation-to-work-for-my-web-application
+source_context: 'SO question (tags: java, security, ejb, jax-rs, resteasy)'
+author_info: PJvG
+engagement:
+  score: 23
+  view_count: 63829
+  answer_count: 5
+  is_answered: true
+date_posted: '2014-09-15'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - java
+  - security
+  - ejb
+  - jax-rs
+  - resteasy
+attachments: []

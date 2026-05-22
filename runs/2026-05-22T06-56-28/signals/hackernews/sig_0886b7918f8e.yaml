@@ -1,0 +1,26 @@
+signal_id: sig_0886b7918f8e
+raw_text: 'Write write write and keep writing. Then expect to do 10x as much reading.
+  It&#x27;s exhausting and definitely relies heavily on employees&#x27; writing and
+  reading comprehension skills.<p>HashiCorp produces a mind boggling amount of prose
+  (non-code text). Every employee can read every RFC going back to the first sketch
+  of terraform which was completely rewritten in a second revision. Mailing lists
+  are alive and well. PR descriptions and discussions are often longer than the code
+  being changed.<p>No other company I&#x27;ve worked at has had this dedication to
+  recording decisions, and all of them have struggled heavily with losing institutional
+  knowledge. HashiCorp isn&#x27;t perfect, but I want all future employers to at least
+  pretend they&#x27;re remote-first as that seems to be the forcing function for writing
+  everything down.<p><i>Update: while writing skills are helpful they&#x27;re definitely
+  secondary to just ensuring knowledge is splatted down somewhere in some form. Perfect
+  is absolutely the enemy of good enough, and I&#x27;d rather struggle to gleen knowledge
+  from an unformatted readme in a deep dark corner than have nothing at all.</i>'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22455047
+source_context: HN Comment on story 22454333
+author_info: schmichael
+engagement:
+  parent: '22454333'
+date_posted: '2020-03-01'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

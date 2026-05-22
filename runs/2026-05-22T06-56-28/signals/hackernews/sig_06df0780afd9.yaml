@@ -1,0 +1,59 @@
+signal_id: sig_06df0780afd9
+raw_text: 'Show HN: Excel to Python Compiler
+
+
+  We (me and @aarondia) built a tool to help you turn psuedo-software Excel files
+  into real-software Python. Ideally, Pyoneer helps you automate your manual Excel
+  processes. You can try it today here: <a href="https:&#x2F;&#x2F;pyoneer.ai" rel="nofollow">https:&#x2F;&#x2F;pyoneer.ai</a>.<p><i>How
+  it works:</i><p>1. You upload an Excel file<p>2. We statically parse the Excel file
+  and build a dependency graph of all the cells, tables, formulas, and pivots.<p>3.
+  We do a graph traversal, and translate nodes as we hit them. We use OpenAI APIs
+  to translate formulas. There’s a bunch of extra work here — because even with the
+  best prompt engineering a fella like me can do, OpenAI sucks at translating formulas
+  (primarily because it doesn’t know what datatypes its dealing with). We augment
+  this translation with a mapping from ranges to variable names and types, which in
+  our experience can improve the percentage of correctly translatable formulas by
+  about 5x.<p>4. We generate test cases for our translations as well, to make sure
+  the Python process matches your Excel process.<p>5. We give you back a Jupyter notebook
+  that contains the code we generated.<p>If there are pieces of the Excel we can’t
+  translate successfully (complex formulas, or pivot tables currently), then we leave
+  them as a TODO in the code. This makes it easy for you to hop in and continue finishing
+  the script.<p><i>Who is this for:</i><p>Developers who know Python, primarily! Pyoneer
+  might be useful if:<p>1. You’ve got an Excel file you’re looking to move to Python
+  (usually for speed, size, or maintenance reasons).<p>2. There’s enough logic contained
+  in the notebook that it’s going to be a hassle for you to just rewrite it from scratch.<p>3.
+  Or you don’t know the logic that is in the Excel workbook well since you didn’t
+  write it in the first place :)<p>Post translation, even if Pyoneer doesn&#x27;t
+  nail it perfectly or translate all the formulas, you&#x27;ll be able to pop into
+  the notebook and continue cleaning up the TODOs &#x2F; finish writing the formulas.<p><i>What
+  the Alpha launch supports:</i><p>Launched early! Currently we’re focused on supporting:<p>1.
+  Any number of sheets, with any reference structure between them.<p>2. Cells that
+  translate as variables directly. We’ll translate the formulas to Python code that
+  has the same result, or else we’ll generate a TODO letting you know we failed translating
+  this cell.<p>3. Tables that translate as Pandas dataframes. We support at most one
+  table per sheet, at the tables must be contigious. If the formulas in a column are
+  consistent, then we will try and translate this as a single pandas statement.<p>We
+  do not support: pivot tables or complex formulas. When we fail to translate these,
+  we generate TODO statements. We also don’t support graphs or macros - and you won’t
+  see these reflected in the output at all currently.<p><i>Why we built this:</i><p>We
+  did YCS20 and built an open source tool called Mito(<a href="https:&#x2F;&#x2F;trymito.io">https:&#x2F;&#x2F;trymito.io</a>).
+  It’s been a good journey since then - we’ve scaled revenue and to over 2k Github
+  stars (<a href="https:&#x2F;&#x2F;github.com&#x2F;mito-ds&#x2F;mito">https:&#x2F;&#x2F;github.com&#x2F;mito-ds&#x2F;mito</a>).
+  But fundamentally, Mito is a tool that’s useful for Excel users who wanted to start
+  writing Python code more effectively.<p>We wanted to take another stab at the Excel
+  -&gt; Python pain point that was more developer focused - that helped developers
+  that have to translate Excel files into Python do this much more quickly. Hence,
+  Pyoneer!<p>I’ll be in the comments today if you’ve got feedback, criticism, questions,
+  or comments.'
+source_platform: hackernews
+source_url: https://pyoneer.ai?source=hn&utm_campaign=shn1
+source_context: HN Story
+author_info: narush
+engagement:
+  points: 79
+  num_comments: 36
+date_posted: '2024-05-23'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: manual process'
+structured: {}
+attachments: []

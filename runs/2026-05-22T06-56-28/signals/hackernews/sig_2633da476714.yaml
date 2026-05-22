@@ -1,0 +1,14 @@
+signal_id: sig_2633da476714
+raw_text: 'Ask HN: Have you built internal CLI tools for your team? Has it payed off?'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=23836150
+source_context: HN Story
+author_info: mlejva
+engagement:
+  points: 5
+  num_comments: 3
+date_posted: '2020-07-14'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

@@ -1,0 +1,19 @@
+signal_id: sig_ffc19d78690d
+raw_text: If this was accessible for Voice Over (the MacOS screen reader), blind developers
+  would literally bless you for this. Half of those non-coding, web-based tools have
+  huge accessibility problems, and an efficient and ergonomic interface would be a
+  godsend. I can&#x27;t test the accessibility aspect myself, now, as I don&#x27;t
+  own a Mac and I don&#x27;t work in a team environment, but I can get you in touch
+  with some people if you&#x27;re interested. The fact that you&#x27;re doing native
+  and that you&#x27;re focused on the keyboard means there&#x27;s much hope, though.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22468598
+source_context: HN Comment on story 22466994
+author_info: miki123211
+engagement:
+  parent: '22466994'
+date_posted: '2020-03-02'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

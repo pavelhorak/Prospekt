@@ -1,0 +1,44 @@
+signal_id: sig_4084af7915cc
+raw_text: 'Git is not working after macOS update (&quot;xcrun: error: invalid active
+  developer path (/Library/Developer/CommandLineTools&quot;)
+
+
+  <p>I updated to the latest OS, and/or restarted my computer (this happens on every
+  major update, but this time all I did was restart my computer on 2022-09-13).</p>
+
+  <p>This morning I navigated to my work''s codebase in the command line on my <a
+  href="https://en.wikipedia.org/wiki/MacBook_Pro" rel="noreferrer">MacBook Pro</a>,
+  typed in &quot;git status&quot; in the repository and received an error:</p>
+
+  <p>(In 9/2022, this error was much different, but I didn''t capture it)</p>
+
+  <blockquote>
+
+  <p>xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools),
+  missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</p>
+
+  </blockquote>
+
+  <p>Git will not work!</p>
+
+  <p>How do I fix Git, and the command-line tools?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/52522565/git-is-not-working-after-macos-update-xcrun-error-invalid-active-developer-p
+source_context: 'SO question (tags: xcode, git, macos, command-line, terminal)'
+author_info: dustbuster
+engagement:
+  score: 3513
+  view_count: 1509636
+  answer_count: 40
+  is_answered: true
+date_posted: '2018-09-26'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - xcode
+  - git
+  - macos
+  - command-line
+  - terminal
+attachments: []

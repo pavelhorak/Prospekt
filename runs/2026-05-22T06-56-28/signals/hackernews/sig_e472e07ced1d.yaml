@@ -1,0 +1,20 @@
+signal_id: sig_e472e07ced1d
+raw_text: You&#x27;re describing early Unix, with C as the one language to do everything.
+  Some concepts like CI&#x2F;CD and infrastructure as code didn&#x27;t exist back
+  in the late &#x27;70s and early &#x27;80s, but Unix and the Programmer&#x27;s Work
+  Bench constituted an ecosystem and it was almost all written in C, to support more
+  C code.<p>The modern descendants of Unix have more variety in their tooling, but
+  the languages available still mostly sit on top of C libraries, with compilers and
+  interpreter and runtimes written in C. The serious contenders to replace C -- C++,
+  Rust, etc. -- are more improved flavors of C than radically different languages.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=38525673
+source_context: HN Comment on story 38522828
+author_info: gregjor
+engagement:
+  parent: '38522828'
+date_posted: '2023-12-05'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

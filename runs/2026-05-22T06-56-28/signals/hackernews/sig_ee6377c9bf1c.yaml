@@ -1,0 +1,19 @@
+signal_id: sig_ee6377c9bf1c
+raw_text: It&#x27;s based on Clang, right?  At version 1.0, you can expect some stability,
+  right?  (I haven&#x27;t been paying attention enough to know.)  The people working
+  on it are smart, right?  (They are, and they&#x27;re somewhat grizzled, extrapolating
+  from the ones I know of.)  I wouldn&#x27;t worry about them pulling the language
+  out from underneath you with backwards-incompatible changes -- the compiler crashing
+  on valid code is annoying, and saying this from a no-longer-writing-iPhone-apps
+  perspective, I think it&#x27;s a big win over Objective C.  So I&#x27;d go for it.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=8387013
+source_context: HN Comment on story 8383976
+author_info: SamReidHughes
+engagement:
+  parent: '8383976'
+date_posted: '2014-09-30'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

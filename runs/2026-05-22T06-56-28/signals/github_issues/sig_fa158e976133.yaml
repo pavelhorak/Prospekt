@@ -1,0 +1,41 @@
+signal_id: sig_fa158e976133
+raw_text: "[FEATURE]: Recommend GUI partition tools first; avoid complex CLI workarounds\
+  \ on desktop systems\n\n### Feature hasn't been suggested before.\n\n- [x] I have\
+  \ verified this feature I'm about to request hasn't been suggested before.\n\n###\
+  \ Describe the enhancement you want to request\n\n**Feature hasn't been suggested\
+  \ before**.\n\n I have verified this feature I'm about to request hasn't been suggested\
+  \ before.\nDescribe the enhancement you want to request\nDescription :\nWhen assisting\
+  \ with partition resizing on a desktop Linux system, I was presented with multiple\
+  \ problematic options:\n\n**Option A (Reboot to Live Media):**\n\nSafest approach\n\
+  Requires reboot and creating/obtaining live USB media\nGuaranteed to work\n\n**Option\
+  \ B (Online CLI Resizing):**\n\nPresented as viable but actually high-risk\nRequired\
+  \ multiple failed attempts with parted, sfdisk, blockdev\nInvolved complex workarounds\
+  \ (Python stdin, PTY emulation, etc.)\nCould have corrupted the partition table\
+  \ if something went wrong\nKept hitting kernel-level restrictions on mounted partitions\n\
+  \n**Option C (GUI Partition Manager) - The Best Solution:**\n\nSimple, visual, user-friendly\n\
+  Safe with proper confirmation prompts\nNo complex workarounds needed\nCompleted\
+  \ successfully in seconds\n\n_The Issue:_\nI should have recommended Option C first,\
+  \ but was not recommended untill i thought about it and shared a screenshot of the\
+  \ fedora partition page after hearing the all the plans of high risk. On desktop\
+  \ systems with graphical tools available, the GUI should be the primary recommendation.\n\
+  \n_Improvement Needed:_\nWhen helping with partition tasks on desktop Linux:\n\n\
+  First: Ask if GUI partition manager is available (KDE Partition Manager, GNOME Disks,\
+  \ etc.)\n\nSecond: Use the GUI as primary solution\n\nThird: Only suggest risky\
+  \ CLI workarounds if GUI is unavailable or user explicitly requests CLI\nThis would\
+  \ improve safety, reduce complexity, and provide better user experience."
+source_platform: github_issues
+source_url: https://github.com/anomalyco/opencode/issues/25535
+source_context: GitHub issue in anomalyco/opencode
+author_info: Udhaya-kumar-N
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-03'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels: []
+  is_pull_request: false
+  repo: anomalyco/opencode
+attachments: []

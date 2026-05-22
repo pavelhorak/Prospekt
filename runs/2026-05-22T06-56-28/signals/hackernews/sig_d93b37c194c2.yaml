@@ -1,0 +1,30 @@
+signal_id: sig_d93b37c194c2
+raw_text: "Show HN: Datastripes – No-Code Data Dashboard Builder\n\nHi HN,<p>I started\
+  \ building Datastripes as part of my thesis, trying to answer a simple question:\n\
+  How can non-technical teams turn raw data into insights without relying on developers\
+  \ or BI tools?<p>What began as research has now grown into a working product, built\
+  \ by a small team, focused on solving that exact problem.<p>Datastripes is a no-code\
+  \ platform for creating dashboards and data visualizations in minutes: no SQL, no\
+  \ setup, no friction.<p>What it does:<p>Connects to CSVs, Google Sheets, or APIs<p>Drag-and-drop\
+  \ dashboard builder<p>Shareable via public links or embed<p>Fully browser-based<p>We’re\
+  \ launching publicly this week and would love feedback from this community, especially\
+  \ from people who&#x27;ve built internal tools, worked with non-technical users,\
+  \ or have felt the pain of &quot;can you pull that data for me?&quot;<p>Would really\
+  \ appreciate:<p>First impressions on UX and clarity<p>Thoughts on performance, edge\
+  \ cases, or integrations<p>Honest feedback on where this fits (or doesn’t) in the\
+  \ BI&#x2F;no-code space<p>Live: <a href=\"https:&#x2F;&#x2F;datastripes.com\" rel=\"\
+  nofollow\">https:&#x2F;&#x2F;datastripes.com</a>\n On Product Hunt: <a href=\"https:&#x2F;&#x2F;producthunt.com&#x2F;products&#x2F;datastripes\"\
+  \ rel=\"nofollow\">https:&#x2F;&#x2F;producthunt.com&#x2F;products&#x2F;datastripes</a><p>Happy\
+  \ to answer questions — and grateful for your time and thoughts."
+source_platform: hackernews
+source_url: https://datastripes.com/
+source_context: HN Story
+author_info: vinserello
+engagement:
+  points: 4
+  num_comments: 0
+date_posted: '2025-08-05'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

@@ -1,0 +1,32 @@
+signal_id: sig_0c178f9cf95c
+raw_text: 'Hey HN,<p>Founder here, I’m excited to announce that we&#x27;ve just launched
+  the beta version of ToolJet’s Workflow Automation tool!<p>For those unfamiliar,
+  ToolJet started its journey when we open-sourced ToolJet (<a href="https:&#x2F;&#x2F;github.com&#x2F;ToolJet&#x2F;ToolJet">https:&#x2F;&#x2F;github.com&#x2F;ToolJet&#x2F;ToolJet</a>)
+  here on HackerNews back in June 2021 (<a href="https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=27421408">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=27421408</a>).
+  When we launched ToolJet, we aimed to bridge the gap between developers and non-developers,
+  making it easier for teams to build internal tools swiftly. Our journey began right
+  here on HackerNews, and much of our evolution has been shaped by feedback from many
+  of you. Today, we’re taking a step further with our new Workflow Automation tool.<p><i>How
+  it works</i><p>1. Connect your data sources: Add any of the pre-existing ~50 data
+  sources like PGSQL, RestAPI, Zendesk, Stripe, Amazon S3 and many more.<p>2. Create
+  a workflow: Create a new workflow from your ToolJet Dashboard. A workflow is a series
+  of steps which are executed one after the other, and each step is interacting with
+  a datasource by fetching or putting back data.<p>3. Business logic: Implement your
+  business logic by creating branches based on conditions and by running JavaScript
+  codes.<p>4. Debugging: You can see the logs by expanding logs panel at the bottom
+  of the workflow builder. It will have all information you need to debug your workflow.<p>Documentation:
+  <a href="https:&#x2F;&#x2F;docs.tooljet.com&#x2F;docs&#x2F;workflows&#x2F;overview?ref=blog.tooljet.com"
+  rel="nofollow noreferrer">https:&#x2F;&#x2F;docs.tooljet.com&#x2F;docs&#x2F;workflows&#x2F;overview?ref=blog.to...</a><p><i>Availability</i><p>Currently,
+  the Workflow Automation beta is available for on self-hosted instances running Business
+  and Enterprise editions.<p>PS: We haven&#x27;t open-sourced Workflows.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=37245206
+source_context: HN Comment on story 37245171
+author_info: navaneethpk
+engagement:
+  parent: '37245171'
+date_posted: '2023-08-24'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

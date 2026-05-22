@@ -1,0 +1,32 @@
+signal_id: sig_8b646425f95d
+raw_text: '&gt; You know how much code I’d have to write if this were C++, C#, or
+  Java? None. They all have reusable notions of an immutable, ordered map.<p>Actually
+  C++ doesn&#x27;t have immutable data unless you count compile-time constants and
+  literals. You can declare things &#x27;const&#x27;, but that only provides a read-only
+  (1) view on mutable data.<p>Also, to provide good &#x27;const&#x27; support in containers,
+  you usually have to provide extra read-only iterators that are largely identical
+  to the writeable iterators. Go look at the C++ standard library. All the containers
+  have both &#x27;iterator&#x27; and &#x27;const_iterator&#x27; (not just a &#x27;const
+  iterator&#x27;).<p>Another approach is to just declare member variables &#x27;const&#x27;.
+  So you have a &#x27;const map&lt;int, int&gt;&#x27; as a member variable. Except
+  for that to work, you need to construct that member variable in the initializer
+  list. The body of the constructor is too late. This likely means taking an already-initialized
+  map as a constructor argument and copying it (probably exposing implementation details
+  in the process) or writing a helper that returns the appropriate map type and copying
+  it. Good optimizers <i>will</i> elide many or all of these copies, but relying on
+  quality of optimizers isn&#x27;t portable.<p>Anyway, I&#x27;d say the complexity
+  of the Go approach isn&#x27;t significantly worse that the C++ alternatives, if
+  it&#x27;s worse at all.<p>(1) Of course, with casting shenanigans or use of the
+  &#x27;mutable&#x27; keyword, anyone can circumvent &#x27;const&#x27; without a lot
+  of work.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=14831856
+source_context: HN Comment on story 14831638
+author_info: humanrebar
+engagement:
+  parent: '14831638'
+date_posted: '2017-07-23'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

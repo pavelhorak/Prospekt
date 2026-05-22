@@ -1,0 +1,72 @@
+signal_id: sig_a010122cb0f7
+raw_text: "Local TypeScript ESLint plugins require complex workarounds to load via\
+  \ `jsPlugins`\n\n## Summary\n\nLoading a local ESLint plugin written in TypeScript\
+  \ via `jsPlugins` requires workarounds due to how oxlint loads plugins through Node's\
+  \ ESM loader.\n\n### Environment\n\n- Oxlint version: 1.x (latest)\n- Node version:\
+  \ v22.x\n- Config format: `oxlint.config.ts`\n- Project type: Large TypeScript monorepo\
+  \ (Kibana)\n\n## What we were trying to do\n\nLoad a local ESLint plugin (`packages/kbn-eslint-plugin-i18n`)\
+  \ written in TypeScript via `jsPlugins`. Our custom lint rules live as local packages,\
+  \ written in TypeScript, with extensionless relative imports between files (the\
+  \ TypeScript/CommonJS convention).\n\n## Problems encountered, in order\n\n**1.\
+  \ Extensionless imports fail (`ERR_MODULE_NOT_FOUND`)**\n\nThe plugin's `index.ts`\
+  \ imports its rule files without extensions:\n```ts\nimport { MyRule } from './rules/my-rule';\n\
+  ```\nNode's ESM loader requires explicit extensions, so this fails immediately.\
+  \ ESLint never had this problem because it uses `require()`, which tries multiple\
+  \ extensions automatically.\n\n**2. `--experimental-strip-types` doesn't help**\n\
+  \nNode's native TS support strips type syntax but does not change the ESM resolver's\
+  \ extension strictness. The extensionless import problem persists.\n\n**3. Compiling\
+  \ with `tsc` doesn't help**\n\n`tsc` preserves import paths as-is from the source,\
+  \ so the extensionless imports carry through into the compiled JS output and still\
+  \ fail.\n\n**4. Bundling with esbuild pulls in CJS dependencies**\n\nUsing `esbuild\
+  \ --bundle` resolves the extensionless imports, but by default it also bundles all\
+  \ of `node_modules`, including packages that use `require()` for Node built-ins\
+  \ (`debug`, `@typescript-eslint/typescript-estree`, etc.), which fail at runtime\
+  \ in ESM output with `Error: Dynamic require of \"tty\" is not supported`.\n\n**5.\
+  \ `--packages=external` doesn't externalize workspace packages**\n\n`--packages=external`\
+  \ only externalizes packages found in `node_modules`. In a monorepo, workspace packages\
+  \ (e.g. `@kbn/*`) are resolved as local paths and get bundled — those also use CJS\
+  \ `require()` internally and cause the same dynamic require errors.\n\n**6. `__dirname`\
+  \ is not defined in ESM**\n\nAfter externalizing all dependencies with `--packages=external\
+  \ --external:@kbn/*`, the plugin loaded — but immediately failed at runtime with\
+  \ `ReferenceError: __dirname is not defined`. The plugin uses `__dirname` (standard\
+  \ in CJS), which doesn't exist in ESM.\n\n## Workaround we ended up with\n\nUsing\
+  \ `oxlint.config.ts` to pre-bundle plugins with esbuild before oxlint runs:\n\n\
+  ```ts\nimport { defineConfig } from 'oxlint';\nimport { execa } from 'execa';\n\n\
+  const rulePackages = ['packages/kbn-eslint-plugin-i18n'];\n\nawait Promise.all(\n\
+  \  rulePackages.map((pkg) =>\n    execa('npx', [\n      'esbuild',\n      `${pkg}/index.ts`,\n\
+  \      '--bundle',\n      '--platform=node',\n      '--format=esm',\n      '--packages=external',\n\
+  \      '--external:@kbn/*',\n      `--banner:js=import { fileURLToPath } from \"\
+  url\"; import { dirname } from \"path\"; const __filename = fileURLToPath(import.meta.url);\
+  \ const __dirname = dirname(__filename);`,\n      `--outfile=${pkg}/target/index.js`,\n\
+  \    ])\n  )\n);\n\nexport default defineConfig({\n  jsPlugins: rulePackages.map((pkg)\
+  \ => `./${pkg}/target/index.js`),\n  rules: { ... },\n});\n```\n\nThis works, but\
+  \ it's not ideal :)\n\nWe are investigating moving towards ESM, but that's a large\
+  \ undertaking for our scale, so I have some suggestions that could make this work\
+  \ in the short term. Feel free to push back of course.\n\n## Suggested improvements\n\
+  \n1. **Use a more permissive module loader for plugins** — loading plugins via something\
+  \ like `tsx` or `jiti` instead of raw Node ESM would handle extensionless imports\
+  \ and `__dirname` transparently, matching how ESLint behaves.\n2. **Provide a `definePlugin`\
+  \ helper that works with `oxlint.config.ts`** — allowing inline plugin objects to\
+  \ be passed directly rather than requiring a file path would bypass the loader entirely\
+  \ for local plugins.\n3. **Document the esbuild workaround** — at minimum, the JS\
+  \ plugins documentation should mention that local TypeScript plugins need to be\
+  \ pre-bundled, and provide a working example of the esbuild approach including the\
+  \ `__dirname` shim.\n\n### References\n\n- Related: #18154 (JS Plugins types incorrect)\n\
+  - Related: #18863 (extends in oxlint.config.ts design doc)"
+source_platform: github_issues
+source_url: https://github.com/oxc-project/oxc/issues/19752
+source_context: GitHub issue in oxc-project/oxc
+author_info: CoenWarmer
+engagement:
+  comments: 1
+  reactions: 5
+  state: open
+date_posted: '2026-02-26'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - A-linter-plugins
+  is_pull_request: false
+  repo: oxc-project/oxc
+attachments: []

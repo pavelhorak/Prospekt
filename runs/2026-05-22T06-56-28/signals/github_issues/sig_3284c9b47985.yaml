@@ -1,0 +1,149 @@
+signal_id: sig_3284c9b47985
+raw_text: "Bug: memo-compare-deeply-complex-props flags forwardRef's ref parameter\
+  \ as a complex prop\n\n**Affected ESLint Rule**\n`@blumintinc/blumint/memo-compare-deeply-complex-props`\n\
+  \n**Bug Type**\n- [x] False positive (flags valid code)\n- [ ] False negative (misses\
+  \ invalid code)\n- [x] Incorrect auto-fix (fix produces wrong output)\n- [ ] Crash\
+  \ (rule throws an error)\n- [ ] Performance (rule causes significant slowdown)\n\
+  \n---\n\n**Current Behavior**\n\nWhen a component is wrapped as `memo(forwardRef<T,\
+  \ P>(fn))` and `P` contains no object/array props (only primitives or callbacks),\
+  \ the rule falls back to analysing the **outer** `forwardRef(...)` call expression.\
+  \ The TypeScript type checker resolves that expression to `React.ForwardRefExoticComponent<PropsWithoutRef<P>\
+  \ & RefAttributes<T>>`. Its single call signature has a `props` parameter that includes\
+  \ a synthetic `ref` member (from `RefAttributes<T> = { ref?: React.Ref<T> | undefined\
+  \ }`). Because `Ref<T>` is a union containing `RefObject<T>` (an object type), the\
+  \ rule classifies `ref` as a \"complex prop\" and reports:\n\n> Memoized component\
+  \ \"...\" receives complex prop(s) `[ref]` ... → How to fix: Pass `compareDeeply('ref')`\
+  \ as memo's second argument.\n\nThe auto-fix inserts `compareDeeply('ref')` — but\
+  \ `ref` is React's reserved ref-forwarding slot, **not a prop on the props object**.\
+  \ React strips `ref` before invoking the equality function, so listing it in `compareDeeply(...)`\
+  \ has no effect (best case) or produces confusing dead code (typical case).\n\n\
+  **Expected Behavior**\n\nThe rule should treat `ref` as a reserved React slot and\
+  \ never flag it as a complex prop, regardless of which analysis target (`preferredAnalysisTarget`,\
+  \ `analysisTarget`, or `wrappedInnerCandidate`) supplied the props type. When `forwardRef(...)`\
+  \ is the only source of a flagged prop and that prop is `ref`, the rule should report\
+  \ nothing (mirroring how it already skips `children`).\n\n---\n\n**Code That Triggers\
+  \ the Bug**\n\n```tsx\nimport { forwardRef, MouseEvent, useMemo } from 'react';\n\
+  import IconButton from '@mui/material/IconButton';\nimport MoreVertRoundedIcon from\
+  \ '@mui/icons-material/MoreVertRounded';\nimport { useTheme } from '@mui/material/styles';\n\
+  import { memo } from 'src/util/memo';\n\nexport type MatchMenuButtonProps = Readonly<{\n\
+  \  onClick?: (event: MouseEvent) => void;\n}>;\n\n/** Triggers: `memo(forwardRef<T,\
+  \ P>(fn))` where P has no complex props. */\nexport const MatchMenuButton = memo(\n\
+  \  forwardRef<HTMLButtonElement, MatchMenuButtonProps>(\n    function MatchMenuButtonRefless({\
+  \ onClick }, ref) {\n      const theme = useTheme();\n      const buttonSx = useMemo(()\
+  \ => ({ padding: 0 } as const), []);\n      return (\n        <IconButton ref={ref}\
+  \ sx={buttonSx} onClick={onClick}>\n          <MoreVertRoundedIcon />\n        </IconButton>\n\
+  \      );\n    },\n  ),\n);\n```\n\nReproduction in this repo: `src/components/tournaments/match/cell/MatchMenuButton.tsx`.\n\
+  \n---\n\n**Erroneous Output**\n\n```\n21:32  error  What's wrong: Memoized component\
+  \ \"MatchMenuButtonRefless\" receives complex prop(s) [ref]\n              but memo\
+  \ still uses shallow reference comparison\n              → ...\n              →\
+  \ How to fix: Pass compareDeeply('ref') as memo's second argument to compare those\
+  \ props by value.\n              @blumintinc/blumint/memo-compare-deeply-complex-props\n\
+  ```\n\nAuto-fix output:\n\n```tsx\nimport { compareDeeply } from 'src/util/memo';\n\
+  // ...\nexport const MatchMenuButton = memo(\n  forwardRef<HTMLButtonElement, MatchMenuButtonProps>(\n\
+  \    function MatchMenuButtonRefless({ onClick }, ref) { /* ... */ },\n  ),\n  compareDeeply('ref'),\n\
+  );\n```\n\n`compareDeeply('ref')` is dead code: React extracts `ref` from props\
+  \ before invoking the equality function, so the deep comparator never sees it.\n\
+  \n**Desired Output**\n\nNo diagnostic. The rule should silently accept this pattern,\
+  \ the same way it skips `children`:\n\n```tsx\nexport const MatchMenuButton = memo(\n\
+  \  forwardRef<HTMLButtonElement, MatchMenuButtonProps>(\n    function MatchMenuButtonRefless({\
+  \ onClick }, ref) { /* ... */ },\n  ),\n);\n```\n\n---\n\n**Rule Configuration**\n\
+  \nThe rule is not configured directly in `.eslintrc.js`; it inherits from the recommended\
+  \ preset:\n\n```javascript\n// .eslintrc.js\n{\n  extends: [\n    /* ... */\n  \
+  \  'plugin:@blumintinc/blumint/recommended',\n    /* ... */\n  ],\n  // No explicit\
+  \ override for memo-compare-deeply-complex-props — runs at 'error' from recommended.\n\
+  }\n```\n\n---\n\n**Root Cause Hypothesis**\n\nThe bug originates in the **fallback\
+  \ analysis path** for `memo(forwardRef(...))` wrappers, not in the inner-function\
+  \ analysis path.\n\n**Evidence from the rule source** (`src/rules/memo-compare-deeply-complex-props.ts`):\n\
+  \n1. `findComponentAnalysisTargets` (lines 937–989) selects `analysisTarget` and\
+  \ `preferredAnalysisTarget`. For `memo(forwardRef(fn))`:\n   - `unwrappedComponent`\
+  \ = the `forwardRef(...)` CallExpression\n   - `wrappedInnerCandidate` = `fn` (the\
+  \ inner function)\n   - `analysisTarget` = `unwrappedComponent` (the `forwardRef(...)`\
+  \ CallExpression — chosen at line 972 because `isComponentExpression(unwrappedComponent)`\
+  \ is `true` for CallExpressions)\n   - `preferredAnalysisTarget` = `wrappedInnerCandidate\
+  \ ?? analysisTarget` = `fn`\n\n2. `collectComplexPropsForTargets` (lines 991–1010)\
+  \ probes targets in order:\n   ```typescript\n   let complexProps = getComplexProps(targets.preferredAnalysisTarget);\
+  \ // inner fn -> []\n   if (complexProps.length === 0 && preferredAnalysisTarget\
+  \ !== analysisTarget) {\n     complexProps = getComplexProps(targets.analysisTarget);\
+  \             // forwardRef(...) -> [ref]\n   }\n   ```\n   When `P` has no complex\
+  \ props, the first call returns `[]`, triggering the fallback to `analysisTarget`.\n\
+  \n3. With `analysisTarget = forwardRef(...) CallExpression`, `getComplexPropsFromComponent`\
+  \ (lines 889–903) routes to `extractPropsFromComponentSignatures` because `isFunctionComponentWithProps`\
+  \ returns `false` for a CallExpression.\n\n4. `extractPropsFromComponentSignatures`\
+  \ (lines 831–851) reads `componentType.getCallSignatures()`. For `forwardRef<T,\
+  \ P>(...)`, the result type is `React.ForwardRefExoticComponent<PropsWithoutRef<P>\
+  \ & RefAttributes<T>>`. Its call signature's `params[0]` is `PropsWithoutRef<P>\
+  \ & RefAttributes<T>` — **`RefAttributes<T> = { ref?: React.Ref<T> | undefined }`\
+  \ injects the synthetic `ref` member**.\n\n5. `getComplexPropertiesFromType` (lines\
+  \ 715–744) iterates properties and skips only `children` (line 727). `ref` has type\
+  \ `React.Ref<T> | undefined` = `(RefCallback<T> | RefObject<T> | null) | undefined`.\
+  \ The `RefObject<T>` arm passes `isObjectType` (lines 638–640), so `isComplexTypeInternal`\
+  \ returns `true` for the union (lines 561–570 — `Array.some` returns true on the\
+  \ object arm).\n\n**Why the fallback exists at all**: it's there to handle wrapper-component\
+  \ patterns like `memo(connect(...)(Component))` where `preferredAnalysisTarget`\
+  \ may not have a usable signature. But `forwardRef` is a special case where the\
+  \ props type at the call-expression level **artificially includes `ref`** that doesn't\
+  \ exist at the inner-function-parameter level.\n\n**Recommended fix locations**\
+  \ (in order of preference):\n\n1. **`getComplexPropertiesFromType`** (line 727):\
+  \ extend the `children` skip-list to include `ref`. This is the most surgical fix\
+  \ and matches the existing \"reserved React slot\" pattern.\n   ```typescript\n\
+  \   if (prop.name === 'children' || prop.name === 'ref' || prop.name === 'key')\
+  \ continue;\n   ```\n   (`key` is similarly reserved and should also be excluded.)\n\
+  \n2. **`extractPropsFromComponentSignatures`** (lines 831–851): when the underlying\
+  \ type symbol is `ForwardRefExoticComponent`, strip `ref` from the signature params\
+  \ before iterating. More targeted but more brittle.\n\n3. **`findComponentAnalysisTargets`**\
+  \ (lines 937–989): when `unwrappedComponent` is a `forwardRef(...)` CallExpression,\
+  \ exclude the outer call from the fallback chain so only the inner function is analysed.\
+  \ Most invasive.\n\nOption 1 is preferred because:\n- It mirrors the existing `children`\
+  \ exclusion (line 727) and would naturally cover any other code path that resolves\
+  \ to a props type with a synthetic `ref` (e.g., `React.RefAttributes` mixed in via\
+  \ other HOCs).\n- It also fixes the related `key` case for free.\n- It is the smallest\
+  \ possible diff and easiest to test.\n\n**Test coverage gap**: `src/tests/memo-compare-deeply-complex-props.test.ts`\
+  \ line 696–717 contains a `forwardRef` test, but the test's `Props` type includes\
+  \ a complex prop (`settings: { theme: string }`). Because the inner-function analysis\
+  \ path finds `[settings]` immediately, the fallback to `analysisTarget` never runs,\
+  \ so the test never exercises the buggy code path. Add a test case where `P` contains\
+  \ only primitive/callback props (e.g., `{ onClick?: (e: MouseEvent) => void }`)\
+  \ so the fallback fires and the rule produces zero diagnostics.\n\n**Related Issues**\n\
+  \n- Open: [#1179 — incorrectly flags ReactNode render props (`Avatar`, `Preview`\
+  \ from `ChannelPreviewUIComponentProps`) as complex props](https://github.com/BluMintInc/eslint-custom-rules/issues/1179).\
+  \ Same rule, neighbouring false-positive class: synthetic/reserved member types\
+  \ that pass the `isObjectType` check but shouldn't be deep-compared. A fix that\
+  \ adds a \"props to skip\" mechanism (or a \"React-internal type\" detector) could\
+  \ address both at once.\n- Closed: [#1106 — failed to ignore `sx`, `style`, `*Sx`,\
+  \ `*Style` props](https://github.com/BluMintInc/eslint-custom-rules/issues/1106).\
+  \ Precedent: the rule already has an `isDefaultDeepCompareProp` skip-list (lines\
+  \ 62–69) for prop names handled by the custom `blumintAreEqual` comparator. Adding\
+  \ `ref` and `key` follows the same precedent.\n\n---\n\n**Additional Context**\n\
+  \n- **When the issue occurs**: any `memo(forwardRef<T, P>(fn))` where `P` has zero\
+  \ object/array props. Common when forwarding refs through a thin styled wrapper\
+  \ around an MUI component (e.g., `IconButton`, `Button`) that only exposes a primitive/callback\
+  \ API.\n- **Codebase scan**: Search this repo for `memo(\\s*forwardRef` to find\
+  \ all affected files. The reproduction site (`src/components/tournaments/match/cell/MatchMenuButton.tsx`)\
+  \ carries an `// eslint-disable-next-line` workaround; any other thin ref-forwarding\
+  \ wrapper with a small props surface will hit the same false positive.\n- **Workaround**:\
+  \ `// eslint-disable-next-line @blumintinc/blumint/memo-compare-deeply-complex-props`\
+  \ at the `memo(...)` call site. Acceptable but adds noise to clean code.\n- **Why\
+  \ this matters now**: the rule's diagnostic message instructs developers to call\
+  \ `compareDeeply('ref')`. A developer who blindly applies the auto-fix introduces\
+  \ dead code that misrepresents the component's memoization contract (it implies\
+  \ `ref` is being deep-compared when it physically cannot be — React strips `ref`\
+  \ before the equality function runs).\n- Rule documentation: https://github.com/BluMintInc/eslint-custom-rules/blob/develop/docs/rules/memo-compare-deeply-complex-props.md\n\
+  - Rule implementation: https://github.com/BluMintInc/eslint-custom-rules/blob/develop/src/rules/memo-compare-deeply-complex-props.ts\n\
+  - Existing forwardRef test (does not exercise the bug): https://github.com/BluMintInc/eslint-custom-rules/blob/develop/src/tests/memo-compare-deeply-complex-props.test.ts#L696-L717"
+source_platform: github_issues
+source_url: https://github.com/BluMintInc/eslint-custom-rules/issues/1224
+source_context: GitHub issue in BluMintInc/eslint-custom-rules
+author_info: shaffy9633
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-13'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - bug
+  is_pull_request: false
+  repo: BluMintInc/eslint-custom-rules
+attachments: []

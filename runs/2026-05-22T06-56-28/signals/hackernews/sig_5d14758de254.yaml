@@ -1,0 +1,19 @@
+signal_id: sig_5d14758de254
+raw_text: I&#x27;m having difficulty understanding how to use this. Is there a demo
+  &#x2F; example to view? I&#x27;m currently managing a team using Google Analytics,
+  Facebook Pixel and Hotjar. How can I benefit from Avo?<p>From what I understand,
+  I can use Avo to setup flows that I want to watch (like a sales conversion funnel)
+  and make sure that the analytics tags are properly implemented across all pages
+  of the funnel. Is that correct?<p>In the case that the sales funnel changes and
+  a new page is added, do I need to remember to update Avo with the change?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=19213179
+source_context: HN Comment on story 19209527
+author_info: writimov
+engagement:
+  parent: '19209527'
+date_posted: '2019-02-20'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

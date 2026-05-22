@@ -1,0 +1,15 @@
+signal_id: sig_902c7a80c86e
+raw_text: '&gt; More than a dozen locals told The Information they they hated the
+  cars, which often struggle to cross a T-intersection near the company&#x27;s office.<p>More
+  than a dozen. In a year of testing.<p>Pretty good result, if I may say.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=17866180
+source_context: HN Comment on story 17865306
+author_info: jasonvorhe
+engagement:
+  parent: '17865306'
+date_posted: '2018-08-29'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

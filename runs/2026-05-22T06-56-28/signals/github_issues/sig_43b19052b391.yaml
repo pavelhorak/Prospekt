@@ -1,0 +1,30 @@
+signal_id: sig_43b19052b391
+raw_text: "sac2c: Array and Complex modules cannot be used together (symbol conflicts\
+  \ + lexer ICE)\n\n# `Array: all` and `Complex: all` cannot be used together\n\n\
+  ## Error (full import)\n```\nError: Symbol 'reverse' used more than once\n  ...\
+  \ from module 'Complex'\n  ... from module 'Array'\nCompilation failed while Running\
+  \ module system, 32 error(s).\n```\n\n## Error (selective import workaround attempt)\n\
+  ```\nInternal compiler error\nAssertion \"!buf_empty\" failed at src/libsac2c/scanparse/lex.c:1241\n\
+  \  -- buffer should never be empty at this point\n```\n\n## Reproduction\n```bash\n\
+  # Full import — 32 symbol conflicts\nsac2c test.sac -o test.out\n\n# Selective import\
+  \ — lexer ICE\nsac2c test_selective.sac -o test_selective.out\n```\n\nImporting\
+  \ both `Array: all` and `Complex: all` produces 32 symbol conflicts. Attempting\
+  \ to work around this with selective imports from Array (listing individual symbols)\
+  \ triggers a separate ICE in the lexer.\n\n## Workaround\nUse `Structures: all`\
+  \ instead, which provides both array operations and complex types without conflicts."
+source_platform: github_issues
+source_url: https://github.com/rubenhensen/sac-blas/issues/9
+source_context: GitHub issue in rubenhensen/sac-blas
+author_info: rubenhensen
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-04-15'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels: []
+  is_pull_request: false
+  repo: rubenhensen/sac-blas
+attachments: []

@@ -1,0 +1,15 @@
+signal_id: sig_19ffa490253a
+raw_text: 'Wow, salaries have gone DOWN since I last worked as IC!<p>Context: Was
+  a senior SWE in SF for Airbnb until 2020. Now I&#x27;m seeing Principle engineer
+  positions with lower base salary than I had 5 years ago.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=44027110
+source_context: HN Comment on story 44025484
+author_info: welder
+engagement:
+  parent: '44025484'
+date_posted: '2025-05-19'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

@@ -1,0 +1,44 @@
+signal_id: sig_854d23d8d55e
+raw_text: "research_topic: Timeout on complex queries with no partial results returned\n\
+  \n## Bug Description\n\nThe `research_topic` tool times out on some queries without\
+  \ returning any partial results. When a research_topic call fails, the entire multi-source\
+  \ fetch is lost — there is no graceful degradation or partial result return.\n\n\
+  ## Reproduction\n\n### Query that timed out:\n```json\n{\n  \"topic\": \"consumer\
+  \ psychology household overwhelm decision fatigue task paralysis why people cant\
+  \ start cleaning emotional barriers procrastination home tasks\",\n  \"mode\": \"\
+  topic\",\n  \"max_sources\": 15,\n  \"session_id\": \"home-execution-gap\"\n}\n\
+  ```\n**Result:** `The operation timed out.` — no data returned at all.\n\n### Context:\n\
+  This query was run in parallel with 5 other research_topic and social_search calls.\
+  \ The other queries completed successfully (within 15-30s). This one died completely.\n\
+  \n## Expected Behavior\n- If some sources were fetched before timeout, return those\
+  \ partial results with a warning\n- If the timeout occurs during content extraction\
+  \ (the slower step), return the search results without extracted content\n- Include\
+  \ a `partial: true` flag so callers know the result is incomplete\n\n## Workaround\n\
+  Retried the same topic with `web_search` as a fallback, which returned results immediately.\
+  \ The workaround pattern:\n1. Try `research_topic` first\n2. If timeout, fall back\
+  \ to `web_search` with similar query\n3. Manually retrieve key URLs with `content_operations`\n\
+  \n## Suggested Improvement\nConsider a two-phase response:\n1. **Phase 1 (fast):**\
+  \ Return search result URLs + titles within 10s\n2. **Phase 2 (slower):** Fetch/extract\
+  \ content from those URLs\n\nThis way, a timeout on Phase 2 doesn't lose the Phase\
+  \ 1 data.\n\n## Impact\nFor large parallel research sessions (running 6+ queries\
+  \ simultaneously), at least one query frequently times out. Losing the entire result\
+  \ forces redundant queries and wastes time."
+source_platform: github_issues
+source_url: https://github.com/damionrashford/RivalSearchMCP/issues/23
+source_context: GitHub issue in damionrashford/RivalSearchMCP
+author_info: itstatiana
+engagement:
+  comments: 1
+  reactions: 0
+  state: open
+date_posted: '2026-04-27'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - tool:research_topic
+  - 🐛 Bug
+  - 🟡 Medium
+  is_pull_request: false
+  repo: damionrashford/RivalSearchMCP
+attachments: []

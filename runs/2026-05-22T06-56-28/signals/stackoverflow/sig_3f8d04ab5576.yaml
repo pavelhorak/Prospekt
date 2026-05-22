@@ -1,0 +1,73 @@
+signal_id: sig_3f8d04ab5576
+raw_text: 'What is a binder callback on Android?
+
+
+  <p>I have been watching the Google I/O presentation by Virgil Dobjanschi on the
+  correct way to implement REST on Android with services and content providers.  <a
+  href="http://code.google.com/events/io/2010/sessions/developing-RESTful-android-apps.html"
+  rel="noreferrer">http://code.google.com/events/io/2010/sessions/developing-RESTful-android-apps.html</a></p>
+
+
+  <p>Based on the video I''m doing things the wrong way, which is not surprising given
+  how hard the right way is. Anyway, having been shown the promised land in the video
+  I''m having a bit of a problem figuring out how to get there.</p>
+
+
+  <p>I have most of it nailed but the one thing that''s defeating me is the Binder
+  Callback that Virgil references in the slides (see link above), on page 43 it shows
+  step 2 as starting the service with startService( intent ) and step 10 as returning
+  status information using a Binder Callback. There is no example code anywhere in
+  the presentation which is rather frustrating. There is talk of open sourcing the
+  Twitter client which apparently uses this approach but nothing yet and the announcement
+  was in April.</p>
+
+
+  <p>In the video he states: "What is a binder callback? A binder callback, think
+  of it as an interface that was passed in the request intent."</p>
+
+
+  <p>I have searched all over the place but have not been able to find any doc or
+  examples that show how to pass a callback as part of an intent. Nor can I figure
+  out any other way of passing in a callback.</p>
+
+
+  <p>I thought he may be referring to binding to the service and implementing the
+  callback that way. However, he is specifically referring to a local service and
+  using strarSerice() and not bindService(). Also with bindService() the service will
+  be destroyed if the activity is destroyed which defeats the idea. The workaround
+  is to use startService() and then bindService() and leave the service running for
+  the duration. The other problem with bindService() is that the callback can not
+  be use until onServiceConnected() completes which complicates the code even further
+  as the action instructions can not be passed in the intent because the return callback
+  may not be in place in time to return the results.</p>
+
+
+  <p>I''m only interested in implementing this using the recommended approach. Can
+  anyone shed an light on what a Binder Callback is and how to code it up. Also related
+  to this, does anyone know what a Service Helper would look like apart from binge
+  a singleton?</p>
+
+
+  <p>Any help here would be much appreciated.
+
+  Thanks
+
+  Clive</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/3608491/what-is-a-binder-callback-on-android
+source_context: 'SO question (tags: android, callback, android-intent)'
+author_info: Clive Jackson
+engagement:
+  score: 29
+  view_count: 7674
+  answer_count: 1
+  is_answered: true
+date_posted: '2010-08-31'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - android
+  - callback
+  - android-intent
+attachments: []

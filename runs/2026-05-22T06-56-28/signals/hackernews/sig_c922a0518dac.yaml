@@ -1,0 +1,32 @@
+signal_id: sig_c922a0518dac
+raw_text: 'Show HN: Job board aggregator for best paying remote SWE jobs in the U.S.
+
+
+  I’ve been a remote SWE since the pandemic and truly appreciate its flexibilities
+  and time saved from not commuting. Lately, friends and close ones have been asking
+  me for advice on finding remote roles. I shared my remote company spreadsheet with
+  them, but realized it was a rather manual process to scroll and refresh each company’s
+  career page for new postings.<p>So I put together a centralized job board aggregator
+  that lists the best paying SWE jobs in one place, starting with the U.S. and 14
+  companies. The way it works is via a cron job that runs daily in the afternoon to
+  pull the latest job postings from each company and updates the website with the
+  new listings.<p>Some other key features are<p>1. Quickly see which companies are
+  actively hiring, e.g. Coinbase currently has the most openings<p>2. Filter by years
+  of experience or companies to find suitable matches<p>3. Easily see estimated salary
+  and posted date<p>If you&#x27;re also on the hunt for the next remote SWE role,
+  I hope this site helps streamline your job search and would appreciate any feedback
+  and suggestions. Thanks!<p>Home page: <a href="https:&#x2F;&#x2F;www.remoteswe.fyi"
+  rel="nofollow">https:&#x2F;&#x2F;www.remoteswe.fyi</a><p>FAQ page with additional
+  context: <a href="https:&#x2F;&#x2F;www.remoteswe.fyi&#x2F;faq" rel="nofollow">https:&#x2F;&#x2F;www.remoteswe.fyi&#x2F;faq</a>'
+source_platform: hackernews
+source_url: https://www.remoteswe.fyi
+source_context: HN Story
+author_info: xitang
+engagement:
+  points: 195
+  num_comments: 143
+date_posted: '2025-05-19'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: manual process'
+structured: {}
+attachments: []

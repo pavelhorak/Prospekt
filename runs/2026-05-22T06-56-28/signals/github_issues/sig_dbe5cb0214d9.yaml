@@ -1,0 +1,23 @@
+signal_id: sig_dbe5cb0214d9
+raw_text: "Feature Request:\n\n### Problem\n\nMy unit only has a Cool mode, yet HomeKit\
+  \ shows Auto and Heat as well. \n\n### Solution\n\nIf we could select a CoolingOnly\
+  \ option for the configuration, that would be awesome. \n\n### Alternatives\n\n\
+  _No response_\n\n### Additional context\n\n_No response_"
+source_platform: github_issues
+source_url: https://github.com/homebridge-plugins/homebridge-smarthq/issues/93
+source_context: GitHub issue in homebridge-plugins/homebridge-smarthq
+author_info: jeanofthedead
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-22'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: homebridge-plugins/homebridge-smarthq
+attachments: []

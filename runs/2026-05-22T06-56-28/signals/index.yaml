@@ -1,0 +1,8 @@
+run_id: 2026-05-22T06-56-28
+collected_at: '2026-05-22T06:58:19Z'
+total: 318
+by_source:
+  hackernews: 219
+  stackoverflow: 60
+  github_issues: 39
+  google_trends: 0

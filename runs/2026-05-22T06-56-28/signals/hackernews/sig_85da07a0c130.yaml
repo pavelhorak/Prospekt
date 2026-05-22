@@ -1,0 +1,20 @@
+signal_id: sig_85da07a0c130
+raw_text: I really thought I could never switch away from Firefox because of all of
+  the extensions I "couldn't live without," but I started playing with Webkit nightlies
+  a few weeks back and never looked back. It's faster, launches quickly, eats less
+  memory (look! It's only at half a gig!), and has high-res scrolling. The last one,
+  albeit small, is killer for me. Reading articles on the web is a whole difference
+  experience when you have good font rendering and truly smooth scrolling. I use keyboard
+  shortcuts to turn off the location and bookmarks bars most of the time to make the
+  browser get out of my way and let me use my webapps. Goodbye, Firefox!
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=180967
+source_context: HN Comment on story 180827
+author_info: epall
+engagement:
+  parent: '180827'
+date_posted: '2008-05-04'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

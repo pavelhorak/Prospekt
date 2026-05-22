@@ -1,0 +1,20 @@
+signal_id: sig_7af56055a55b
+raw_text: Good question!<p>I manage a few on premise servers, running docker containers,
+  with ansible. I have some app version-specifc playbooks that I run when necessary
+  (eg. a version that requires changes on the server) and a playbook.sh script to
+  run such playbooks (that provides some default values, logging etc).<p>I&#x27;ve
+  been thinking about adding a cli that would make it easier to prompt the user for
+  values, and execute certain work flows depending on the values. I&#x27;m not sure
+  if it&#x27;s worth the effort though, and wonder if it&#x27;s something that&#x27;s
+  easier done with ansible.<p>I wonder what other people have done in similar situations.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=23836895
+source_context: HN Comment on story 23836150
+author_info: rudasn
+engagement:
+  parent: '23836150'
+date_posted: '2020-07-14'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

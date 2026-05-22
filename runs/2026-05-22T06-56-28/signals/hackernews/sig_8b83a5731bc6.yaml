@@ -1,0 +1,23 @@
+signal_id: sig_8b83a5731bc6
+raw_text: 'I recently did vacation at the North Sea (land side, not the islands).
+  It was heartbreaking. In many areas the iPhone showed &quot;No Service&quot;, in
+  most areas we had &quot;Edge&quot; connection with virtually no data throughput.
+  Even when it showed &quot;3G&quot; I was mostly unable to use WhatsApp. And this
+  is a region where people live!<p>And let&#x27;s not talk about the landline broadband....
+  our rented appartment had a meager 1MBit download speed and 10MBit upload (yes,
+  the reverse from what you would expect).<p>On the Autobahn, on many, many kilometers
+  we had Edge only.<p>Compare that to my last travel to Iran: we had very fast LTE
+  almost everywhere especially in the middle of the desert (it was heavily censored,
+  but the infrastructure was working).<p>Even very close to big cities like Frankfurt,
+  having an uninterrupted phone call is a difficult thing to have.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=20616750
+source_context: HN Comment on story 20615126
+author_info: geff82
+engagement:
+  parent: '20615126'
+date_posted: '2019-08-05'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

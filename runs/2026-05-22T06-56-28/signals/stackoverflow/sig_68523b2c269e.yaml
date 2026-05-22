@@ -1,0 +1,114 @@
+signal_id: sig_68523b2c269e
+raw_text: 'Tools for making latex tables in R
+
+
+  <p>On general request, a community wiki on producing latex tables in R. In this
+  post I''ll give an overview of the most commonly used packages and blogs with code
+  for producing latex tables from less straight-forward objects. Please feel free
+  to add any I missed, and/or give tips, hints and little tricks on how to produce
+  nicely formatted latex tables with R.</p>
+
+
+  <h2>Packages :</h2>
+
+
+  <ul>
+
+  <li><a href="http://cran.r-project.org/web/packages/xtable/index.html" rel="noreferrer">xtable</a>
+  : for standard tables of most simple objects. A nice gallery with examples can be
+  found <a href="http://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf"
+  rel="noreferrer">here</a>.</li>
+
+  <li><a href="http://cran.r-project.org/web/packages/memisc/index.html" rel="noreferrer">memisc</a>
+  : tool for management of survey data, contains some tools for latex tables of (basic)
+  regression model estimates.</li>
+
+  <li><a href="http://cran.r-project.org/web/packages/Hmisc/index.html" rel="noreferrer">Hmisc</a>
+  contains a function <code>latex()</code> that creates a tex file containing the
+  object of choice. It is pretty flexible, and can also output <code>longtable</code>
+  latex tables. There''s a lot of info in the help file <code>?latex</code></li>
+
+  <li><a href="http://cran.r-project.org/web/packages/miscFuncs/index.html" rel="noreferrer">miscFuncs</a>
+  has a neat function ''latextable'' that converts matrix data with mixed alphabetic
+  and numeric entries into a LaTeX table and prints them to the console, so they can
+  be copied and pasted into a LaTeX document.</li>
+
+  <li><a href="http://cran.r-project.org/web/packages/texreg/index.html" rel="noreferrer">texreg</a>
+  package (<a href="https://cran.r-project.org/web/packages/texreg/vignettes/texreg.pdf"
+  rel="noreferrer">JSS paper</a>) converts statistical model output into LaTeX tables.
+  Merges multiple models. Can cope with about 50 different model types, including
+  network models and multilevel models (lme and lme4).</li>
+
+  <li><a href="http://cran.r-project.org/web/packages/reporttools/index.html" rel="noreferrer">reporttools</a>
+  package (<a href="http://www.jstatsoft.org/v31/c01" rel="noreferrer">JSS paper</a>)
+  is another option for descriptive statistics on continuous, categorical and date
+  variables.</li>
+
+  <li><a href="http://cran.r-project.org/web/packages/tables" rel="noreferrer">tables</a>
+  package is perhaps the most general LaTeX table making package in R for descriptive
+  statistics</li>
+
+  <li><a href="https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf"
+  rel="noreferrer">stargazer</a> package makes nice comparative statistical model
+  summary tables</li>
+
+  </ul>
+
+
+  <h2>Blogs and code snippets</h2>
+
+
+  <ul>
+
+  <li>There is the <a href="http://ryouready.files.wordpress.com/2009/06/outreg_code_by_paul_johnson.pdf"
+  rel="noreferrer">outreg function of Paul Johnson</a> that gives Stata-like tables
+  in Latex for the output of regressions. This one works great.</li>
+
+  <li>As given in an earlier question, there''s a code snippet to <a href="http://leftcensored.skepsi.net/2011/03/13/code-latex-tables-for-lme4-models/"
+  rel="noreferrer">adapt the memisc package for lme4 objects</a>. </li>
+
+  </ul>
+
+
+  <h2>Related questions :</h2>
+
+
+  <ul>
+
+  <li><a href="https://stackoverflow.com/questions/2978784/suggestion-for-r-latex-table-creation-package">Suggestion
+  for R/LaTeX table creation package</a></li>
+
+  <li><a href="https://stackoverflow.com/questions/2438486/rreport-latex-quality-output-package">Rreport/LaTeX
+  quality output package</a></li>
+
+  <li><a href="https://stackoverflow.com/questions/3661451/sorting-a-table-for-latex-output-with-xtable">sorting
+  a table for latex output with xtable</a></li>
+
+  <li><a href="https://stackoverflow.com/questions/5461196/any-way-to-produce-a-latex-table-from-an-lme4-mer-model-fit-object">Any
+  way to produce a LaTeX table from an lme4 mer model fit object?</a></li>
+
+  <li><a href="https://stackoverflow.com/questions/8251306/r-data-frame-with-stacked-specified-titles-for-latex-output-with-xtable">R
+  data.frame with stacked specified titles for latex output with xtable</a></li>
+
+  <li><a href="https://tex.stackexchange.com/questions/34788/automating-adding-tables-fast-to-latex-from-r">Automating
+  adding tables fast to latex from R</a>, with a very flexible and interesting syntax
+  using the formula language</li>
+
+  </ul>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/5465314/tools-for-making-latex-tables-in-r
+source_context: 'SO question (tags: r, latex)'
+author_info: Joris Meys
+engagement:
+  score: 268
+  view_count: 148565
+  answer_count: 8
+  is_answered: true
+date_posted: '2011-03-28'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - r
+  - latex
+attachments: []

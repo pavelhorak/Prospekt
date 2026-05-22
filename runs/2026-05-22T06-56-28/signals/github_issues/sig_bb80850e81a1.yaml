@@ -1,0 +1,30 @@
+signal_id: sig_bb80850e81a1
+raw_text: 'Feature Request: Portable
+
+
+  Just find out this excellent tools today and it''s working flawlessly!
+
+  However there''s no way to use OpenSteamTool without placing directly in Steam dir
+  installation (like GL Stealth Mode any folder).
+
+  Maybe add options in .toml file to point steam and lua dir?
+
+  Thank you!'
+source_platform: github_issues
+source_url: https://github.com/OpenSteam001/OpenSteamTool/issues/38
+source_context: GitHub issue in OpenSteam001/OpenSteamTool
+author_info: turusudiro
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-19'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: OpenSteam001/OpenSteamTool
+attachments: []

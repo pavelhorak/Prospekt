@@ -1,0 +1,29 @@
+signal_id: sig_93450337c6c7
+raw_text: "How do I &quot;include&quot; functions from my other files?\n\n<p>Let's\
+  \ say I have a file called app.js. Pretty simple:</p>\n\n<pre><code>var express\
+  \ = require('express');\nvar app = express.createServer();\napp.set('views', __dirname\
+  \ + '/views');\napp.set('view engine', 'ejs');\napp.get('/', function(req, res){\n\
+  \  res.render('index', {locals: {\n    title: 'NowJS + Express Example'\n  }});\n\
+  });\n\napp.listen(8080);\n</code></pre>\n\n<p>What if I have a functions inside\
+  \ \"tools.js\".  How would I import them to use in apps.js?</p>\n\n<p>Or...am I\
+  \ supposed to turn \"tools\" into a module, and then require it? &lt;&lt; seems\
+  \ hard, I rather do the basic import of the tools.js file.</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/5797852/how-do-i-include-functions-from-my-other-files
+source_context: 'SO question (tags: javascript, import, header, node.js)'
+author_info: TIMEX
+engagement:
+  score: 1234
+  view_count: 1177624
+  answer_count: 30
+  is_answered: true
+date_posted: '2011-04-26'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - javascript
+  - import
+  - header
+  - node.js
+attachments: []

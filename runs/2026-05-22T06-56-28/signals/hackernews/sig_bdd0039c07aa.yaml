@@ -1,0 +1,15 @@
+signal_id: sig_bdd0039c07aa
+raw_text: Very relevant tool for this SOC2 compliant org. I have seen lot of general
+  purpose automation tools pitch this but I think domain specific automation like
+  this gives you much better value for money.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=32423757
+source_context: HN Comment on story 32422871
+author_info: debarshri
+engagement:
+  parent: '32422871'
+date_posted: '2022-08-11'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

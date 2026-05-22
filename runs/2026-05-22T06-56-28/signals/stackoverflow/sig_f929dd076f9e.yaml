@@ -1,0 +1,28 @@
+signal_id: sig_f929dd076f9e
+raw_text: 'How to convert a column number (e.g. 127) into an Excel column (e.g. AA)
+
+
+  <p>How do you convert a numerical number to an Excel column name in C# without using
+  automation getting the value directly from Excel.</p>
+
+
+  <p>Excel 2007 has a possible range of 1 to 16384, which is the number of columns
+  that it supports. The resulting values should be in the form of excel column names,
+  e.g. A, AA, AAA etc.</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/181596/how-to-convert-a-column-number-e-g-127-into-an-excel-column-e-g-aa
+source_context: 'SO question (tags: c#, excel)'
+author_info: robertkroll
+engagement:
+  score: 577
+  view_count: 313695
+  answer_count: 60
+  is_answered: true
+date_posted: '2008-10-08'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - c#
+  - excel
+attachments: []

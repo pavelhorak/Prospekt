@@ -1,0 +1,22 @@
+signal_id: sig_173e6922b79d
+raw_text: "Did you consider writing this as a CLI tool and using amazing auto-completion\
+  \ to give you discoverability and an advanced UI? I love the idea of having a tool\
+  \ that brings these systems together but would rather keep my focus on the command\
+  \ line since that&#x27;s where I&#x27;m spending the majority of my time.<p><pre><code>\
+  \  raycast ticket create &quot;Run database migration in production&quot;\n  raycast\
+  \ ticket&lt;tab&gt;\n    create claim set_owner close\n  raycast ticket set_owner\
+  \ p&lt;tab&gt;\n</code></pre>\nI&#x27;ve written a tool that uses a plugin system\
+  \ to easily add more &quot;commands&quot; to be run. I haven&#x27;t tackled the\
+  \ tab completion piece yet, but I can imagine that it would significantly benefit\
+  \ the user experience."
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22468440
+source_context: HN Comment on story 22466994
+author_info: pedoh
+engagement:
+  parent: '22466994'
+date_posted: '2020-03-02'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

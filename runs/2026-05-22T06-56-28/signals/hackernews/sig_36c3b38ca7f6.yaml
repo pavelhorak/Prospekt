@@ -1,0 +1,53 @@
+signal_id: sig_36c3b38ca7f6
+raw_text: 'Show HN: TongueType – Local, privacy-focused Whisper dictation for macOS
+
+
+  Hi HN,<p>I&#x27;m a longtime web dev, but this is my first macOS app. Feedback is
+  very welcome &lt;3<p>I built TongueType because every dictation app I tried failed
+  at least one of three things: it sent my audio to someone&#x27;s cloud, it charged
+  me monthly fee, or it felt clunky or enterprisy. The cloud thing kills it for anything
+  sensitive. The subscription thing is insulting for what amounts to &quot;Whisper
+  + a hotkey.&quot;<p>TongueType runs Whisper locally on Apple Silicon via CoreML.
+  It&#x27;s built to feel like a second keyboard: tap the hotkey, talk, let go, words
+  appear. It sits in the menu bar (no dock icon, no buttons to click). I use it constantly
+  for LLM prompts, code comments, emails, and DMs. It gets out of the way completely.
+  (It can also transcribe audio and video files.)<p>No accounts, no servers, zero
+  telemetry. The free tier is 30 minutes of live dictation per month. Pro is $19.99
+  one-time for up to 5 Macs. No subscription, and I&#x27;m committing to keeping it
+  that way.<p>I wanted the app to be fun and personal. I included twenty accent colors
+  including Rainbow Mode that runs a satisfying gradient through a waveform while
+  you talk. Custom listening labels, adjustable overlay position, spoken cues like
+  &quot;new paragraph&quot; or &quot;scratch that.&quot; And customizable post-processing
+  rules! I want the app to feel like its yours instead of something you&#x27;re renting.<p>Two
+  things worth mentioning about what didn&#x27;t work:<p>First, I tried building an
+  iOS keyboard extension as part of the app. iOS dictation just isn&#x27;t great,
+  and a local Whisper keyboard would have been a real upgrade. Turns out keyboard
+  extensions can&#x27;t access the microphone API at all on iOS, so the the only workaround
+  is bouncing out to a host app to record then back to the keyboard, which is a terrible
+  experience. Because of that, it&#x27;s macOS only.<p>Second, I originally submitted
+  it to the Mac App Store and it was rejected under Guideline 2.4.5, which says an
+  app can&#x27;t use Accessibility APIs for non-accessibility purposes. This is the
+  infamous rule that gets most dictation apps rejected. The irony is that third-party
+  dictation apps have a very real accessibility angle. People with RSI, tremor, arthritis,
+  post-stroke hemiparesis, etc. often find long-form typing to be painful or even
+  impossible. Apple&#x27;s stance is that &quot;inserting text at the cursor&quot;
+  isn&#x27;t an accessibility use case, even when the user literally can&#x27;t use
+  their hands. So it&#x27;s a direct download, signed and notarized, outside the App
+  Store.<p>And a huge shout out to what worked really well: Polar (polar.sh) was an
+  absolute joy to setup and use for payments! It feels like Stripe circa 2011. It&#x27;s
+  simple, fast, intuitive, and just works.<p>Website and download: <a href="https:&#x2F;&#x2F;tonguetype.app&#x2F;"
+  rel="nofollow">https:&#x2F;&#x2F;tonguetype.app&#x2F;</a><p>(My daughter did the
+  voiceover for the video...she did a great job!)<p>I&#x27;m happy to answer any questions,
+  and genuinely want to hear what&#x27;s broken or could be better!'
+source_platform: hackernews
+source_url: https://tonguetype.app/
+source_context: HN Story
+author_info: claviska
+engagement:
+  points: 5
+  num_comments: 0
+date_posted: '2026-05-15'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

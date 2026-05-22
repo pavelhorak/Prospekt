@@ -1,0 +1,16 @@
+signal_id: sig_c1e014290eca
+raw_text: Curious about the backstory here. Looks like the extension has been out
+  since at least 2017. What made you join YC? What are you telling investors (assuming
+  you&#x27;ve been talking to them following YC) when they ask &quot;how do you make
+  this a big business&quot;?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26038976
+source_context: HN Comment on story 26037816
+author_info: mritchie712
+engagement:
+  parent: '26037816'
+date_posted: '2021-02-05'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

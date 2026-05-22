@@ -1,0 +1,68 @@
+signal_id: sig_b916bb310a98
+raw_text: "Really trying to like CodeContracts in C#\n\n<p>I am finally playing catchup\
+  \ with everything new that has been added in to the .NET 3.5/4.0 Frameworks. The\
+  \ last few days I have been working with CodeContracts and I am really trying hard\
+  \ to like them. I am curious what other people think of the implementation of CodeContracts\
+  \ in C#? Specifically, how are people organizing things like Contract classes for\
+  \ interfaces, contract methods for Contract Invariants etc?</p>\n\n<p>I like the\
+  \ validation that contracts provide, at first glance they look great. With a few\
+  \ simple lines I can get some nice build checking before I even run my code. Unfortunately,\
+  \ I am having a hard time getting over the feeling that the way that code contracts\
+  \ are implement in C#, they are cluttering up my code more than they are documenting\
+  \ contracts. And to take full advantage of contracts, I am littering my code with\
+  \ assumptions and asserts etc (which I know some will say is a good thing); but\
+  \ as some of my examples below will show, it turns a single simple line in to 4\
+  \ or 5 lines, and doesn't really add sufficient value in my opinion over alternative\
+  \ approaches (i.e., asserts, exceptions etc).</p>\n\n<p>Currently, my greatest frustrations\
+  \ are:</p>\n\n<p>Interface Contracts:</p>\n\n<pre><code>[ContractClass(typeof(IInterfaceContract))]\n\
+  \  public interface IInterface\n  {\n    Object Method(Object arg);\n  }\n\n  [ContractClassFor(typeof(IInterface))]\n\
+  \  internal abstract class IInterfaceContract\n  {\n    private IInterfaceContract()\
+  \ { }\n\n    Object IInterface.Method(Object arg)\n    {\n      Contract.Requires(arg\
+  \ != null);\n      Contract.Ensures(Contract.Result&lt;Object&gt;() != null);\n\
+  \      return default(Object);\n    }\n  }\n</code></pre>\n\n<p>This feels like\
+  \ such a cludge to me, I wish there was a cleaner way to document requirements,\
+  \ either via attributes or some form of built in language support. The fact that\
+  \ I have to implement an abstract class that implements my interface, just so I\
+  \ can specify the contract seems tedious at best.</p>\n\n<p>Code Bloat:</p>\n\n\
+  <pre><code>typeof(Action&lt;&gt;).MakeGenericType(typeof(Object);\n</code></pre>\n\
+  \n<p>Requires several assumptions just to verify information that is readily available.\
+  \ I appreciate that all the analyzer knows is that it is operating on Type and thus\
+  \ must work on that limited knowledge, but it still frustrates me that a single\
+  \ line of code requires me to re-write as</p>\n\n<pre><code>var genericAction =\
+  \ typeof(Action&lt;&gt;);\n\nContract.Assume(genericAction.IsGenericType);\nContract.Assume(genericAction.GetGenericArguments().Length\
+  \ == 1);\n\ngenericAction.MakeGenericType(typeof(Object));\n</code></pre>\n\n<p>Just\
+  \ to keep things documented (yes I know I can use ContractVerificationAttribute\
+  \ to turn this off for a method/class etc, or SuppressMessageAttribbute to target\
+  \ specific messages, but that seems to defeat the purpose as your code would quickly\
+  \ become littered with suppressions etc. </p>\n\n<p>In addition, taking a case like</p>\n\
+  \n<pre><code>  public class MyClass\n    : IInterface\n  {\n    private readonly\
+  \ Object _obj;\n\n    public Object Property\n    {\n      get\n      {\n      \
+  \  Contract.Ensures(Contract.Result&lt;Object&gt;() != null);\n        return _obj;\n\
+  \      }\n    }\n\n    public MyClass(Object obj)\n    {\n      Contract.Requires(obj\
+  \ != null);\n\n      _obj = obj;\n    }\n  }\n</code></pre>\n\n<p>obj is required\
+  \ to be not null, and is set to a readonly field that cannot be changed, yet I am\
+  \ still required to add a \"markup\" method to my class so that my property requirement\
+  \ to not return null can be proven:</p>\n\n<pre><code>[ContractInvariantMethod]\n\
+  private void ObjectInvariant()\n{\n  Contract.Invariant(_obj != null);\n}\n</code></pre>\n\
+  \n<p>There is more, but I figured I have probably ranted enough, and I would really\
+  \ appreciate the insight of people much smarter than me to help me \"like\" Code\
+  \ Contracts and make this feeling of code clutter go away. Any insight on how to\
+  \ better structure code, workaround wonkiness issues etc would be greatly appreciated.</p>\n\
+  \n<p>Thanks!</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/3077933/really-trying-to-like-codecontracts-in-c
+source_context: 'SO question (tags: c#, code-contracts)'
+author_info: Chris Baxter
+engagement:
+  score: 59
+  view_count: 13447
+  answer_count: 6
+  is_answered: true
+date_posted: '2010-06-20'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - c#
+  - code-contracts
+attachments: []

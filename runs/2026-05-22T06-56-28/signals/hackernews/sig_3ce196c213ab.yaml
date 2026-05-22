@@ -1,0 +1,14 @@
+signal_id: sig_3ce196c213ab
+raw_text: Twitter verification can only be removed with manual process
+source_platform: hackernews
+source_url: https://twitter.com/carnage4life/status/1642585700892827648
+source_context: HN Story
+author_info: rurp
+engagement:
+  points: 2
+  num_comments: 0
+date_posted: '2023-04-04'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: manual process'
+structured: {}
+attachments: []

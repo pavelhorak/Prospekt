@@ -1,0 +1,16 @@
+signal_id: sig_0de3c06f6fd1
+raw_text: 1. Are you including limitations in place to ensure that cycles do not end
+  up in an infinite loop (if a specific condition is never met) or detecting n+1 queries(assuming
+  that there is a database component involved) ?<p>2. Is there a sandbox where users
+  can test and play with their flow before they decide on proceeding with it ?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26728121
+source_context: HN Comment on story 26717679
+author_info: throwaway4233
+engagement:
+  parent: '26717679'
+date_posted: '2021-04-07'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

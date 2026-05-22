@@ -1,0 +1,31 @@
+signal_id: sig_e5b1679024d6
+raw_text: 'Show HN: Poppins
+
+
+  Hi All<p>I and my co-founder built an internal tool (Slack app&#x2F;bot) for our
+  own usage as both of us work remotely (12+ hrs tz difference) to help ourselves
+  with Weekly digest&#x2F;report (action items&#x2F;discussion topics&#x2F;highlights)
+  to make it easy for ourselves to keep our YC SUS weekly updates ready and also to
+  not allow important items to get lost in the barrage of messages on Slack. We use
+  Slack for pretty much everything. Interestingly in the last week or so, we have
+  offered it to 3 people now, who are using our Slack app for similar use cases, one
+  of them is getting rid of 13 google docs that were being used to manage 1:1 meetings
+  with our Slack App, another one is using it to create &quot;All hands digest&quot;,
+  another one for all their zoom meetings - they make notes during the meeting on
+  our Slack App. We have some other users trying to use it for bookmarking for their
+  individual workflows. Would love to offer it up to anyone interested here. The slack
+  app is yet to be approved in the app directory, for the curious here is the link
+  - https:&#x2F;&#x2F;poppins.me<p>Would love to get some feedback, happy to onboard
+  and answer any questions.<p>Thanks'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26939444
+source_context: HN Story
+author_info: ujnamss
+engagement:
+  points: 4
+  num_comments: 1
+date_posted: '2021-04-26'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

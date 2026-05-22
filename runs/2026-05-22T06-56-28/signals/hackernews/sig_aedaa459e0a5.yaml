@@ -1,0 +1,60 @@
+signal_id: sig_aedaa459e0a5
+raw_text: 'Launch HN: Flowdash (YC W20) – Human-in-the-loop tooling for operations
+  teams
+
+
+  Hi everyone!<p>We’re Nick &amp; Omar from Flowdash (<a href="https:&#x2F;&#x2F;flowdash.com"
+  rel="nofollow">https:&#x2F;&#x2F;flowdash.com</a>). We help companies quickly build
+  internal tools to track and execute human-in-the-loop workflows.<p>We’re built specifically
+  for technology companies that have manual work behind the scenes. For example, a
+  fintech that has a beautiful mobile-first experience for its end users, likely also
+  has a risk team internally approving new accounts, or reviewing suspicious transactions
+  for anomalies. These teams need tools to get their jobs done, but building those
+  tools is time consuming and often means spending your limited engineering resources
+  on internal tools when you’d much rather invest in building user-facing features.<p>What’s
+  more, maintenance of these tools is an ongoing endeavor. As the company scales and
+  the operations team identifies ways they can improve their workflow, they’re often
+  bottlenecked on engineering availability, forcing the team to implement workarounds
+  in the interim, such as working out of spreadsheets and Slack. These workarounds,
+  while easy to implement, come with pitfalls such as tasks slipping through the cracks
+  or data getting out-of-sync.<p>With Flowdash, we’re combining the best of both worlds.
+  We want to enable the deep integration that comes from building custom software,
+  while making it possible for operations teams to iterate and improve their workflow
+  over time.  We’re able to do this because we’re not trying to be a general-purpose
+  low-code platform, but really focus on use cases where a team of humans works through
+  a backlog of tasks.<p>Flowdash was inspired by our own experience. Omar and I were
+  early engineers at Gusto and over the course of six years, built several internal
+  tools to support our payments, risk, and payroll operations teams. We saw first-hand
+  the benefits of equipping our ops teams with great tools, but also struggled to
+  prioritize improvements to these tools against user-facing features.<p>We think
+  of operations teams as unsung heroes. Their work is critical to the day-to-day operations
+  of the company, yet few people externally know they exist. We want to give them
+  better tools to get their work done.<p>Here’s how it works:<p>Flowdash’s core primitive
+  is a Flow, which we define as a pipeline of work, where tasks move through a set
+  of stages from creation to completion. Every Flow exposes an endpoint where developers
+  can push new tasks with a single POST request. Users then claim tasks and move them
+  along the pipeline. Additionally, actions can be customized in a number of ways,
+  such as sending email, calling a third-party API, or talking back to your main application.
+  Because stages and actions can be customized without code, the end-user can change
+  how they work without requiring engineering intervention. From the developer perspective,
+  you can think of it as a human-powered background job.<p>As a concrete example,
+  let’s consider a fintech onboarding new clients. When a new client signs up, a task
+  is automatically pushed to Flowdash. From there, a risk agent reviews the account
+  and decides whether to Approve or Reject the client. In turn, that action issues
+  a callback to the main application to complete onboarding. Here’s a 3-min video
+  setting this up end-to-end: <a href="https:&#x2F;&#x2F;flowdash.com&#x2F;demo" rel="nofollow">https:&#x2F;&#x2F;flowdash.com&#x2F;demo</a>.<p>We’re
+  excited (and a little intimidated) to be on HN today, and would love to get your
+  feedback. Have you had to build similar tools? What were some of the pain points
+  or challenges? Thanks in advance!<p>Nick and Omar'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22476985
+source_context: HN Story
+author_info: nickgervasi
+engagement:
+  points: 119
+  num_comments: 32
+date_posted: '2020-03-03'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

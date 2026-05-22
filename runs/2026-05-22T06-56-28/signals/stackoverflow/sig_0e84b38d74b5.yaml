@@ -1,0 +1,40 @@
+signal_id: sig_0e84b38d74b5
+raw_text: 'How can I reconcile detached HEAD with master/origin?
+
+
+  <p>I''m new at the branching complexities of Git. I always work on a single branch
+  and commit changes and then periodically push to my remote origin.</p>
+
+
+  <p>Somewhere recently, I did a reset of some files to get them out of commit staging,
+  and later did a <code>rebase -i</code> to get rid of a couple recent local commits.
+  Now I''m in a state I don''t quite understand.</p>
+
+
+  <p>In my working area, <code>git log</code> shows exactly what I''d expect-- I''m
+  on the right train with the commits I didn''t want gone, and new ones there, etc.</p>
+
+
+  <p>But I just pushed to the remote repository, and what''s there is different--
+  a couple of the commits I''d killed in the rebase got pushed, and the new ones committed
+  locally aren''t there. </p>
+
+
+  <p>I think "master/origin" is detached from HEAD, but I''m not 100% clear on what
+  that means, how to visualize it with the command line tools, and how to fix it.</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin
+source_context: 'SO question (tags: git)'
+author_info: Ben Zotto
+engagement:
+  score: 1766
+  view_count: 1310770
+  answer_count: 29
+  is_answered: true
+date_posted: '2011-04-24'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - git
+attachments: []

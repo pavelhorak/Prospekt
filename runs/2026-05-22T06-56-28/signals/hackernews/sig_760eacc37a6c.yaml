@@ -1,0 +1,67 @@
+signal_id: sig_760eacc37a6c
+raw_text: 'Nvidia''s moat is not what it used to be
+
+
+  For years, the lock-in was dead simple: CUDA.<p>Want top-tier performance? You wrote
+  CUDA. Do that once, and you were all-in on NVIDIA. The ecosystem compounded—libraries,
+  tooling, docs, talent—everything reinforcing the same gravity well.<p>That world
+  is starting to crack.<p>We’re entering a phase where low-level code isn’t a rare
+  skill anymore. Models are capable at generating kernels, bindings, and glue code.
+  Good enough to get a first version running fast and iterate from there. The switching
+  cost to a new accelerator is dropping quickly. What used to require a dedicated
+  team now often looks like a decent prompt plus a few review passes.<p>There’s an
+  old David Wheeler line: All problems in computer science can be solved by another
+  level of indirection. AI Codegen is an abstraction and more.<p>At the same time,
+  the economics are shifting.<p>For many real workloads—especially inference—VRAM
+  matters more than peak FLOPS. You want models resident in memory, batching cleanly,
+  with predictable latency. On a dollars-per-GB basis, AMD is starting to look compelling.
+  Newer cards bring stronger low-precision throughput (FP8&#x2F;INT4), structured
+  sparsity, and significantly more memory on mainstream SKUs. If you’re running open
+  models and care about cost&#x2F;throughput, you’re at least evaluating them.<p>Intel
+  is entering the mix as well. Battlemage (Arc Pro B-series) pushes high VRAM configurations
+  with competitive price&#x2F;perf for local inference. Not dominant, but another
+  viable option that didn’t exist in the CUDA-only world.<p>Then there’s supply.<p>NVIDIA
+  has built enormous demand and maintained pricing power. But scarcity cuts both ways.
+  If you can’t get hardware—or only at extreme prices—people explore alternatives.
+  Startups take what they can get. Infra teams design for heterogeneity. Open source
+  adapts to whatever is available.<p>This is how moats erode: not via a single replacement,
+  but through many small workarounds that become standard.<p>Two datapoints from actually
+  standing up a modern model serving stack:<p>1. In my recent GLM 5.1 deployment on
+  8xB200s, getting a novel model to serve reliably was painful. It took me ~12–13
+  minutes of cold starts (many!), random restarts, non-obvious flags, kernel warmups,
+  and graph captures just to reach a stable baseline. Most of that wasn’t “AI”—it
+  was infra whack-a-mole across memory limits, runtimes, and config quirks.<p>2. Even
+  once it was running, it was fragile. I kept hitting issues like streaming tool calls
+  producing invalid JSON because the model output, server parser, and client SDK were
+  out of sync. Fixing it required patches across multiple layers just to get to consistent
+  outputs. Real systems are leaky—far from clean abstractions.<p>That’s the actual
+  moat: not CUDA, but the entire stack—libraries, compilers, interconnects, and years
+  of ops knowledge.<p>But, it’s early.<p>CUDA isn’t just a platform; it’s a decade-plus
+  of battle-tested infra. Getting something to run is one thing. Getting it to run
+  great at scale is still difficult, performance cliffs in exactly the wrong places.<p>And
+  NVIDIA is moving up the stack aggressively—higher-level APIs, inference tooling,
+  tighter framework integration. Blackwell-class hardware pushes further efficiency
+  (e.g., low-precision compute like FP4) and targets memory-bound inference directly.
+  If abstractions become the battlefield, they’re positioning to control that layer
+  too.<p>So what happens:<p>* Near term: NVIDIA continues to dominate. Demand is still
+  growing fast and they remain the default.
+
+  * Medium term: the edges fray. Inference becomes more heterogeneous. AMD and Intel
+  pick up share where cost and memory dominate.
+
+  * Long term: value shifts upward—to models, data, orchestration. Hardware still
+  matters, but becomes more interchangeable at the margin.<p>Bottom line: CUDA used
+  to be a wall. Now it’s closer to a speed bump. AI didn’t remove the moat—it just
+  made it much easier to cross when there’s a reason to.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=47740552
+source_context: HN Story
+author_info: florianleibert
+engagement:
+  points: 6
+  num_comments: 11
+date_posted: '2026-04-12'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

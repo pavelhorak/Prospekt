@@ -1,0 +1,14 @@
+signal_id: sig_904b2c067e88
+raw_text: I am frustrated with Stable Diffusion
+source_platform: hackernews
+source_url: https://novalis.org/blog/2022-12-05-i-am-frustrated-with-stable-diffusion.html
+source_context: HN Story
+author_info: luu
+engagement:
+  points: 172
+  num_comments: 116
+date_posted: '2022-12-08'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

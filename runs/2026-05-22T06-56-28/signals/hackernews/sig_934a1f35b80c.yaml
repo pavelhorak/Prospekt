@@ -1,0 +1,18 @@
+signal_id: sig_934a1f35b80c
+raw_text: If my model is used to profile a given user such as to maximize revenue
+  from them (my objective is generally increasing with a more accurate classification
+  of a user to the degree that such categories are revenue relevant), does this model
+  still work?<p>If so, how is it privacy compliant, i.e. suffice the intent of the
+  law in say, EU countries, or will not be identified as &quot;privacy theater&quot;
+  in the US? If not, what do you do in these cases?<p>Cool to get your take on this.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=30706196
+source_context: HN Comment on story 30698215
+author_info: zwaps
+engagement:
+  parent: '30698215'
+date_posted: '2022-03-17'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

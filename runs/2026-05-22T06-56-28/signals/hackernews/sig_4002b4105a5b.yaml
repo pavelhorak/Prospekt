@@ -1,0 +1,44 @@
+signal_id: sig_4002b4105a5b
+raw_text: 'The reason smart founders pick bad startup ideas
+
+
+  Most startup advice sounds reasonable on the surface. “Find a problem.” “Scratch
+  your own itch.” “Build something people want.”
+
+  I followed all of it, and still watched smart founders, including myself, spend
+  months building things that quietly went nowhere.<p>That contradiction bothered
+  me enough to dig deeper. I started reading failure postmortems, dead Product Hunt
+  launches, abandoned GitHub repos, and long Hacker News threads where people explain
+  why they passed on an idea.<p>After a while, a pattern emerged. The problem isn’t
+  that people lack ideas. It’s that we evaluate ideas using storytelling logic instead
+  of survival logic.<p>We choose ideas that sound interesting, feel ambitious, or
+  look good in a pitch, but collapse the moment they meet real-world behaviour.<p>What
+  kills most ideas isn’t competition or execution. It’s that they don’t replace anything
+  urgent.<p>They don’t map to an existing habit, a recurring cost, or a painful workaround
+  someone is already using.<p>When you ask simple questions like who is paying, what
+  they stop doing when they adopt this, and why now, most ideas fall apart very quickly.<p>To
+  stop repeating this mistake, I began writing ideas down as hypotheses instead of
+  inspiration.<p>Each idea had to survive a few uncomfortable questions: what existing
+  behavior does this replace, what would kill it in the first thirty days, and what
+  is the smallest experiment that could prove or disprove demand.<p>Most ideas failed
+  immediately. A few survived longer than expected.<p>Over time this turned into a
+  private database I used to avoid wasting months on weak ideas. It wasn’t a collection
+  of “great ideas.”<p>It was a record of ideas that survived brutal filtering, along
+  with many that didn’t. Eventually I cleaned it up into something others could browse,
+  now called startupideasdbcom (google it), mostly because I kept wishing something
+  like this existed earlier.<p>If you’re stuck choosing what to build, or tired of
+  clever ideas that die quietly, this might save you some time.<p>And if you disagree
+  with the framework, I’m genuinely interested in where it breaks, Hacker News usually
+  finds the flaws faster than anywhere else.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46316913
+source_context: HN Story
+author_info: suhaspatil101
+engagement:
+  points: 6
+  num_comments: 1
+date_posted: '2025-12-18'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

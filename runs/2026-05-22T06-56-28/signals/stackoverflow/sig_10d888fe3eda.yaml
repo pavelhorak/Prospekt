@@ -1,0 +1,36 @@
+signal_id: sig_10d888fe3eda
+raw_text: 'How do I specify a password to &#39;psql&#39; non-interactively?
+
+
+  <p>I am trying to automate database creation process with a shell script and one
+  thing I''ve hit a road block with passing a password to <a href="https://en.wikipedia.org/wiki/PostgreSQL#Database_administration"
+  rel="noreferrer">psql</a>.
+
+  Here is a bit of code from the shell script:</p>
+
+
+  <pre><code>psql -U $DB_USER -h localhost -c"$DB_RECREATE_SQL"
+
+  </code></pre>
+
+
+  <p>How do I pass a password to <code>psql</code> in a non-interactive way?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/6405127/how-do-i-specify-a-password-to-psql-non-interactively
+source_context: 'SO question (tags: postgresql, bash, command-line, psql)'
+author_info: Alex N.
+engagement:
+  score: 773
+  view_count: 905345
+  answer_count: 12
+  is_answered: true
+date_posted: '2011-06-19'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - postgresql
+  - bash
+  - command-line
+  - psql
+attachments: []

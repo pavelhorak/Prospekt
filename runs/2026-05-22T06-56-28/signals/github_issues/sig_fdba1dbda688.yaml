@@ -1,0 +1,40 @@
+signal_id: sig_fdba1dbda688
+raw_text: "migrate-type redis-command: complex-key sub-field migration produces MOVED\
+  \ <wrong-slot>\n\n## Summary\n\nWith `migrate-type redis-command`, migrating a slot\
+  \ that contains a hash\nkey whose name has a `{tag}` aborts mid-stream:\n\n```\n\
+  [I][slot_migrate.cc:373] The key ij/staging/{N/<rand>/<id>} successfully migrated\n\
+  [E][slot_migrate.cc:203] Failed to send snapshot of slot(s) <range>.\n  Error: failed\
+  \ to migrate a key ij/staging/{N/<rand>/<id>}:101:\n  failed to migrate complex\
+  \ key: failed to send commands to restore a key:\n  wrong response from the destination\
+  \ node:\n  got invalid response of length 61: -MOVED <slot> <host>:<port>\n```\n\
+  \nThe slot number returned in the `MOVED` reply is **different** from\n`CLUSTER\
+  \ KEYSLOT <key>` for the same key (we saw parent=5466 and the\nreported MOVED=5465).\
+  \ The destination is computing the slot from an\nencoded sub-key buffer that does\
+  \ not preserve the `{tag}` hashtag, so\nthe destination's command dispatcher believes\
+  \ that sub-key belongs to a\ndifferent slot it does not own → MOVED, abort.\n\n\
+  ## Workaround\n\n`migrate-type raw-key-value` transfers each key as a RocksDB blob\
+  \ and\ndoes not decompose complex keys, so the sub-key hashing path is never\nexercised.\
+  \ The same migration that fails with `redis-command` completes\nin seconds with\
+  \ `raw-key-value`.\n\nWe recommend documenting `raw-key-value` as the preferred\
+  \ type for\nproduction slot migration until the `redis-command` path is fixed.\n\
+  \n## Repro (vanilla setup)\n\n1. Two-shard cluster, `migrate-type redis-command`\
+  \ (current default).\n2. Insert a hash with a tag: `HSET ij/staging/{T1}:101 f1\
+  \ v1 f2 v2`.\n3. Trigger slot migration that includes the slot of `{T1}`.\n4. Migration\
+  \ aborts with the MOVED error above.\n\n## Versions\n\n- Apache Kvrocks 2.15.0"
+source_platform: github_issues
+source_url: https://github.com/apache/kvrocks/issues/3498
+source_context: GitHub issue in apache/kvrocks
+author_info: thinker0
+engagement:
+  comments: 2
+  reactions: 0
+  state: open
+date_posted: '2026-05-20'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - bug
+  is_pull_request: false
+  repo: apache/kvrocks
+attachments: []

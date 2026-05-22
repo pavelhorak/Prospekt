@@ -1,0 +1,26 @@
+signal_id: sig_1319e04cbf5e
+raw_text: 'How can I list the tables in a SQLite database file that was opened with
+  ATTACH?
+
+
+  <p>What SQL can be used to list the tables, and the rows within those tables in
+  an SQLite database file – once I have attached it with the <code>ATTACH</code> command
+  on the <code>sqlite3</code> command line tool?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/82875/how-can-i-list-the-tables-in-a-sqlite-database-file-that-was-opened-with-attach
+source_context: 'SO question (tags: sql, sqlite, database-schema)'
+author_info: izb
+engagement:
+  score: 1456
+  view_count: 1475904
+  answer_count: 19
+  is_answered: true
+date_posted: '2008-09-17'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - sql
+  - sqlite
+  - database-schema
+attachments: []

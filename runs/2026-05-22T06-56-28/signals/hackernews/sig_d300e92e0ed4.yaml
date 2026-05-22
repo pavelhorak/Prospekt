@@ -1,0 +1,24 @@
+signal_id: sig_d300e92e0ed4
+raw_text: 'Much needed. Great opportunity. Happy hunting.<p>&gt; <i>...the API provides
+  synthetic data samples with the same schema and statistical distribution by default</i><p>Neat.
+  Repurposing test data generators. I like it.<p>&gt; <i>Our model is a software license
+  to run on our clients’ cloud.</i><p>Just to confirm my understanding: Sarus never
+  sees the client&#x27;s data? Cool.<p>--<p>I&#x27;m fine with differential privacy.
+  I haven&#x27;t read those most recent papers, so I&#x27;m a little out of date.<p>That
+  said...<p>Encrypting data at rest at the field level is an important missing piece
+  from the future perfect privacy stack.<p>Just like how proper password vaults work.
+  Salt, hash, encrypt. Never store the actual password.<p>The book Translucent Databases
+  details clever examples of this strategy for misc use cases. Never store PII as
+  plaintext.<p>Translucent databases and differential privacy are orthogonal. I have
+  no ideas on how to productize (or SaaS-atize) translucent strategies.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=30710914
+source_context: HN Comment on story 30698215
+author_info: specialist
+engagement:
+  parent: '30698215'
+date_posted: '2022-03-17'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

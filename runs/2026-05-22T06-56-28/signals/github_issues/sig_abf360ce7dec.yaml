@@ -1,0 +1,94 @@
+signal_id: sig_abf360ce7dec
+raw_text: 'Failed to fetch on large/complex Notion pages — chronic report consolidation
+
+
+  `TypeError: Failed to fetch` on large or complex Notion exports has been reported
+  by multiple users across multiple years. Filing as a consolidation issue so the
+  work has one owner instead of five stale tickets.
+
+
+  ## Inbox reports
+
+
+  - **2021:** user reports `TypeError: Failed to fetch` — some toggle/bullet pages
+  convert, others don''t from the same Notion workspace.
+
+  - **2021:** user with an 8.6 MB zip cannot convert subpage exports — same `TypeError:
+  Failed to fetch` surface.
+
+  - **2021:** user with a large Notion page; Al''s reply at the time suggested splitting
+  into subpages or running locally.
+
+
+  ## Existing open issues that are part of this story
+
+
+  - `#1318` "2anki stuck in loading file when I try to convert Notion page"
+
+  - `#1192` "2anki can''t make flash cards out of my notion html file anymore"
+
+  - `#1337` "ENOSPC: no space left on device, write" — disk pressure variant, often
+  reported with the same error message
+
+
+  ## Why this matters
+
+
+  - The pattern is **size-correlated** (big page, big zip, many subpages), and the
+  failure is **silent on the user side** — they see a generic toast and no recovery
+  path.
+
+  - Power users hit this on exactly the workflows where the product matters most (a
+  whole semester''s notes, an entire med-school subject).
+
+  - The workaround "split into subpages" is real but undocumented in the UI.
+
+
+  ## What to verify
+
+
+  1. Is the actual failure mode upload-timeout, parser memory, genanki write, or upstream
+  Notion HTML truncation? The inbox reports do not distinguish.
+
+  2. Per-`UploadErrorCode` instrumentation (`#2407`) — once that ships, this should
+  bucket into a single observable code instead of "unknown".
+
+  3. The 12 MB and 3 MB attached `.eml`s in this inbox sweep contain user-attached
+  zips; one of them is likely a minimal reproduction.
+
+
+  ## Definition of done
+
+
+  - Reproduce on at least one user-supplied export.
+
+  - Identify the actual failure surface (network vs. parser vs. writer vs. disk).
+
+  - Either fix or surface a real error code + remediation copy ("This export is too
+  large — try splitting it into subpages") via the `UploadErrorCode` envelope already
+  being rolled out.
+
+  - Close `#1318` and `#1192` once the root cause is shipped.
+
+
+  Filed from inbox — original emails on disk, user identities redacted.'
+source_platform: github_issues
+source_url: https://github.com/2anki/server/issues/2503
+source_context: GitHub issue in 2anki/server
+author_info: aalemayhu
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-20'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - bug
+  - high-priority
+  - from-inbox
+  - bet-tracking
+  is_pull_request: false
+  repo: 2anki/server
+attachments: []

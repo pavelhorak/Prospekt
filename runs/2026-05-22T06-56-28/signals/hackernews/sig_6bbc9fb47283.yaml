@@ -1,0 +1,35 @@
+signal_id: sig_6bbc9fb47283
+raw_text: Good idea, works really well for companies with &quot;established&quot;
+  operations.<p>However, the missing problem we&#x27;ve found (and are investing significant
+  resources internally to fix) is that, in a lot of situations (especially in a startup),
+  <i>you don&#x27;t actually know what you&#x27;re doing operationally</i> at a detailed
+  enough level to have engineers write code for, or even humans to &quot;do&quot;.
+  <i>You&#x27;re learning as you go</i>, but still need everything in the database
+  as you do so you <i>can</i> automate thing sooner rather than later.<p>So, automation
+  is still required. But not yet! You need a way for humans to do things, then automation,
+  and back again...on a &quot;flow&quot; (to use your terminology) that is radically
+  changing as you learn.<p>In our case, new business opportunities require creating
+  and&#x2F;or updating tens of millions of rows in our Postgres database, but can
+  start out very small as we learn—say, 5000 independent flows.<p>Oftentimes, we need
+  to temporarily &quot;fix&quot; things that we&#x27;ve already done a lot of work
+  on—again, with a mix of human and compute tasks, depending on what&#x27;s going
+  on. Those fixes are temporary and we remove them once the data in Postgres is clean.<p>Another
+  major area is, for lack of a better term, &quot;tech onboarding&quot;. There&#x27;s
+  a lot of work that&#x27;s effectively one-off, needs to be done at scale, and yet
+  each day it&#x27;s something different. (Imaging ramping up some service over four
+  weeks—a literal situation we encounter regularly.) Being able to mix human and automation
+  there is again critical, but really no tooling that I&#x27;m aware of exists to
+  help with.<p>Anyway…congrats on the launch. I can definitely see it working for
+  really well-defined operation systems that just need that extra touch of automation
+  to reduce the busy work when humans are inserted into flows.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22480669
+source_context: HN Comment on story 22476985
+author_info: erichocean
+engagement:
+  parent: '22476985'
+date_posted: '2020-03-04'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

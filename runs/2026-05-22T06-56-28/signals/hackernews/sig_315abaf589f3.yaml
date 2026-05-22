@@ -1,0 +1,14 @@
+signal_id: sig_315abaf589f3
+raw_text: How we built an internal tools builder that lives in your Python codebase
+source_platform: hackernews
+source_url: https://www.dropbase.io/post/an-internal-tools-builder-that-lives-in-your-python-codebase-part-2
+source_context: HN Story
+author_info: ayazhan
+engagement:
+  points: 2
+  num_comments: 0
+date_posted: '2024-05-10'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

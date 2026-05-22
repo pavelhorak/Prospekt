@@ -1,0 +1,19 @@
+signal_id: sig_136cd594e986
+raw_text: If you want a simple (but bare-bones) self-hosted version of this service,
+  check out the open source version I made a couple years back:<p><a href="https:&#x2F;&#x2F;github.com&#x2F;Detry322&#x2F;redisred"
+  rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;Detry322&#x2F;redisred</a><p>Here’s
+  a hubot plugin for slack:<p><a href="https:&#x2F;&#x2F;github.com&#x2F;Detry322&#x2F;hubot-redisred"
+  rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;Detry322&#x2F;hubot-redisred</a><p>We
+  use this extensively at MIT for HackMIT and the MIT Pokerbots competition, and best
+  of all, it’s free.<p>The deploy to Heroku button should “just work”.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=19341075
+source_context: HN Comment on story 19340316
+author_info: Detry322
+engagement:
+  parent: '19340316'
+date_posted: '2019-03-08'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

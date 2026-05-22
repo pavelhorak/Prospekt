@@ -1,0 +1,29 @@
+signal_id: sig_79ee81dd68e5
+raw_text: "I found PagerDuty to be grossly underwhelming when our team moved to it.\n\
+  I&#x27;d focus on stupid-easy integration &amp; some reasonable calendar management\
+  \ to differentiate.<p>PagerDuty Calendar&#x2F;Holiday&#x2F;Workday management and\
+  \ cross-regional scheduling were very poorly implemented.<p>The amount of manual\
+  \ schedule adjustment when someone actually wanted to take their 1 week vacation\
+  \ was insane.  We ended up with overrides on top of overrides.  \nI&#x27;d imagine\
+  \ some of the common tools like Workday should give you integrations for that.<p>Taking\
+  \ a holiday became like a 12 step program - email boss in advance, put in HR system\
+  \ request, cross check your PagerDuty schedule, negotiate a trade with another teammate\
+  \ for PagerDuty rotation, decline meetings, update your outlook calendar out-of-office,\
+  \ set your slack status &amp; notifications, and re-remind everyone the week before\
+  \ you go.\nIt&#x27;s almost like they wanted it to be easier to just not take time\
+  \ off?<p>The other problem with these tools is you only get value out of them depending\
+  \ on the level of systems integration you spend your time on.  If even a single\
+  \ system is not integrated &amp; still sends emails&#x2F;slacks&#x2F;only updates\
+  \ a dashboard .. then PagerDuty is simply yet-another-tool to monitor, rather than\
+  \ the single pane of glass."
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=35676864
+source_context: HN Comment on story 35675029
+author_info: steveBK123
+engagement:
+  parent: '35675029'
+date_posted: '2023-04-23'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

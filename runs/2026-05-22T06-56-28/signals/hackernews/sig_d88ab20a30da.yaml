@@ -1,0 +1,14 @@
+signal_id: sig_d88ab20a30da
+raw_text: Frustrated with Tesla and GM, David Einhorn Amps Up Pressure
+source_platform: hackernews
+source_url: https://www.bloomberg.com/news/articles/2017-05-08/frustrated-with-tesla-and-gm-david-einhorn-amps-up-the-pressure
+source_context: HN Story
+author_info: jtraffic
+engagement:
+  points: 30
+  num_comments: 46
+date_posted: '2017-05-08'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

@@ -1,0 +1,19 @@
+signal_id: sig_44d9fe1cbd05
+raw_text: List hygiene is important but from what I’ve seen most companies have their
+  own way of handling it (or not handling it in many cases). For most orgs the platform
+  defaults are good enough. What’s most important from my perspective is deactivation
+  and also identifying when customers&#x2F;contacts switch either to a different channel
+  or create new accounts with new contact info. That said there are already a handful
+  of list hygiene tools in the space. But if your tool is compelling and you can figure
+  out where to position it then sure it’s worth a shot.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=21700751
+source_context: HN Comment on story 21700425
+author_info: theshadowknows
+engagement:
+  parent: '21700425'
+date_posted: '2019-12-04'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

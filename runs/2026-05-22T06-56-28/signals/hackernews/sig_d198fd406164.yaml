@@ -1,0 +1,14 @@
+signal_id: sig_d198fd406164
+raw_text: Frustrated with iCloud, Apple’s developer community speaks up
+source_platform: hackernews
+source_url: http://arstechnica.com/apple/2013/03/frustrated-with-icloud-apples-developer-community-speaks-up-en-masse/
+source_context: HN Story
+author_info: jfcouture
+engagement:
+  points: 220
+  num_comments: 186
+date_posted: '2013-03-28'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

@@ -1,0 +1,13 @@
+signal_id: sig_634fae777342
+raw_text: these are called workflow engines, BPMN.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26758129
+source_context: HN Comment on story 26717679
+author_info: segmondy
+engagement:
+  parent: '26717679'
+date_posted: '2021-04-10'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

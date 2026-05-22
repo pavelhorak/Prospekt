@@ -1,0 +1,62 @@
+signal_id: sig_83bdd188050c
+raw_text: 'Is it possible to force Excel recognize UTF-8 CSV files automatically?
+
+
+  <p>I''m developing a part of an application that''s responsible for exporting some
+  data into CSV files. The application always uses UTF-8 because of its multilingual
+  nature at all levels. But opening such CSV files (containing e.g. diacritics, cyrillic
+  letters, Greek letters) in Excel does not achieve the expected results showing something
+  like <code>Г„/Г¤, Г–/Г¶</code>. And I don''t know how to force Excel understand
+  that the open CSV file is encoded in UTF-8. I also tried specifying UTF-8 BOM <code>EF
+  BB BF</code>, but Excel ignores that.</p>
+
+  <p>Is there any workaround?</p>
+
+  <p>P.S. Which tools may potentially behave like Excel does?</p>
+
+  <hr />
+
+  <p>UPDATE</p>
+
+  <p>I have to say that I''ve confused the community with the formulation of the question.
+  When I was asking this question, I asked for a way of opening a UTF-8 CSV file in
+  Excel without any problems for a user, in a fluent and transparent way. However,
+  I used a wrong formulation asking for doing it <em>automatically</em>. That is very
+  confusing and it clashes with VBA macro automation. There are two answers for this
+  questions that I appreciate the most: <a href="https://stackoverflow.com/a/6002338/166589">the
+  very first answer by Alex</a>, and I''ve accepted this answer; <a href="https://stackoverflow.com/a/6488070/166589">and
+  the second one by Mark</a> that have appeared a little later. From the usability
+  point of view, Excel seemed to have lack of a good user-friendly UTF-8 CSV support,
+  so I consider <em>both</em> answers are correct, and I have accepted Alex''s answer
+  first because it really stated that Excel was not able to do that transparently.
+  That is what I confused with <em>automatically</em> here. Mark''s answer promotes
+  a more complicated way for more advanced users to achieve the expected result. Both
+  answers are great, but Alex''s one fits my not clearly specified question a little
+  better.</p>
+
+  <hr />
+
+  <p>UPDATE 2</p>
+
+  <p>Five months later after the last edit, I''ve noticed that Alex''s answer has
+  disappeared for some reason. I really hope it wasn''t a technical issue and I hope
+  there is no more discussion on which answer is greater now. So I''m accepting Mark''s
+  answer as the best one.</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/6002256/is-it-possible-to-force-excel-recognize-utf-8-csv-files-automatically
+source_context: 'SO question (tags: excel, csv, utf-8)'
+author_info: Lyubomyr Shaydariv
+engagement:
+  score: 656
+  view_count: 722032
+  answer_count: 34
+  is_answered: true
+date_posted: '2011-05-14'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - excel
+  - csv
+  - utf-8
+attachments: []

@@ -1,0 +1,28 @@
+signal_id: sig_3be6bf274e6b
+raw_text: 'Hi HN, I’m Jibril from Peslac (<a href="https:&#x2F;&#x2F;peslac.com" rel="nofollow">https:&#x2F;&#x2F;peslac.com</a>),
+  and we’ve been working hard on a tool that helps businesses automate their document-heavy
+  workflows. Our platform streamlines tedious tasks like data extraction, document
+  verification, and form processing, while integrating directly into existing systems.
+  You can even build your own OpenAPI schema to ensure you only extract what you need.<p>Why
+  we think it’s cool:<p>AI-Powered Accuracy: Over 97% accuracy in data extraction.
+
+  Plug-and-Play Integration: Works seamlessly with tools businesses already use.
+
+  Time-Saving: Reduces hours of manual effort into seconds.<p>We’re seeing traction
+  in industries like insurance and healthcare, but we built this to solve problems
+  in any document-heavy workflow.<p>It’s free to try, and I’d love your feedback.
+  If you’ve ever dealt with the pain of processing piles of forms, invoices, or applications,
+  you know how inefficient it can be. We’re here to change that.<p>Check it out: (<a
+  href="https:&#x2F;&#x2F;peslac.com" rel="nofollow">https:&#x2F;&#x2F;peslac.com</a>)<p>AMA—I’d
+  love to hear your thoughts, feedback, or ideas for improvement.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=42180806
+source_context: HN Comment on story 42180805
+author_info: jibrilkala
+engagement:
+  parent: '42180805'
+date_posted: '2024-11-19'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

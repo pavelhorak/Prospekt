@@ -1,0 +1,24 @@
+signal_id: sig_a7220b9e6cff
+raw_text: 'How to automate createsuperuser on django?
+
+
+  <p>I want to automatically run <code>manage.py createsuperuser</code> on django
+  but it seems that there is no way of setting a default password.</p>
+
+  <p>How can I get this? It has to be independent on the django database.</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/6244382/how-to-automate-createsuperuser-on-django
+source_context: 'SO question (tags: django)'
+author_info: bogdan
+engagement:
+  score: 253
+  view_count: 153887
+  answer_count: 26
+  is_answered: true
+date_posted: '2011-06-05'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - django
+attachments: []

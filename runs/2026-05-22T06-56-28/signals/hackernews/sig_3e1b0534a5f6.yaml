@@ -1,0 +1,29 @@
+signal_id: sig_3e1b0534a5f6
+raw_text: 'The flowchart you link to looks a lot like the workflow editors offered
+  by no-code and low-code app designers:<p><a href="https:&#x2F;&#x2F;docs.bettyblocks.com&#x2F;en&#x2F;articles&#x2F;998093-what-are-actions"
+  rel="nofollow">https:&#x2F;&#x2F;docs.bettyblocks.com&#x2F;en&#x2F;articles&#x2F;998093-what-are-act...</a>
+
+  <a href="https:&#x2F;&#x2F;www.zoho.com&#x2F;creator&#x2F;newhelp&#x2F;new-workflows&#x2F;understand-workflows.html"
+  rel="nofollow">https:&#x2F;&#x2F;www.zoho.com&#x2F;creator&#x2F;newhelp&#x2F;new-workflows&#x2F;understan...</a><p>I
+  can imagine that what your engineering team built is tightly coupled to a product,
+  allowing its logic to be customized easily with no involvement from engineering.
+  In order to productize the solution, I&#x27;m assuming that you&#x27;d need to create
+  hooks allowing a different engineering team to integrate it with their particular
+  product, before non-technical people could use it?<p>We&#x27;re on a mission to
+  do something similar, but using Excel-like formulas instead of flowcharts: <a href="https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=25389963"
+  rel="nofollow">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=25389963</a><p>These
+  formulas are currently used by our app builder, but we will make the formula engine
+  available separately sometime this year. The idea is that other engineering teams
+  will be able to integrate our formula engine with their products, allowing non-technical
+  people to customize products through the use of formulas.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26717951
+source_context: HN Comment on story 26717679
+author_info: davidpolberger
+engagement:
+  parent: '26717679'
+date_posted: '2021-04-06'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

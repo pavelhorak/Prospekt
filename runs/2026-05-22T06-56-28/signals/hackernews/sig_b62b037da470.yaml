@@ -1,0 +1,14 @@
+signal_id: sig_b62b037da470
+raw_text: An email template for candidates frustrated with unresponsive employers
+source_platform: hackernews
+source_url: http://blog.landing.jobs/an-email-template-for-candidates-frustrated-with-unresponsive-employers/
+source_context: HN Story
+author_info: pauloteixeira
+engagement:
+  points: 78
+  num_comments: 80
+date_posted: '2015-06-03'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

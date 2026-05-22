@@ -1,0 +1,19 @@
+signal_id: sig_9ee7642c2138
+raw_text: I built a similar internal ledger for my print-on-demand setup because the
+  image generation costs were eating all the margin.<p>The architecture that finally
+  worked was treating every agent action as a transaction against a Redis counter.
+  We use Celery for the heavy lifting, but the worker has to acquire a lock and deduct
+  credits atomically from Redis before it can even call the external provider. If
+  the balance hits zero, the task fails immediately. It adds a bit of latency but
+  it’s the only way I found to prevent a runaway loop from draining the credit card.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46763413
+source_context: HN Comment on story 46763259
+author_info: storystarling
+engagement:
+  parent: '46763259'
+date_posted: '2026-01-26'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

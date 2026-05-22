@@ -1,0 +1,15 @@
+signal_id: sig_dc1d36101b0a
+raw_text: Excellent post, could you also direct your chatbot to read the guidelines
+  first?<p>From [0]<p>&gt;  Don&#x27;t post generated comments or AI-edited comments.
+  HN is for conversation between humans.<p>[0] <a href="https:&#x2F;&#x2F;news.ycombinator.com&#x2F;newsguidelines.html">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;newsguidelines.html</a>
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=47740882
+source_context: HN Comment on story 47740552
+author_info: rvz
+engagement:
+  parent: '47740552'
+date_posted: '2026-04-12'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

@@ -1,0 +1,31 @@
+signal_id: sig_0e0311da95ff
+raw_text: 'Show HN: PineCone – A bundler for splitting PineScript into multiple files
+
+
+  I built a module bundler for PineScript (TradingView&#x27;s scripting language).<p>The
+  problem: TradingView doesn&#x27;t support multi-file projects. As indicators grow
+  complex, you end up with 1000+ line files that are painful to maintain.<p>Pinecone
+  lets you split code across multiple .pine files using import&#x2F;export directives,
+  then bundles everything into a single TradingView-compatible script.<p>It handles
+  automatic namespacing to prevent variable collisions between modules, deduplicates
+  external library imports, and includes watch mode for development.<p>Built with
+  Python. Uses the pynescript library for AST parsing and manipulation. I had to work
+  around some upstream parser bugs with generic type syntax, which was an interesting
+  challenge.<p>GitHub: <a href="https:&#x2F;&#x2F;github.com&#x2F;claudianadalin&#x2F;pinecone"
+  rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;claudianadalin&#x2F;pinecone</a><p>Blog
+  post with more technical details: <a href="https:&#x2F;&#x2F;www.claudianadalin.com&#x2F;blog&#x2F;building-pinecone"
+  rel="nofollow">https:&#x2F;&#x2F;www.claudianadalin.com&#x2F;blog&#x2F;building-pinecone</a><p>This
+  is a niche tool, but if you&#x27;ve ever built complex TradingView indicators, you
+  know the pain. Would love feedback on the approach.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46408214
+source_context: HN Story
+author_info: claudianadalin
+engagement:
+  points: 2
+  num_comments: 0
+date_posted: '2025-12-28'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

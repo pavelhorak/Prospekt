@@ -1,0 +1,15 @@
+signal_id: sig_5fb4795bce7e
+raw_text: '''I hate them'': Locals reportedly frustrated with Alphabet''s self-driving
+  cars'
+source_platform: hackernews
+source_url: https://www.cnbc.com/amp/2018/08/28/locals-reportedly-frustrated-with-alphabets-waymo-self-driving-cars.html
+source_context: HN Story
+author_info: remote_phone
+engagement:
+  points: 12
+  num_comments: 3
+date_posted: '2018-08-29'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

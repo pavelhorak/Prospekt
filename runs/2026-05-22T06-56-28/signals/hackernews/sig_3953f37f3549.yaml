@@ -1,0 +1,30 @@
+signal_id: sig_3953f37f3549
+raw_text: Lawyers.<p>The problem is, that it&#x27;s really time-consuming and expensive
+  to get decent terms of service&#x2F;privacy policy&#x2F;other common legal document
+  squeezed out of your local lawyer.<p>The initial version is basically a copy-paste
+  of some template that just has your own company&#x27;s name put in and does not
+  anyhow describe the service you&#x27;re building.<p>After a week or two with back-and-forward
+  you&#x27;ll get to settle for some English-like gibberish 15-page document that
+  has been passed through the email and you&#x27;re sure that after all the hours
+  you&#x27;ve put in to try to make sense of the document your clients have no chance
+  to understand even half of it so you&#x27;re just putting it in since the whole
+  service is already past the deadline and everyone&#x27;s anyway blindly ticking
+  the box without reading.<p>The reason why this hasn&#x27;t changed is that lawyers
+  get paid by the hour, so it&#x27;s not wise for them to automate anything.<p>For
+  personal projects I&#x27;ve used some of the 5$ templates from quick Google search,
+  but the problem is that I have no-one who&#x27;d take the blame when the shit hits
+  the fan.<p>In the perfect world this would be an automated computer program that&#x27;d
+  ask me a few questions and produce a perfectly understandable and legally binding
+  document that has some trustworthy corporation behind it making sure I won&#x27;t
+  get sued for trying to do simple business.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=13339749
+source_context: HN Comment on story 13337024
+author_info: jehna1
+engagement:
+  parent: '13337024'
+date_posted: '2017-01-06'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

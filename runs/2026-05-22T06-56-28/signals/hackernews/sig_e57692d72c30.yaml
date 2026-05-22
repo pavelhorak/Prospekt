@@ -1,0 +1,16 @@
+signal_id: sig_e57692d72c30
+raw_text: For the last 4-5 weeks we have been using Poppins digest for our SuS weekly
+  updates. All we have to do is to go and copy the items from Poppins into our SuS
+  update and wohoo... It just works!<p>Earlier we used to spend around 10 minutes
+  just to fill the content.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26958630
+source_context: HN Comment on story 26939444
+author_info: mayankmishra47
+engagement:
+  parent: '26939444'
+date_posted: '2021-04-27'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

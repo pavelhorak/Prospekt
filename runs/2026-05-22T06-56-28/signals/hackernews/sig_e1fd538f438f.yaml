@@ -1,0 +1,16 @@
+signal_id: sig_e1fd538f438f
+raw_text: 'What I particularly liked was Leo’s approach to automation: Create quick
+  minimum viable automation on first pass. Then on each following pass incrementally
+  automate it more. Most-used processes get the most automation. This has a nice adaptive
+  feedback loop.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=28369568
+source_context: HN Comment on story 28369524
+author_info: asimjalis
+engagement:
+  parent: '28369524'
+date_posted: '2021-08-31'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

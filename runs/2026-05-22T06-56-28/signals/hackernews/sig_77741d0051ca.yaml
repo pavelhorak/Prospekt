@@ -1,0 +1,35 @@
+signal_id: sig_77741d0051ca
+raw_text: 'Show HN: Ghost – Session memory for Claude Code (local, qmd, Git-integrated)
+
+
+  If you’ve used Claude Code on anything non-trivial, you’ve hit the wall. The project
+  gets big enough that context falls apart between sessions. You start a new chat,
+  re-explain the architecture, and watch it make the same mistake it made last week.
+  Every session starts with this painful bootstrap where you’re trying to get the
+  model back to where it was yesterday.<p>This obviously assumes Claude Code is doing
+  most of the heavy lifting on your codebase. If you’re only using it for the occasional
+  function, you probably don’t need this.<p>I spent a few days hacking on workarounds
+  for this and eventually pulled them together into Ghost. It hooks into Claude Code
+  sessions, summarises them, and indexes everything into QMD <a href="https:&#x2F;&#x2F;github.com&#x2F;tobi&#x2F;qmd"
+  rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;tobi&#x2F;qmd</a> for semantic
+  search.<p>Next session, relevant context gets injected automatically. What you were
+  working on, what decisions were made, what already failed.<p>It also keeps a mistake
+  ledger. Things that went wrong get tracked and surfaced as warnings so you stop
+  walking into the same walls.<p>Sessions are stored as markdown in .ai-sessions&#x2F;
+  (gitignored).<p>Summaries get attached to commits as git notes so context travels
+  with the code. Everything runs locally, nothing leaves your machine.
+
+  Built with Bun. Hooks run under 100ms.<p>It’s early and rough but anecdotally it
+  feels like it actually works.'
+source_platform: hackernews
+source_url: https://github.com/notkurt/ghost
+source_context: HN Story
+author_info: notkurt
+engagement:
+  points: 2
+  num_comments: 1
+date_posted: '2026-02-13'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

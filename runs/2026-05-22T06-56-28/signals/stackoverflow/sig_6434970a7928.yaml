@@ -1,0 +1,58 @@
+signal_id: sig_6434970a7928
+raw_text: "Selenium using Python - Geckodriver executable needs to be in PATH\n\n\
+  <p>I am going over Sweigart's <em>Automate the Boring Stuff with Python</em> text.\
+  \ I'm using <a href=\"https://en.wikipedia.org/wiki/IDLE\" rel=\"noreferrer\">IDLE</a>\
+  \ and already installed the Selenium module and the Firefox browser.</p>\n<p>Whenever\
+  \ I tried to run the webdriver function, I get this:</p>\n<pre><code>from selenium\
+  \ import webdriver\nbrowser = webdriver.Firefox()\n</code></pre>\n<p>Exception:</p>\n\
+  <pre class=\"lang-none prettyprint-override\"><code>Exception ignored in: &lt;bound\
+  \ method Service.__del__ of &lt;selenium.webdriver.firefox.service.Service object\
+  \ at 0x00000249C0DA1080&gt;&gt;\nTraceback (most recent call last):\n  File &quot;C:\\\
+  Python\\Python35\\lib\\site-packages\\selenium\\webdriver\\common\\service.py&quot;,\
+  \ line 163, in __del__\n    self.stop()\n  File &quot;C:\\Python\\Python35\\lib\\\
+  site-packages\\selenium\\webdriver\\common\\service.py&quot;, line 135, in stop\n\
+  \    if self.process is None:\nAttributeError: 'Service' object has no attribute\
+  \ 'process'\nException ignored in: &lt;bound method Service.__del__ of &lt;selenium.webdriver.firefox.service.Service\
+  \ object at 0x00000249C0E08128&gt;&gt;\nTraceback (most recent call last):\n  File\
+  \ &quot;C:\\Python\\Python35\\lib\\site-packages\\selenium\\webdriver\\common\\\
+  service.py&quot;, line 163, in __del__\n    self.stop()\n  File &quot;C:\\Python\\\
+  Python35\\lib\\site-packages\\selenium\\webdriver\\common\\service.py&quot;, line\
+  \ 135, in stop\n    if self.process is None:\nAttributeError: 'Service' object has\
+  \ no attribute 'process'\nTraceback (most recent call last):\n  File &quot;C:\\\
+  Python\\Python35\\lib\\site-packages\\selenium\\webdriver\\common\\service.py&quot;,\
+  \ line 64, in start\n    stdout=self.log_file, stderr=self.log_file)\n  File &quot;C:\\\
+  Python\\Python35\\lib\\subprocess.py&quot;, line 947, in __init__\n    restore_signals,\
+  \ start_new_session)\n  File &quot;C:\\Python\\Python35\\lib\\subprocess.py&quot;,\
+  \ line 1224, in _execute_child\n    startupinfo)\nFileNotFoundError: [WinError 2]\
+  \ The system cannot find the file specified\n</code></pre>\n<p>During handling of\
+  \ the above exception, another exception occurred:</p>\n<pre class=\"lang-none prettyprint-override\"\
+  ><code>Traceback (most recent call last):\n  File &quot;&lt;pyshell#11&gt;&quot;,\
+  \ line 1, in &lt;module&gt;\n    browser = webdriver.Firefox()\n  File &quot;C:\\\
+  Python\\Python35\\lib\\site-packages\\selenium\\webdriver\\firefox\\webdriver.py&quot;,\
+  \ line 135, in __init__\n    self.service.start()\n  File &quot;C:\\Python\\Python35\\\
+  lib\\site-packages\\selenium\\webdriver\\common\\service.py&quot;, line 71, in start\n\
+  \    os.path.basename(self.path), self.start_error_message)\nselenium.common.exceptions.WebDriverException:\
+  \ Message: 'geckodriver' executable needs to be in PATH.\n</code></pre>\n<p>I think\
+  \ I need to set the path for <code>geckodriver</code>, but I am not sure how, so\
+  \ how would I do this?</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/40208051/selenium-using-python-geckodriver-executable-needs-to-be-in-path
+source_context: 'SO question (tags: python, selenium, firefox, selenium-firefoxdriver,
+  geckodriver)'
+author_info: tadm123
+engagement:
+  score: 644
+  view_count: 1002413
+  answer_count: 37
+  is_answered: true
+date_posted: '2016-10-23'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - python
+  - selenium
+  - firefox
+  - selenium-firefoxdriver
+  - geckodriver
+attachments: []

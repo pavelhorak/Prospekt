@@ -1,0 +1,18 @@
+signal_id: sig_27f219efb4b4
+raw_text: This resonates. I&#x27;ve been running 70+ Claude Code sessions across different
+  projects and the context loss between sessions is brutal. My workaround has been
+  CLAUDE.md files that get auto-loaded, plus activity logs in each project. The QMD
+  indexing approach is clever - semantic search over past sessions could save a lot
+  of &#x27;re-explaining the architecture&#x27; time. How does it handle when you&#x27;ve
+  changed direction mid-project?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=47011347
+source_context: HN Comment on story 47007379
+author_info: killbot_2000
+engagement:
+  parent: '47007379'
+date_posted: '2026-02-14'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

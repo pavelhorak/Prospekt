@@ -1,0 +1,17 @@
+signal_id: sig_189a5ed30d54
+raw_text: It probably depends on your project. For a smaller app you can probably
+  start using it without any disadvantages, but I see that some larger apps have problems
+  with it, especially during slow compilation times and bad xcode 6 support. Check
+  this out:<p><a href="http://swiftopinions.wordpress.com/2014/09/13/swift-1-0-some-caution-recommended/"
+  rel="nofollow">http:&#x2F;&#x2F;swiftopinions.wordpress.com&#x2F;2014&#x2F;09&#x2F;13&#x2F;swift-1-0-some...</a>
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=8387927
+source_context: HN Comment on story 8383976
+author_info: fidanov
+engagement:
+  parent: '8383976'
+date_posted: '2014-09-30'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

@@ -1,0 +1,21 @@
+signal_id: sig_5c8523bff916
+raw_text: "I dunno man, I put it into img2img and it worked on like the third try.\
+  \ <a href=\"https:&#x2F;&#x2F;imgur.com&#x2F;a&#x2F;tbqz59G\" rel=\"nofollow\">https:&#x2F;&#x2F;imgur.com&#x2F;a&#x2F;tbqz59G</a><p><pre><code>\
+  \    a simple rickety dock at the base of an ocean cliff, approach from the sea,\
+  \ picture from a boat, an illustration by moebius, complexla style, an outdoor scene,\
+  \ simple, expansive, ocean, cliff, stairs, dock, realistic colors\n    Negative\
+  \ prompt: isometric, photograph, boat, multiple frames, abstract, complex, borders\n\
+  \    Steps: 20, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 1136556607, Size:\
+  \ 1024x1024, Model hash: 5e107da3, Denoising strength: 0.51, Eta: 0.4, Mask blur:\
+  \ 4</code></pre>"
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=33931451
+source_context: HN Comment on story 33902248
+author_info: thot_experiment
+engagement:
+  parent: '33902248'
+date_posted: '2022-12-10'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

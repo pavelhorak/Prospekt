@@ -1,0 +1,13 @@
+signal_id: sig_0fc4b73d8c1b
+raw_text: Where is the link to the tool?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=43742428
+source_context: HN Comment on story 43707290
+author_info: daneel951
+engagement:
+  parent: '43707290'
+date_posted: '2025-04-20'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

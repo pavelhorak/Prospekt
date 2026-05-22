@@ -1,0 +1,33 @@
+signal_id: sig_4be3c87f89e3
+raw_text: "Webpack.config how to just copy the index.html to the dist folder\n\n<p>I\
+  \ am  trying to automate assets going into /dist. I have the following config.js:</p>\n\
+  <pre><code>module.exports = {\n  context: __dirname + &quot;/lib&quot;,\n  entry:\
+  \ {\n    main: [\n      &quot;./baa.ts&quot;\n    ]\n  },\n  output: {\n    path:\
+  \ __dirname + &quot;/dist&quot;,\n    filename: &quot;foo.js&quot;\n  },\n  devtool:\
+  \ &quot;source-map&quot;,\n  module: {\n    loaders: [\n      {\n        test: /\\\
+  .ts$/,\n        loader: 'awesome-typescript-loader'\n      },\n      { test: /\\\
+  .css$/, loader: &quot;style-loader!css-loader&quot; }\n    ]\n  },\n  resolve: {\n\
+  \    // you can now require('file') instead of require('file.js')\n    extensions:\
+  \ ['', '.js', '.json']\n  }\n}\n</code></pre>\n<p>I also want to include main.html\
+  \ from the directory that sits next to /lib, into the /dist folder when running\
+  \ webpack. How can I do this?</p>\n<h1>UPDATE 1 2017_____________</h1>\n<p>My favourite\
+  \ way to do this now is to use the <a href=\"https://github.com/jantimon/html-webpack-plugin\"\
+  \ rel=\"noreferrer\"><code>html-webpack-plugin</code></a> with a template file.\
+  \ Thanks to the accepted answer too! The advantage of this way is that the index\
+  \ file will also have the cachbusted js link added out of the box!</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/32155154/webpack-config-how-to-just-copy-the-index-html-to-the-dist-folder
+source_context: 'SO question (tags: webpack)'
+author_info: SuperUberDuper
+engagement:
+  score: 242
+  view_count: 168516
+  answer_count: 11
+  is_answered: true
+date_posted: '2015-08-22'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - webpack
+attachments: []

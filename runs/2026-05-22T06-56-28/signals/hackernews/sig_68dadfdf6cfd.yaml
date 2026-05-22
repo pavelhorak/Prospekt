@@ -1,0 +1,23 @@
+signal_id: sig_68dadfdf6cfd
+raw_text: 'I recently moved to Germany. I used to work as a software dev in India
+  before this. I was horrified to learn that (urban) India has way better internet
+  than Germany. When it comes to mobile data it&#x27;s even more depressing - back
+  in India I used to get 1.5GB  _daily_ 4G mobile data for 200 rupees (around 2.5
+  euros) a _month_. Even after adjusting for purchasing power, 2.5 euros a month for
+  virtually unlimited mobile data is super cheap. In comparison, I pay 10 euros a
+  month for a _monthly_ quota of 1.5 GB with O2 here in Germany. Not to mention that
+  it&#x27;s slower, and yes, there are a lot of patches with no data reception.
+
+  Considering that Germany has otherwise superb infrastructure, the internet was a
+  let down.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=20615561
+source_context: HN Comment on story 20615126
+author_info: lonesword
+engagement:
+  parent: '20615126'
+date_posted: '2019-08-05'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

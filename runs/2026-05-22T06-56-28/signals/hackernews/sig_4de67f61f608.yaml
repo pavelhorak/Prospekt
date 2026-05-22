@@ -1,0 +1,20 @@
+signal_id: sig_4de67f61f608
+raw_text: It's interesting how the iCloud branding plays into this.  Because Apple
+  includes so many services under the umbrella term iCloud, it can lead to a very
+  different impression of the service between the users and the developers.  All the
+  talk about "iCloud is broken" is about one specific part, Core Data syncing.  The
+  rest, like online backup and document syncing and calendars, seems to work most
+  of the time.  I actually saw some comments elsewhere along the lines of "iCloud
+  works fine for me as a user, so it's probably just bad developers who can't get
+  it to work, not any issue with Apple."
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=5454762
+source_context: HN Comment on story 5454491
+author_info: smackfu
+engagement:
+  parent: '5454491'
+date_posted: '2013-03-28'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

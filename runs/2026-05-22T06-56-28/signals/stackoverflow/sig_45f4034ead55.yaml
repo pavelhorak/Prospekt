@@ -1,0 +1,55 @@
+signal_id: sig_45f4034ead55
+raw_text: 'Showing which files have changed between two revisions
+
+
+  <p>I want to merge two branches that have been separated for a while and wanted
+  to know which files have been modified.</p>
+
+  <p>Came across this link: <a href="https://web.archive.org/web/20180830081303/http://linux.yyz.us/git-howto.html"
+  rel="noreferrer">http://linux.yyz.us/git-howto.html</a> (moved to web.archive.org)
+  which was quite useful.</p>
+
+  <p>The tools to compare branches I''ve come across are:</p>
+
+  <ul>
+
+  <li><code>git diff master..branch</code></li>
+
+  <li><code>git log master..branch</code></li>
+
+  <li><code>git shortlog master..branch</code></li>
+
+  </ul>
+
+  <p>Was wondering if there''s something like &quot;git status master..branch&quot;
+  to only see those files that are different between the two branches.</p>
+
+  <p>Without creating a new tool, I think this is the closest you can get to do that
+  now (which of course will show repeats if a file was modified more than once):</p>
+
+  <ul>
+
+  <li><code>git diff master..branch | grep &quot;^diff&quot;</code></li>
+
+  </ul>
+
+  <p>Was wondering if there''s something I missed...</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/822811/showing-which-files-have-changed-between-two-revisions
+source_context: 'SO question (tags: git, branch, git-branch, git-diff)'
+author_info: johannix
+engagement:
+  score: 2380
+  view_count: 936881
+  answer_count: 21
+  is_answered: true
+date_posted: '2009-05-05'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - git
+  - branch
+  - git-branch
+  - git-diff
+attachments: []

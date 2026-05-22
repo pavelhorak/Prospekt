@@ -1,0 +1,14 @@
+signal_id: sig_be639c5ead51
+raw_text: Germans Grow Frustrated with Their Slow-Poke Internet
+source_platform: hackernews
+source_url: https://www.wsj.com/articles/germans-grow-frustrated-with-their-slow-poke-internet-11565002666?mod=rsswn
+source_context: HN Story
+author_info: mudil
+engagement:
+  points: 304
+  num_comments: 328
+date_posted: '2019-08-05'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

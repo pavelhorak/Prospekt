@@ -1,0 +1,39 @@
+signal_id: sig_5b9f3b0c1b3f
+raw_text: "Scrollbar problem with jQuery UI dialog in Chrome and Safari\n\n<p>I'm\
+  \ using the jQuery UI dialog with <code>modal=true</code>. In Chrome and Safari,\
+  \ this disables scrolling via the scroll bar and cursor keys (scrolling with the\
+  \ mouse wheel and page up/down still works).</p>\n\n<p>This is a problem if the\
+  \ dialog is too tall to fit on one page - users on a laptop get frustrated.</p>\n\
+  \n<p>Someone raised this three months ago on the jQuery bug tracker - <a href=\"\
+  http://dev.jqueryui.com/ticket/4671\" rel=\"noreferrer\">http://dev.jqueryui.com/ticket/4671</a>\
+  \ - it doesn't look like fixing it is a priority. :)</p>\n\n<p>So does anyone:</p>\n\
+  \n<ol>\n<li>have a fix for this?</li>\n<li>have a suggested workaround that would\
+  \ give a decent usability experience?</li>\n</ol>\n\n<p>I'm experimenting with mouseover\
+  \ / scrollto on bits of the form, but it's not a great solution :(</p>\n\n<p><strong>EDIT\
+  \ :</strong> props to Rowan Beentje (who's not on SO afaict) for finding a solution\
+  \ to this. jQuery UI prevents scrolling by capturing the mouseup / mousedown events.\
+  \ So the code below seems to fix it:</p>\n\n<pre><code>$(\"dialogId\").dialog({\n\
+  \    open: function(event, ui) {\n        window.setTimeout(function() {\n     \
+  \       jQuery(document).unbind('mousedown.dialog-overlay')\n                  \
+  \          .unbind('mouseup.dialog-overlay');\n        }, 100);\n    },\n    modal:\
+  \ true\n});\n</code></pre>\n\n<p>Use at own risk, I don't know what other unmodal\
+  \ behaviour unbinding this stuff might allow.</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/1617638/scrollbar-problem-with-jquery-ui-dialog-in-chrome-and-safari
+source_context: 'SO question (tags: jquery, jquery-ui, safari, google-chrome)'
+author_info: alexis.kennedy
+engagement:
+  score: 41
+  view_count: 30802
+  answer_count: 9
+  is_answered: true
+date_posted: '2009-10-24'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - jquery
+  - jquery-ui
+  - safari
+  - google-chrome
+attachments: []

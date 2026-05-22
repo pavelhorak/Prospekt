@@ -1,0 +1,26 @@
+signal_id: sig_c2e060867b6e
+raw_text: I worked on CRM and Marketing automation software for quite a long time,
+  and we always maintained lists by doing staged cleanings.  We would place people
+  in segments based on their interaction until we hit that point where we would move
+  them to an inactive segment completely (but they may have gone through 10 segments
+  first).  We would occasionally target the inactive list with special offers but
+  in general we didn&#x27;t do it with regularity.  The lifecycle and journey of the
+  email through different segments was really quite specific to the client type and
+  the journey type.<p>So to answer your question more directly, it is a critical part
+  of what people need to do to have proper response rates and to minimize issues with
+  third party filtering systems.  There is an absolute need for this type of stuff,
+  I am just not sure if there is a large market opportunity here.  Enterprises should
+  be doing this already so you target would probably be SMB&#x27;s and other similar
+  businesses, which means lots of work for low dollar sales most likely.   Maybe I
+  am wrong there, but that&#x27;s my initial thought.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=21702530
+source_context: HN Comment on story 21700425
+author_info: davismwfl
+engagement:
+  parent: '21700425'
+date_posted: '2019-12-04'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

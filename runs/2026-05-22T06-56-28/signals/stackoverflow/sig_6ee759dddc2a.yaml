@@ -1,0 +1,111 @@
+signal_id: sig_6ee759dddc2a
+raw_text: 'Which @NotNull Java annotation should I use?
+
+
+  <p>I''m looking to make my code more readable as well as use tooling like IDE code
+  inspection and/or static code analysis (FindBugs and Sonar) to avoid NullPointerExceptions.  Many
+  of the tools seem incompatible with each others'' <code>@NotNull</code>/<code>@NonNull</code>/<code>@Nonnull</code>
+  annotation and listing all of them in my code would be terrible to read.  Any suggestions
+  of which one is the ''best''?  Here is the list of equivalent annotations I''ve
+  found:</p>
+
+  <ul>
+
+  <li><p><strong><code>javax.validation.constraints.NotNull</code></strong><br />
+
+  <em>Created for runtime validation, not static analysis.</em><br />
+
+  <a href="http://download.oracle.com/javaee/6/api/javax/validation/constraints/NotNull.html"
+  rel="noreferrer">documentation</a></p>
+
+  </li>
+
+  <li><p><strong><code>edu.umd.cs.findbugs.annotations.NonNull</code></strong><br
+  />
+
+  <em>Used by <a href="http://findbugs.sourceforge.net/" rel="noreferrer">FindBugs</a>
+  (<a href="https://mailman.cs.umd.edu/pipermail/findbugs-discuss/2016-November/004321.html"
+  rel="noreferrer">dead project</a>) and its successor <a href="https://spotbugs.github.io/"
+  rel="noreferrer">SpotBugs</a> static analysis and therefore Sonar (now <a href="https://www.sonarqube.org/"
+  rel="noreferrer">Sonarqube</a>)</em><br />
+
+  <a href="http://findbugs.sourceforge.net/manual/annotations.html" rel="noreferrer">FindBugs
+  documentation</a>, <a href="https://spotbugs.readthedocs.io/en/stable/annotations.html"
+  rel="noreferrer">SpotBugs documentation</a></p>
+
+  </li>
+
+  <li><p><strong><code>javax.annotation.Nonnull</code></strong><br />
+
+  <em>This might work with FindBugs too, but <a href="https://jcp.org/en/jsr/detail?id=305"
+  rel="noreferrer">JSR-305</a> is inactive. (See also: <a href="https://stackoverflow.com/questions/2289694/what-is-the-status-of-jsr-305">What
+  is the status of JSR 305?</a>)</em>
+
+  <a href="http://code.google.com/p/jsr-305/source/browse/trunk/ri/src/main/java/javax/annotation/Nonnull.java"
+  rel="noreferrer">source</a></p>
+
+  </li>
+
+  <li><p><strong><code>org.jetbrains.annotations.NotNull</code></strong><br />
+
+  <em>Used by IntelliJ IDEA IDE for static analysis.</em><br />
+
+  <a href="https://www.jetbrains.com/help/idea/nullable-and-notnull-annotations.html"
+  rel="noreferrer">documentation</a></p>
+
+  </li>
+
+  <li><p><strong><code>lombok.NonNull</code></strong><br />
+
+  <em>Used to control code generation in <a href="https://projectlombok.org/" rel="noreferrer">Project
+  Lombok</a>.</em><br />
+
+  <em>Placeholder annotation since there is no standard.</em><br />
+
+  <a href="https://github.com/rzwitserloot/lombok/blob/master/src/core/lombok/NonNull.java"
+  rel="noreferrer">source</a>,
+
+  <a href="https://projectlombok.org/features/NonNull.html" rel="noreferrer">documentation</a></p>
+
+  </li>
+
+  <li><p><strong><code>androidx.annotation.NonNull</code></strong><br />
+
+  <em>Marker annotation available in Android, provided by annotation package</em><br
+  />
+
+  <a href="https://developer.android.com/reference/androidx/annotation/NonNull" rel="noreferrer">documentation</a></p>
+
+  </li>
+
+  <li><p><strong><code>org.eclipse.jdt.annotation.NonNull</code></strong><br />
+
+  <em>Used by Eclipse for static code analysis</em><br />
+
+  <a href="http://help.eclipse.org/oxygen/topic/org.eclipse.jdt.doc.user/tasks/task-improve_code_quality.htm"
+  rel="noreferrer">documentation</a></p>
+
+  </li>
+
+  </ul>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/4963300/which-notnull-java-annotation-should-i-use
+source_context: 'SO question (tags: java, nullpointerexception, null, annotations,
+  ide)'
+author_info: jaxzin
+engagement:
+  score: 1414
+  view_count: 474943
+  answer_count: 26
+  is_answered: true
+date_posted: '2011-02-10'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - java
+  - nullpointerexception
+  - 'null'
+  - annotations
+  - ide
+attachments: []

@@ -1,0 +1,14 @@
+signal_id: sig_2b3975252b90
+raw_text: You said they were already underperforming on output before you built the
+  spy tool, so what value does it add?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=45825028
+source_context: HN Comment on story 45820771
+author_info: al2o3cr
+engagement:
+  parent: '45820771'
+date_posted: '2025-11-05'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

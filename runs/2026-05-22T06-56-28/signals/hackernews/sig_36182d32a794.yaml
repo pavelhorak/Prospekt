@@ -1,0 +1,13 @@
+signal_id: sig_36182d32a794
+raw_text: '[dead]'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=48157170
+source_context: HN Comment on story 48148106
+author_info: ipotapov
+engagement:
+  parent: '48148106'
+date_posted: '2026-05-16'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

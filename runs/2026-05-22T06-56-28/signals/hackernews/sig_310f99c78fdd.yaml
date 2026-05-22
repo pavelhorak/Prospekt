@@ -1,0 +1,15 @@
+signal_id: sig_310f99c78fdd
+raw_text: '&gt; If you’re running autonomous or semi-autonomous agents that:<p>&gt;
+  call paid APIs<p>&gt; purchase data<p>This is no different from using a low-IQ intern
+  you found on the street. Why not apply the same solution?'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46764861
+source_context: HN Comment on story 46763259
+author_info: chrisjj
+engagement:
+  parent: '46763259'
+date_posted: '2026-01-26'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

@@ -1,0 +1,81 @@
+signal_id: sig_d3d54e09ed8e
+raw_text: 'Position: sticky - scroll bouncing when combined with javascript height
+  adjustment
+
+
+  <p>After playing with <code>position: sticky</code> for a while, I started implementing
+  it for sticky navigation and ran into this interesting, but frustrating scroll bouncing
+  issue.</p>
+
+
+  <p>This is a common type of navigation behaviour seen on many sites, where you would
+  traditionally use javascript to calculate offsets to a relative element in the page.
+  When the element reaches the top of the window, a ''stuck'' class would be added,
+  taking the element out of the document flow with <code>position: fixed</code>, and
+  a dummy element of the same height would be added in it''s place to prevent the
+  page from ''jumping''. Additionally, it''s common to see javascript then shrink
+  the height of that navigation to save space while scrolling.</p>
+
+
+  <p>CSS now seemingly takes care of all this with <code>position: sticky</code>,
+  apart from (as far as I can tell), detecting when the element is ''stuck''. Instead
+  I used some javascript to do the stuck detection, discovering that everything works
+  great, right up until the <em>height of the sticky element needs to change</em>.</p>
+
+
+  <p>It''s pretty hard to explain, but it wreaks havoc in production - so here''s
+  a stripped down example I''ve made to illustrate the issue as simply as possible.</p>
+
+
+  <p><a href="https://codepen.io/bluefantail/pen/zzKNpR" rel="noreferrer">CSS sticky
+  position height adjustment bug</a></p>
+
+
+  <p>It''s best illustrated when the height of the page is just the right length,
+  so I''ve set a fixed height on the element to make sure everyone is able to see
+  the same thing. You can add more content and it''s still an issue when scrolling
+  past.</p>
+
+
+  <p>The result is some really weird behaviour. When scrolling down, the navigation
+  sticks, and as it shrinks the navbar, the ''dummy element'' the browser is automatically
+  creating courtesy of <code>position: sticky</code> seems to be <em>kept in sync</em>
+  with it. That means, when the stuck class is added, the whole page gets smaller,
+  and a fraction of a second later, the navigation is no longer stuck, thus resulting
+  in a glitchy vibration loop.</p>
+
+
+  <p>The behaviour is also completely different across every browser I''ve tested.
+  In chrome, this bouncing can never be resolved, it stays in the infinite loop constantly
+  adding / removing the stuck class. More interestingly in Safari, the scroll position
+  is ''pushed back'' to a state where it wont bug out. Then in Firefox, it does both
+  of these, glitching for a second or two, before forcing the scroll position back
+  up again.</p>
+
+
+  <p>I''m wondering if anyone has experienced this, and come up with any solutions?
+  Any js workaround I''ve come up with hasn''t really worked or been very good! Surely
+  as popularity grows, more people are going to hit this one...</p>
+
+
+  <p>Genius workarounds, hacks, insights, or perfect solutions all welcome!</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/44567125/position-sticky-scroll-bouncing-when-combined-with-javascript-height-adjustme
+source_context: 'SO question (tags: javascript, html, css, navigation, sticky)'
+author_info: bluefantail
+engagement:
+  score: 23
+  view_count: 16317
+  answer_count: 5
+  is_answered: true
+date_posted: '2017-06-15'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - javascript
+  - html
+  - css
+  - navigation
+  - sticky
+attachments: []

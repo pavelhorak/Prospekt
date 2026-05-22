@@ -1,0 +1,86 @@
+signal_id: sig_1391aae90527
+raw_text: 'Feature request
+
+
+  ### Is your feature request related to a problem?
+
+
+  Currently, 3X-UI works perfectly for Xray protocols like VLESS, VMESS, and Trojan,
+  but SSH management still requires separate scripts and panels.
+
+
+  Because of this, server owners have to manage SSH users separately for TLS SSH or
+  WebSocket SSH setups, which makes management more complicated and less centralized.
+
+
+  ### Describe the solution you''d like
+
+
+  I would like SSH account management to be integrated directly into 3X-UI.
+
+
+  Features could include:
+
+
+  • Create and manage SSH users
+
+  • Support for TLS SSH
+
+  • Support for WebSocket SSH
+
+  • Edit/update SSH accounts from the panel
+
+  • User expiration control
+
+  • Bandwidth/connection limits
+
+
+  This would allow users to manage both Xray protocols and SSH services from a single
+  panel instead of relying on multiple external scripts.
+
+
+  Since 3X-UI already handles VLESS, VMESS, and Trojan very well, adding SSH support
+  would make it an even more complete all-in-one server management solution.
+
+
+  ### Describe alternatives you''ve considered
+
+
+  Currently, the main alternative is using separate SSH management scripts alongside
+  3X-UI.
+
+
+  For example, users install external SSH panels or bash scripts to create and manage
+  SSH accounts while using 3X-UI only for Xray protocols like VLESS, VMESS, and Trojan.
+
+
+  However, this approach is less convenient because everything is managed separately,
+  updates become harder, and users need to maintain multiple systems on the same server.
+
+
+  An integrated SSH management feature inside 3X-UI would provide a cleaner and more
+  centralized solution.
+
+
+  ### Checklist
+
+
+  - [x] This feature report is written entirely in English.'
+source_platform: github_issues
+source_url: https://github.com/MHSanaei/3x-ui/issues/4371
+source_context: GitHub issue in MHSanaei/3x-ui
+author_info: remixstore76
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-14'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: MHSanaei/3x-ui
+attachments: []

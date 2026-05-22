@@ -1,0 +1,33 @@
+signal_id: sig_fee5251c8024
+raw_text: 'Pip Install stuck on &quot;Preparing Wheel metadata...&quot; when trying
+  to install PyQT5
+
+
+  <p>I''m trying to install PyQT5 on my Raspberry Pi and used the command <code>sudo
+  pip3 install pyqt5</code>.
+
+  But it has been stuck on that for over an hour nowand I''m starting to get frustrated,
+  since it still moves, so it didn''t crash or anything. Is there a workaround for
+  that or am I missing something?
+
+  Thanks in advance</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/66546886/pip-install-stuck-on-preparing-wheel-metadata-when-trying-to-install-pyqt5
+source_context: 'SO question (tags: python, pip, raspberry-pi, pyqt, pyqt5)'
+author_info: user14490575
+engagement:
+  score: 33
+  view_count: 58573
+  answer_count: 9
+  is_answered: true
+date_posted: '2021-03-09'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - python
+  - pip
+  - raspberry-pi
+  - pyqt
+  - pyqt5
+attachments: []

@@ -1,0 +1,74 @@
+signal_id: sig_a33c4180ff39
+raw_text: 'why doesn&#39;t java send the client certificate during SSL handshake?
+
+
+  <p>I''m trying to connect to a secure web service.</p>
+
+  <p>I was getting a handshake failure even though my keystore and truststore had
+  been set correctly.</p>
+
+  <p>After several days of frustration, endless googling, and asking everyone around
+  I found out that the only problem was that Java chose not to send the client certificate
+  to the server during the handshake.</p>
+
+  <p><strong>Specifically:</strong></p>
+
+  <ol>
+
+  <li>Server requested a client certificate (CN=RootCA) - i.e. &quot;give me a cert
+  that is signed by the root CA&quot;</li>
+
+  <li>Java looked into the Keystore and only found my client certificate signed by
+  the &quot;SubCA&quot;, which is issued by the &quot;RootCA&quot;. It didn''t bother
+  to look into the truststore...duh OK I guess</li>
+
+  <li>Sadly when I tried to add the &quot;SubCA&quot; certificate to the keystore,
+  that didn''t help at all. I checked if the certificates were loaded into the keystore.
+  They do, but the KeyManager ignores all certificates except the client one.</li>
+
+  <li>All of the above leads to the fact that Java decides it doesn''t have any certificates
+  that satisfy the server''s request and sends nothing...ta-da handshake failure :-(</li>
+
+  </ol>
+
+  <p><strong>My questions:</strong></p>
+
+  <ol>
+
+  <li>Is it possible that I added the &quot;SubCA&quot; certificate to the Keystore
+  in a manner that &quot;broke the certificate chain&quot; or something so that the
+  KeyManager only loads the client certificate and ignores the rest? (Chrome and openssl
+  manage to figure that out so why can''t Java? - note that the &quot;SubCA&quot;
+  cert is always presented separately as the trusted authority so Chrome correctly
+  packs it along with the client cert during handshake)</li>
+
+  <li>Is this a formal &quot;configuration issue&quot; on the server side? The server
+  is a third party. I would expect the server to request a certificate signed by the
+  &quot;SubCA&quot; authority since that''s what they provided us with. I suspect
+  that the fact that this works in Chrome and openssl is because they are &quot;less
+  restrictive&quot; and Java just goes &quot;by the book&quot; and fails.</li>
+
+  </ol>
+
+  <p>I did manage to put together a dirty workaround for this, but I''m not very happy
+  about it so I''ll be glad if anyone can clarify this one for me.</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/9299133/why-doesnt-java-send-the-client-certificate-during-ssl-handshake
+source_context: 'SO question (tags: java, ssl, https, certificate, ca)'
+author_info: Jakub Hlavat&#253;
+engagement:
+  score: 80
+  view_count: 117050
+  answer_count: 3
+  is_answered: true
+date_posted: '2012-02-15'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - java
+  - ssl
+  - https
+  - certificate
+  - ca
+attachments: []

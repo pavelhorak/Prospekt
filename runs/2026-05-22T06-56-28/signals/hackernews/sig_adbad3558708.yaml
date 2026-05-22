@@ -1,0 +1,15 @@
+signal_id: sig_adbad3558708
+raw_text: Why are Americans frustrated with the economy? The answer lies in grocery
+  bills
+source_platform: hackernews
+source_url: https://www.axios.com/2024/01/13/food-prices-grocery-stores-us-economy
+source_context: HN Story
+author_info: DocFeind
+engagement:
+  points: 37
+  num_comments: 63
+date_posted: '2024-01-14'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

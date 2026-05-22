@@ -1,0 +1,22 @@
+signal_id: sig_ab8905d2be0e
+raw_text: '<p><pre><code>  Moreover, I know that I will be facing with more crashes
+  with a beta.
+
+  </code></pre>
+
+  Firefox 3.0b5 hasn''t crashed once on my laptop (Ubuntu) or desktop (Vista), and
+  I''ve been using it since it got released.<p>On top of that, I can''t imagine what
+  you have done to your Firefox 2-install, if it crashes that often and you reach
+  that high CPU- and memory usage.<p>Something besides the main Firefox install must
+  be fubar''ed...'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=180878
+source_context: HN Comment on story 180827
+author_info: rlm
+engagement:
+  parent: '180827'
+date_posted: '2008-05-04'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

@@ -1,0 +1,33 @@
+signal_id: sig_3a17f3e5f09b
+raw_text: I think you have something useful here. This is something I&#x27;ve seen
+  a number of large companies build&#x2F;deploy internally because they&#x27;ve been
+  burned hard on content migrations. In the enterprise noone is going to set up a
+  .htaccess redirect unless it&#x27;s for the CEO&#x27;s document repository. Whether
+  it can sustain a company larger than 1-2 people is a larger question.<p>* Have pages
+  listing available links go&#x2F;hr could take you to the HR homepage, but go&#x2F;hr&#x2F;_list
+  would link everything that exists under go&#x2F;hr like go&#x2F;hr&#x2F;holidays
+  or go&#x2F;hr&#x2F;stockawards.<p>* Give users a personal links page with personal
+  and private links. Allow the company to display custom news&#x2F;content on this
+  in a tasteful way. Internal comms want to get their content to users.<p>* Let users
+  bookmark links from the _list pages I mentioned.<p>* If a user links another link
+  shortener, or a page that has a redirect, either - remove those intermediate redirects,
+  or flag it to the admin.<p>* Add some sort of safe site checking to &quot;protect
+  IT from the risks of public link shortening services.&quot; Not sure if you can
+  reuse an online database for this.<p>* Provide RSS feeds of top links etc to import
+  into the company&#x27;s portal.<p>* Resolve page titles correctly. If someone pastes
+  the link into a tool that looks up the go link for a preview, ensure you return
+  useful metadata. This is a common problem now because companies have some stuff
+  on-prem (their documents and tools) but are using a cloud chat tool. If you can
+  work out a way to know that particular tools are scraping your link then you might
+  be able to give a better experience.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=19342434
+source_context: HN Comment on story 19340316
+author_info: zerkten
+engagement:
+  parent: '19340316'
+date_posted: '2019-03-08'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

@@ -1,0 +1,15 @@
+signal_id: sig_18bef95ca19c
+raw_text: Apple developers are frustrated with gambling ads appearing across the App
+  Store
+source_platform: hackernews
+source_url: https://www.theverge.com/2022/10/26/23424316/app-store-gambling-ads-listings-apple-developers
+source_context: HN Story
+author_info: JohnTHaller
+engagement:
+  points: 101
+  num_comments: 37
+date_posted: '2022-10-26'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

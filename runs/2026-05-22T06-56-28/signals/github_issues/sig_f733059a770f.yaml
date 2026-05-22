@@ -1,0 +1,65 @@
+signal_id: sig_f733059a770f
+raw_text: '[Feature Request]:
+
+
+  ### Please confirm:
+
+
+  - [x] **I have searched existing feature requests** (open and closed) and found
+  no duplicates.
+
+  - [x] **me or my organization is currently an active sponsor of the product at the
+  $99,- level.
+
+
+  ### Problem Statement
+
+
+  We want to enable the "Use security keys for sign-in" of Windows Hello for Business
+  (found at Intune > Devices > Windows > Enrollment > Windows Hello for Business)
+  through a CIPP Standard template. Right now the only way to configure this is manually
+  by logging into the tenant
+
+
+  Please add the "Use security keys for sign-in" configuration to the "Windows Hello
+  for Business enrollment configuration" template. All other features of this blade
+  are configurable by this template, so it makes sense to add this one there.
+
+
+  ### Benefits for MSPs
+
+
+  Reduces the manual work of logging into each tenant to configure.
+
+
+  ### Value or Importance
+
+
+  It''s a nice-to-have. Every step towards being able to configure tenants fully through
+  templates is a good step forward.
+
+
+  ### PowerShell Commands (Optional)
+
+
+  _No response_'
+source_platform: github_issues
+source_url: https://github.com/KelvinTegelaar/CIPP/issues/6034
+source_context: GitHub issue in KelvinTegelaar/CIPP
+author_info: ilyonsnfi
+engagement:
+  comments: 2
+  reactions: 0
+  state: open
+date_posted: '2026-05-20'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  - no-priority
+  - not-assigned
+  is_pull_request: false
+  repo: KelvinTegelaar/CIPP
+attachments: []

@@ -1,0 +1,133 @@
+signal_id: sig_ba8eaa4662c9
+raw_text: 'Can a website detect when you are using Selenium with chromedriver?
+
+
+  <p>I''ve been testing out Selenium with Chromedriver and I noticed that some pages
+  can detect that you''re using Selenium even though there''s no automation at all.
+  Even when I''m just browsing manually just using Chrome through Selenium and <a
+  href="https://en.wikipedia.org/wiki/Xephyr" rel="noreferrer">Xephyr</a> I often
+  get a page saying that suspicious activity was detected. I''ve checked my user agent,
+  and my browser fingerprint, and they are all exactly identical to the normal Chrome
+  browser.</p>
+
+  <p>When I browse to these sites in normal Chrome everything works fine, but the
+  moment I use Selenium I''m detected.</p>
+
+  <p>In theory, chromedriver and Chrome should look literally exactly the same to
+  any web server, but somehow they can detect it.</p>
+
+  <p>If you want some test code try out this:</p>
+
+  <pre class="lang-py prettyprint-override"><code>from pyvirtualdisplay import Display
+
+  from selenium import webdriver
+
+
+  display = Display(visible=1, size=(1600, 902))
+
+  display.start()
+
+  chrome_options = webdriver.ChromeOptions()
+
+  chrome_options.add_argument(''--disable-extensions'')
+
+  chrome_options.add_argument(''--profile-directory=Default'')
+
+  chrome_options.add_argument(&quot;--incognito&quot;)
+
+  chrome_options.add_argument(&quot;--disable-plugins-discovery&quot;);
+
+  chrome_options.add_argument(&quot;--start-maximized&quot;)
+
+  driver = webdriver.Chrome(chrome_options=chrome_options)
+
+  driver.delete_all_cookies()
+
+  driver.set_window_size(800,800)
+
+  driver.set_window_position(0,0)
+
+  print ''arguments done''
+
+  driver.get(''http://stubhub.com'')
+
+  </code></pre>
+
+  <p>If you browse around stubhub you''ll get redirected and ''blocked'' within one
+  or two requests. I''ve been investigating this and I can''t figure out how they
+  can tell that a user is using Selenium.</p>
+
+  <p>How do they do it?</p>
+
+  <p>I installed the Selenium IDE plugin in Firefox and I got banned when I went to
+  stubhub.com in the normal Firefox browser with only the additional plugin.</p>
+
+  <p>When I use <a href="https://learn.microsoft.com/en-us/windows/win32/win7appqual/fiddler-web-debugger-tool"
+  rel="noreferrer">Fiddler</a> to view the HTTP requests being sent back and forth
+  I''ve noticed that the ''fake browser''s'' requests often have ''no-cache'' in the
+  response header.</p>
+
+  <p>Results like this <em><a href="https://stackoverflow.com/questions/3614472/is-there-a-way-to-detect-that-im-in-a-selenium-webdriver-page-from-javascript">Is
+  there a way to detect that I&#39;m in a Selenium Webdriver page from JavaScript?</a></em>
+  suggest that there should be no way to detect when you are using a webdriver. But
+  this evidence suggests otherwise.</p>
+
+  <p>The site uploads a fingerprint to their servers, but I checked and the fingerprint
+  of Selenium is identical to the fingerprint when using Chrome.</p>
+
+  <p>This is one of the fingerprint payloads that they send to their servers:</p>
+
+  <pre class="lang-json prettyprint-override"><code>{&quot;appName&quot;:&quot;Netscape&quot;,&quot;platform&quot;:&quot;Linuxx86_64&quot;,&quot;cookies&quot;:1,&quot;syslang&quot;:&quot;en-US&quot;,&quot;userlang&quot;:&quot;en-
+
+  US&quot;,&quot;cpu&quot;:&quot;&quot;,&quot;productSub&quot;:&quot;20030107&quot;,&quot;setTimeout&quot;:1,&quot;setInterval&quot;:1,&quot;plugins&quot;:
+
+  {&quot;0&quot;:&quot;ChromePDFViewer&quot;,&quot;1&quot;:&quot;ShockwaveFlash&quot;,&quot;2&quot;:&quot;WidevineContentDecryptionMo
+
+  dule&quot;,&quot;3&quot;:&quot;NativeClient&quot;,&quot;4&quot;:&quot;ChromePDFViewer&quot;},&quot;mimeTypes&quot;:
+
+  {&quot;0&quot;:&quot;application/pdf&quot;,&quot;1&quot;:&quot;ShockwaveFlashapplication/x-shockwave-
+
+  flash&quot;,&quot;2&quot;:&quot;FutureSplashPlayerapplication/futuresplash&quot;,&quot;3&quot;:&quot;WidevineContent
+
+  DecryptionModuleapplication/x-ppapi-widevine-
+
+  cdm&quot;,&quot;4&quot;:&quot;NativeClientExecutableapplication/x-
+
+  nacl&quot;,&quot;5&quot;:&quot;PortableNativeClientExecutableapplication/x-
+
+  pnacl&quot;,&quot;6&quot;:&quot;PortableDocumentFormatapplication/x-google-chrome-
+
+  pdf&quot;},&quot;screen&quot;:{&quot;width&quot;:1600,&quot;height&quot;:900,&quot;colorDepth&quot;:24},&quot;fonts&quot;:
+
+  {&quot;0&quot;:&quot;monospace&quot;,&quot;1&quot;:&quot;DejaVuSerif&quot;,&quot;2&quot;:&quot;Georgia&quot;,&quot;3&quot;:&quot;DejaVuSans&quot;,&quot;4&quot;:&quot;Trebu
+
+  chetMS&quot;,&quot;5&quot;:&quot;Verdana&quot;,&quot;6&quot;:&quot;AndaleMono&quot;,&quot;7&quot;:&quot;DejaVuSansMono&quot;,&quot;8&quot;:&quot;LiberationM
+
+  ono&quot;,&quot;9&quot;:&quot;NimbusMonoL&quot;,&quot;10&quot;:&quot;CourierNew&quot;,&quot;11&quot;:&quot;Courier&quot;}}
+
+  </code></pre>
+
+  <p>It''s identical in Selenium and in Chrome.</p>
+
+  <p>VPNs work for a single use, but they get detected after I load the first page.
+  Clearly some JavaScript code is being run to detect Selenium.</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/33225947/can-a-website-detect-when-you-are-using-selenium-with-chromedriver
+source_context: 'SO question (tags: javascript, python, google-chrome, selenium, selenium-chromedriver)'
+author_info: Ryan Weinstein
+engagement:
+  score: 645
+  view_count: 516414
+  answer_count: 26
+  is_answered: true
+date_posted: '2015-10-20'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - javascript
+  - python
+  - google-chrome
+  - selenium
+  - selenium-chromedriver
+attachments: []

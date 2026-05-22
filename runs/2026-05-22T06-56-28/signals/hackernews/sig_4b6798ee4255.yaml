@@ -1,0 +1,21 @@
+signal_id: sig_4b6798ee4255
+raw_text: 'Ask HN: Have you built internal tools to generate complex PDFs?
+
+
+  I’m working on a modular doc engine for generating complex PDFs; think insurance
+  policy docs, contracts, compliance forms.<p>We’ve spoken with insurtech teams dealing
+  with template sprawl from manual copy-paste, PDF logic buried in code that eng teams
+  have to maintain.<p>If you’ve dealt with this in the past: what did you build? What
+  failed? What would have helped?<p>Would love your thoughts: https:&#x2F;&#x2F;sutro.one'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=43794583
+source_context: HN Story
+author_info: haesunshine
+engagement:
+  points: 1
+  num_comments: 5
+date_posted: '2025-04-25'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

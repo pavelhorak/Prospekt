@@ -1,0 +1,35 @@
+signal_id: sig_f5c1824d9748
+raw_text: 'Using Git with Visual Studio
+
+
+  <p>As a long-time <a href="http://en.wikipedia.org/wiki/Microsoft_Visual_SourceSafe"
+  rel="noreferrer">Visual SourceSafe</a> user (and hater) I was discussing switching
+  to <a href="http://en.wikipedia.org/wiki/Apache_Subversion" rel="noreferrer">SVN</a>
+  with a colleague; he suggested using <a href="http://en.wikipedia.org/wiki/Git_%28software%29"
+  rel="noreferrer">Git</a> instead. Since, apparently, it can be used as peer-to-peer
+  without a central server (we are a 3-developer team). </p>
+
+
+  <p>I have not been able to find anything about tools that integrate Git with Visual
+  Studio, though - does such a thing exist? </p>
+
+
+  <p>What are the technologies available for using Git with Visual Studio? And what
+  do I need to know about how they differ before I begin?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/507343/using-git-with-visual-studio
+source_context: 'SO question (tags: visual-studio, git)'
+author_info: Herb Caudill
+engagement:
+  score: 1461
+  view_count: 477566
+  answer_count: 16
+  is_answered: true
+date_posted: '2009-02-03'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - visual-studio
+  - git
+attachments: []

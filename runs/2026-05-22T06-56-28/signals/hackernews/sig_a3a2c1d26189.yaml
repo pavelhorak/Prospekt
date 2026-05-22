@@ -1,0 +1,17 @@
+signal_id: sig_a3a2c1d26189
+raw_text: Typst is really good for this. The syntax takes a little bit of getting
+  used to but on the whole I’ve had a lot of success producing contracts and other
+  legal documents with it. I tend to assemble the input files using a templating engine
+  and then use the compiler in a subprocess. The compiler is very fast and the development
+  is pretty active. The output is much easier to manage than with packages like reportlab.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=43812717
+source_context: HN Comment on story 43794583
+author_info: zarekr
+engagement:
+  parent: '43794583'
+date_posted: '2025-04-27'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

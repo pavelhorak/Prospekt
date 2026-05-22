@@ -1,0 +1,154 @@
+signal_id: sig_512d9546d481
+raw_text: "Deadlock when accessing StackExchange.Redis\n\n<p>I'm running into a deadlock\
+  \ situation when calling <a href=\"https://github.com/StackExchange/StackExchange.Redis\"\
+  \ rel=\"noreferrer\">StackExchange.Redis</a>.</p>\n\n<p>I don't know exactly what\
+  \ is going on, which is very frustrating, and I would appreciate any input that\
+  \ could help resolve or workaround this problem.</p>\n\n<hr>\n\n<blockquote>\n \
+  \ <p><strong>In case you have this problem too and don't want to read all this;</strong>\n\
+  \  I suggest that you'll try setting <code>PreserveAsyncOrder</code> to <code>false</code>.</p>\n\
+  \n<pre><code>ConnectionMultiplexer connection = ...;\nconnection.PreserveAsyncOrder\
+  \ = false;\n</code></pre>\n  \n  <p>Doing so will probably resolve the kind of deadlock\
+  \ that this Q&amp;A is about and could also improve performance.</p>\n</blockquote>\n\
+  \n<hr>\n\n<h3>Our setup</h3>\n\n<ul>\n<li>The code is run as either a Console application\
+  \ or as an Azure Worker Role. </li>\n<li>It exposes a REST api using <a href=\"\
+  https://msdn.microsoft.com/en-us/library/system.net.http.httpmessagehandler(v=vs.118).aspx\"\
+  \ rel=\"noreferrer\">HttpMessageHandler</a> so the entry point is async.</li>\n\
+  <li>Some parts of the code have thread affinity (is owned by, and must be run by,\
+  \ a single thread).</li>\n<li>Some parts of the code is async-only.</li>\n<li>We\
+  \ are doing the <a href=\"http://blogs.msdn.com/b/pfxteam/archive/2012/04/13/10293638.aspx\"\
+  \ rel=\"noreferrer\"><em>sync-over-async</em></a> and <a href=\"http://blogs.msdn.com/b/pfxteam/archive/2012/03/24/10287244.aspx\"\
+  \ rel=\"noreferrer\"><em>async-over-sync</em></a> anti-patterns. (mixing <code>await</code>\
+  \ and <code>Wait()</code>/<code>Result</code>).</li>\n<li>We're only using async\
+  \ methods when accessing Redis.</li>\n<li>We're using StackExchange.Redis 1.0.450\
+  \ for .NET 4.5.</li>\n</ul>\n\n<h3>Deadlock</h3>\n\n<p>When the application/service\
+  \ is started it runs normally for a while then all of a sudden (almost) all incoming\
+  \ requests stop functioning, they never produce a response. All those requests are\
+  \ deadlocked waiting for a call to Redis to complete.</p>\n\n<p>Interestingly, once\
+  \ the deadlock occur, any call to Redis will hang but only if those calls are made\
+  \ from an incoming API request, which are run on the thread pool.</p>\n\n<p>We are\
+  \ also making calls to Redis from low priority background threads, and these calls\
+  \ continue to function even after the deadlock occurred.</p>\n\n<p><strike><em>It\
+  \ seems as if a deadlock will only occur when calling into Redis on a thread pool\
+  \ thread.</em></strike> I no longer think this is due to the fact that those calls\
+  \ are made on a thread pool thread. Rather, it seems like any async Redis call <strong>without\
+  \ continuation, or with a <em>sync safe</em> continuation,</strong> will continue\
+  \ to work even after the deadlock situation has occurred. (See <em>What I think\
+  \ happens</em> below)</p>\n\n<h3>Related</h3>\n\n<ul>\n<li><p><a href=\"https://stackoverflow.com/questions/27235124/stackexchange-redis-deadlocking\"\
+  >StackExchange.Redis Deadlocking</a></p>\n\n<p>Deadlock caused by mixing <code>await</code>\
+  \ and <code>Task.Result</code> (sync-over-async, like we do). But our code is run\
+  \ without synchronization context so that doesn't apply here, right?</p></li>\n\
+  <li><p><a href=\"https://stackoverflow.com/questions/24296325/how-to-safely-mix-sync-and-async-code\"\
+  >How to safely mix sync and async code?</a></p>\n\n<p>Yes, we shouldn't be doing\
+  \ that. But we do, and we'll have to continue doing so for a while. Lots of code\
+  \ that needs to be migrated into the async world.</p>\n\n<p>Again, we don't have\
+  \ a synchronization context, so this should not be causing deadlocks, right?</p>\n\
+  \n<p>Setting <code>ConfigureAwait(false)</code> before any <code>await</code> has\
+  \ no effect on this.</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/25567566/timeout-exception-after-async-commands-and-task-whenany-awaits-in-stackexchange\"\
+  >Timeout exception after async commands and Task.WhenAny awaits in StackExchange.Redis</a></p>\n\
+  \n<p>This is the thread hijacking problem. What's the current situation on this?\
+  \ Could this be the problem here?</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/27258984/stackexchange-redis-async-call-hangs/\"\
+  >StackExchange.Redis async call hangs</a></p>\n\n<p>From Marc's answer:</p>\n\n\
+  <blockquote>\n  <p>...mixing Wait and await is not a good idea. In addition to deadlocks,\
+  \ this is \"sync over async\" - an anti-pattern.</p>\n</blockquote>\n\n<p>But he\
+  \ also says:</p>\n\n<blockquote>\n  <p>SE.Redis bypasses sync-context internally\
+  \ (normal for library code), so it shouldn't have the deadlock</p>\n</blockquote>\n\
+  \n<p>So, from my understanding StackExchange.Redis should be agnostic to whether\
+  \ we're using the <em>sync-over-async</em> anti-pattern. It's just not recommended\
+  \ as it could be the cause of deadlocks in <strong>other</strong> code.</p>\n\n\
+  <p>In this case, however, as far as I can tell, the deadlock is really inside StackExchange.Redis.\
+  \ Please correct me if I'm wrong.</p></li>\n</ul>\n\n<h3>Debug findings</h3>\n\n\
+  <p>I've found that the deadlock seems to have its source in <code>ProcessAsyncCompletionQueue</code>\
+  \ on <a href=\"https://github.com/StackExchange/StackExchange.Redis/blob/master/StackExchange.Redis/StackExchange/Redis/CompletionManager.cs#L124\"\
+  \ rel=\"noreferrer\">line 124 of <code>CompletionManager.cs</code></a>.</p>\n\n\
+  <p>Snippet of that code:</p>\n\n<pre><code>while (Interlocked.CompareExchange(ref\
+  \ activeAsyncWorkerThread, currentThread, 0) != 0)\n{\n    // if we don't win the\
+  \ lock, check whether there is still work; if there is we\n    // need to retry\
+  \ to prevent a nasty race condition\n    lock(asyncCompletionQueue)\n    {\n   \
+  \     if (asyncCompletionQueue.Count == 0) return; // another thread drained it;\
+  \ can exit\n    }\n    Thread.Sleep(1);\n}\n</code></pre>\n\n<p>I've found that\
+  \ during the deadlock; <code>activeAsyncWorkerThread</code> is one of our threads\
+  \ that is waiting for a Redis call to complete. (<em>our thread</em> = a thread\
+  \ pool thread running <em>our code</em>). So the loop above is deemed to continue\
+  \ forever.</p>\n\n<p>Without knowing the details, this sure feels wrong; StackExchange.Redis\
+  \ is waiting for a thread that it thinks is the <em>active async worker thread</em>\
+  \ while it is in fact a thread that is quite the opposite of that.</p>\n\n<p>I wonder\
+  \ if this is due to the <em>thread hijacking problem</em> (which I don't fully understand)?</p>\n\
+  \n<h3>What to do?</h3>\n\n<p>The main two question I'm trying to figure out:</p>\n\
+  \n<ol>\n<li><p>Could mixing <code>await</code> and <code>Wait()</code>/<code>Result</code>\
+  \ be the cause of deadlocks even when running without synchronization context?</p></li>\n\
+  <li><p>Are we running into a bug/limitation in StackExchange.Redis?</p></li>\n</ol>\n\
+  \n<h3>A possible fix?</h3>\n\n<p>From my debug findings it seems as the problem\
+  \ is that:</p>\n\n<pre><code>next.TryComplete(true);\n</code></pre>\n\n<p>...on\
+  \ <a href=\"https://github.com/StackExchange/StackExchange.Redis/blob/master/StackExchange.Redis/StackExchange/Redis/CompletionManager.cs#L162\"\
+  \ rel=\"noreferrer\">line 162 in <code>CompletionManager.cs</code></a> could under\
+  \ some circumstances let the current thread (which is the <em>active async worker\
+  \ thread</em>) wander off and start processing other code, possibly causing a deadlock.</p>\n\
+  \n<p>Without knowing the details and just thinking about this \"fact\", then it\
+  \ would seem logical to temporarily release the <em>active async worker thread</em>\
+  \ during the <code>TryComplete</code> invocation.</p>\n\n<p>I guess that something\
+  \ like this could work:</p>\n\n<pre><code>// release the \"active thread lock\"\
+  \ while invoking the completion action\nInterlocked.CompareExchange(ref activeAsyncWorkerThread,\
+  \ 0, currentThread);\n\ntry\n{\n    next.TryComplete(true);\n    Interlocked.Increment(ref\
+  \ completedAsync);\n}\nfinally\n{\n    // try to re-take the \"active thread lock\"\
+  \ again\n    if (Interlocked.CompareExchange(ref activeAsyncWorkerThread, currentThread,\
+  \ 0) != 0)\n    {\n        break; // someone else took over\n    }\n}\n</code></pre>\n\
+  \n<p>I guess my best hope is that <a href=\"https://stackoverflow.com/users/23354/marc-gravell\"\
+  >Marc Gravell</a> would read this and provide some feedback :-)</p>\n\n<h3>No synchronization\
+  \ context = The default synchronization context</h3>\n\n<p>I've written above that\
+  \ our code does not use a <a href=\"https://msdn.microsoft.com/en-us/library/system.threading.synchronizationcontext(v=vs.110).aspx\"\
+  \ rel=\"noreferrer\">synchronization context</a>. This is only partially true: The\
+  \ code is run as either a Console application or as an Azure Worker Role. In these\
+  \ environments <a href=\"https://msdn.microsoft.com/en-us/library/system.threading.synchronizationcontext.current(v=vs.110).aspx\"\
+  \ rel=\"noreferrer\"><code>SynchronizationContext.Current</code></a> is <code>null</code>,\
+  \ which is why I wrote that we're running <em>without</em> synchronization context.</p>\n\
+  \n<p>However, after reading <a href=\"https://msdn.microsoft.com/magazine/gg598924.aspx\"\
+  \ rel=\"noreferrer\"><em>It's All About the SynchronizationContext</em></a> I've\
+  \ learned that this is not really the case:</p>\n\n<blockquote>\n  <p>By convention,\
+  \ if a thread’s current SynchronizationContext is null, then it implicitly has a\
+  \ default SynchronizationContext.</p>\n</blockquote>\n\n<p>The default synchronization\
+  \ context should not be the cause of deadlocks though, as UI-based (WinForms, WPF)\
+  \ synchronization context could - because it does not imply thread affinity.</p>\n\
+  \n<h3>What I think happens</h3>\n\n<p>When a message is completed its completion\
+  \ source is checked for whether it is considered <em>sync safe</em>. If it is, the\
+  \ completion action is executed inline and everything is fine.</p>\n\n<p>If it is\
+  \ not, the idea is to execute the completion action on a newly allocated thread\
+  \ pool thread. This too works just fine when <code>ConnectionMultiplexer.PreserveAsyncOrder</code>\
+  \ is <code>false</code>.</p>\n\n<p>However, when <code>ConnectionMultiplexer.PreserveAsyncOrder</code>\
+  \ is <code>true</code> (the default value), then those thread pool threads will\
+  \ serialize their work using a <em>completion queue</em> and by ensuring that at\
+  \ most one of them is the <em>active async worker thread</em> at any time.</p>\n\
+  \n<p>When a thread becomes the <em>active async worker thread</em> it will continue\
+  \ to be that until it have drained the <em>completion queue</em>.</p>\n\n<p>The\
+  \ problem is that the completion action is <em>not sync safe</em> (from above),\
+  \ still it is executed on a thread that <strong>must not be blocked</strong> as\
+  \ that will prevent other <em>non sync safe</em> messages from being completed.</p>\n\
+  \n<p>Notice that other messages that are being completed with a completion action\
+  \ that <em>is sync safe</em> will continue to work just fine, even though the <em>active\
+  \ async worker thread</em> is blocked.</p>\n\n<p>My suggested \"fix\" (above) would\
+  \ not cause a deadlock in this way, it would however mess with the notion of <em>preserving\
+  \ async completion order</em>.</p>\n\n<p>So maybe the conclusion to make here is\
+  \ that <strong>it is not safe to mix <code>await</code> with <code>Result</code>/<code>Wait()</code>\
+  \ when <code>PreserveAsyncOrder</code> is <code>true</code></strong>, no matter\
+  \ whether we are running without synchronization context?</p>\n\n<p>(<em>At least\
+  \ until we can use .NET 4.6 and the new <a href=\"https://msdn.microsoft.com/en-us/library/system.threading.tasks.taskcreationoptions(v=vs.110).aspx\"\
+  \ rel=\"noreferrer\"><code>TaskCreationOptions.RunContinuationsAsynchronously</code></a>,\
+  \ I suppose</em>)</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/30797716/deadlock-when-accessing-stackexchange-redis
+source_context: 'SO question (tags: c#, asynchronous, deadlock, stackexchange.redis)'
+author_info: M&#229;rten Wikstr&#246;m
+engagement:
+  score: 77
+  view_count: 13346
+  answer_count: 2
+  is_answered: true
+date_posted: '2015-06-12'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - c#
+  - asynchronous
+  - deadlock
+  - stackexchange.redis
+attachments: []

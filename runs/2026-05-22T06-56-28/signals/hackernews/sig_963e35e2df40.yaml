@@ -1,0 +1,14 @@
+signal_id: sig_963e35e2df40
+raw_text: VideoCore IV Processor Manual (Raspberry Pi GPU)
+source_platform: hackernews
+source_url: https://github.com/hermanhermitage/videocoreiv/wiki/VideoCore-IV-Programmers-Manual
+source_context: HN Story
+author_info: drpixie
+engagement:
+  points: 6
+  num_comments: 0
+date_posted: '2021-12-06'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: manual process'
+structured: {}
+attachments: []

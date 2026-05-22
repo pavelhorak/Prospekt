@@ -1,0 +1,74 @@
+signal_id: sig_e7be3e3535d1
+raw_text: "window.focus() not working in Google Chrome\n\n<p>Just wondering if Google\
+  \ Chrome is going to support <code>window.focus()</code> at some point. When I mean\
+  \ support, I mean have it work. The call to it doesn't fail, it just doesn't do\
+  \ anything. All other major browsers do not have this problem: FireFox, IE6-IE8\
+  \ and Safari.</p>\n\n<p>I have a client-side class for managing browser windows.\
+  \ When I first create a window the window comes into focus, but subsequent attempts\
+  \ to bring focus to the window do not work.</p>\n\n<p>From what I can tell, this\
+  \ appears to be a security feature to avoid annoying pop-ups and it does not appear\
+  \ to be a WebKit issue as it works in Safari.</p>\n\n<p>I know one idea someone\
+  \ brought forward was to close the window then reopen it, but this is a horrible\
+  \ solution. Googling shows that I do not appear to be the only person frustrated\
+  \ with this.</p>\n\n<p>And just to be 100% clear, I mean new windows, not tabs (tabs\
+  \ cannot be focused from what I've read) and all the windows being opened are in\
+  \ the same domain.</p>\n\n<p>Any ideas, workarounds aside from the bad one I mention\
+  \ above?</p>\n\n<p>There is a bug logged on the Chromium project about this, check\
+  \ it out <a href=\"http://code.google.com/p/chromium/issues/detail?id=1383&amp;can=1&amp;q=window.focus%20type%3aBug&amp;colspec=ID%20Stars%20Pri%20Area%20Type%20Status%20Summary%20Modified%20Owner\"\
+  \ rel=\"noreferrer\">here</a>. Thanks for posting that <a href=\"https://stackoverflow.com/users/16511/rich-bradshaw\"\
+  >Rich</a>.</p>\n\n<pre><code>MyCompany = { UI: {} }; // Put this here if you want\
+  \ to test the code. I create these namespaces elsewhere in code.\n\nMyCompany.UI.Window\
+  \ = new function() {\n    // Private fields\n    var that = this;\n    var windowHandles\
+  \ = {};\n\n    // Public Members\n    this.windowExists = function(windowTarget)\
+  \ {\n        return windowTarget &amp;&amp; windowHandles[windowTarget] &amp;&amp;\
+  \ !windowHandles[windowTarget].closed;\n    }\n\n    this.open = function(url, windowTarget,\
+  \ windowProperties) {\n        // See if we have a window handle and if it's closed\
+  \ or not.\n        if (that.windowExists(windowTarget)) {\n\n            // We still\
+  \ have our window object so let's check if the URLs is the same as the one we're\
+  \ trying to load.\n            var currentLocation = windowHandles[windowTarget].location;\n\
+  \n            if (\n                (\n                    /^http(?:s?):/.test(url)\
+  \ &amp;&amp; currentLocation.href !== url\n                )\n                 \
+  \   ||\n                (\n                    // This check is required because\
+  \ the URL might be the same, but absolute,\n                    // e.g. /Default.aspx\
+  \ ... instead of http://localhost/Default.aspx ...\n                    !/^http(?:s?):/.test(url)\
+  \ &amp;&amp;\n                    (currentLocation.pathname + currentLocation.search\
+  \ + currentLocation.hash) !== url\n                )\n            ) {\n        \
+  \        // Not the same URL, so load the new one.\n                windowHandles[windowTarget].location\
+  \ = url;\n            }\n\n            // Give focus to the window. This works in\
+  \ IE 6/7/8, FireFox, Safari but not Chrome.\n            // Well in Chrome it works\
+  \ the first time, but subsequent focus attempts fail,. I believe this is a security\
+  \ feature in Chrome to avoid annoying popups.\n            windowHandles[windowTarget].focus();\n\
+  \        }\n        else\n        {\n            // Need to do this so that tabbed\
+  \ browsers (pretty much all browsers except IE6) actually open a new window\n  \
+  \          // as opposed to a tab. By specifying at least one window property, we're\
+  \ guaranteed to have a new window created instead\n            // of a tab.\n  \
+  \          windowProperties = windowProperties || 'menubar=yes,location=yes,width=700,\
+  \ height=400, scrollbars=yes, resizable= yes';\n            windowTarget = windowTarget\
+  \ || \"_blank\";\n\n            // Create a new window.\n            var windowHandle\
+  \ = windowProperties ? window.open(url, windowTarget, windowProperties) : window.open(url,\
+  \ windowTarget);\n\n            if (null === windowHandle) {\n                alert(\"\
+  You have a popup blocker enabled. Please allow popups for \" + location.protocol\
+  \ + \"//\" + location.host);\n            }\n            else {\n              \
+  \  if (\"_blank\" !== windowTarget) {\n                    // Store the window handle\
+  \ for reuse if a handle was specified.\n                    windowHandles[windowTarget]\
+  \ = windowHandle;\n                    windowHandles[windowTarget].focus();\n  \
+  \              }\n            }\n        }\n    }\n}\n</code></pre>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/2758608/window-focus-not-working-in-google-chrome
+source_context: 'SO question (tags: javascript, google-chrome, cross-browser, dom-events)'
+author_info: nickytonline
+engagement:
+  score: 62
+  view_count: 115470
+  answer_count: 20
+  is_answered: true
+date_posted: '2010-05-03'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - javascript
+  - google-chrome
+  - cross-browser
+  - dom-events
+attachments: []

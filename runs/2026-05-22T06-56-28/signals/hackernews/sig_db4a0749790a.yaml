@@ -1,0 +1,28 @@
+signal_id: sig_db4a0749790a
+raw_text: <i>I don&#x27;t know if&#x2F;when&#x2F;how it replaces devs</i><p>Never,
+  but it will replace what devs do with <i>something else</i>. No one has really figured
+  out what that is yet. It almost certainly isn&#x27;t writing code by hand though.<p>Your
+  list of small projects is a good example of how things are changing. Before AI businesses
+  would have wanted tools like those things, but spending tens or hundreds of thousands
+  of pounds to get them was too much, so they lived without unless there was either
+  a <i>clear</i> need or a cheaper off-the-shelf option. Now businesses can afford
+  to get a small team to spend a month on something, and only spend a little. Price
+  is usually relative to the value of a project, and AI means the price is far better
+  aligned to value for small things.<p>I&#x27;m seeing the same benefit as an Engineering
+  Manager in a small tech company. I can spend an afternoon building a useful tool
+  that I couldn&#x27;t really justify taking the time to build before when it would
+  have taken me 3 days, so my toolset is expanding <i>fast</i>, and with it I&#x27;m
+  getting more effective (I hope.) AI is not taking dev jobs away because we&#x27;re
+  getting <i>more</i> software, with narrower focus, delivered faster. That&#x27;s
+  awesome.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46639375
+source_context: HN Comment on story 46639144
+author_info: onion2k
+engagement:
+  parent: '46639144'
+date_posted: '2026-01-15'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

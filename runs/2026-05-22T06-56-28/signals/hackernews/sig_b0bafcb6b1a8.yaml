@@ -1,0 +1,27 @@
+signal_id: sig_b0bafcb6b1a8
+raw_text: 'Ask HN: What does your one language ecosystem look like?
+
+
+  As a thought experiment imagine you choose just one programming language to use
+  throughout your entire software engineering stack. For example, OS, command line
+  tools, editors&#x2F;IDEs, libraries, frameworks, infrastructure as code, CI&#x2F;CD,
+  etc.<p>Practically I know this doesn&#x27;t make a lot of sense but I find myself
+  coming back to this question and I think about the tradeoffs. Questions also come
+  up like:<p>- Which languages fare better than others in this context?<p>- If there
+  isn&#x27;t an option in the chosen language for a thing, what would be the workaround?
+  Perhaps using a combination of other tools to achieve the capability.<p>- Which
+  edge cases are the most painful?<p>- How long would it take to build the needed
+  capability if it didn&#x27;t already exist for the language?<p>I&#x27;m curious
+  to hear what others think about this.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=38522828
+source_context: HN Story
+author_info: thesurlydev
+engagement:
+  points: 2
+  num_comments: 2
+date_posted: '2023-12-04'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

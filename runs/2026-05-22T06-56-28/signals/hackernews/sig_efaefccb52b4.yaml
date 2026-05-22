@@ -1,0 +1,27 @@
+signal_id: sig_efaefccb52b4
+raw_text: 'My first attempt with SD2 was my favorite prompt in SD1 - &#x27;nebulaic
+  sky above a golden sea, 4k desktop wallpaper&#x27;. SD1 routinely made the nebula
+  golden instead of the sea, but what the heck, still makes for a great Zoom background.
+  But SD2 just gave me a golden nebula. No sea. I tried everything I could think of
+  to vary the prompt, and nothing would produce an image with the sea in it.<p>Then
+  I ran a sanity check, and asked it &#x27;Sea&#x27;. I got some interesting abstract
+  patterns, a comic strip about an airplane, and a bird that looked rather diseased.
+  No seas. Maybe one of the abstract patterns kind of looked like the sea does in
+  anime?. Just to double-sanity-check that prompts don&#x27;t need to be more refined
+  than that, I searched &#x27;forest&#x27; and got some lovely photorealistic pine
+  trees in the mist.<p>SD2 literally doesn&#x27;t know what the sea is. I just checked
+  and SD2.1 gives you more sea-ish abstract art than SD2.0 did, but still no dice.
+  &#x27;photorealistic sea&#x27; gives me two motorcycles and an elephant.<p>edit:
+  Seems v2.1 understands &#x27;ocean&#x27; some of the time (not all!). v2.0 did not
+  understand either one.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=33929085
+source_context: HN Comment on story 33902248
+author_info: pie_flavor
+engagement:
+  parent: '33902248'
+date_posted: '2022-12-10'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

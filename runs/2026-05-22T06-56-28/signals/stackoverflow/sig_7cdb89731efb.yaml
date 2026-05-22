@@ -1,0 +1,43 @@
+signal_id: sig_7cdb89731efb
+raw_text: 'What are MVP and MVC and what is the difference?
+
+
+  <p>When looking beyond the <a href="https://en.wikipedia.org/wiki/Rapid_application_development"
+  rel="noreferrer">RAD</a> (drag-drop and configure) way of building user interfaces
+  that many tools encourage you are likely to come across three design patterns called
+  <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" rel="noreferrer">Model-View-Controller</a>,
+  <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter" rel="noreferrer">Model-View-Presenter</a>
+  and <a href="http://en.wikipedia.org/wiki/Model_View_ViewModel" rel="noreferrer">Model-View-ViewModel</a>.
+  My question has three parts to it:</p>
+
+
+  <ol>
+
+  <li>What issues do these patterns address?</li>
+
+  <li>How are they similar?</li>
+
+  <li>How are they different?</li>
+
+  </ol>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/2056/what-are-mvp-and-mvc-and-what-is-the-difference
+source_context: 'SO question (tags: user-interface, model-view-controller, design-patterns,
+  terminology, mvp)'
+author_info: Mike Minutillo
+engagement:
+  score: 2388
+  view_count: 591282
+  answer_count: 24
+  is_answered: true
+date_posted: '2008-08-05'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - user-interface
+  - model-view-controller
+  - design-patterns
+  - terminology
+  - mvp
+attachments: []

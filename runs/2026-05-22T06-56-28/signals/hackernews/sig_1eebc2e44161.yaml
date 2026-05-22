@@ -1,0 +1,16 @@
+signal_id: sig_1eebc2e44161
+raw_text: Congrats on the launch. One piece of feedback, please remove all the &quot;target=&quot;_blank&quot;
+  from the links in the toolbar. Its quite annoying to have a bunch of tabs created
+  navigating your landing page. It might also confuse any analytic tools that you
+  have installed on the site.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=37246741
+source_context: HN Comment on story 37245171
+author_info: yuppiepuppie
+engagement:
+  parent: '37245171'
+date_posted: '2023-08-24'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

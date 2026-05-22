@@ -1,0 +1,19 @@
+signal_id: sig_2f5588501efc
+raw_text: What nobody tells you is that to get the results you see people post online
+  often requires hours of work for a single image.<p>First you need to refine the
+  prompt so it is ultra specific (which OP has not done), then you need to generate
+  a hundred or so images and pick the best ones. From there you can use img2img to
+  refine it more, and once that&#x27;s done you might want to go to Photoshop to add
+  some finishing touches.<p>To get good results it is an art form at the moment, but
+  of course as the tools get better eventually it will just be a click of a button.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=33904679
+source_context: HN Comment on story 33902248
+author_info: fy20
+engagement:
+  parent: '33902248'
+date_posted: '2022-12-08'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

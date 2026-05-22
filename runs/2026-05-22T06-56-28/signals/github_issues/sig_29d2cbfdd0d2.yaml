@@ -1,0 +1,43 @@
+signal_id: sig_29d2cbfdd0d2
+raw_text: "Feature Request: [Title of Feature Request]\n\n### Related Problem\n\n\
+  Recreate this component(s) in Storybook. If the component already exists, reuse\
+  \ the code to help in refactoring to a storybook component. Use the links below\
+  \ to give you hints on how to approach this task. Feel free to look for other documentations\
+  \ or videos to help guide understanding and execution. When applicable, focus on\
+  \ modular code design.\n\nOnce completed, write a concisely detailed PR report on\
+  \ your experience approaching this task. Include any learnings or resources used\
+  \ with this task.\n\n### Proposed Solution\n\n<img width=\"125\" height=\"515\"\
+  \ alt=\"Image\" src=\"https://github.com/user-attachments/assets/ace44021-26a0-447f-8188-1943476dc29c\"\
+  \ />\n\n### Relevant Tutorial Links and Resources\n\n- [Figma Design](https://www.figma.com/design/nswMhBThzHDCqsR7F2HxbF/NSC-Dev-site-redesign-wireframes?node-id=915-8353&t=fc0kczfOjB5Uxheo-1)\n\
+  - [React Native Component Library](https://reactnative.dev/docs/components-and-apis)\n\
+  - [CSS Reference](https://css-tricks.com/)\n- [Expo Router](https://docs.expo.dev/versions/latest/sdk/router/)\n\
+  - [Storybook Component Example](https://storybook.js.org/tutorials/intro-to-storybook/react-native/en/simple-component/)\n\
+  - [Storybook Crash Course](https://youtu.be/dwtmz5PHWDg?si=hbhlNMiPAYEE-tvb)\n-\
+  \ [React UI Library Structure, Storybook and Tests](https://youtu.be/NgkYH97Z3nk?si=SxvyyH5b3E61rMm8)\n\
+  - Storybook PR #75 \n- [More on Modularity in Software design](https://www.geeksforgeeks.org/system-design/inroduction-to-modularity-and-interfaces-in-system-design/)\n\
+  \n### Additional Info\n\nIf the storybook component is already created, refactor\
+  \ the component by passing the necessary data through props. This assumes the code\
+  \ is modular. \n\nIf an existing storybook component is a good candidate for refactoring\
+  \ to reflect the goal of this issue, please go ahead and refactor! But be mindful\
+  \ that the modularized refactored code must be able to produce its original purpose\
+  \ and this issues purpose. \n\nRemember that the **page's name can conditionally\
+  \ change how the component renders**. \n- Hint: There are two components, one that\
+  \ houses the cards and the cards themselves"
+source_platform: github_issues
+source_url: https://github.com/SeattleColleges/NSC-Dev-Expo-Site/issues/156
+source_context: GitHub issue in SeattleColleges/NSC-Dev-Expo-Site
+author_info: IsaacJrTypes
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-06'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: SeattleColleges/NSC-Dev-Expo-Site
+attachments: []

@@ -1,0 +1,73 @@
+signal_id: sig_1fba4e47edca
+raw_text: "Alternatives for returning multiple values from a Python function\n\n<p>The\
+  \ canonical way to return multiple values in languages that support it is often\
+  \ <a href=\"https://stackoverflow.com/questions/38508/whats-the-best-way-to-return-multiple-values-from-a-function-in-python\"\
+  >tupling</a>.</p>\n<h3>Option: Using a tuple</h3>\n<p>Consider this trivial example:</p>\n\
+  <pre><code>def f(x):\n  y0 = x + 1\n  y1 = x * 3\n  y2 = y0 ** y3\n  return (y0,\
+  \ y1, y2)\n</code></pre>\n<p>However, this quickly gets problematic as the number\
+  \ of values returned increases. What if you want to return four or five values?\
+  \ Sure, you could keep tupling them, but it gets easy to forget which value is where.\
+  \ It's also rather ugly to unpack them wherever you want to receive them.</p>\n\
+  <h3>Option: Using a dictionary</h3>\n<p>The next logical step seems to be to introduce\
+  \ some sort of 'record notation'. In Python, the obvious way to do this is by means\
+  \ of a <code>dict</code>.</p>\n<p>Consider the following:</p>\n<pre><code>def g(x):\n\
+  \  y0 = x + 1\n  y1 = x * 3\n  y2 = y0 ** y3\n  return {'y0': y0, 'y1': y1 ,'y2':\
+  \ y2}\n</code></pre>\n<p>(Just to be clear, y0, y1, and y2 are just meant as abstract\
+  \ identifiers. As pointed out, in practice you'd use meaningful identifiers.)</p>\n\
+  <p>Now, we have a mechanism whereby we can project out a particular member of the\
+  \ returned object. For example,</p>\n<pre><code>result['y0']\n</code></pre>\n<h3>Option:\
+  \ Using a class</h3>\n<p>However, there is another option. We could instead return\
+  \ a specialized structure. I've framed this in the context of Python, but I'm sure\
+  \ it applies to other languages as well. Indeed, if you were working in C this might\
+  \ very well be your only option. Here goes:</p>\n<pre><code>class ReturnValue:\n\
+  \  def __init__(self, y0, y1, y2):\n     self.y0 = y0\n     self.y1 = y1\n     self.y2\
+  \ = y2\n\ndef g(x):\n  y0 = x + 1\n  y1 = x * 3\n  y2 = y0 ** y3\n  return ReturnValue(y0,\
+  \ y1, y2)\n</code></pre>\n<p>In Python the previous two are perhaps very similar\
+  \ in terms of plumbing - after all <code>{ y0, y1, y2 }</code> just end up being\
+  \ entries in the internal <code>__dict__</code> of the <code>ReturnValue</code>.</p>\n\
+  <p>There is one additional feature provided by Python though for tiny objects, the\
+  \ <code>__slots__</code> attribute. The class could be expressed as:</p>\n<pre><code>class\
+  \ ReturnValue(object):\n  __slots__ = [&quot;y0&quot;, &quot;y1&quot;, &quot;y2&quot;]\n\
+  \  def __init__(self, y0, y1, y2):\n     self.y0 = y0\n     self.y1 = y1\n     self.y2\
+  \ = y2\n</code></pre>\n<p>From the <a href=\"http://www.network-theory.co.uk/docs/pylang/__slots__.html\"\
+  \ rel=\"noreferrer\">Python Reference Manual</a>:</p>\n<blockquote>\n<p>The <code>__slots__</code>\
+  \ declaration takes a sequence of instance variables and reserves just enough space\
+  \ in each instance to hold a value for each variable. Space is saved because <code>__dict__</code>\
+  \ is not created for each instance.</p>\n</blockquote>\n<h3>Option: Using a <a href=\"\
+  https://docs.python.org/3/library/dataclasses.html\" rel=\"noreferrer\">dataclass</a>\
+  \ (Python 3.7+)</h3>\n<p>Using Python 3.7's new dataclasses, return a class with\
+  \ automatically added special methods, typing and other useful tools:</p>\n<pre><code>@dataclass\n\
+  class Returnvalue:\n    y0: int\n    y1: float\n    y3: int\n\ndef total_cost(x):\n\
+  \    y0 = x + 1\n    y1 = x * 3\n    y2 = y0 ** y3\n    return ReturnValue(y0, y1,\
+  \ y2)\n</code></pre>\n<h3>Option: Using a list</h3>\n<p>Another suggestion which\
+  \ I'd overlooked comes from Bill the Lizard:</p>\n<pre><code>def h(x):\n  result\
+  \ = [x + 1]\n  result.append(x * 3)\n  result.append(y0 ** y3)\n  return result\n\
+  </code></pre>\n<p>This is my least favorite method though. I suppose I'm tainted\
+  \ by exposure to Haskell, but the idea of mixed-type lists has always felt uncomfortable\
+  \ to me. In this particular example the list is -not- mixed type, but it conceivably\
+  \ could be.</p>\n<p>A list used in this way really doesn't gain anything with respect\
+  \ to the tuple as far as I can tell. The only real difference between lists and\
+  \ tuples in Python is that lists are <a href=\"http://docs.python.org/library/stdtypes.html#typesseq-mutable\"\
+  \ rel=\"noreferrer\">mutable</a>, whereas tuples are not.</p>\n<p>I personally tend\
+  \ to carry over the conventions from functional programming: use lists for any number\
+  \ of elements of the same type, and tuples for a fixed number of elements of predetermined\
+  \ types.</p>\n<h1>Question</h1>\n<p>After the lengthy preamble, comes the inevitable\
+  \ question. Which method (do you think) is best?</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/354883/alternatives-for-returning-multiple-values-from-a-python-function
+source_context: 'SO question (tags: python, return, return-value)'
+author_info: saffsd
+engagement:
+  score: 1236
+  view_count: 1407923
+  answer_count: 14
+  is_answered: true
+date_posted: '2008-12-10'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - python
+  - return
+  - return-value
+attachments: []

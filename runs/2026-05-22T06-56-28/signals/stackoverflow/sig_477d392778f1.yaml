@@ -1,0 +1,23 @@
+signal_id: sig_477d392778f1
+raw_text: 'How is the Linux kernel tested?
+
+
+  <p>How do the Linux kernel developers test their code locally and after they have
+  it committed? Do they use some kind of unit testing and build automation? Test plans?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/3177338/how-is-the-linux-kernel-tested
+source_context: 'SO question (tags: linux, linux-kernel)'
+author_info: Ashkan Kh. Nazary
+engagement:
+  score: 311
+  view_count: 82120
+  answer_count: 14
+  is_answered: true
+date_posted: '2010-07-05'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - linux
+  - linux-kernel
+attachments: []

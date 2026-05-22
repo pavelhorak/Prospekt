@@ -1,0 +1,17 @@
+signal_id: sig_ca4f11a8f9c6
+raw_text: '&quot;We have detected you are using an active AdBlock on your web browser.
+  Please disable it. Do not worry, we will not bother you with ads. However, some
+  parts of our website may not work properly or stop working, if your Adblocker is
+  enabled.&quot;<p>If I can&#x27;t read about your product with my adblocker on, your
+  product isn&#x27;t worth my time.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=12270671
+source_context: HN Comment on story 12268380
+author_info: somenomadicguy
+engagement:
+  parent: '12268380'
+date_posted: '2016-08-11'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

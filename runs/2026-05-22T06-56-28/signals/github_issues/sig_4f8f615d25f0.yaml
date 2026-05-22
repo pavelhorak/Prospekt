@@ -1,0 +1,60 @@
+signal_id: sig_4f8f615d25f0
+raw_text: "SpriteComponent struggles with complex composition\n\nAs it is, SpriteComponent\
+  \ is arranged in a flat list of layers, and all layers belong to a single entity.\n\
+  While this works for simple, individual entities that aren't complex arrangements\
+  \ of other entities, this quickly proves to be a headache for more complex entity\
+  \ sets.\n\nThe main issue that Space Station 14 faces is the inability to compose\
+  \ multiple sprites, and we find many workarounds where layers are added in relation\
+  \ to other layers with nothing but prayers that the resulting order makes sense.\n\
+  Take, for instance, how body visuals work.\n\nAt a baseline, we have a single layer\
+  \ on a body-entity where an organ-entity can provide a SpriteSpecifier to.\nOn top\
+  \ of this, we have markings also provided from an organ-entity.\nBecause the organ-entity\
+  \ doesn't have any way to gather the layers from its markings in a single place,\
+  \ it has to do manual index math to attempt to place the layers within the sprite\
+  \ arrangement in a way that works well.\nOn its own, this isn't _terrible_. The\
+  \ issue starts to get painful to manage when we have multiple components and multiple\
+  \ entities that want to influence a single layer of a sprite.\nLet's say, we have\
+  \ a damage overlay as well.\nThe damage overlay has no way of knowing where the\
+  \ markings layers are unless it is explicitly programmed to be aware of them, or\
+  \ unless the body is explicitly arranged to be aware of it.\nSo, the damage overlay\
+  \ also does its own layer tracking and its own index math to decide where to place\
+  \ its layers, and it can't be aware of other things that might affect a body, like\
+  \ the aforementioned markings, without turning the various parts of the sprite manipulation\
+  \ code into a tangled web that cross-checks each other.\nAdd e.g. bandages, unique\
+  \ wounds, tourniquets, and the issues with having multiple competing things and\
+  \ no way to organize them compound, while the workaround of programming everything\
+  \ to be aware of each other gets increasingly messier.\n\nAnimations affecting sprite\
+  \ layer properties also trip over each other because of there only being a flat\
+  \ list of layers to affect or the SpriteComponent itself.\nFor example, the weightless\
+  \ animation affects translation, which means it'll get fought over if another animation\
+  \ tries to affect translation as well, such as a combat lunge or a knockback animation.\n\
+  \nAll in all, complex systems of sprites are a mess.\nI'd propose a hierarchical\
+  \ sprite layering solution for this, although how exactly that should interact with\
+  \ the ECS is an open question.\nSomething like this:\n```\n- Root Body\n  - Weightless\
+  \ Animation Layer (managed by a Floating component/system)\n    - Knockback Animation\
+  \ Layer (managed by a Knockback component/system)\n      - Limb (managed by a base\
+  \ Part component/system on their own entity)\n        - Markings (managed by a MarkingsPart\
+  \ component/system)\n          - Limb Marking 1\n          - Limb Marking 2\n  \
+  \      - Damage (managed by a Wound component/system)\n          - Damage Layer\n\
+  \          - Unique Wound Layer\n        - Tourniquets/Bandages/etc. (managed by\
+  \ composition from other entities)\n```\nwould considerably simplify authoring complex\
+  \ visual code."
+source_platform: github_issues
+source_url: https://github.com/space-wizards/RobustToolbox/issues/6544
+source_context: GitHub issue in space-wizards/RobustToolbox
+author_info: sowelipililimute
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-01'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - 'T: New Feature'
+  - 'A: Rendering'
+  - 'D1: High'
+  is_pull_request: false
+  repo: space-wizards/RobustToolbox
+attachments: []

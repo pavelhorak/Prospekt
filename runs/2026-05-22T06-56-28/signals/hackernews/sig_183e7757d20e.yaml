@@ -1,0 +1,22 @@
+signal_id: sig_183e7757d20e
+raw_text: Most use-cases and people&#x2F;companies don&#x27;t have the traffic amount
+  where scaling matters that much, so performance gains will be negligible (or even
+  worse) when using a more complex &quot;specialized&quot; stack.<p>Yes, if you have
+  a large team, building for scale in a VC-funded company, go for dedicated stacks,
+  but if you are just building a start-up where moving fast is important and architecture
+  quickly changes, any DB will do and will not be the bottleneck.<p>I use Postgres
+  to cache some responses from APIs (max 100 different documents per month) where
+  latency doesn&#x27;t matter, so using Redis instead would provide no benefit (will
+  actually make it worse, due to its &quot;worse&quot; persistency and third-party
+  integrations capabilities)
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=43957477
+source_context: HN Comment on story 43949354
+author_info: XCSme
+engagement:
+  parent: '43949354'
+date_posted: '2025-05-11'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

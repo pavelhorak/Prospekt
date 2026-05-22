@@ -1,0 +1,28 @@
+signal_id: sig_717c405a4fc0
+raw_text: 'CloudNSite – AI agents that replace manual business processes for SMBs
+
+
+  Hey HN,<p>I built CloudNSite, a consulting firm that deploys AI agents to automate
+  repetitive business workflows across healthcare, legal, real estate, and a few other
+  verticals.<p>The problem I kept running into with clients was that most AI tooling
+  assumes you have an engineering team. Small businesses don&#x27;t. They have manual
+  processes held together with spreadsheets and email.<p>We built a library of 30+
+  pre-built agents and multi-agent bundles tuned to specific industry workflows. Clients
+  pick what fits, we customize and deploy. For healthcare and legal clients with strict
+  data requirements, we handle private LLM deployments on their own infrastructure
+  with HIPAA-ready architecture.<p>We also built a free AI Readiness Assessment that
+  generates personalized use cases and rough ROI estimates without a sales call.<p>Would
+  love feedback from anyone who has worked in this space or has thoughts on the agent
+  library approach.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=48199120
+source_context: HN Story
+author_info: rmccaincns
+engagement:
+  points: 1
+  num_comments: 1
+date_posted: '2026-05-19'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: manual process'
+structured: {}
+attachments: []

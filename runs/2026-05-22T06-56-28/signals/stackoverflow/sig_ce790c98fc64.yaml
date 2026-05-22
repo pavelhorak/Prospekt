@@ -1,0 +1,45 @@
+signal_id: sig_ce790c98fc64
+raw_text: 'How does Google reCAPTCHA v2 work behind the scenes?
+
+
+  <p><strong>This post refers to Google ReCaptcha v2 (not the latest version)</strong></p>
+
+
+  <p>Recently Google introduced a simplified "captcha" verification system (<a href="https://www.youtube.com/watch?v=jwslDn3ImM0"
+  rel="noreferrer">video</a>) that enables users to pass the "captcha" just by clicking
+  on it.</p>
+
+
+  <p>But how can it differentiate a bot from a person just by a click?</p>
+
+
+  <p>As per <a href="https://stackoverflow.com/a/25626267/1125029">this answer</a>,
+  (assuming a similar implementation), at first "recaptcha" generates a hidden key
+  and attaches it to a hidden input element and also lazily renders a check box (not
+  an actual check box <code>input</code> but a <code>div</code>) with the same key
+  which when clicked, sends an asynchronous request (XHR) to the Google backend servers
+  to mark it as a valid verification key (i.e. a key that has to be validated when
+  the form is submitted).</p>
+
+
+  <p>But why can''t bots automate that click (at least, browser-based bots)?</p>
+
+
+  <p>How might this work?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/27286232/how-does-google-recaptcha-v2-work-behind-the-scenes
+source_context: 'SO question (tags: captcha, recaptcha)'
+author_info: everlasto
+engagement:
+  score: 320
+  view_count: 158231
+  answer_count: 5
+  is_answered: true
+date_posted: '2014-12-04'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - captcha
+  - recaptcha
+attachments: []

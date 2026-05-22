@@ -1,0 +1,25 @@
+signal_id: sig_a9acc5328c45
+raw_text: 'Ask HN: do you ever clean your email marketing db from inactives?
+
+
+  I used to do periodically clean our email db by hand, but it quickly became time
+  consuming, so I built an internal tool to easily run list cleaning in Mailchimp
+  and other ESPs.<p>It&#x27;s pretty simple: it connects to the Mailchip API, looks
+  at each contacts, identifies those inactive and either classify them in a special
+  segment (e.g. &quot;Inactives&quot;) or archives them directly. It also reduces
+  bounce rate since it checks the validity of all the new incoming emails (e.g. from
+  mispellings in form submissions, spambots etc) before the first email goes out.<p>I&#x27;m
+  now thinking whether it&#x27;s worth to launch this publicly. Would anyone else
+  use this? How do you currently maintain email lists for your companies?<p>Thanks!'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=21700425
+source_context: HN Story
+author_info: federiconitidi
+engagement:
+  points: 8
+  num_comments: 7
+date_posted: '2019-12-04'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

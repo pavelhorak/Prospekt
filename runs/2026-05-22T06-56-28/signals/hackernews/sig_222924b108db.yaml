@@ -1,0 +1,16 @@
+signal_id: sig_222924b108db
+raw_text: Yes, it can be quite frustrating. On my search engine[0] I tag sites that
+  use captcha services and browser checks so that the user has more transparency and
+  can choose to avoid sites that use these services if they want.<p>[0] <a href="https:&#x2F;&#x2F;ichi.do"
+  rel="nofollow">https:&#x2F;&#x2F;ichi.do</a>
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=35573080
+source_context: HN Comment on story 35568225
+author_info: anthonyhn
+engagement:
+  parent: '35568225'
+date_posted: '2023-04-14'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

@@ -1,0 +1,13 @@
+signal_id: sig_fb9e315a8407
+raw_text: '[flagged]'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=47300765
+source_context: HN Comment on story 47295866
+author_info: jlongo78
+engagement:
+  parent: '47295866'
+date_posted: '2026-03-08'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

@@ -1,0 +1,39 @@
+signal_id: sig_18a4d04692e1
+raw_text: "How to fix java.lang.UnsupportedClassVersionError: Unsupported major.minor\
+  \ version\n\n<p>I am trying to use <a href=\"http://en.wikipedia.org/wiki/Notepad%2B%2B\"\
+  \ rel=\"noreferrer\">Notepad++</a> as my all-in-one tool edit, run, compile, etc.</p>\n\
+  <p>I have <a href=\"http://en.wikipedia.org/wiki/Java_Virtual_Machine#Execution_environment\"\
+  \ rel=\"noreferrer\">JRE</a> installed, and I have setup my path variable to the\
+  \ <code>.../bin</code> directory.</p>\n<p>When I run my &quot;Hello world&quot;\
+  \ in Notepad++, I get this message:</p>\n<pre class=\"lang-none prettyprint-override\"\
+  ><code>java.lang.UnsupportedClassVersionError: test_hello_world :\n Unsupported\
+  \ major.minor version 51.0\n    at java.lang.ClassLoader.defineClass1(Native Method)\n\
+  \    at java.lang.ClassLoader.defineClassCond(Unknown Source)\n       ...\n</code></pre>\n\
+  <p>More recent versions of Java produce a more detailed exception message:</p>\n\
+  <blockquote>\n<p>java.lang.UnsupportedClassVersionError: com/xxx/yyy/Application\
+  \ has been compiled by a more recent version of the Java Runtime (class file version\
+  \ 65.0), this version of the Java Runtime only recognizes class file versions up\
+  \ to 61.0</p>\n</blockquote>\n<p>I think the problem here is about versions; some\
+  \ versions of Java may be old or too new.</p>\n<ol>\n<li>How do I fix it?</li>\n\
+  <li>Should I install the JDK, and setup my path variable to the JDK instead of JRE?</li>\n\
+  <li>What is the difference between the <code>PATH</code> variable in JRE or JDK?</li>\n\
+  </ol>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/10382929/how-to-fix-java-lang-unsupportedclassversionerror-unsupported-major-minor-versi
+source_context: 'SO question (tags: java, jvm, incompatibility, unsupported-class-version)'
+author_info: ERJAN
+engagement:
+  score: 1762
+  view_count: 2478194
+  answer_count: 52
+  is_answered: true
+date_posted: '2012-04-30'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - java
+  - jvm
+  - incompatibility
+  - unsupported-class-version
+attachments: []

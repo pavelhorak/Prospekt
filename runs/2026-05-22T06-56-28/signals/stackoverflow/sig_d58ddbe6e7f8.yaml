@@ -1,0 +1,34 @@
+signal_id: sig_d58ddbe6e7f8
+raw_text: 'How to compare files from two different branches
+
+
+  <p>I have a script that works fine in one branch and is broken in another. I want
+  to look at the two versions side-by-side and see what''s different. Is there a way
+  to do this?</p>
+
+  <p><strong>To be clear</strong> I''m not looking for a compare tool (I use <a href="https://en.wikipedia.org/wiki/Beyond_Compare"
+  rel="noreferrer">Beyond Compare</a>). I''m looking for a Git diff command that will
+  allow me to compare the master version to my current branch version to see what
+  has changed. I''m not in the middle of a merge or anything. I just want to say something
+  like</p>
+
+  <pre><code>git diff mybranch/myfile.cs master/myfile.cs
+
+  </code></pre>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/4099742/how-to-compare-files-from-two-different-branches
+source_context: 'SO question (tags: git, git-diff)'
+author_info: Micah
+engagement:
+  score: 2301
+  view_count: 1499175
+  answer_count: 14
+  is_answered: true
+date_posted: '2010-11-04'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - git
+  - git-diff
+attachments: []

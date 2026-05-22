@@ -1,0 +1,13 @@
+signal_id: sig_b24f46112b5f
+raw_text: '[dead]'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=43707295
+source_context: HN Comment on story 43707290
+author_info: mindcase
+engagement:
+  parent: '43707290'
+date_posted: '2025-04-16'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

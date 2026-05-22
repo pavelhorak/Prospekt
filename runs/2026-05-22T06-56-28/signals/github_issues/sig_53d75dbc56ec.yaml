@@ -1,0 +1,110 @@
+signal_id: sig_53d75dbc56ec
+raw_text: "Allow factoring out complex expressions in input variable `validation`\
+  \ blocks\n\n### Community note\n\n> [!TIP]\n> \U0001F44B Hi there, OpenTofu community!\
+  \ The OpenTofu team prioritizes issues based on upvotes. Please make sure to upvote\
+  \ this issue and describe how it affects you in detail in the comments to show your\
+  \ support.\n\n\n### OpenTofu Version\n\n```shell\n1.11.6\n```\n\n### The problem\
+  \ in your OpenTofu project\n\nOpenTofu's variable validation currently rejects two\
+  \ idiomatic DRY patterns:                                                      \
+  \                               \n\n  1. A condition that references a local whose\
+  \ definition is itself derived from the variable being validated.              \
+  \                                       \n  2. An error_message that references\
+  \ such a local (flagged as a static cycle, even though error_message is evaluated\
+  \ lazily only on condition-failure).\n\nI'd like both to be supported. https://github.com/opentofu/opentofu/issues/1336\
+  \ delivered cross-variable/cross-object references in a condition, which is what\
+  \ makes local.role_pattern (a plain constant) usable in Stage 4 below thank you\
+  \ for that. This request is for the narrower remaining case: references that transitively\
+  \ depend on the variable being validated.\n\nThe use case here are endless when\
+  \ you are creating complex validation rules. I've included a simplified but representative\
+  \ example below, but they can get significantly more complex, particularly when\
+  \ you are validating each item in a list and trying to output the violating values,\
+  \ which is something we have found extremely helpful to users.\n\n### Attempted\
+  \ Solutions\n\n```tf\n# OpenTofu variable validation — reproduction of indirection-through-locals\
+  \ restrictions.\n#\n# Each stage is independent; uncomment one stage at a time (the\
+  \ rest are\n# wrapped in /* ... */ block comments) and run `tofu init -backend=false`\n\
+  # and `tofu validate`.\n#\n# Tested on: OpenTofu v1.11.6\n\n###############################################################################\n\
+  # STAGE 1 — Natural, idiomatic code.                              (FAILED)\n#\n\
+  # Extract the role pattern and derivations to locals so:\n#   - The regex is defined\
+  \ once.\n#   - The condition and error_message share the \"invalid roles\" computation.\n\
+  #   - Error messages can enumerate exactly which roles failed.\n#\n# OpenTofu 1.11.5\
+  \ rejects it on `init` with:\n#   \"The condition for variable 'roles' must refer\
+  \ to var.roles in order\n#    to test incoming values.\"\n###############################################################################\n\
+  \nlocals {\n  role_pattern = \"^(roles/|organizations/1234567890/roles/)\"\n  invalid_roles\
+  \ = [\n    for role in var.roles : role\n    if !can(regex(local.role_pattern, role))\n\
+  \  ]\n}\n\nvariable \"roles\" {\n  type = list(string)\n\n  validation {\n    condition\
+  \     = length(local.invalid_roles) == 0\n    error_message = \"Invalid role(s):\
+  \ '${join(\", \", local.invalid_roles)}'. Each role must conform to: '${local.role_pattern}'\"\
+  \n  }\n}\n\n###############################################################################\n\
+  # STAGE 2 — First workaround attempt.                             (FAILED)\n#\n\
+  # Inline the condition so it syntactically references var.roles, but keep\n# the\
+  \ locals for the error_message so it can enumerate which roles failed.\n#\n# OpenTofu\
+  \ 1.11.5 rejects this on `validate` or `plan` with:\n#   \"Cycle: local.invalid_roles\
+  \ (expand), var.roles (expand, reference)\"\n#\n# The \"cycle\" is a static-analysis\
+  \ false positive: error_message is only\n# evaluated lazily when condition fails,\
+  \ so at that point local.invalid_roles\n# is already resolved.\n###############################################################################\n\
+  \n/*\nlocals {\n  role_pattern = \"^(roles/|organizations/1234567890/roles/)\"\n\
+  \  invalid_roles = [\n    for role in var.roles : role\n    if !can(regex(local.role_pattern,\
+  \ role))\n  ]\n}\n\nvariable \"roles\" {\n  type = list(string)\n\n  validation\
+  \ {\n    condition     = alltrue([for r in var.roles : can(regex(local.role_pattern,\
+  \ r))])\n    error_message = \"Invalid role(s): '${join(\", \", local.invalid_roles)}'.\
+  \ Each role must conform to: '${local.role_pattern}'\"\n  }\n}\n*/\n\n###############################################################################\n\
+  # STAGE 3 — Workaround that OpenTofu accepts.                     (SUCCESSFUL)\n\
+  #\n# Abandon locals entirely. Triplicate the regex: once in the condition, once\n\
+  # in the error-message's filter comprehension, and once in the human-readable\n\
+  # portion of the error message.\n#\n# This validates, at the cost of:\n#   - A regex\
+  \ literal written 3× in the same file.\n#   - Changing the org ID means 3 edits.\n\
+  #   - The \"which roles failed?\" filter is duplicated, not reused.\n###############################################################################\n\
+  \n/*\nvariable \"roles\" {\n  type = list(string)\n\n  validation {\n    condition\
+  \     = alltrue([for r in var.roles : can(regex(\"^(roles/|organizations/1234567890/roles/)\"\
+  , r))])\n    error_message = \"Invalid role(s): '${join(\", \", [for r in var.roles\
+  \ : r if !can(regex(\"^(roles/|organizations/1234567890/roles/)\", r))])}'. Each\
+  \ role must conform to: '^(roles/|organizations/1234567890/roles/)'\"\n  }\n}\n\
+  */\n\n###############################################################################\n\
+  # STAGE 4 — Best achievable compromise.                           (SUCCESSFUL)\n\
+  #\n# Only constants (locals that do NOT depend on var.roles) can be extracted.\n\
+  # The var-derived filter comprehension still has to live inline in\n# error_message\
+  \ because referencing a var.roles-derived local there\n# triggers the cycle false\
+  \ positive from Stage 2.\n#\n# This accepts, but the filter is still written twice\
+  \ (once as alltrue+can\n# in the condition, once as a filter in the error_message).\n\
+  ###############################################################################\n\
+  \n/*\nlocals {\n  role_pattern = \"^(roles/|organizations/1234567890/roles/)\"\n\
+  }\n\nvariable \"roles\" {\n  type = list(string)\n\n  validation {\n    condition\
+  \     = alltrue([for r in var.roles : can(regex(local.role_pattern, r))])\n    error_message\
+  \ = \"Invalid role(s): '${join(\", \", [for r in var.roles : r if !can(regex(local.role_pattern,\
+  \ r))])}'. Each role must conform to: '${local.role_pattern}'\"\n  }\n}\n*/\n```\n\
+  \n### Proposal\n\nCode fixes:\n\n1. condition: accept indirection through var-derived\
+  \ locals. If `local.X` is defined in terms of `var.self`, `condition = local.X`\
+  \ expresses the same dependency as inlining the local. The runtime evaluation order\
+  \ is unchanged. The current static check (requiring `var.self` to appear syntactically)\
+  \ rejects semantically-correct DRY code.                                       \
+  \                                                                              \
+  \                                  \n  2. error_message: don't treat it as a cycle\
+  \ source. error_message is only evaluated when the condition returns false, at which\
+  \ point all locals are already resolved. The dependency graph `var.X` → `validation.error_message`\
+  \ → `local.Y` → `var.X` has no runtime cycle — it's a static analysis artifact.\n\
+  \nFallback - documentation fixes:\n\n  1. If the behavior stays as-is, the https://opentofu.org/docs/language/expressions/custom-conditions/\
+  \ should be fixed. The current phrasing `The expression can refer to variables,\
+  \ locals, resources, etc.` is misleading and should be expanded to explain the limitations\
+  \ show in this issue.\n\n### Workarounds and Alternatives\n\nSee above Stage 3 &\
+  \ 4 examples.\n\n### References\n\n- https://github.com/opentofu/opentofu/issues/1336\
+  \ — Cross-variable validation (completed; Stage 4 benefits from it, the remaining\
+  \ gaps survive it).\n- https://opentofu.org/docs/language/expressions/custom-conditions/#input-variable-validation"
+source_platform: github_issues
+source_url: https://github.com/opentofu/opentofu/issues/4050
+source_context: GitHub issue in opentofu/opentofu
+author_info: joe-a-dbt
+engagement:
+  comments: 7
+  reactions: 0
+  state: open
+date_posted: '2026-04-23'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - enhancement
+  - pending-decision
+  - blocked
+  is_pull_request: false
+  repo: opentofu/opentofu
+attachments: []

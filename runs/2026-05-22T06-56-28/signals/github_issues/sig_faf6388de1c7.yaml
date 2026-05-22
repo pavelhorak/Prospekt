@@ -1,0 +1,88 @@
+signal_id: sig_faf6388de1c7
+raw_text: "snip does not handle loops and complex shell commands (for, while, if,\
+  \ case)\n\n# Issue: snip does not handle loops and complex shell commands\n\n##\
+  \ Summary\n\n`snip`'s `unproxyableReason` function in `internal/cli/cli.go` is missing\n\
+  shell loop and conditional keywords (`for`, `while`, `until`, `if`, `case`,\n`select`).\
+  \ When an agent (Claude Code, OpenCode, etc.) wraps a loop with snip,\nbash parses\
+  \ the keyword as a literal argument — breaking the entire compound\nstructure with\
+  \ a syntax error.\n\n## Affected Versions\n\n- `snip` v0.16.0 (and likely all prior\
+  \ versions)\n- Affects ALL agent integrations (Claude Code, OpenCode, Cursor, Codex,\
+  \ Copilot, Gemini)\n\n## How to Reproduce\n\n```bash\n# This should be caught and\
+  \ rejected with a clear error\nsnip for ip in 192.168.100.{101..110}; do ssh root@$ip\
+  \ \"hostname\"; done\n```\n\n**Expected:** snip detects `for` and exits with a clear\
+  \ message like:\n```\nfor cannot be proxied (it is a shell keyword construct)\n\
+  ```\n\n**Actual:** bash parses `for` as a literal argument to snip. `do` has no\n\
+  matching `for` keyword. Result: **syntax error near unexpected token 'do'**.\n\n\
+  The same applies to:\n```bash\nsnip while true; do curl localhost/health; sleep\
+  \ 5; done\nsnip if [ -f /tmp/lock ]; then rm /tmp/lock; fi\nsnip case $1 in a) echo\
+  \ \"a\";; esac\nsnip for f in *.txt; do wc -l \"$f\"; done\n```\n\n## Root Cause\n\
+  \n`internal/cli/cli.go` — `unproxyableReason` (lines 464-485) currently covers\n\
+  40+ shell builtins for directory, environment, option, and flow control:\n\n```go\n\
+  case \"exit\", \"logout\", \"return\", \"break\", \"continue\":\n    return \"it\
+  \ must run in the parent shell to control flow\"\n```\n\nBut **loop and conditional\
+  \ keywords** — which are parser-level constructs, not even builtins — are missing:\n\
+  \n```go\n// MISSING:\ncase \"for\", \"while\", \"until\", \"select\":\n    return\
+  \ \"it is a shell keyword construct and cannot run in a subprocess\"\ncase \"if\"\
+  , \"case\", \"fi\", \"esac\", \"then\", \"elif\", \"else\", \"done\":\n    return\
+  \ \"it is a shell keyword construct and cannot run in a subprocess\"\n```\n\nThese\
+  \ are not binaries found in `$PATH` — they are parser keywords understood\nonly\
+  \ by the shell itself. Running them as external commands through snip will\nalways\
+  \ fail.\n\n## Impact\n\nWhen an agent tool wraps a compound command with `snip`:\n\
+  \n1. **Loops break silently**: bash produces a cryptic syntax error. The agent\n\
+  \   sees a failure and may retry or give up — wasting tokens and time.\n\n2. **Conditionals\
+  \ break silently**: same as loops — bash syntax error.\n\n3. **No token savings\
+  \ for compound commands**: because snip can't handle them,\n   all output from loop\
+  \ bodies goes raw to the LLM — defeating snip's purpose.\n\n4. **Agent confusion**:\
+  \ the error message (`syntax error near unexpected token`)\n   is unrelated to the\
+  \ real problem. The agent doesn't know to stop using\n   snip for loops.\n\n## Proposed\
+  \ Fix\n\nAdd loop and conditional keywords to `unproxyableReason` in\n`internal/cli/cli.go`:\n\
+  \n```go\nfunc unproxyableReason(command string) string {\n    switch command {\n\
+  \    // ... existing cases ...\n    case \"for\", \"while\", \"until\", \"select\"\
+  :\n        return \"it is a shell keyword construct (use snip on individual commands\
+  \ inside the loop body)\"\n    case \"if\", \"case\", \"fi\", \"esac\", \"then\"\
+  , \"elif\", \"else\", \"done\":\n        return \"it is a shell keyword construct\
+  \ (use snip on individual commands inside the block)\"\n    }\n    return \"\"\n\
+  }\n```\n\n**Lines changed:** ~6 lines added to one switch block.\n**Tests needed:**\
+  \ One new test case for each keyword in `cli_test.go`.\n\n## Workarounds (Until\
+  \ Fixed)\n\n### Workaround 1 — Put snip inside the loop body\n\n```bash\n# BEFORE\
+  \ (broken):\nsnip for ip in 192.168.100.{101..110}; do\n  ssh root@$ip \"systemctl\
+  \ status nginx\" 2>&1\ndone\n\n# AFTER (working):\nfor ip in 192.168.100.{101..110};\
+  \ do\n  snip ssh root@$ip \"systemctl status nginx\" 2>&1\ndone\n```\n\nEach command\
+  \ inside the loop runs individually through snip. The loop itself\nruns raw.\n\n\
+  ### Workaround 2 — Wrap loop as a function\n\n```bash\nscan_hosts() {\n  for ip\
+  \ in 192.168.100.{101..110}; do\n    ssh root@$ip \"systemctl status nginx\" 2>&1\n\
+  \  done\n}\nsnip scan_hosts\n```\n\nSnip runs the entire function as one command.\
+  \ All output gets filtered.\n\n### Workaround 3 — Use snip proxy per iteration\n\
+  \n```bash\nfor ip in 192.168.100.{101..110}; do\n  snip proxy ssh root@$ip \"systemctl\
+  \ status nginx\" 2>&1\ndone\n```\n\n`snip proxy` bypasses all filters but preserves\
+  \ exit codes — useful when\nyou need raw output but want the agent integration to\
+  \ work correctly.\n\n### Workaround 4 — Manually add keywords to agent plugin\n\n\
+  For `opencode-snip` users, edit the plugin's `UNPROXYABLE_COMMANDS`:\n\n```typescript\n\
+  // node_modules/opencode-snip/src/index.ts\nconst UNPROXYABLE_COMMANDS = new Set([\n\
+  \  \"cd\", \"source\", \".\", \"export\", \"alias\", \"unset\", \"set\", \"shopt\"\
+  , \"eval\", \"exec\",\n  // ADD THESE:\n  \"for\", \"while\", \"until\", \"select\"\
+  ,\n  \"if\", \"case\", \"fi\", \"esac\", \"then\", \"elif\", \"else\",\n])\n```\n\
+  \nThis prevents the plugin from prefixing loops with `snip`.\n\nFor Claude Code\
+  \ users, the `snip hook` already manages this correctly\nbecause it uses snip's\
+  \ own `unproxyableReason` — but the function needs\nthese keywords first.\n\n##\
+  \ Related\n\n- `internal/cli/cli.go:464-485` — `unproxyableReason` function\n- `internal/cli/cli_test.go`\
+  \ — existing tests for unproxyable commands\n- `opencode-snip` v1.6.1 — `src/index.ts`\
+  \ `UNPROXYABLE_COMMANDS` has same gap (9 entries)\n- All agent init targets (`initcmd/`)\
+  \ — install hooks that call into `snip hook`\n  which propagates the issue\n\n---\n\
+  \n*Filed by: Maya + Izzat | Date: 2026-05-21 | snip v0.16.0*"
+source_platform: github_issues
+source_url: https://github.com/edouard-claude/snip/issues/66
+source_context: GitHub issue in edouard-claude/snip
+author_info: EnRaiha
+engagement:
+  comments: 2
+  reactions: 0
+  state: open
+date_posted: '2026-05-21'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels: []
+  is_pull_request: false
+  repo: edouard-claude/snip
+attachments: []

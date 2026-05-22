@@ -1,0 +1,31 @@
+signal_id: sig_0d349e93bd43
+raw_text: "Ignoring any &#39;bin&#39; directory on a git project\n\n<p>I have a directory\
+  \ structure like this:</p>\n<pre><code>.git/\n.gitignore\nmain/\n  ...\ntools/\n\
+  \  ...\n...\n</code></pre>\n<p>Inside main and tools, and any other directory, at\
+  \ any level, there can be a 'bin' directory, which I want to ignore (and I want\
+  \ to ignore everything under it too). I've tried each of these patterns in .gitignore\
+  \ but none of them work:</p>\n<pre><code>/**/bin/**/*\n/./**/bin/**/*\n./**/bin/**/*\n\
+  **/bin/**/*\n*/bin/**/*\nbin/**/*\n/**/bin/* #and the others with just * at the\
+  \ end too\n</code></pre>\n<p>Can anyone help me out? The first pattern (the one\
+  \ I think should be working) works just fine if I do this:</p>\n<pre><code>/main/**/bin/**/*\n\
+  </code></pre>\n<p>But I don't want to have an entry for every top-level directory\
+  \ and I don't want to have to modify .gitignore every time I add a new one. There\
+  \ are also files and directories that have the substring 'bin' in their names, <strong>which\
+  \ I want to keep</strong>.</p>\n<p>This is on Windows using the latest msysgit.</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/1470572/ignoring-any-bin-directory-on-a-git-project
+source_context: 'SO question (tags: git, gitignore)'
+author_info: Ben Hymers
+engagement:
+  score: 1496
+  view_count: 1125067
+  answer_count: 17
+  is_answered: true
+date_posted: '2009-09-24'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - git
+  - gitignore
+attachments: []

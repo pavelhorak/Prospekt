@@ -1,0 +1,35 @@
+signal_id: sig_9bab6f0426d9
+raw_text: 'Resolve metadata_startup_script ignore_changes workaround
+
+
+  ## Problem\n\nThe  resource in  has:\n\n\n\nThis masks drift detection — if someone
+  modifies the VM''s startup script externally, Terraform won''t notice.\n\n## Root
+  Cause\n\nThe startup script contains the DB password, which the GCP provider marks
+  as sensitive. Terraform can''t compare sensitive values between state and config,
+  so any change triggers replacement. The  strategy fails with a 409 conflict due
+  to disk attachment ordering (disk stays attached to the old instance during the
+  creation window).\n\n## Why It''s Acceptable During Migration\n\n-  is idempotent
+  (schema applied via Atlas migrations separately)\n- VM replacement would lose data
+  if not handled carefully\n\n## Resolving Options\n\n1. **Accept one VM replacement**
+  after migration stabilizes, then remove \n2. **Rework init_sql injection** to use
+  separate mechanism (SSH/cloud-init) so startup script stays static\n3. **Fix disk
+  dependency ordering** in  (complex GCP workaround)\n\n## Context\n\n-  ignore_changes
+  was removed and verified unnecessary in provider v7.31.0 (2026-05-22)\n- This one
+  remains as a documented tradeoff\n\n## Status\n\n- Added: v4.2.5\n- Target: v4.3.0
+  (candidate)'
+source_platform: github_issues
+source_url: https://github.com/DarojaAI/gcp-postgres-terraform/issues/69
+source_context: GitHub issue in DarojaAI/gcp-postgres-terraform
+author_info: patelmm79
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-22'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels: []
+  is_pull_request: false
+  repo: DarojaAI/gcp-postgres-terraform
+attachments: []

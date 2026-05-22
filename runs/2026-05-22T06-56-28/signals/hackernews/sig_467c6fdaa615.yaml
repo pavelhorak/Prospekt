@@ -1,0 +1,47 @@
+signal_id: sig_467c6fdaa615
+raw_text: So, I work in an org that has truly sensitive data and this has been a barrier
+  for us more times than I can count, so this is obviously very interesting to us
+  and something we&#x27;ve thought about a lot. A couple questions I have are:<p>1.
+  How well does Sarus work with data that is not in a database, like unstructured
+  data such as documents&#x2F;text?<p>2. How does Sarus handle &#x27;legacy&#x27;
+  DB&#x27;s, where the schema for a table might not be quite right, but due to operational
+  constraints these schemas can&#x27;t be easily corrected? The canonical example
+  I&#x27;m thinking of is date times that have been specified as strings and no one
+  bothered to change them.<p>3. What kind of language support exists for interacting
+  with the Sarus proxy? Obviously, you have Python support but for large enterprises
+  that might need Sarus oftentimes there are a few languages that are popular internally
+  and all need equal support. I think the comprehensive list of analytics languages
+  in use in large orgs would look something like, [python, R, Julia, Matlab, SAS].
+  Rust&#x2F;C++ support would be ideal as well as they&#x27;re commonly used in Python&#x2F;R
+  to accelerate hot code. Do you have plans to develop SDK&#x27;s? Would they be hand
+  crafted or do you plan to develop generated SDK&#x27;s similar to how GCP does it?<p>4.
+  Are you moving to get any security certs? Of course you&#x27;re a startup right
+  now, but I know from experience enterprise orgs will still blindly ask questions
+  like, &quot;Are you FedRamp Moderate&#x2F;High certified?&quot; (This doesn&#x27;t
+  even make sense for your sales model and I&#x27;m certain you&#x27;ll still have
+  to answer this question and explain why over and over.) or &quot;Do you have a Soc
+  2 Type 2 report we can look at?&quot;. The orgs that actually need something like
+  this are going to be asking these questions pretty quickly.<p>5. When I use Sarus,
+  do I have to use your IDE&#x2F;interface? One of the things I noticed when looking
+  at your demo gifs is there is a lot of use of notebooks, which of course are popular,
+  but you&#x27;ll be met with a lot of resistance if your users can&#x27;t use the
+  tooling they prefer (PyCharm Pro &#x2F; DataGrip plugin to interact with DB&#x27;s
+  in my teams case).<p>6. How exactly is Sarus deployed? Terraform? Is it a containerized
+  application? Does it scale vertically or horizontally? Can its logging mechanism
+  integrate with StackDriver, Splunk, or Cloudtrail?<p>7. Have you proved out the
+  technology with more complex time series data? I&#x27;m thinking of sensitive trading
+  data.<p>8. Do you provide benchmarks for showing that a model trained on a real
+  dataset is equivalent in performance a model trained on the synthetic dataset?<p>Super
+  cool product and you&#x27;re in a great position to make a ton of money if you nail
+  the execution and get some large customers!
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=30699218
+source_context: HN Comment on story 30698215
+author_info: ZeroCool2u
+engagement:
+  parent: '30698215'
+date_posted: '2022-03-16'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

@@ -1,0 +1,25 @@
+signal_id: sig_3316ca61ccfa
+raw_text: 'What effect does the `--no-ff` flag have for `git merge`?
+
+
+  <p>Using <code>gitk log</code>, I could not spot a difference between the effect
+  of <code>git merge</code> and <code>git merge --no-ff</code>. How can I observe
+  the difference (with a git command or some tool)?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/9069061/what-effect-does-the-no-ff-flag-have-for-git-merge
+source_context: 'SO question (tags: git, merge, fast-forward)'
+author_info: user1162226
+engagement:
+  score: 1375
+  view_count: 890064
+  answer_count: 7
+  is_answered: true
+date_posted: '2012-01-30'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - git
+  - merge
+  - fast-forward
+attachments: []

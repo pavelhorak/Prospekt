@@ -1,0 +1,33 @@
+signal_id: sig_cf86c62de9fd
+raw_text: "[Feature Request]\n\n**Is your feature request related to a problem? Please\
+  \ describe.**\nI’d like to be able to choose a different browser or application\
+  \ to open links from LinkHub, rather than just the default browser.\nActually, a\
+  \ big reason I use LinkHub is that I use several different browsers at the same\
+  \ time, and I don’t want to have to add bookmarks to each one individually.\n\n\
+  **Describe the solution you'd like**\nI hope LinkHub can include a link-opening\
+  \ selector. \nIf possible, I’d also like this selector to work with external software,\
+  \ for example, by setting LinkHub as the default browser so that links can be added,\
+  \ edited, and opened all at once.\n\n**Describe alternatives you've considered**\n\
+  Actually, I’ve been using [URLCheck](https://github.com/TrianguloY/UrlChecker) to\
+  \ open links all along. It’s a powerful tool, but I’ve only been using its link-opening\
+  \ feature. I think LinkHub is better suited for this functionality, as integrating\
+  \ it would make it easier to add and manage bookmarks.\n\n**Additional context**\n\
+  ![Screenshot_2026-05-21-21-34-05-39_21561dfd7cdb810023cdb17e8b11e256.jpg](https://github.com/user-attachments/assets/f928afb1-8e82-45f0-9ab3-071b42e83d2a)"
+source_platform: github_issues
+source_url: https://github.com/AmrDeveloper/LinkHub/issues/103
+source_context: GitHub issue in AmrDeveloper/LinkHub
+author_info: goddaneel
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-21'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: AmrDeveloper/LinkHub
+attachments: []

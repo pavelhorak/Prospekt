@@ -1,0 +1,27 @@
+signal_id: sig_93ae40ecd3ab
+raw_text: 'New Feature Request: <feature>
+
+
+  ### Improvement
+
+
+  I think the repo should have a category "Visa sponsorship" with values "Yes" or
+  "No" so it is easier for international students to navigate'
+source_platform: github_issues
+source_url: https://github.com/SimplifyJobs/Summer2026-Internships/issues/9533
+source_context: GitHub issue in SimplifyJobs/Summer2026-Internships
+author_info: uj-sxn
+engagement:
+  comments: 0
+  reactions: 1
+  state: open
+date_posted: '2026-05-14'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: SimplifyJobs/Summer2026-Internships
+attachments: []

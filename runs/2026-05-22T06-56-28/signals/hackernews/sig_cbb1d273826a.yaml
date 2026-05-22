@@ -1,0 +1,22 @@
+signal_id: sig_cbb1d273826a
+raw_text: 'I used to build a custom product for my side business that had a 50-conductor
+  wire harness and a couple smaller ones (around 20 conductors each IIRC). I learned
+  a few things:<p>* The article is absolutely correct: It&#x27;s a difficult task
+  to automate and humans are still very competitive.<p>* The peripheral bits that
+  the article doesn&#x27;t get into, like making the individual conductors and attaching
+  terminals, is best done by machinery. That&#x27;s a far easier task to automate
+  and the machines are very fast. Even at my low volumes, I could save money by farming
+  out cutting &amp; stripping wire and crimping on terminals instead of doing that
+  part by hand.<p>* It&#x27;s annoying, fiddly work and I&#x27;m amazed that there
+  are people who have the patience to do it all day long. More power to them I guess!'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=32255991
+source_context: HN Comment on story 32252183
+author_info: HeyLaughingBoy
+engagement:
+  parent: '32252183'
+date_posted: '2022-07-27'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

@@ -1,0 +1,36 @@
+signal_id: sig_31b409bf9560
+raw_text: 'How to get a password from a shell script without echoing
+
+
+  <p>I have a script that automates a process that needs access to a password-protected
+  system. The system is accessed via a command-line program that accepts the user
+  password as an argument.</p>
+
+  <p>I would like to prompt the user to type in their password, assign it to a shell
+  variable, and then use that variable to construct the command line of the accessing
+  program (which will of course produce stream output that I will process).</p>
+
+  <p>I am a reasonably competent shell programmer in Bourne/Bash, but I don''t know
+  how to accept the user input without having it echo to the terminal (or maybe having
+  it echoed using ''*'' characters).</p>
+
+  <p>Can anyone help with this?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/3980668/how-to-get-a-password-from-a-shell-script-without-echoing
+source_context: 'SO question (tags: bash, shell, scripting, sh)'
+author_info: BD at Rivenhill
+engagement:
+  score: 648
+  view_count: 690220
+  answer_count: 10
+  is_answered: true
+date_posted: '2010-10-20'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - bash
+  - shell
+  - scripting
+  - sh
+attachments: []

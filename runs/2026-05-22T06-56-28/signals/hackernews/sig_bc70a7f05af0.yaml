@@ -1,0 +1,14 @@
+signal_id: sig_bc70a7f05af0
+raw_text: Hi Chris. I don&#x27;t suppose you&#x27;ve open-sourced the content-writing
+  tool by any chance?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46640644
+source_context: HN Comment on story 46639144
+author_info: phs318u
+engagement:
+  parent: '46639144'
+date_posted: '2026-01-15'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

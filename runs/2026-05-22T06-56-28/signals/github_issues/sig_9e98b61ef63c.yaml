@@ -1,0 +1,90 @@
+signal_id: sig_9e98b61ef63c
+raw_text: 'Functional test failure: stuck namespace deletion in Test_Flux_Complex
+
+
+  ### Steps to reproduce
+
+
+  1. Run the long-running Azure functional test workflow (see job here: https://github.com/radius-project/radius/actions/runs/25794640381/job/75768671989)
+
+  2. Wait for the Flux functional tests to complete
+
+  3. Observe that Test_Flux_Complex fails in its cleanup phase, waiting for namespace
+  deletion to complete
+
+  4. See job logs for details: search for ''Error: Condition never satisfied'' and
+  ''waiting for environment namespace to be deleted''
+
+
+  ### Observed behavior
+
+
+  The test job fails at teardown, stuck waiting for test-created namespaces to be
+  deleted. Specifically, Test_Flux_Complex hangs during cleanup until timing out with
+  an error about waiting for environment namespace deletion. This suggests the namespace
+  may be stuck in ''Terminating'' due to lingering finalizers or unremoved resources.
+  Please see the full logs in the linked job for more context.
+
+
+  ### Desired behavior
+
+
+  Test namespaces should always be deleted successfully at the end of functional tests.
+  Namespace deletion should not get stuck or hang due to finalizers or lingering resources,
+  ensuring test cleanup completes and jobs can finish cleanly.
+
+
+  As an alternative, consider cleaning up the resources deployed into the namespace
+  instead of deleting the namespace.
+
+
+  ### Workaround
+
+
+  A code workaround would be to ensure finalizers are removed from test namespaces
+  upon timeout, and that all resources are cleaned up before namespace deletion. Adding
+  diagnostics for stuck terminations is also recommended.
+
+
+  ### rad Version
+
+
+  rad version 0.57.1
+
+
+  ### Operating system
+
+
+  _No response_
+
+
+  ### Additional context
+
+
+  Failing job link: https://github.com/radius-project/radius/actions/runs/25794640381/job/75768671989
+
+
+  The teardown failure is in test/functional-portable/kubernetes/noncloud/flux_test.go
+  and the cleanup helper in test/functional-portable/kubernetes/noncloud/deploymenttemplate_test.go.
+
+  Suggested fix: update the test helper to remove finalizers and add diagnostics for
+  stuck namespace deletion.'
+source_platform: github_issues
+source_url: https://github.com/radius-project/radius/issues/11874
+source_context: GitHub issue in radius-project/radius
+author_info: brooke-hamilton
+engagement:
+  comments: 2
+  reactions: 0
+  state: open
+date_posted: '2026-05-13'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels:
+  - triaged
+  - bug
+  - test-failure
+  is_pull_request: false
+  repo: radius-project/radius
+attachments: []

@@ -1,0 +1,17 @@
+signal_id: sig_c4a83f18743a
+raw_text: The first job I clicked on said this in the actual ad. This is a far cry
+  from a remote job. The aggregator needs a little more tweaking:<p>This role is based
+  out of Reddit&#x27;s office located in San Francisco.<p>We will only consider candidates
+  currently located in San Francisco, or currently within close commuting distance
+  to the SF office.<p>The role requires in-office work 4 days per week.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=44028687
+source_context: HN Comment on story 44025484
+author_info: koliber
+engagement:
+  parent: '44025484'
+date_posted: '2025-05-19'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

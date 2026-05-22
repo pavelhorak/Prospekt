@@ -1,0 +1,21 @@
+signal_id: sig_e64081c0dad8
+raw_text: 'So, once upon a time I wanted to associate information with http connections
+  (as I am accustomed to in every other language I&#x27;ve ever written) just to enable
+  proper http keepalive and debugging through a proxy written in Go.<p>Ended up with
+  this. [0]<p>Turns out the Go authors don&#x27;t think you should do this so I had
+  to majorly alter and recompile the stdlib.<p>I still appreciate many go tools and
+  the cross platform single binaries that work great on Solaris&#x2F;Illumos.  But
+  in many cases the strong opinions of Go authors really stand in the way of getting
+  work done.<p>[0]: <a href="https:&#x2F;&#x2F;github.com&#x2F;doublerebel&#x2F;publictransport"
+  rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;doublerebel&#x2F;publictransport</a>'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=14831834
+source_context: HN Comment on story 14831638
+author_info: doublerebel
+engagement:
+  parent: '14831638'
+date_posted: '2017-07-23'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

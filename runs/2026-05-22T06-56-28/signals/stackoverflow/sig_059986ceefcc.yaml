@@ -1,0 +1,201 @@
+signal_id: sig_059986ceefcc
+raw_text: "I/O exception error when using serialport.open()\n\n<p><strong>FINAL UPDATE</strong></p>\n\
+  \n<p>It was our firmware the whole time. Embarrassing to a degree, but I'm happy\
+  \ we can move forward and I can put learning Java off for another day. My answer\
+  \ is below.</p>\n\n<p><strong>UPDATE</strong></p>\n\n<p>So I have more or less given\
+  \ up on this. I think it is a bug that goes down to the API, but I have neither\
+  \ the time, resources nor skill-set to get to the bottom of it. I think there exists\
+  \ some hardware to whom Windows just gives the middle finger. I have downloaded\
+  \ Eclipse, switched to Java and will try to see if that works. If not, you'll see\
+  \ me back here. However, I would absolutely love to solve this and so if anyone\
+  \ has the time or inclination to dig deep into this one, I'd love to see what you\
+  \ come up with. Obviously I will be checking back here from time to time. Please\
+  \ make sure you '@' me in your comments so I am alerted.</p>\n\n<hr>\n\n<p><strong>ORIGINAL\
+  \ POST</strong></p>\n\n<p>I know there are a few other people dealing with this\
+  \ issue, but I was hoping someone could help me. I am trying to connect to a <a\
+  \ href=\"http://en.wikipedia.org/wiki/COM_%28hardware_interface%29\" rel=\"noreferrer\"\
+  >COM port</a>, but I am getting an I/O exception when I try to use the <code>serialport.Open()</code>\
+  \ command:</p>\n\n<pre><code>System.IO.IOException: The parameter is incorrect.\n\
+  \n   at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)\n\
+  \   at System.IO.Ports.InternalResources.WinIOError()\n   at System.IO.Ports.SerialStream.InitializeDCB(Int32\
+  \ baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Boolean discardNull)\n\
+  \   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity\
+  \ parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout,\
+  \ Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull,\
+  \ Byte parityReplace)\n   at System.IO.Ports.SerialPort.Open()\n   at *programtitlehere.cs*:line\
+  \ 90\n</code></pre>\n\n<p>I am using a Stellaris LM4F232 to emulate a COM port.\
+  \ I can open, access and I get good results using Termite (a terminal program),\
+  \ but whenever I try with Visual Studio it won't even connect, and I get this error.\
+  \ Now I don't even really know what this error means and despite trying to read\
+  \ elsewhere, I still feel lost.</p>\n\n<p>Can anyone explain to me what is happening\
+  \ here and maybe I can begin to try to figure this out? I can include more code,\
+  \ but to be honest there isn't much there; all the properties of the serial port\
+  \ device are as normal, and it is only happening with this device (I can use an\
+  \ MSP430 no problem with the same details).</p>\n\n<p>My code is shown below for\
+  \ people who would like to see it (note this is just a 'sandbox', not the actual\
+  \ program, but the symptoms are identical):</p>\n\n<pre><code>try\n{\n    serialPort1.PortName\
+  \ = \"COM5\";\n    serialPort1.Open();\n    if (serialPort1.IsOpen == true)\n  \
+  \  {\n        textBox1.Text = \"CONNECTED\";\n    }\n    else\n    {\n        textBox1.Text\
+  \ = \"NOT CONNECTED\";\n    }\n}\ncatch (Exception ex)\n{\n    MessageBox.Show(\"\
+  Error: \" + ex.ToString(), \"ERROR\");\n}\n</code></pre>\n\n<p>and the other settings\
+  \ are done with the property manager (the only difference is baud is set to 230400;\
+  \ all others are on their default).\nI can open up COM4 with this (an MSP430) which\
+  \ for all intents and purposes is an identical device. I can open COM5 with Termite,\
+  \ so I know the connection is good). And no, I am not trying to open them at the\
+  \ same time. If you need more information let me know and I can post more.</p>\n\
+  \n<p>EDIT: I'm on day three of trying to figure this out and still no luck. I don't\
+  \ really understand why I can access this COM port through a terminal program and\
+  \ not my own when, as near as I can see, there is absolutely no difference. Is there\
+  \ a program that can 'examine' a COM port to see the properties of it (besides Windows\
+  \ manager I mean)? I'm getting pretty frustrated and am sort of at a stand still\
+  \ in my project until I figure this out...</p>\n\n<p>EDIT2: I've found an apparent\
+  \ workaround, but I've yet to get it to work <a href=\"http://zachsaw.blogspot.ca/2010/07/serialport-ioexception-workaround-in-c.html\"\
+  \ rel=\"noreferrer\">here</a>. Now I get a few different I/O errors, but at least\
+  \ it is motion (not sure if it is progress). I've also learned that this is a .NET\
+  \ bug, which has existed since 2.0. I'd still love any help, but if I figure it\
+  \ out I will report back. Zach's code (the workaround linked above) is shown below:</p>\n\
+  \n<pre><code>using System;\nusing System.IO;\nusing System.IO.Ports;\nusing System.Runtime.InteropServices;\n\
+  using System.Text;\nusing Microsoft.Win32.SafeHandles;\n\nnamespace SerialPortTester\n\
+  {\n    public class SerialPortFixer : IDisposable\n    {\n        public static\
+  \ void Execute(string portName)\n        {\n            using (new SerialPortFixer(portName))\n\
+  \            {\n            }\n        }\n\n        #region IDisposable Members\n\
+  \n        public void Dispose()\n        {\n            if (m_Handle != null)\n\
+  \            {\n                m_Handle.Close();\n                m_Handle = null;\n\
+  \            }\n        }\n\n        #endregion\n\n        #region Implementation\n\
+  \n        private const int DcbFlagAbortOnError = 14;\n        private const int\
+  \ CommStateRetries = 10;\n        private SafeFileHandle m_Handle;\n\n        private\
+  \ SerialPortFixer(string portName)\n        {\n            const int dwFlagsAndAttributes\
+  \ = 0x40000000;\n            const int dwAccess = unchecked((int) 0xC0000000);\n\
+  \n            if ((portName == null) || !portName.StartsWith(\"COM\", StringComparison.OrdinalIgnoreCase))\n\
+  \            {\n                throw new ArgumentException(\"Invalid Serial Port\"\
+  , \"portName\");\n            }\n            SafeFileHandle hFile = CreateFile(@\"\
+  \\\\.\\\" + portName, dwAccess, 0, IntPtr.Zero, 3, dwFlagsAndAttributes,\n     \
+  \                                         IntPtr.Zero);\n            if (hFile.IsInvalid)\n\
+  \            {\n                WinIoError();\n            }\n            try\n\
+  \            {\n                int fileType = GetFileType(hFile);\n           \
+  \     if ((fileType != 2) &amp;&amp; (fileType != 0))\n                {\n     \
+  \                throw new ArgumentException(\"Invalid Serial Port\", \"portName\"\
+  );\n                }\n                m_Handle = hFile;\n                InitializeDcb();\n\
+  \            }\n            catch\n            {\n                hFile.Close();\n\
+  \                m_Handle = null;\n                throw;\n            }\n     \
+  \   }\n\n        [DllImport(\"kernel32.dll\", CharSet = CharSet.Auto, SetLastError\
+  \ = true)]\n        private static extern int FormatMessage(int dwFlags, HandleRef\
+  \ lpSource, int dwMessageId, int dwLanguageId,\n                               \
+  \                 StringBuilder lpBuffer, int nSize, IntPtr arguments);\n\n    \
+  \    [DllImport(\"kernel32.dll\", CharSet = CharSet.Auto, SetLastError = true)]\n\
+  \        private static extern bool GetCommState(SafeFileHandle hFile, ref Dcb lpDcb);\n\
+  \n        [DllImport(\"kernel32.dll\", CharSet = CharSet.Auto, SetLastError = true)]\n\
+  \        private static extern bool SetCommState(SafeFileHandle hFile, ref Dcb lpDcb);\n\
+  \n        [DllImport(\"kernel32.dll\", CharSet = CharSet.Auto, SetLastError = true)]\n\
+  \        private static extern bool ClearCommError(SafeFileHandle hFile, ref int\
+  \ lpErrors, ref Comstat lpStat);\n\n        [DllImport(\"kernel32.dll\", CharSet\
+  \ = CharSet.Auto, SetLastError = true)]\n        private static extern SafeFileHandle\
+  \ CreateFile(string lpFileName, int dwDesiredAccess, int dwShareMode,\n        \
+  \                                                IntPtr securityAttrs, int dwCreationDisposition,\n\
+  \                                                        int dwFlagsAndAttributes,\
+  \ IntPtr hTemplateFile);\n\n        [DllImport(\"kernel32.dll\", SetLastError =\
+  \ true)]\n        private static extern int GetFileType(SafeFileHandle hFile);\n\
+  \n        private void InitializeDcb()\n        {\n            Dcb dcb = new Dcb();\n\
+  \            GetCommStateNative(ref dcb);\n            dcb.Flags &amp;= ~(1u &lt;&lt;\
+  \ DcbFlagAbortOnError);\n            SetCommStateNative(ref dcb);\n        }\n\n\
+  \        private static string GetMessage(int errorCode)\n        {\n          \
+  \  StringBuilder lpBuffer = new StringBuilder(0x200);\n            if (\n      \
+  \          FormatMessage(0x3200, new HandleRef(null, IntPtr.Zero), errorCode, 0,\
+  \ lpBuffer, lpBuffer.Capacity,\n                              IntPtr.Zero) != 0)\n\
+  \            {\n                return lpBuffer.ToString();\n            }\n   \
+  \         return \"Unknown Error\";\n        }\n\n        private static int MakeHrFromErrorCode(int\
+  \ errorCode)\n        {\n            return (int) (0x80070000 | (uint) errorCode);\n\
+  \        }\n\n        private static void WinIoError()\n        {\n            int\
+  \ errorCode = Marshal.GetLastWin32Error();\n            throw new IOException(GetMessage(errorCode),\
+  \ MakeHrFromErrorCode(errorCode));\n        }\n\n        private void GetCommStateNative(ref\
+  \ Dcb lpDcb)\n        {\n            int commErrors = 0;\n            Comstat comStat\
+  \ = new Comstat();\n\n            for (int i = 0; i &lt; CommStateRetries; i++)\n\
+  \            {\n                if (!ClearCommError(m_Handle, ref commErrors, ref\
+  \ comStat))\n                {\n                     WinIoError();\n           \
+  \     }\n                if (GetCommState(m_Handle, ref lpDcb))\n              \
+  \  {\n                     break;\n                }\n                if (i == CommStateRetries\
+  \ - 1)\n                {\n                     WinIoError();\n                }\n\
+  \            }\n        }\n\n        private void SetCommStateNative(ref Dcb lpDcb)\n\
+  \        {\n            int commErrors = 0;\n            Comstat comStat = new Comstat();\n\
+  \n            for (int i = 0; i &lt; CommStateRetries; i++)\n            {\n   \
+  \              if (!ClearCommError(m_Handle, ref commErrors, ref comStat))\n   \
+  \              {\n                     WinIoError();\n                 }\n     \
+  \            if (SetCommState(m_Handle, ref lpDcb))\n                 {\n      \
+  \               break;\n                 }\n                 if (i == CommStateRetries\
+  \ - 1)\n                 {\n                     WinIoError();\n               \
+  \  }\n            }\n        }\n\n        #region Nested type: COMSTAT\n\n     \
+  \   [StructLayout(LayoutKind.Sequential)]\n        private struct Comstat\n    \
+  \    {\n            public readonly uint Flags;\n            public readonly uint\
+  \ cbInQue;\n            public readonly uint cbOutQue;\n        }\n\n        #endregion\n\
+  \n        #region Nested type: DCB\n\n        [StructLayout(LayoutKind.Sequential)]\n\
+  \        private struct Dcb\n        {\n            public readonly uint DCBlength;\n\
+  \            public readonly uint BaudRate;\n            public uint Flags;\n  \
+  \          public readonly ushort wReserved;\n            public readonly ushort\
+  \ XonLim;\n            public readonly ushort XoffLim;\n            public readonly\
+  \ byte ByteSize;\n            public readonly byte Parity;\n            public readonly\
+  \ byte StopBits;\n            public readonly byte XonChar;\n            public\
+  \ readonly byte XoffChar;\n            public readonly byte ErrorChar;\n       \
+  \     public readonly byte EofChar;\n            public readonly byte EvtChar;\n\
+  \            public readonly ushort wReserved1;\n        }\n\n        #endregion\n\
+  \n        #endregion\n    }\n\n    internal class Program\n    {\n        private\
+  \ static void Main(string[] args)\n        {\n            SerialPortFixer.Execute(\"\
+  COM1\");\n            using (SerialPort port = new SerialPort(\"COM1\"))\n     \
+  \       {\n                port.Write(\"test\");\n            }\n        }\n   \
+  \ }\n}\n</code></pre>\n\n<p>EDIT3: Day 6: I'm still plugging away at this. My water\
+  \ rations are low, but still I struggle on. I feel help must surely be on the horizon.\
+  \ Whoever finds this journal bring my remains back to Canada and find Nicole. Tell\
+  \ her I love her.</p>\n\n<p>But seriously, I have no idea what is causing this problem.\
+  \ I'm wondering if it is purely on the embedded side; maybe because it is <a href=\"\
+  https://en.wikipedia.org/wiki/USB_On-The-Go\" rel=\"noreferrer\">USB On-The-Go</a>\
+  \ (OTG), or because the device is capable of being a host also. Has anyone run into\
+  \ that problem? It doesn't explain why I can use Termite (a terminal program, for\
+  \ those viewers just joining us) though. I have been trying to find an open source\
+  \ terminal program that a) works and b) see a). As per usual, I will report back\
+  \ if I discover the issue here as I have now found countless forums where it sounds\
+  \ people have had this issue dating back to 2006.</p>\n\n<p>EDIT4: So as per the\
+  \ advice given, I downloaded a port monitoring software application (I got <a href=\"\
+  https://www.eltima.com/products/serial-port-monitor/\" rel=\"noreferrer\">Eltima\
+  \ Serial Port Monitor</a>), and it does look like a baud issue:</p>\n\n<p><img src=\"\
+  https://i.sstatic.net/NRn8X.png\" alt=\"Screen capture from Eltima\"></p>\n\n<p>But\
+  \ strangely no matter what baud I set, it still fails. And also can someone explain\
+  \ what the up/down thing means? I tried googling it, but the keywords are too general.\
+  \ As usual, I will keep reporting back any changes.</p>\n\n<p>Also, for the record,\
+  \ I can connect using Eltima at a baud of 115200 (same as Termite). Unfortunately\
+  \ this does not work in Visual Studio.</p>\n\n<p>EDIT5: Our plot takes a surprise\
+  \ twist. I was monitoring what happens when Termite connects to the COM port in\
+  \ question and BLAM! Termite throws the exact same error as my program, but it <em>ignores</em>\
+  \ it. Genius, right? Sloppy, but it works. Now I need to learn how to ignore IOExceptions.\
+  \ I'll report back when I get it figured out.</p>\n\n<p>EDIT6: So as it turns out\
+  \ it is a baud rate issue, but it goes deeper. I have been using Eltima Serial Port\
+  \ Monitoring software, and it is very intuitive and easy to use. I would recommend\
+  \ it. After <a href=\"https://stackoverflow.com/questions/15014137/how-to-ignore-an-exception-and-complete-the-try\"\
+  >some research</a> I have learned that you cannot ignore this exception and still\
+  \ connect to the serial port using .NET's library.</p>\n\n<p>So I have to go deeper\
+  \ into the Win32 API and write my own. I have found a few pages that touch on this,\
+  \ but to be honest I have never done anything like this before, so it may be a while\
+  \ before I report back, but I will definitely figure this out and get back to everyone.\
+  \ There are way too many who suffer from this problem.</p>\n\n<p>I have found quite\
+  \ a few forums and websites where I can see the exact same symptoms, but nobody\
+  \ has really done much besides say 'Yeah, .NET sucks'. I plan on writing a full\
+  \ static library class and then publish either on my website, here and wherever\
+  \ else I can. Hopefully .NET will take notice (this bug has existed since 2.0).</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/14885288/i-o-exception-error-when-using-serialport-open
+source_context: 'SO question (tags: c#, winapi, serial-port, ioexception, baud-rate)'
+author_info: tmwoods
+engagement:
+  score: 27
+  view_count: 59286
+  answer_count: 6
+  is_answered: true
+date_posted: '2013-02-14'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - c#
+  - winapi
+  - serial-port
+  - ioexception
+  - baud-rate
+attachments: []

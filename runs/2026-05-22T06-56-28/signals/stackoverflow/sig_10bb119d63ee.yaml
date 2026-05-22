@@ -1,0 +1,31 @@
+signal_id: sig_10bb119d63ee
+raw_text: 'How can you speed up Eclipse?
+
+
+  <p><strong>How can you make the experience with Eclipse faster?</strong>  </p>
+
+
+  <p>For instance: <em>I disable all the plugins I don''t need (Mylyn, Subclipse,
+  &hellip;).</em></p>
+
+
+  <p>Instead of using a plugin for <a href="http://en.wikipedia.org/wiki/Mercurial"
+  rel="noreferrer">Mercurial</a>, I configure <a href="https://en.wikipedia.org/wiki/TortoiseHg"
+  rel="noreferrer">TortoiseHG</a> as an external tool.</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/316265/how-can-you-speed-up-eclipse
+source_context: 'SO question (tags: eclipse, performance)'
+author_info: user2427
+engagement:
+  score: 1295
+  view_count: 688100
+  answer_count: 42
+  is_answered: true
+date_posted: '2008-11-25'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - eclipse
+  - performance
+attachments: []

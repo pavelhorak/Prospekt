@@ -1,0 +1,21 @@
+signal_id: sig_05b8b4b979d8
+raw_text: 'Ask HN: Alternatives to Chat GPT for writing code
+
+
+  I love how well Chat GPT writes code , particularly when I do want to do the grunt
+  work of googling to figure out how to get started. However it&#x27;s very painful
+  to see code get cut off, some times mid function. Of course you can work around
+  this, but to my dismay, even a paid subscription doesn&#x27;t override the character
+  limit.<p>I&#x27;m open to paying for this, but is anything else available ?'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=35226569
+source_context: HN Story
+author_info: '999900000999'
+engagement:
+  points: 2
+  num_comments: 1
+date_posted: '2023-03-20'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

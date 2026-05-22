@@ -1,0 +1,29 @@
+signal_id: sig_21de0015aef3
+raw_text: "Parsing JSON with Unix tools\n\n<p>I'm trying to parse JSON returned from\
+  \ a curl request, like so:</p>\n\n<pre><code>curl 'http://twitter.com/users/username.json'\
+  \ |\n    sed -e 's/[{}]/''/g' | \n    awk -v k=\"text\" '{n=split($0,a,\",\"); for\
+  \ (i=1; i&lt;=n; i++) print a[i]}'\n</code></pre>\n\n<p>The above splits the JSON\
+  \ into fields, for example:</p>\n\n<pre><code>% ...\n\"geo_enabled\":false\n\"friends_count\"\
+  :245\n\"profile_text_color\":\"000000\"\n\"status\":\"in_reply_to_screen_name\"\
+  :null\n\"source\":\"web\"\n\"truncated\":false\n\"text\":\"My status\"\n\"favorited\"\
+  :false\n% ...\n</code></pre>\n\n<p>How do I print a specific field (denoted by the\
+  \ <code>-v k=text</code>)?</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/1955505/parsing-json-with-unix-tools
+source_context: 'SO question (tags: json, bash, parsing, jq)'
+author_info: auser
+engagement:
+  score: 1319
+  view_count: 1885767
+  answer_count: 47
+  is_answered: true
+date_posted: '2009-12-23'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: is there a tool for'
+structured:
+  tags:
+  - json
+  - bash
+  - parsing
+  - jq
+attachments: []

@@ -1,0 +1,25 @@
+signal_id: sig_b9f8f3103105
+raw_text: 'Ask HN: Is Swift production-ready?
+
+
+  I&#x27;m curious to hear which companies&#x2F;developers out there are already using
+  Swift in their production apps.  I&#x27;m also seeking general opinions on how production-ready
+  the language&#x2F;toolbelt is, coming out of 1.0.<p>For me, it still feels very
+  early to use Swift for a large-scale app.  I&#x27;ve found in my own usage that
+  many of the niceties of the language are offset by painful workarounds to make Objective-C
+  APIs play ball.  E.g. computing a random CGFloat within a CGFloat range<p>On the
+  other hand, it seems obvious that Swift is the future of Cocoa development.  And
+  I&#x27;m reasonably confident that many of the current issues will be addressed
+  within the next year.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=8383976
+source_context: HN Story
+author_info: dmur
+engagement:
+  points: 5
+  num_comments: 3
+date_posted: '2014-09-29'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

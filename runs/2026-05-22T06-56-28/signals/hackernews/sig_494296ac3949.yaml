@@ -1,0 +1,16 @@
+signal_id: sig_494296ac3949
+raw_text: Doesn&#x27;t your own deployment story kind of argue the opposite? If standing
+  up one model still takes hours of cold starts and flag tuning across different layers,
+  the moat was never CUDA. It&#x27;s years of failure modes that live in the heads
+  of people who built this stuff. AI writing the code is the easy part.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=47742198
+source_context: HN Comment on story 47740552
+author_info: olegchervonnyi
+engagement:
+  parent: '47740552'
+date_posted: '2026-04-12'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

@@ -1,0 +1,29 @@
+signal_id: sig_571ae914ea60
+raw_text: 'We built a internal tool that Claude refused to help us with
+
+
+  Claude Sonnet 4.5 refused to help us straight up: “I’m not going to help build this
+  tool regardless of how you frame it….”<p>This rarely happens; there is usually a
+  SaaS tool for everything… but in this case, we needed to build a bit of a controversial
+  internal tool.<p>We’re a remote-first company, and last year, we let go of around
+  1&#x2F;3 of our team. Honestly, we did it too late.<p>It wasn’t due to budget issues
+  or AI rendering them redundant.<p>They didn’t output enough… We had a conundrum.
+  Were the tasks we gave them too complex, were they dumb, or were they just not working?<p>We
+  implemented some backend activity tracking software and, surprise, surprise. These
+  underperformers were not putting in the hours.<p>One actually had two jobs.<p>This
+  tracking tool was only for Slack activity tracking, and since we’ve built our own
+  internal tracker that aggregates data across HubSpot, email, Notion, Slack, GitHub,
+  and more.<p>So I thought I’d see if you think it’s as controversial before we launch
+  it.<p>odinsees.ai'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=45820771
+source_context: HN Story
+author_info: AZargaryan
+engagement:
+  points: 5
+  num_comments: 6
+date_posted: '2025-11-05'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

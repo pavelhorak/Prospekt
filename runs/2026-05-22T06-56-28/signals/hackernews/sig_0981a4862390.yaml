@@ -1,0 +1,19 @@
+signal_id: sig_0981a4862390
+raw_text: One of my previous stints was with a small team that was building a cloud-based
+  payroll and HR platform for the Australian market (potentially going abroad as well).
+  It definitely opened my eyes to how complicated award rules can be.<p>I also remember
+  testing being a challenge, particularly when things like multiple backpays, accruals,
+  or one off adjustments were involved.<p>There was also an integration API, but I
+  didn&#x27;t stick around long enough to see it evolve enough for widespread third-party
+  adoption.<p>Anyway, congratulations on the launch!
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=27833888
+source_context: HN Comment on story 27830978
+author_info: miqkt
+engagement:
+  parent: '27830978'
+date_posted: '2021-07-14'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

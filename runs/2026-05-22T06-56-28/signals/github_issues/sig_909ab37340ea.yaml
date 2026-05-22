@@ -1,0 +1,30 @@
+signal_id: sig_909ab37340ea
+raw_text: "[Feature Request]\n\n### Validations\n\n- [x] I have checked for similar\
+  \ feature requests and could not find any.\n- [x] I have made sure this is not an\
+  \ already-existing feature.\n\n### Description\n\nArt/mesh duplicator and mirror\
+  \ tool for easier rigging of symmetrical objects, such as eyes, arms, hands, ect.\n\
+  \n### Suggested solution\n\ntool that allows for copy, pasting, and mirroring of\
+  \ mesh and art, as well as easy application of the rig to a preselected setting.\
+  \ \n\n### Alternative solution\n\n_No response_\n\n### Additional Context\n\nTrying\
+  \ to streamline rigging for speed and ease if making vtuber models, which it seems\
+  \ this program was intended to do, will make more riggers drift twords it. this\
+  \ will help alot with that streamlining."
+source_platform: github_issues
+source_url: https://github.com/Inochi2D/inochi-creator/issues/504
+source_context: GitHub issue in Inochi2D/inochi-creator
+author_info: Hiratlas
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-12'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - Enhancement
+  - Triage
+  is_pull_request: false
+  repo: Inochi2D/inochi-creator
+attachments: []

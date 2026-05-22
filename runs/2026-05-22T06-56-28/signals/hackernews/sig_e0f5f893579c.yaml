@@ -1,0 +1,16 @@
+signal_id: sig_e0f5f893579c
+raw_text: Unless you have a seat on the board, your investment in a company should
+  reflect your implicit belief that what they are doing is worth your investment.
+  To buy stock and then jump up and down in public trying to move your investment
+  up or down seems inappropriate.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=14293850
+source_context: HN Comment on story 14293366
+author_info: phkahler
+engagement:
+  parent: '14293366'
+date_posted: '2017-05-08'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

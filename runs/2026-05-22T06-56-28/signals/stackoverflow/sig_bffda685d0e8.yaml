@@ -1,0 +1,35 @@
+signal_id: sig_bffda685d0e8
+raw_text: "Solution to INSTALL_FAILED_INSUFFICIENT_STORAGE error on Android\n\n<p>The\
+  \ <code>INSTALL_FAILED_INSUFFICIENT_STORAGE</code> error is the bane of every Android\
+  \ developer's life. It happens regardless of app size, or how much storage is available.\
+  \ Rebooting the target device fixes the problem briefly, but it soon comes back.\
+  \ There are hundreds (if not thousands) of message board posts from people asking\
+  \ why the problem occurs, but the folks at Google are frustratingly silent on the\
+  \ issue.</p>\n\n<p>There is a simple workaround. If your test device is running\
+  \ Android 2.2 or later then add the <code>android:installLocation</code> attribute\
+  \ to your application's manifest file, with the value <code>\"preferExternal\"</code>.\
+  \ This will force the app to be installed on the device's external storage, such\
+  \ as a phone's SD card.</p>\n\n<p>For example:</p>\n\n<pre><code>&lt;manifest xmlns:android=\"\
+  http://schemas.android.com/apk/res/android\"\n          package=\"com.andrewsmith.android.darkness\"\
+  \n          android:installLocation=\"preferExternal\"\n</code></pre>\n\n<p>This\
+  \ is more of a band-aid than a fix, and it may not be ideal if you want your finished\
+  \ app to install on the device's internal memory. But it will at least make the\
+  \ development process a lot less frustrating.</p>"
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/4709137/solution-to-install-failed-insufficient-storage-error-on-android
+source_context: 'SO question (tags: android, android-sdcard, failed-installation)'
+author_info: Andrew Smith
+engagement:
+  score: 650
+  view_count: 596036
+  answer_count: 30
+  is_answered: true
+date_posted: '2011-01-17'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - android
+  - android-sdcard
+  - failed-installation
+attachments: []

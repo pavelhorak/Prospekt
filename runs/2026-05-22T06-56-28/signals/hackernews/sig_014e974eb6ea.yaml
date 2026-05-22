@@ -1,0 +1,19 @@
+signal_id: sig_014e974eb6ea
+raw_text: I feel like Amplitude&#x27;s schema management tools are best-in-class right
+  now but still missing a lot. I&#x27;ve been frustrated at the absence of any integration
+  with my eng teams build&#x2F;CI systems or really any automated way to catch problems
+  at the PR or code review stage. Is this something on your radar?<p>&gt; no one that
+  really wanted to maintain this<p>I feel strongly that the data organization needs
+  to own this outright, and the only thing holding them back was the right tooling.
+  This seems like the perfect tool to enable it. Very excited to give it a spin.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=19211515
+source_context: HN Comment on story 19209527
+author_info: teej
+engagement:
+  parent: '19209527'
+date_posted: '2019-02-20'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

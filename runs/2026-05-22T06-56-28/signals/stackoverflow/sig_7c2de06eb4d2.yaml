@@ -1,0 +1,28 @@
+signal_id: sig_7c2de06eb4d2
+raw_text: 'What is code coverage and how do YOU measure it?
+
+
+  <p>What is code coverage and how do YOU measure it?</p>
+
+
+  <p>I was asked this question regarding our automating testing code coverage. It
+  seems to be that, outside of automated tools, it is more art than science. Are there
+  any real-world examples of how to use code coverage?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/195008/what-is-code-coverage-and-how-do-you-measure-it
+source_context: 'SO question (tags: testing, computer-science, code-coverage)'
+author_info: Brian G
+engagement:
+  score: 350
+  view_count: 274875
+  answer_count: 8
+  is_answered: true
+date_posted: '2008-10-12'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: how to automate'
+structured:
+  tags:
+  - testing
+  - computer-science
+  - code-coverage
+attachments: []

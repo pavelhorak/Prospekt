@@ -1,0 +1,20 @@
+signal_id: sig_9d61f3852634
+raw_text: As someone who has been a product engineer and internal tool engineer I
+  really appreciated that they made the distinction. Some other points to think about.<p>1.In
+  the first version of the tool don&#x27;t have the tool make a decision, just have
+  it generate information, not make decisions. So if it is telling you which sales
+  lead to pursue, first have it generate metrics on why you should pursue a lead<p>2.
+  Once you have a tool that makes decisions always have a way to let a human override
+  the tool&#x27;s decision<p>3. Start with a process then add a tool. It&#x27;s almost
+  always either to work out bugs with people then software
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=8571232
+source_context: HN Comment on story 8569898
+author_info: arthurjj
+engagement:
+  parent: '8569898'
+date_posted: '2014-11-07'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

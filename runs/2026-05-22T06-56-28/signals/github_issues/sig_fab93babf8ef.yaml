@@ -1,0 +1,71 @@
+signal_id: sig_fab93babf8ef
+raw_text: 'allium skills: document invariant+@guidance pattern for complex semantics
+
+
+  ## Context
+
+
+  When Allium behaviors are too complex to express as trigger/ensures rules (e.g.,
+  concurrent iteration, parallel merge, heterogeneous collection processing), there''s
+  a useful workaround pattern that isn''t documented in the allium skills.
+
+
+  ## Pattern
+
+
+  Use `invariant Name { true }` with an `@guidance` block for prose:
+
+
+  ```allium
+
+  invariant ParallelMerge { true }
+
+  @guidance """
+
+  All parallel branches execute concurrently.
+
+  Results are merged into the parent entity when all branches complete.
+
+  """
+
+  ```
+
+
+  The checker accepts this; the meaningful content lives in the guidance annotation.
+
+
+  ## Request
+
+
+  Document this pattern in the allium skills (likely `allium:tend` or a new "Spec
+  Authoring Patterns" section) explaining:
+
+  - When to use formal rules vs invariant+@guidance
+
+  - Reserve formal rules for entity state transitions and attribute causality
+
+  - Use invariants+@guidance for behaviors involving collection processing or multi-phase
+  concurrency
+
+
+  ## Source
+
+
+  Discovered during wemble issue #109 — parallel/iterate/cond semantics couldn''t
+  be expressed cleanly with Allium rule syntax.'
+source_platform: github_issues
+source_url: https://github.com/juxt/claude-plugins/issues/8
+source_context: GitHub issue in juxt/claude-plugins
+author_info: markaddleman
+engagement:
+  comments: 1
+  reactions: 1
+  state: open
+date_posted: '2026-04-23'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels: []
+  is_pull_request: false
+  repo: juxt/claude-plugins
+attachments: []

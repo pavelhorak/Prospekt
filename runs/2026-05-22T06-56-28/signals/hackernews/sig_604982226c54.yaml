@@ -1,0 +1,19 @@
+signal_id: sig_604982226c54
+raw_text: One downside to this approach is that it can tend to create status or power
+  rifts between the product people and the tools people. In traditional shops, the
+  &quot;skills that pay the bills&quot; product people often get better treatment,
+  higher status, greater advancement opportunity and stronger job security than tooling
+  people, who are often seen as being on the cost side of the business.<p>Startups
+  that go down this route should be on the lookout for this potential for divisiveness
+  and culture fragmentation.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=8571250
+source_context: HN Comment on story 8569898
+author_info: silentmars
+engagement:
+  parent: '8569898'
+date_posted: '2014-11-07'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

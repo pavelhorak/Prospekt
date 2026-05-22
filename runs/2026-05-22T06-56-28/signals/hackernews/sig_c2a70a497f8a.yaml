@@ -1,0 +1,13 @@
+signal_id: sig_c2a70a497f8a
+raw_text: suspicious comments
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=46323495
+source_context: HN Comment on story 46314385
+author_info: thehamkercat
+engagement:
+  parent: '46314385'
+date_posted: '2025-12-19'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

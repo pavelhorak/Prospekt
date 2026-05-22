@@ -1,0 +1,25 @@
+signal_id: sig_10096264adf8
+raw_text: "[Feature Request]:\n\n### Do you need to file a feature request?\n\n- [\
+  \ ] I have searched the existing feature request and this feature request is not\
+  \ already filed.\n- [x] I believe this is a legitimate feature request, not just\
+  \ a question or bug.\n\n### Feature Request Description\n\n想问一下一下，是否考虑增加两个特性：\n\
+  \ Agentic RAG 功能，和mcp功能，我看其他同类框架RAGFlow 已经支持了。\n\n\n### Additional Context\n\n_No\
+  \ response_"
+source_platform: github_issues
+source_url: https://github.com/HKUDS/LightRAG/issues/3108
+source_context: GitHub issue in HKUDS/LightRAG
+author_info: hdliu-work
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-05-21'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: HKUDS/LightRAG
+attachments: []

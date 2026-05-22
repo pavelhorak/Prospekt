@@ -1,0 +1,24 @@
+signal_id: sig_dc09cedf0a57
+raw_text: GitHub Copilot is a much better tool that&#x27;s actually made for coding.
+  It works in your IDE and can read and understand the code you already wrote. It
+  knows language syntax as well. Not free, but certainly no limits on code output
+  or amounts.<p>MS has said that in their testing 50% of the programmer&#x27;s output
+  is from accepting prompts. I&#x27;d say that&#x27;s accurate. In my use of Copilot,
+  I never ask how to do something because I already know. But, when I start to do
+  it, it magically fills in each line with my own functions and variable names, even
+  when they are many files away. That is really useful!<p>There a probably 1,000 lines
+  of code or more in my 30k line TS codebase where I knew what I would have to type
+  -- and I didn&#x27;t have to. Reading the correct line and saying, yeah, that&#x27;s
+  correct, is much faster than composing it, especially when it&#x27;s full of curly
+  braces inside arrays inside objects, etc.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=35227072
+source_context: HN Comment on story 35226569
+author_info: dtagames
+engagement:
+  parent: '35226569'
+date_posted: '2023-03-20'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

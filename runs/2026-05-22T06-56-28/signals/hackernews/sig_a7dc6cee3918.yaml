@@ -1,0 +1,39 @@
+signal_id: sig_a7dc6cee3918
+raw_text: I am one of those developers who don't jump on the bandwagon right away.  Experience
+  has taught me to be very cautious. It also comes from doing a ton of work on mission-critical
+  systems where you don't do stuff like install the latest software updates without
+  massive testing on off-line systems.<p>Yes, sometimes I miss out on really neat
+  developments. iCloud is one of those cases where I am glad for being a slow adopter.  My
+  mental red flags went up as soon as iCloud came out. Not one of my apps uses it.<p>On
+  the end-user front iCloud is also an absolute mess.  I probably have a dozen i-devices
+  on the same account (testing, etc.).  Crap appears and disappears from devices seemingly
+  at random.  The worst of it was what is happening with my wive's iPhone and mined.  We
+  share an iPad at home.  Now contacts are getting deleted from her phone and mine
+  at random and so are notes.  It's at the point where she is not using notes any
+  more because --her words-- they disappear within a hour or two of writing them.<p>Of
+  course, turning off iCloud is the solution.  The problem is that this isn't as simple
+  as throwing the switch.  If you turn off iCloud on your device it might actually
+  delete things that it shoved into the iCloud service. And then it deletes the info
+  from your other devices.  And it does this in some amazingly weird ways.  Without
+  telling you what it is about to delete.<p>For example, I have never explicitly stored
+  contact information on iCloud.  Never.  I type new or updated contact information
+  into the phone. That's where it belongs.  In fact, I never even use my iPad for
+  this.  Yet, some contact information for some strange fucking reason is sent over
+  to iCloud.  The first time I turned off iCloud piles of contact data evaporated
+  from my phone.  I had to turn the damn thing on again to get it back.<p>I haven't
+  had the time to research how to fully disable iCloud on ALL of my devices while,
+  at the same time, keeping or merging the state of my data on that particular device.
+  As a developer I managed to avoid iCloud.  As a user I was not that fortunate, I
+  succumbed to the new shinny thing on the shelf.  Now I want nothing to do with it.  Thank
+  you Apple.<p>Any ideas on how to do this?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=5454983
+source_context: HN Comment on story 5454491
+author_info: robomartin
+engagement:
+  parent: '5454491'
+date_posted: '2013-03-28'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

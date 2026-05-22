@@ -1,0 +1,15 @@
+signal_id: sig_0ffa1d4edd2f
+raw_text: The funniest thing I&#x27;ve seen recently, is government API services that
+  have been put behind Cloudflare. Which means, you literally cannot access them without
+  a browser. Let me reiterate, you cannot use machine-to-machine APIs without a browser.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=35571303
+source_context: HN Comment on story 35568225
+author_info: eerikkivistik
+engagement:
+  parent: '35568225'
+date_posted: '2023-04-14'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

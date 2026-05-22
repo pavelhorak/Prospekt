@@ -1,0 +1,25 @@
+signal_id: sig_e76fd1fe6c4a
+raw_text: I’ve seen a lot of attempts at this product, and none have really caught
+  my eye. Looks like you really nailed it. Btw, great marketing website. The use cases
+  section is critical and it’s amazing how many sites miss that.<p>As others have
+  alluded to, the challenge will be when users need to do something non-standard with
+  the data. From your comments, it sounds like everything is built in JS. Is your
+  multitenancy isolated enough that you would be able to build a JS scripting engine?
+  That is, to enable power users to drop in some custom logic when they need to, by
+  writing JS against a simple API.<p>How long ago did you launch? How did you find
+  your first customers, and are they happy with the product?<p>Also would be keen
+  to hear the story of your journey to product&#x2F;market fit. Did the product always
+  look like this? Did you talk to users as you built it? It’s such an ambitious project,
+  I’d be scared I was building the wrong thing for months while getting to launch.
+  But it seems like you’ve already hit product&#x2F;market fit, so kudos for that.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=17152288
+source_context: HN Comment on story 17147272
+author_info: chatmasta
+engagement:
+  parent: '17147272'
+date_posted: '2018-05-25'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

@@ -1,0 +1,20 @@
+signal_id: sig_ae794ea93bde
+raw_text: Tools like this are great because they make creating software less seem
+  scary. I&#x27;ve found that business users are deterred from creating software because
+  they need to write structured text &amp; use syntax to do it. I would have thought
+  that the problem solving part was the hard part, but for them it&#x27;s the act
+  of representing something in text; it&#x27;s some kind of insurmountable barrier
+  that I don&#x27;t understand. But with WYSIWYG tools like this, the barrier is gone
+  and they&#x27;re totally content to start building reasonably complex systems.<p>Of
+  course it becomes a tangled mess later, but at least they managed to solve a problem.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=37255629
+source_context: HN Comment on story 37245171
+author_info: RadiozRadioz
+engagement:
+  parent: '37245171'
+date_posted: '2023-08-24'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

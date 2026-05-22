@@ -1,0 +1,15 @@
+signal_id: sig_aa4cf42a3ebe
+raw_text: What bothers me is the mendacity.<p>No, you&#x27;re not checking for a &quot;secure
+  connection&quot;. What you&#x27;re doing is taking a fingerprint, to both deanonymize
+  me and detect if I&#x27;m a bot.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=35576422
+source_context: HN Comment on story 35568225
+author_info: VoodooJuJu
+engagement:
+  parent: '35568225'
+date_posted: '2023-04-15'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

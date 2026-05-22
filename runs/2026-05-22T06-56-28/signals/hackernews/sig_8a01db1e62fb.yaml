@@ -1,0 +1,28 @@
+signal_id: sig_8a01db1e62fb
+raw_text: The main problem that Pagerduty solved at the time was deliverability of
+  alerts.  It was hard, and still is, to solve the problem of making sure the right
+  people actually get the alerts.  It was so expensive because they have redundant
+  hardware all over the place with different providers, and they ran it all themselves,
+  including SMS and phone gateways.<p>One of their key differentiators was that they
+  were not built on AWS, so when AWS had an outage, you still knew about it.  That
+  also made it expensive.<p>With Pagerduty, you&#x27;re mostly paying for reliability.  The
+  peace of mind knowing that someone <i>will</i> get notified when there is an outage.<p>This
+  looks interesting, but from your page I&#x27;m not sure how you&#x27;re better than
+  Pagerduty.<p>App only notifications looks like a disadvantage to me.  What if push
+  notifications are down?  What if I&#x27;m on DND?<p>Where is your infrastructure
+  built?  Is it on a cloud provider?  What happens if that provider has an outage?  If
+  you want to build a PD competitor you have to build it on your own hardware in multiple
+  datacenters owned by different people with different interconnects.  If you haven&#x27;t
+  done that how will you stay up when your customer&#x27;s provider goes down so that
+  they know about it?
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=35678443
+source_context: HN Comment on story 35675029
+author_info: jedberg
+engagement:
+  parent: '35675029'
+date_posted: '2023-04-23'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

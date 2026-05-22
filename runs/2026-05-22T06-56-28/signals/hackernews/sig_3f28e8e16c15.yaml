@@ -1,0 +1,15 @@
+signal_id: sig_3f28e8e16c15
+raw_text: 'I like the idea. My feedback: the name seems like it&#x27;s going to confuse
+  people. I almost skipped by this post when I saw the name at a glance because I&#x27;m
+  not particularly interested in 3D graphics.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=22467566
+source_context: HN Comment on story 22466994
+author_info: sicromoft
+engagement:
+  parent: '22466994'
+date_posted: '2020-03-02'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: built internal tool'
+structured: {}
+attachments: []

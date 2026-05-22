@@ -1,0 +1,39 @@
+signal_id: sig_d603222a8cdd
+raw_text: This isn&#x27;t really what you were looking for so feel free to flag me
+  as off topic since I&#x27;m kind of piggybacking on it. I feel like a lot of people
+  at bigger companies know what needs to be done, how to do it, want to do it and
+  sometimes have even purchased something to accomplish it but we have the hardest
+  time getting traction.<p>I think one major issue is that manual processes often
+  don&#x27;t really &quot;hurt&quot; managers, they hurt the people doing them. To
+  a developer or ops admin, &quot;This $badthing caused by a typo won&#x27;t happen
+  again if we automate this&quot; sounds very reasonable but sometimes managers just
+  see it as a mistake that someone will need to be more careful about. Once they&#x27;ve
+  factored the turnaround time into how they estimate they don&#x27;t seem as interested
+  in speeding things up. All that seems exacerbated by reactionary&#x2F;feature driven
+  mindsets which makes any kind of improvement that doesn&#x27;t have an external
+  event&#x2F;person driving it very hard to get slotted. This seems to be made worse
+  if you&#x27;re working with a manager that&#x27;s never really done the work that
+  the people they&#x27;re managing do or they did it so long ago they don&#x27;t have
+  an intuitive understanding of how it works today.<p>Another one is that a lot of
+  people who perform a manual process for a long period of time become invested in
+  it and defensive of it. No matter how much faster or better it is and no matter
+  how involved they are if they end up feeling threatened it&#x27;s probably dead
+  in the water. Pretty typical human nature thing I think but at a big company with
+  a lot of old established manual processes this can slow automation efforts down
+  to a glacial crawl. Even if there&#x27;s only one person that fully understands
+  it I don&#x27;t think managers appreciate the risk of having all of your eggs in
+  one basket.<p>Eventually things do get automated but it seems like it&#x27;s driven
+  by a disaster or politics more than anything else. And sometimes not even disaster
+  seems to be enough to drive real change if someone isn&#x27;t pursuing it.<p>If
+  anyone has tips on how to deal with any of this I&#x27;d love to hear them.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=13337692
+source_context: HN Comment on story 13337024
+author_info: brazzledazzle
+engagement:
+  parent: '13337024'
+date_posted: '2017-01-06'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

@@ -1,0 +1,16 @@
+signal_id: sig_b29d95861e3c
+raw_text: Looks interesting. I would suggest having a bunch of non-trivial examples
+  of the services doing interesting things. Like checking a website at scheduled intervals,
+  processing the contents with some logic, and then sending an email report. Preferably
+  examples that don&#x27;t require logins.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=12269598
+source_context: HN Comment on story 12268380
+author_info: eigenvalue
+engagement:
+  parent: '12268380'
+date_posted: '2016-08-11'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

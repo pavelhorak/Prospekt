@@ -1,0 +1,19 @@
+signal_id: sig_79401352a515
+raw_text: 'Ask HN: Anyone else frustrated with “secure connection checks”?
+
+
+  Many sites seem to deploy cloudflare&#x27;s bot check &#x2F; secure connection check.
+  And the thing outright does not seem to work with all browsers or setups. Web seems
+  to slowly fall in to the &quot;just use chrome&quot; hole.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=35568225
+source_context: HN Story
+author_info: Cloudef
+engagement:
+  points: 11
+  num_comments: 12
+date_posted: '2023-04-14'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

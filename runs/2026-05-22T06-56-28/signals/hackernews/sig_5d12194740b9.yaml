@@ -1,0 +1,26 @@
+signal_id: sig_5d12194740b9
+raw_text: I used PagerDuty for more than a decade at my previous job. I didn&#x27;t
+  care much for the UI. But you know why PagerDuty does so well? Basically bulletproof
+  reliability. 99% uptime won&#x27;t cut it. 99.9% uptime won&#x27;t cut it. You need
+  to be as close as possible to 100% uptime, no excuses. Pagerduty isn&#x27;t perfect,
+  but it was one of the most reliable services we ever used.<p>I sincerely wish you
+  luck with allquiet. I just want to make very sure you are aware why people still
+  pay for Pagerduty. To compete, you need to be looking at 99.99% uptime or better
+  (ideally 99.999%, 5 minutes of downtime a year) where &#x27;uptime&#x27; is defined
+  as the ability to exercise the entire notification stack. The moment someone&#x27;s
+  site has an outage and you aren&#x27;t able to deliver the notification, you lose
+  the customer and everyone they talk to.<p>I also worry about in-app notifications,
+  but that&#x27;s well-covered by everyone else&#x27;s comments.<p>Pagerduty is vulnerable.
+  Their UI is garbage. But you need to have bullet-proof uptime to take them down.
+  It&#x27;s a tough challenge and I wish you luck!
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=35677725
+source_context: HN Comment on story 35675029
+author_info: ChrisInEdmonton
+engagement:
+  parent: '35675029'
+date_posted: '2023-04-23'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

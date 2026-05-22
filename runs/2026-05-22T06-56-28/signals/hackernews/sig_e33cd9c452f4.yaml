@@ -1,0 +1,63 @@
+signal_id: sig_e33cd9c452f4
+raw_text: 'Stop Cramming Everything into Postgres
+
+
+  Loved the discussion on this hn post few months ago on Postgres for everything.
+  https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=42347606 I thought I&#x27;d
+  share my thoughts over a separate post. I see a bunch of comments: just don’t do
+  it! I’m glad this is becoming mainstream, and people are realizing that Postgres
+  for everything doesn’t work. Don’t get me wrong—I’m a huge Postgres proponent and
+  have spent 10 years helping customers implement it. However, I’m a strong believer
+  in using Postgres for what it’s designed for in first-place. Postgres was designed
+  as a row-based OLTP database, with over 30 years of effort dedicated to making it
+  robust for that use case.<p>I know there are many extensions attempting to make
+  Postgres support other use cases, such as analytics, queues, and more. Keep in mind
+  that these extensions are relatively recent and aim to retrofit new capabilities
+  onto a database primarily designed for transactional workloads. It’s like adding
+  an F1 car engine to a Toyota Camry — will that work?<p>Extensions also have many
+  issues—they are not fully Postgres-compatible. In Citus, for example, we added support
+  for the COPY command 4 years into the company, and chasing SQL coverage was a daily
+  challenge for 10 years. Unable to use the full capabilities of Postgres and having
+  to work around numerous unsupported features defeats the purpose of being a Postgres
+  extension. This was a common feedback across Citus customers - when you say Postgres
+  extension, customers are looking for something that supports all Postgres features!
+  Side note for the Postgres extension companies: Chasing Postgres compatibility and
+  world class performance are ginormous problems and are hard to achieve without laser
+  focus on each of them.<p>On the other hand, you have purpose-built alternatives
+  like ClickHouse, Snowflake for analytics, Redis for caching, and Kafka for queues.
+  These technologies have benefited from decades of development, laser-focused on
+  supporting specific use cases. As a result, they are highly efficient for their
+  intended purposes.<p>I often hear that these Postgres extensions are expanding the
+  boundaries of what Postgres can do. While I partly agree, I question the extent
+  to which these boundaries are truly being expanded. In this era of AI, where data
+  is growing exponentially, handling scale is critical for any technology. These boundaries
+  will likely be broken very quickly - A data point here is that in my day-to-day
+  now, I&#x27;m seeing AI companies use purpose-built technologies like ClickHouse
+  way sooner. A few years ago, it was a Series A or Series B company that would consider
+  a purpose-built database, now it is Seed stage companies. This is because the amount
+  of data &#x2F; users to be handled has grown tremendously from the get go and companies
+  are preferring solutions that scale with their workload.<p>Also I keep hearing these
+  Postgres extension companies say Zero ETL in their positioning, which I don&#x27;t
+  agree. Let’s take a search or an analytics extension where you want to run analytics
+  on your transactional data. You either need to manage a cron to continuously offload
+  the transactional data to the storage format of the extension or if the extension
+  supports logical replication (not all do), you need to have logical replication
+  setup. And logical replication is ETL! It is painful to manage logical replication
+  - fun fact, at PeerDB, Postgres was the second largest target connector as logical
+  replication was painful to manage, at scale. And yes, you could have capabilities
+  which does the conversion in the background, but that is again a ginormous problem,
+  I think only a few fully fledged databases like Vertica have this feature.<p>TL;DR:
+  Please think carefully before choosing the right technology as you scale. Cramming
+  everything into Postgres might not be the best approach for scaling your business.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=43949354
+source_context: HN Story
+author_info: saisrirampur
+engagement:
+  points: 3
+  num_comments: 2
+date_posted: '2025-05-10'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: painful workaround'
+structured: {}
+attachments: []

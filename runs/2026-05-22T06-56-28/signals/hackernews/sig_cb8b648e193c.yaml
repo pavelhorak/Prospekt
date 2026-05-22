@@ -1,0 +1,23 @@
+signal_id: sig_cb8b648e193c
+raw_text: It looks good but I don&#x27;t think that it&#x27;s powerful than Zapier.
+  Creating a workflow is harder than Zapier and integrations are not enough. I wanted
+  to create a workflow that fetches data from an external RESTful API, parses the
+  response and for each item of the response array performs another HTTP request and
+  then finally merges the output the HTTP calls and sends a email to me. I&#x27;m
+  not sure that this a common case but I can do it this in Zapier with Javascript
+  and advanced transformation tool but I couldn&#x27;t figure out how to create a
+  workflow like this in Integromat.<p>You should really consider adding programming
+  language support in order to be able to provide advanced features, otherwise it
+  would be a service similar to IFTTT and I would pay it since IFTTT is free and easy
+  to use.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=12269452
+source_context: HN Comment on story 12268380
+author_info: buremba
+engagement:
+  parent: '12268380'
+date_posted: '2016-08-11'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

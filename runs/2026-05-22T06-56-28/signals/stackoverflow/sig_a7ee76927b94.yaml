@@ -1,0 +1,115 @@
+signal_id: sig_a7ee76927b94
+raw_text: 'How to change the owner of a PR on GitHub / How to commandeer an open GitHub
+  PR
+
+
+  <p>I find this missing feature in GitHub to be frustrating, so I''m documenting
+  my work-around here to help the next person. Alternate, better work-arounds are
+  welcome.</p>
+
+  <p>This question is <strong><em>not</em> a duplicate</strong> of <a href="https://stackoverflow.com/questions/44204514/how-to-change-the-author-of-a-pr-in-github">How
+  to change the author of a commit in GitHub?</a> ...because that question isn''t
+  clear if it is asking about how to rewrite the author of a few commits and the push
+  those to github, or actually change the name under which the entire PR was created
+  in the first place. And, the accepted answer to that question was a simple fix to
+  the local <code>.git/config</code> file, which clearly will not solve the GitHub
+  problem I''m talking about here.</p>
+
+  <hr />
+
+  <p>At the top of a GitHub PR you''ll see something like this:</p>
+
+  <blockquote>
+
+  <p><code>username</code> wants to merge <code>1</code> commit into <code>base_branch</code>
+  from <code>their_feature_branch</code></p>
+
+  </blockquote>
+
+  <p><strong>That <code>username</code>: how can we change that?</strong></p>
+
+  <p><a href="https://github.com/bazelbuild/bazel/pull/13168" rel="noreferrer">Example
+  PR (chosen &quot;at random&quot; from GitHub, just to show the PR author line in
+  the image below)</a>. Image:</p>
+
+  <p><a href="https://i.sstatic.net/cidSA.png" rel="noreferrer"><img src="https://i.sstatic.net/cidSA.png"
+  alt="enter image description here" /></a></p>
+
+  <h2>Example use-cases:</h2>
+
+  <ol>
+
+  <li>The team-mate who opened this PR just left the company, and we''d like to commandeer
+  (take over) and finish the PR for them.</li>
+
+  <li>Change of work-loads have necessitated you take over a partially-complete PR
+  from another team-mate. How can you switch that PR to be in your name?</li>
+
+  </ol>
+
+  <p>Assume that everyone has full push access to the whole repo, meaning that you
+  can push/pull to/from each other''s branches anyway.</p>
+
+  <h2>Real-life example of why I want to know how to change the owner of an open PR</h2>
+
+  <p>In 2020 a peer of mine opened a PR on a brand new branch that was intended to
+  be worked on for 3 months until it had a ton of new features in it. Then, it would
+  be merged. Peer reviews would occur on mini-PRs as they go into this separate, long-running,
+  stand-alone branch.</p>
+
+  <p>The PR was initially opened with a &quot;do not review&quot; label, just to get
+  the branch up so our CI (Continuous Integration) system would start to build it
+  daily to ensure it wasn''t broken. We would all then contribute to this branch with
+  the understanding that the one person who opened it would be the &quot;process owner&quot;
+  and walk the branch through all testing and processes until it gets merged back
+  into the main branch.</p>
+
+  <p>My peer then left the company right after opening this PR. I immediately became
+  the process owner and worked on the PR for 3 months and eventually merged it. That
+  repo is set up by the maintainers to disable all types of merges except &quot;squash
+  merges&quot; (see my comments under this question), so when it was merged, Github
+  squashed all of the dozens of individual commits into one single huge commit and
+  attached <em>my peer''s name (and keep in mind he hadn''t been at the company for
+  the last 3 months)</em> to that commit, even though it was the commit that <em>I</em>
+  had managed for nearly all of its 3 month lifetime.</p>
+
+  <p><code>git diff --shortstat 123456789abcd~..123456789abcd</code> shows the following
+  output:</p>
+
+  <pre><code> 164 files changed, 10360 insertions(+), 3013 deletions(-)
+
+  </code></pre>
+
+  <p>...meaning <strong>that commit had touched 164 files, added 10360 lines, and
+  deleted 3013 lines.</strong> And guess what!? My <em>peer''s name</em> is the name
+  on all those changes, just because he <em>opened the PR initially</em>, instead
+  of <em>my name</em>, even though a lot of that work was mine and I was the process
+  owner of it. That''s confusing, to say the least. I would have liked to have my
+  name on all of those changed lines instead.</p>
+
+  <p><a href="https://stackoverflow.com/a/66539232/4561887">My answer here</a> is
+  therefore what I <em>should have</em> done, but didn''t at the time, because I didn''t
+  know GitHub always uses the name of the person who <em>opened</em> the PR, and I
+  didn''t know <em>how</em> to change the owner of the PR. Now, I do know, and I have
+  documented my workarounds in my answer.</p>
+
+  <p>What I <em>actually did</em> was <em>option 1</em> from my answer, but what I
+  <em>should have done</em> is <em>option 2</em> from my answer.</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/66539231/how-to-change-the-owner-of-a-pr-on-github-how-to-commandeer-an-open-github-pr
+source_context: 'SO question (tags: github, version-control, pull-request)'
+author_info: Gabriel Staples
+engagement:
+  score: 28
+  view_count: 27701
+  answer_count: 2
+  is_answered: true
+date_posted: '2021-03-09'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - github
+  - version-control
+  - pull-request
+attachments: []

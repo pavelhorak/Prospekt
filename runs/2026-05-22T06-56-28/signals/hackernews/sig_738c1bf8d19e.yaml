@@ -1,0 +1,17 @@
+signal_id: sig_738c1bf8d19e
+raw_text: 'You base your pitch on other companies&#x27; SSO Tax, but you have an Enterprise
+  Tax just like them: We are an org with ~10 users and would like features from your
+  Enterprise plan, and it doesn&#x27;t even have pricing posted without meeting a
+  sales rep. Even if we had 50 users, which isn&#x27;t so far in the future, we wouldn&#x27;t
+  be an &quot;Enterprise&quot; but we&#x27;d still like to purchase your products.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=32423945
+source_context: HN Comment on story 32422871
+author_info: rsstack
+engagement:
+  parent: '32422871'
+date_posted: '2022-08-11'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: manual process'
+structured: {}
+attachments: []

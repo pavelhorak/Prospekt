@@ -1,0 +1,27 @@
+signal_id: sig_7cf7030d80b7
+raw_text: 'Show HN: Loat – Grow MRR with automated emails
+
+
+  I built loat, born from my frustration with building a high-trust product in the
+  complex tax space. We had to create different onboarding sequences for each product,
+  educational nurture campaigns for newborn entrepreneurs, and tax tips newsletters.
+  Existing tools (shoutout to Loops and SendGrid) are great, but creating, writing,
+  and optimizing these campaigns consumed a massive chunk of my time.<p>Hiring a dedicated
+  CRM wasn’t an option for us.<p>We initially built internal tools to automate this
+  and realized other founders could benefit from this approach. So, we&#x27;ve turned
+  our solution into loat, a dedicated platform that lets founders maintain lean teams
+  and still maximize email as a powerful growth and onboarding channel.<p>I’d love
+  to hear: does this solve a real problem for you? Was anything confusing? What would
+  make it more useful?'
+source_platform: hackernews
+source_url: https://loat.email/
+source_context: HN Story
+author_info: PETROPALOVSK
+engagement:
+  points: 4
+  num_comments: 2
+date_posted: '2025-04-25'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

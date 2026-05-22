@@ -1,0 +1,36 @@
+signal_id: sig_f5bb5219f787
+raw_text: 'I did Go for years, but stopped doing any serious work in it about a year
+  ago.<p>In general, I found it a chore to maintain Go-based systems.<p>There&#x27;s
+  a lot to like about Go. But it doesn&#x27;t seem pragmatic for the types of applications
+  I see people using it for.<p>For example, the entire error thing is absurd. Anders
+  Hejlsberg got this right many years ago: 9 out of 10 errors are &quot;handled&quot;
+  by a central error handler (log + &quot;sorry, try again&quot;). You <i>can</i>
+  do this with error values, but at best it&#x27;s verbose. Maybe error values makes
+  sense for system programming, I could certainly believe it makes <i>more</i> sense.<p>But,
+  really, the main problem is the type system. I&#x27;m a huge fan of dynamic languages.
+  I think they&#x27;re so much more productive. This is especially true when your
+  system is interacting with external data - like user input and a database. I did
+  C# and Java for years. These interactions are, at best, painful with static languages.
+  But they&#x27;re downright infuriating in Go (poor reflection, no generics). I wrote
+  a somewhat popular library to help deal with map[string]interface{} nonsense (2),
+  but it&#x27;s not enough.<p>When it comes to web&#x2F;tcp stuff, I think OpenResty
+  for any middleware-ish system and Elixir for everything else are far more productive
+  and enjoyable ecosystems. We&#x27;ve been doing Elixir for about a year now, and
+  I&#x27;ve never seen such a consensus on productivity and quality (everything else
+  always had some issue: Ruby is slow, Node is single threaded, Java is verbose).<p>There&#x27;s
+  certainly more space than just that. Go might still be a good choice for CLI tools,
+  and both OpenResty and Elixir have a distinct memory&#x2F;threading model that precludes
+  some use cases - but those are in the minority.<p>(1) - Nothing against Erlang model,
+  but I do think it&#x27;s more restrictive.<p>(2) - <a href="https:&#x2F;&#x2F;github.com&#x2F;karlseguin&#x2F;typed"
+  rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;karlseguin&#x2F;typed</a>'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=14831855
+source_context: HN Comment on story 14831638
+author_info: latch
+engagement:
+  parent: '14831638'
+date_posted: '2017-07-23'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

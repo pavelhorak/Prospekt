@@ -1,0 +1,46 @@
+signal_id: sig_58c96886e3b0
+raw_text: 'Why doesn&#39;t MySQL support millisecond / microsecond precision?
+
+
+  <p>So I just found <a href="http://bugs.mysql.com/bug.php?id=8523" rel="noreferrer">the
+  most frustrating bug ever in MySQL</a>. </p>
+
+
+  <p>Apparently the <code>TIMESTAMP</code> field, and <a href="http://dev.mysql.com/doc/refman/5.1/en/date-and-time-functions.html"
+  rel="noreferrer">supporting functions</a> do not support any greater precision than
+  seconds!?</p>
+
+
+  <p>So I am using PHP and Doctrine, and I really need those microseconds (I am using
+  the <code>actAs: [Timestampable]</code> property). </p>
+
+
+  <p>I found a that I can use a <code>BIGINT</code> field to store the values. But
+  will doctrine add the milliseconds? I think it just assigns NOW() to the field.
+  I am also worried the date manipulation functions (in SQL) sprinkled through the
+  code will break. </p>
+
+
+  <p>I also saw something about compiling a UDF extension. This is not an acceptable
+  because I or a future maintainer will upgrade and poof, change gone.</p>
+
+
+  <p>Has anyone found a suitable workaround?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/2572209/why-doesnt-mysql-support-millisecond-microsecond-precision
+source_context: 'SO question (tags: php, mysql, doctrine)'
+author_info: Byron Whitlock
+engagement:
+  score: 43
+  view_count: 56593
+  answer_count: 8
+  is_answered: true
+date_posted: '2010-04-03'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - php
+  - mysql
+  - doctrine
+attachments: []

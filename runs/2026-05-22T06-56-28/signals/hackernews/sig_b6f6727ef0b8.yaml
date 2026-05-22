@@ -1,0 +1,15 @@
+signal_id: sig_b6f6727ef0b8
+raw_text: Frustrated with Parler deplatforming, I am building a service no one can
+  silence
+source_platform: hackernews
+source_url: https://1b677b8f8bb20100.github.io/introduction/
+source_context: HN Story
+author_info: anon20190221
+engagement:
+  points: 114
+  num_comments: 194
+date_posted: '2021-02-22'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: frustrated with'
+structured: {}
+attachments: []

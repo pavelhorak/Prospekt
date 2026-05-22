@@ -1,0 +1,37 @@
+signal_id: sig_41c46487b1a0
+raw_text: "[1.6.x] Using _ inside a complex object doesn't display correct result\
+  \ anymore\n\nUbuntu 25.10 (jello 1.6.1 backported from development series, but the\
+  \ same results were acquired with jello 1.6.0 from the official Ubuntu 25.10 repo).\n\
+  Output of `jello -v`\n```\njello:  Version: 1.6.1\n        Python Version: 3.13.7\n\
+  \        Python Path: /usr/bin/python3\n        Author: Kelly Brazil\n        Website:\
+  \ https://github.com/kellyjonbrazil/jello\n        Copyright: © 2020-2025 Kelly\
+  \ Brazil\n        License: MIT License\n```\n\nTest case `jello '{\"Array\":_}'\
+  \ <<<'[{\"k1\":1},{\"k2\":2}]'`\nOutput (the structure is preserved, but the values\
+  \ not displayed)\n```json\n{\n  \"Array\": [\n    {},\n    {}\n  ]\n}\n```\nThis\
+  \ worked correctly with jello 5.x and still works as expected with jello web demo.\n\
+  `jello -s` works as expected as well.\nOutput of `jello -s '{\"Array\":_}' <<<'[{\"\
+  k1\":1},{\"k2\":2}]'`\n```javascript\n_ = {};\n_.Array = [];\n_.Array[0] = {};\n\
+  _.Array[0].k1 = 1;\n_.Array[1] = {};\n_.Array[1].k2 = 2;\n```\nThus, as a workaround\
+  \ the output of `jello -s` can be piped into `fastgron -u`\n```bash\n<<<'[{\"k1\"\
+  :1},{\"k2\":2}]' jello -s '{\"Array\":_}' | fastgron --root _ -u\n```\nWhich gives\
+  \ the correct output\n```json\n{\n  \"Array\": [\n    {\n      \"k1\": 1\n    },\n\
+  \    {\n      \"k2\": 2\n    }\n  ]\n}\n```\n`jello 'dict(Array=_)'` doesn't work\
+  \ either.\n\nAnd `jello -l` didn't display values even in older jello releases (1.3.3--1.5.5)\
+  \ (although `jello` and `jello -s` both worked as expected). `jello -l` displayed\
+  \ correct values in jello 1.2.9."
+source_platform: github_issues
+source_url: https://github.com/kellyjonbrazil/jello/issues/75
+source_context: GitHub issue in kellyjonbrazil/jello
+author_info: schragge
+engagement:
+  comments: 1
+  reactions: 0
+  state: open
+date_posted: '2026-05-15'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels: []
+  is_pull_request: false
+  repo: kellyjonbrazil/jello
+attachments: []

@@ -1,0 +1,23 @@
+signal_id: sig_9c426cb3f391
+raw_text: I wasted 2 years of my life working heavily with the Mozilla/XULRunner/FF
+  codebase. The code base is huge and is organized in a manner that makes tracing
+  memory issues very difficult. Unfortunately there are also cultural reasons why
+  things are unlikely to improve in the future. There are simply too many cooks in
+  the kitchen at mozilla, it is very bureaucratic and the engineering team as a whole
+  gets sidetracked by details that don't solve the serious issues in the "platform."<p>The
+  webkit team is small and agile and was chosen as the web rendering platform for
+  Android, Adobe AIR and the iPhone. For better or worse, WebKit is going to eat Mozilla's
+  lunch.<p>In a past essay PG suggests that a few people working on a new browser
+  would be a cool project. I completely agree. A tri-platform browser based on WebKit
+  with a wrapper for media (video, audio) and a clean plugin API would be amazing.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=181183
+source_context: HN Comment on story 180827
+author_info: menloparkbum
+engagement:
+  parent: '180827'
+date_posted: '2008-05-05'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: frustrated with'
+structured: {}
+attachments: []

@@ -1,0 +1,14 @@
+signal_id: sig_8df6e0284920
+raw_text: you do not need to use anything&#x2F;everything you find in there, or anywhere
+  for that matter.
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=43949369
+source_context: HN Comment on story 43949354
+author_info: gjvc
+engagement:
+  parent: '43949354'
+date_posted: '2025-05-10'
+date_collected: '2026-05-22'
+collection_query: 'hn comments under: painful workaround'
+structured: {}
+attachments: []

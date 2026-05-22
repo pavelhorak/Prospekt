@@ -1,0 +1,28 @@
+signal_id: sig_9bdfe5f923ed
+raw_text: 'Ask HN: What do you think about business logic to code execution?
+
+
+  We&#x27;ve built an internal tool that allowed our business owners to create and
+  edit the logic, that becomes executable, and no longer depends on engineering resources
+  to modify.<p>Here is an example of what we use for business logic on selecting a
+  driver for delivery from the pool (it is slightly simplified - it&#x27;s essentially
+  the set of basic operations, ifs, cycles, and set of input data, process variables,
+  and output data).<p>Take a look here https:&#x2F;&#x2F;www.evernote.com&#x2F;l&#x2F;AA9s6U867f1GvLgIr3iOHrzJgrjkRxWe0nUB&#x2F;image.png<p>We
+  maintain this in the versioned diagram that can be pushed to Lambda + API gateway,
+  and essentially the platform code relies on that endpoint to provide a response.<p><i>For
+  the project we are using it for, it allows us to make adjustments to the process
+  without depending on engineering; another use case is pricing -- override and experimentation.</i><p>Again,
+  the engineering team thinks it is cool and wants to productize it.  I would really
+  appreciate any feedback or ideas.'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=26717679
+source_context: HN Story
+author_info: white
+engagement:
+  points: 5
+  num_comments: 4
+date_posted: '2021-04-06'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: built internal tool'
+structured: {}
+attachments: []

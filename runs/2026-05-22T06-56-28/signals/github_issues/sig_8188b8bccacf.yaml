@@ -1,0 +1,33 @@
+signal_id: sig_8188b8bccacf
+raw_text: 'feature requests!!
+
+
+  **here''s a list of features i would like to request:**
+
+  voice effects: e.g. chipmnuk, ghost, dizzy, reverb, glitch, slow-mo deep
+
+  animated vfx (video effects): e.g. speed trails, screen shake, particle bursts,
+  vhs overlay, border glow
+
+  ui & theme customisation: e.g. dynamic themes (comes with presets), custom accents,
+  transparency silders, font swap, dark/light mode
+
+  combo mode'
+source_platform: github_issues
+source_url: https://github.com/polywock/globalSpeed/issues/891
+source_context: GitHub issue in polywock/globalSpeed
+author_info: sakurakitttens
+engagement:
+  comments: 1
+  reactions: 0
+  state: open
+date_posted: '2026-05-11'
+date_collected: '2026-05-22'
+collection_query: 'github issues: feature request label:enhancement is:issue state:open
+  in:title,body'
+structured:
+  labels:
+  - enhancement
+  is_pull_request: false
+  repo: polywock/globalSpeed
+attachments: []

@@ -1,0 +1,81 @@
+signal_id: sig_28135481ce34
+raw_text: 'Document Claude Code hook output 10KB cap and workarounds
+
+
+  ## Summary
+
+
+  During implementation of #366 Phase 1 (hook-based lead/teammate content split),
+  we discovered that Claude Code caps `additionalContext` hook output at **10,000
+  characters**. Output exceeding this limit is saved to a file and replaced with a
+  preview + file path.
+
+
+  This is a platform constraint, not a PACT bug. It affects the proposed approach
+  of delivering ~37KB of orchestrator instructions via SessionStart hook feedback.
+
+
+  ## Discovery
+
+
+  - **Source**: Claude Code hooks documentation (code.claude.com/docs/en/hooks)
+
+  - **Behavior**: "Hook output injected into context (`additionalContext`, `systemMessage`,
+  or plain stdout) is capped at 10,000 characters. Output that exceeds this limit
+  is saved to a file and replaced with a preview and file path."
+
+
+  ## Impact on #366
+
+
+  The original design proposed writing a slim kernel to `~/.claude/CLAUDE.md` and
+  delivering the full ~37KB orchestrator instructions via `additionalContext`. The
+  10KB cap means we need an alternative delivery mechanism for the lead session.
+
+
+  ## Workaround Options (being evaluated in #366)
+
+
+  1. **File-based delivery**: Hook writes full content to a file, returns a short
+  pointer in additionalContext
+
+  2. **Accept auto-filing behavior**: Let the platform save oversized output to a
+  file; lead reads it automatically
+
+  3. **Skill-based delivery**: Move orchestrator content to a skill invoked at session
+  start
+
+  4. **Multiple hooks**: Split into multiple <10KB hooks (complex, fragile)
+
+
+  ## Action Items
+
+
+  - [ ] Document this constraint in PACT''s reference docs for future hook development
+
+  - [ ] Update #366 architecture based on chosen workaround
+
+  - [ ] Consider filing a Claude Code feature request for configurable/higher hook
+  output limits
+
+
+  ## Related
+
+
+  - #366 — Parent issue (spawn overhead reduction)'
+source_platform: github_issues
+source_url: https://github.com/Synaptic-Labs-AI/PACT-Plugin/issues/386
+source_context: GitHub issue in Synaptic-Labs-AI/PACT-Plugin
+author_info: michael-wojcik
+engagement:
+  comments: 0
+  reactions: 0
+  state: open
+date_posted: '2026-04-09'
+date_collected: '2026-05-22'
+collection_query: 'github issues: workaround complex is:issue in:title,body'
+structured:
+  labels: []
+  is_pull_request: false
+  repo: Synaptic-Labs-AI/PACT-Plugin
+attachments: []

@@ -1,0 +1,43 @@
+signal_id: sig_94aa49750c2e
+raw_text: 'Is iOS6 simulator buggy when deleting applications?
+
+
+  <p>Frequently, when I try to delete an app on the iOS 6 simulator that comes with
+  Xcode 4.5, the simulator freezes. What I do is just long press on the app. Delete
+  dialog doesn''t come up and the icons keep on wiggling. Quitting and re-opening
+  the simulator does not help to delete the app. </p>
+
+
+  <p>I''ve tried to delete the app''s folder from /Library/Application Support/iPhone
+  Simulator/5.1/Applications folder. Sometimes this helps but sometimes even this
+  doesn''t delete the icon from the simulator. </p>
+
+
+  <p>This behavior is independent of the iOS version or the device model. It''s the
+  same whichever model/iOS I choose. </p>
+
+
+  <p>The only thing that helps is using the Reset Contents and Settings option of
+  the simulator. </p>
+
+
+  <p>Do you experience the same frustration? If so, have you figured out a workaround
+  besides resetting the simulator completely?</p>'
+source_platform: stackoverflow
+source_url: https://stackoverflow.com/questions/12616790/is-ios6-simulator-buggy-when-deleting-applications
+source_context: 'SO question (tags: ios, simulator, ios6)'
+author_info: aslı
+engagement:
+  score: 27
+  view_count: 5076
+  answer_count: 7
+  is_answered: true
+date_posted: '2012-09-27'
+date_collected: '2026-05-22'
+collection_query: 'stackoverflow: frustrating workaround'
+structured:
+  tags:
+  - ios
+  - simulator
+  - ios6
+attachments: []

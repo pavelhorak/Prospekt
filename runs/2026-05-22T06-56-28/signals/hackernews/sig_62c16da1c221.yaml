@@ -1,0 +1,17 @@
+signal_id: sig_62c16da1c221
+raw_text: 'Ask HN: What manual processes would you automate in your company?
+
+
+  E.g. Onboarding of new employees, expenses, security, etc..'
+source_platform: hackernews
+source_url: https://news.ycombinator.com/item?id=13337024
+source_context: HN Story
+author_info: anacleto
+engagement:
+  points: 184
+  num_comments: 249
+date_posted: '2017-01-06'
+date_collected: '2026-05-22'
+collection_query: 'hn algolia: manual process'
+structured: {}
+attachments: []
