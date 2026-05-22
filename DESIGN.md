@@ -758,7 +758,18 @@ Source adapters collect signals, normalize to YAML schema, write one file per si
 LLM tags signals in batches using `prompts/tagging.md`. Per-tag justification quotes stored for automated precision checks. One YAML per tagged signal.
 
 ### Stage 3: Cluster
+
 Generate embeddings → HDBSCAN → merge similar clusters → LLM labeling → cross-assign → compute metrics. One YAML per cluster with signal_ids list.
+
+**Contract specification.** Several details under-specified by SPECIFICATION.md are pinned here so the implementation is deterministic and the autoresearch loop can attribute changes:
+
+- **Representative selection (for LLM labeling).** Stratified by `source_platform`: at most 2 reps per platform, fill the remaining slots up to 5 with the next-closest-to-centroid signals across all platforms. Prevents a Reddit-only sample from labeling a cross-platform cluster in Reddit voice.
+- **Cross-assignment algorithm.** Signal-to-centroid one-direction: a signal `s` is cross-assigned to cluster `c` iff `cosine(embed(s.raw_text), centroid(c)) > cross_assign_threshold` AND `c` is not `s`'s primary cluster. Each signal capped at 3 total cluster memberships (primary + up to 2 secondary) to prevent overlap-rate runaway. Cross-assignment does NOT modify the signal's primary cluster.
+- **Primary vs total counts.** Cluster metrics distinguish `primary_signal_count` (signals whose hard HDBSCAN assignment is this cluster) from `total_signal_count` (primary + cross-assigned). Kill criteria and enrichment triggers read `primary_signal_count`; demand evidence reads `total_signal_count`.
+- **Temporal trend.** Bin members by `date_posted` into monthly buckets, fit linear regression on bucket counts, classify slope: `increasing` if >+5%/month, `stable` if within ±5%, `decreasing` if <-5%. Requires ≥6 months of signal date range; otherwise emit `unknown`.
+- **Source diversity (two flavors).** `source_diversity` = count of distinct `source_platform` values (platform-level). `context_diversity` = count of distinct `source_context` values (e.g. distinct subreddits, distinct G2 product pages). `cluster_quality.cross_platform_rate` uses `context_diversity > 2`, which is the stronger echo-chamber filter.
+- **Cluster fingerprint (cross-run identity).** `cluster_fingerprint = sha256(sorted(top3_central_signal_ids))[:12]`. The fingerprint is the stable identity carried in `calibration/history.yaml`, enabling claims like "this cluster grew from 47 to 62 signals over two runs." `cluster_id` itself remains run-local.
+- **Embedding model in metrics.** `metrics.yaml` records `embedding_model`. Changing it invalidates fingerprint continuity; the longitudinal chart annotates model-change generations so a sudden coherence shift isn't read as agent progress.
 
 ### Stage 4: Enrich
 Clusters passing triggers get market research: competitors, pricing, demand, funding, regulatory, distribution channels. Mix of automated and manual. One YAML per enriched cluster.

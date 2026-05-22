@@ -260,9 +260,34 @@ def stage_tag(config: dict, rid: str) -> None:
 
 
 def stage_cluster(config: dict, rid: str) -> None:
+    """Embed → HDBSCAN → merge → LLM-label → cross-assign → metrics.
+
+    See DESIGN.md §7 Stage 3 for the contract. Known failure modes:
+
+    - Style-based clustering. Text embeddings often separate by register
+      (G2 prose vs Reddit rant vs Upwork spec) before topic. Mitigation:
+      consider BAAI/bge-large-en-v1.5 over all-MiniLM-L6-v2; calibrate
+      via the cold-context coherence auditor.
+    - Long-tail starvation. min_cluster_size=3 buries niche pains that
+      are often the most defensible solo-founder opportunities.
+      Mitigation: optional second pass at min_cluster_size=2 on the
+      orphan pool, emitted as a separate long_tail cluster set.
+    - Label hallucination. LLM is biased toward producing a confident
+      label even for incoherent groups. The INCOHERENT escape hatch in
+      prompts/clustering.md helps; for clusters with coherence_score
+      < 0.6 the recommended response is re-cluster-members-and-replace.
+    - Cross-assignment runaway. Without the membership cap (see contract)
+      popular clusters absorb semantically-nearby signals, inflating
+      signal_count past honest demand evidence.
+    - Embedding-model swap silently invalidates longitudinal comparisons.
+      Always record embedding_model in metrics.yaml; flag changes in the
+      improvement chart.
+    """
     # TODO(cluster): embed → HDBSCAN with config["clustering"] thresholds →
-    # merge via cosine similarity → LLM-label via prompts/clustering.md →
-    # cross-assign → emit clusters/{cluster_id}.yaml + clusters/index.yaml.
+    # merge via cosine similarity > merge_threshold → LLM-label via
+    # prompts/clustering.md (stratified reps) → cross-assign per contract
+    # (one-direction, capped at 3 memberships) → emit clusters/{cluster_id}.yaml
+    # + clusters/index.yaml. Persist cluster_fingerprint for cross-run identity.
     raise NotImplementedError("stage_cluster: embedding+HDBSCAN not yet wired")
 
 
