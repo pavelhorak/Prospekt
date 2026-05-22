@@ -1,0 +1,73 @@
+run_id: 2026-05-22T07-09-02
+started_at: '2026-05-22T07:09:02Z'
+config_snapshot:
+  ingest:
+    sources:
+      hackernews:
+        queries:
+        - frustrated with
+        - painful workaround
+        - built internal tool
+        - manual process
+        max_per_query: 20
+        top_comments_per_story: 3
+      stackoverflow:
+        queries:
+        - how to automate
+        - is there a tool for
+        - frustrating workaround
+        tags: []
+        max_per_query: 20
+      github_issues:
+        queries:
+        - feature request label:enhancement is:issue state:open in:title,body
+        - workaround complex is:issue in:title,body
+        max_per_query: 20
+      google_trends:
+        keywords:
+        - engineering metrics dashboard
+        - code review analytics
+        - developer productivity tool
+        timeframe: today 24-m
+        geo: ''
+  tagging:
+    prompt_file: prompts/tagging.md
+    batch_size: 15
+    model: claude-sonnet-4-6
+    temperature: 0.2
+  clustering:
+    prompt_file: prompts/clustering.md
+    method: hdbscan
+    min_cluster_size: 3
+    min_samples: 2
+    merge_threshold: 0.85
+    cross_assign_threshold: 0.7
+    embedding_model: all-MiniLM-L6-v2
+  enrichment:
+    prompt_file: prompts/enrichment.md
+    triggers:
+      min_signal_count: 10
+      min_source_diversity: 2
+      min_workaround_count: 3
+      min_median_intensity: 3
+  scoring:
+    prompt_file: prompts/scoring.md
+    weights:
+      market_demand: 0.2
+      distribution: 0.2
+      competition: 0.15
+      founder_market_fit: 0.15
+      solo_feasibility: 0.15
+      revenue_path: 0.1
+      defensibility: 0.05
+    kill_criteria:
+      min_signal_count: 5
+      min_source_diversity: 2
+      max_funded_competitor_rating: 4.0
+      min_feasibility: 2
+  audit:
+    model: claude-opus-4-7
+    temperature: 0.0
+    sample_size: 20
+stages_run: []
+status: in_progress

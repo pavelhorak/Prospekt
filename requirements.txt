@@ -1,6 +1,6 @@
 pyyaml>=6.0
 requests>=2.31
-pytrends>=4.9        # google_trends adapter; soft-skipped if missing
+trendspy>=0.1        # google_trends adapter; soft-skipped if missing
 
 # Runtime deps added as stages land:
 # anthropic>=0.40

@@ -10,7 +10,9 @@ Currently wired (zero-config, free):
   hackernews     — Algolia search + Firebase item endpoint
   stackoverflow  — Stack Exchange API (10k req/day unauth)
   github_issues  — REST search; honors GH_TOKEN env var when present
-  google_trends  — via pytrends; gracefully skips if not installed
+  google_trends  — via trendspy; gracefully skips if not installed
+                   (pytrends was replaced after Google's 2024-2025 backend
+                   changes returned HTTP 400 on every query)
 
 Adapters honor `seen_urls` for cross-run dedup by source_url
 (DESIGN.md §7 Stage 1 contract).
@@ -258,49 +260,69 @@ def fetch_github_issues(config: dict, seen_urls: set[str]) -> Iterable[Signal]:
 # Google Trends (via pytrends — optional dependency)
 # ---------------------------------------------------------------------------
 
+GOOGLE_REFERER = {"referer": "https://www.google.com/"}
+
+
 def fetch_google_trends(config: dict, seen_urls: set[str]) -> Iterable[Signal]:
     try:
-        from pytrends.request import TrendReq
+        from trendspy import Trends
     except ImportError:
-        print("  google_trends: pytrends not installed; skipping. `pip install pytrends`")
+        print("  google_trends: trendspy not installed; skipping. `pip install trendspy`")
         return
     keywords = config.get("keywords", [])
     timeframe = config.get("timeframe", "today 24-m")
     geo = config.get("geo", "")
     today = _today()
-    pt = TrendReq(hl="en-US", tz=0)
+    # request_delay=2.0 dodges Google's per-IP soft rate limit; without it the
+    # third or fourth keyword reliably 429s. trendspy itself recommends this.
+    tr = Trends(request_delay=2.0)
+
     for kw in keywords:
         try:
-            pt.build_payload([kw], timeframe=timeframe, geo=geo)
-            df = pt.interest_over_time()
+            df = tr.interest_over_time([kw], timeframe=timeframe, geo=geo or "")
         except Exception as e:
-            print(f"  google_trends: '{kw}' failed: {e}")
+            print(f"  google_trends: '{kw}' interest_over_time failed: {e}")
             continue
-        if df is None or df.empty:
+        if df is None or df.empty or kw not in df.columns:
             continue
+
+        # related_queries is the brittle endpoint; degrade gracefully on failure.
+        related_top: list[str] = []
+        related_rising: list[str] = []
         try:
-            related = (pt.related_queries() or {}).get(kw, {}) or {}
-        except Exception:
-            related = {}
+            rq = tr.related_queries(kw, headers=GOOGLE_REFERER) or {}
+            top_df = rq.get("top")
+            rising_df = rq.get("rising")
+            if top_df is not None and "query" in getattr(top_df, "columns", []):
+                related_top = list(top_df["query"][:10])
+            if rising_df is not None and "query" in getattr(rising_df, "columns", []):
+                related_rising = list(rising_df["query"][:10])
+        except Exception as e:
+            print(f"  google_trends: '{kw}' related_queries soft-fail: {e}")
 
         series = [[d.strftime("%Y-%m-%d"), int(v)] for d, v in df[kw].items()]
+        if not series:
+            continue
         first = next((v for _, v in series if v), 0)
-        last = series[-1][1] if series else 0
+        last = series[-1][1]
         slope_pct = ((last - first) / first * 100.0) if first else 0.0
+        peak = int(df[kw].max())
         url = f"https://trends.google.com/trends/explore?q={urllib.parse.quote(kw)}"
         if url in seen_urls:
             continue
+
         yield Signal(
             signal_id=new_signal_id(),
             raw_text=(
                 f"Google Trends interest for '{kw}' from {series[0][0]} to {series[-1][0]} "
                 f"(timeframe={timeframe}, geo={geo or 'global'}). "
-                f"Change from start to end: {slope_pct:+.0f}%."
-            ),
+                f"Peak relative interest {peak}/100; change start-to-end {slope_pct:+.0f}%. "
+                + (f"Top related queries: {', '.join(related_top[:5])}." if related_top else "")
+            ).strip(),
             source_platform="google_trends",
             source_url=url,
             source_context=f"Google Trends, timeframe={timeframe}, geo={geo or 'global'}",
-            engagement={"slope_pct": round(slope_pct, 1), "peak": int(df[kw].max())},
+            engagement={"slope_pct": round(slope_pct, 1), "peak": peak},
             date_posted=series[-1][0],
             date_collected=today,
             collection_query=f"google trends: {kw}",
@@ -309,8 +331,8 @@ def fetch_google_trends(config: dict, seen_urls: set[str]) -> Iterable[Signal]:
                 "timeframe": timeframe,
                 "geo": geo,
                 "series": series,
-                "related_top": [r["query"] for r in (related.get("top") or [])[:10] if "query" in r],
-                "related_rising": [r["query"] for r in (related.get("rising") or [])[:10] if "query" in r],
+                "related_top": related_top,
+                "related_rising": related_rising,
             },
         )
         seen_urls.add(url)
