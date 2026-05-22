@@ -50,8 +50,12 @@ ROOT = pathlib.Path(__file__).resolve().parent
 # IDs and paths
 # ---------------------------------------------------------------------------
 
+def utcnow() -> _dt.datetime:
+    return _dt.datetime.now(_dt.timezone.utc)
+
+
 def new_run_id() -> str:
-    return _dt.datetime.utcnow().strftime("%Y-%m-%dT%H-%M-%S")
+    return utcnow().strftime("%Y-%m-%dT%H-%M-%S")
 
 
 def new_signal_id() -> str:
@@ -370,7 +374,7 @@ def cmd_run(args: argparse.Namespace) -> None:
     rdir.mkdir(parents=True, exist_ok=True)
     write_yaml(rdir / "run.yaml", {
         "run_id": rid,
-        "started_at": _dt.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+        "started_at": utcnow().isoformat(timespec="seconds").replace("+00:00", "Z"),
         "config_snapshot": config,
         "stages_run": [],
         "status": "in_progress",
