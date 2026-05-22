@@ -26,7 +26,14 @@ ingest:
         - "developer productivity tool"
       timeframe: "today 24-m"
       geo: ""
-    # reddit, g2, capterra, upwork, linkedin_jobs — adapters not yet wired.
+    reddit:
+      # Requires REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET env vars.
+      subreddits: [ExperiencedDevs, SaaS, smallbusiness, webdev, devops]
+      queries: ["frustrated with", "waste time", "manual process", "looking for tool"]
+      sort: top
+      time_filter: year
+      max_per_query: 25
+    # g2, capterra, upwork, linkedin_jobs — adapters not yet wired.
 
 tagging:
   prompt_file: prompts/tagging.md

@@ -306,10 +306,13 @@ def stage_ingest(config: dict, rid: str) -> None:
 
 
 def stage_tag(config: dict, rid: str) -> None:
-    # TODO(tag): batch signals per config["tagging"]["batch_size"], call the
-    # tagger LLM with prompts/tagging.md, write tags/{signal_id}.yaml with
-    # per-tag justification quotes.
-    raise NotImplementedError("stage_tag: LLM tagger not yet wired")
+    """Tag signals via Claude using prompts/tagging.md.
+
+    See tagger.py for batching, resume-from-tagged, and parse logic.
+    Requires ANTHROPIC_API_KEY in env.
+    """
+    from tagger import tag_signals
+    tag_signals(config, run_dir(rid))
 
 
 def stage_cluster(config: dict, rid: str) -> None:
@@ -416,24 +419,48 @@ def cmd_init(_args: argparse.Namespace) -> None:
     print(f"prospect: layout ready at {ROOT}")
 
 
+def _ts() -> str:
+    return utcnow().isoformat(timespec="seconds").replace("+00:00", "Z")
+
+
 def cmd_run(args: argparse.Namespace) -> None:
     config = read_yaml(ROOT / "pipeline.yaml")
     rid = args.run_id or new_run_id()
     rdir = run_dir(rid)
     rdir.mkdir(parents=True, exist_ok=True)
-    write_yaml(rdir / "run.yaml", {
+    run_record: dict = {
         "run_id": rid,
-        "started_at": utcnow().isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "started_at": _ts(),
         "config_snapshot": config,
         "stages_run": [],
         "status": "in_progress",
-    })
+    }
+    write_yaml(rdir / "run.yaml", run_record)
+
     stages = args.stages.split(",") if args.stages else list(STAGES)
     for s in stages:
         if s not in STAGES:
             sys.exit(f"unknown stage: {s}")
-        print(f"[{rid}] {s}")
-        STAGES[s](config, rid)
+
+    try:
+        for s in stages:
+            print(f"[{rid}] {s}")
+            STAGES[s](config, rid)
+            run_record["stages_run"].append(s)
+            write_yaml(rdir / "run.yaml", run_record)
+    except Exception as e:
+        run_record["status"] = "failed"
+        idx = len(run_record["stages_run"])
+        run_record["failed_stage"] = stages[idx] if idx < len(stages) else "?"
+        run_record["error"] = f"{type(e).__name__}: {e}"
+        run_record["finished_at"] = _ts()
+        write_yaml(rdir / "run.yaml", run_record)
+        raise
+
+    run_record["status"] = "completed"
+    run_record["finished_at"] = _ts()
+    write_yaml(rdir / "run.yaml", run_record)
+
     if args.eval:
         cmd_eval(argparse.Namespace(run_id=rid))
 

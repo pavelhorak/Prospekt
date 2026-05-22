@@ -1,9 +1,9 @@
 pyyaml>=6.0
 requests>=2.31
 trendspy>=0.1        # google_trends adapter; soft-skipped if missing
+anthropic>=0.40      # stage_tag (and later: enrich, score); soft-fails without ANTHROPIC_API_KEY
 
 # Runtime deps added as stages land:
-# anthropic>=0.40
 # sentence-transformers>=2.7
 # hdbscan>=0.8
 # numpy>=1.26

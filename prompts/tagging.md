@@ -28,15 +28,32 @@ than guessing.
 
 ## Output format
 
-```yaml
-signal_id: sig_xxxxxxxx
-tags:
-  pain_type:        {value: workaround,           quote: "we built a Google Sheet that…"}
-  pain_intensity:   {value: 3,                    quote: "3 hours every Friday"}
-  industry:         {value: software_development, quote: "engineering team"}
-  buyer_persona:    {value: engineering_manager,  quote: "as a manager I…"}
-  # … one entry per dimension …
-```
+Return one entry per input signal, in the order received, inside a
+top-level `tagged:` list. Wrap the whole response in a single fenced
+YAML block:
+
+````yaml
+tagged:
+  - signal_id: sig_xxxxxxxxxxxx
+    tags:
+      pain_type:        {value: workaround,           quote: "we built a Google Sheet that…"}
+      pain_intensity:   {value: 3,                    quote: "3 hours every Friday"}
+      industry:         {value: software_development, quote: "engineering team"}
+      buyer_persona:    {value: engineering_manager,  quote: "as a manager I…"}
+      company_size:     {value: 51-200,               quote: "40 engineers"}
+      geography:        {value: unknown,              quote: ""}
+      has_workaround:   {value: yes, description: "manual Google Sheet weekly export"}
+      has_spend:        {value: no,  amount: null}
+      existing_solution_mentioned: [Jira, GitHub]
+      date_relevance:   {value: current,              quote: ""}
+  - signal_id: sig_yyyyyyyyyyyy
+    tags:
+      …
+````
+
+Use `{value: unknown, quote: ""}` for any dimension that cannot be
+determined from the text. Do not invent quotes — every `quote` field
+must be a verbatim substring of the signal's `raw_text`.
 
 ## Rules
 

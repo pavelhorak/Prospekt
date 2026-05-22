@@ -13,6 +13,9 @@ Currently wired (zero-config, free):
   google_trends  — via trendspy; gracefully skips if not installed
                    (pytrends was replaced after Google's 2024-2025 backend
                    changes returned HTTP 400 on every query)
+  reddit         — application-only OAuth (REDDIT_CLIENT_ID +
+                   REDDIT_CLIENT_SECRET env vars; create a "web app" at
+                   reddit.com/prefs/apps). Soft-skips when creds missing.
 
 Adapters honor `seen_urls` for cross-run dedup by source_url
 (DESIGN.md §7 Stage 1 contract).
@@ -340,6 +343,106 @@ def fetch_google_trends(config: dict, seen_urls: set[str]) -> Iterable[Signal]:
 
 
 # ---------------------------------------------------------------------------
+# Reddit (application-only OAuth via client_credentials)
+# ---------------------------------------------------------------------------
+
+REDDIT_UA = "prospect/0.1 (open-source signals research; +https://github.com/pavelhorak/Prospekt)"
+
+
+def fetch_reddit(config: dict, seen_urls: set[str]) -> Iterable[Signal]:
+    cid = os.environ.get("REDDIT_CLIENT_ID")
+    csec = os.environ.get("REDDIT_CLIENT_SECRET")
+    if not cid or not csec:
+        print(
+            "  reddit: REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET not set; skipping.\n"
+            "    Create a 'web app' at https://www.reddit.com/prefs/apps and export both."
+        )
+        return
+
+    try:
+        tok = requests.post(
+            "https://www.reddit.com/api/v1/access_token",
+            auth=(cid, csec),
+            data={"grant_type": "client_credentials"},
+            headers={"User-Agent": REDDIT_UA},
+            timeout=TIMEOUT,
+        )
+        tok.raise_for_status()
+        token = tok.json()["access_token"]
+    except Exception as e:
+        print(f"  reddit: OAuth failed ({e}); skipping")
+        return
+
+    headers = {"User-Agent": REDDIT_UA, "Authorization": f"Bearer {token}"}
+    subreddits = config.get("subreddits") or []
+    queries = config.get("queries") or []
+    sort = config.get("sort", "top")
+    time_filter = config.get("time_filter", "year")
+    max_per_query = int(config.get("max_per_query", 25))
+    today = _today()
+
+    for sr in subreddits:
+        for q in queries:
+            try:
+                r = requests.get(
+                    f"https://oauth.reddit.com/r/{sr}/search",
+                    headers=headers,
+                    params={
+                        "q": q,
+                        "restrict_sr": "true",
+                        "sort": sort,
+                        "t": time_filter,
+                        "limit": max_per_query,
+                    },
+                    timeout=TIMEOUT,
+                )
+                r.raise_for_status()
+                data = r.json()
+            except Exception as e:
+                print(f"  reddit: r/{sr} q={q!r} failed: {e}; skipping")
+                continue
+
+            for child in (data.get("data") or {}).get("children", []):
+                post = child.get("data") or {}
+                permalink = post.get("permalink")
+                if not permalink:
+                    continue
+                url = "https://reddit.com" + permalink
+                if url in seen_urls:
+                    continue
+                created = post.get("created_utc")
+                posted = None
+                if created:
+                    posted = _dt.datetime.fromtimestamp(created, _dt.timezone.utc).date().isoformat()
+                title = post.get("title") or ""
+                selftext = post.get("selftext") or ""
+                yield Signal(
+                    signal_id=new_signal_id(),
+                    raw_text=(title + "\n\n" + selftext).strip(),
+                    source_platform="reddit",
+                    source_url=url,
+                    source_context=f"r/{sr}",
+                    author_info=post.get("author"),
+                    engagement={
+                        "score": post.get("score", 0),
+                        "ups": post.get("ups", 0),
+                        "num_comments": post.get("num_comments", 0),
+                        "upvote_ratio": post.get("upvote_ratio"),
+                    },
+                    date_posted=posted,
+                    date_collected=today,
+                    collection_query=f"reddit r/{sr} q={q!r} sort={sort} t={time_filter}",
+                    structured={
+                        "subreddit": sr,
+                        "link_flair_text": post.get("link_flair_text"),
+                        "over_18": post.get("over_18", False),
+                    },
+                )
+                seen_urls.add(url)
+            time.sleep(1.5)  # Reddit OAuth: 60 req/min hard cap
+
+
+# ---------------------------------------------------------------------------
 # Dispatch
 # ---------------------------------------------------------------------------
 
@@ -348,4 +451,5 @@ ADAPTERS = {
     "stackoverflow": fetch_stackoverflow,
     "github_issues": fetch_github_issues,
     "google_trends": fetch_google_trends,
+    "reddit":        fetch_reddit,
 }

@@ -12,21 +12,30 @@ back to the original Reddit post, G2 review, or Upwork job that contributed.
 
 ## Status
 
-**Ingest works end-to-end; downstream stages stubbed.** Stage 1 ingest
-produces real signal corpora via `adapters.py` — Hacker News, Stack
-Overflow, GitHub Issues, and Google Trends (the first three are
-zero-config; Google Trends soft-skips while pytrends chases Google's
-backend changes). A first demo run produced 318 signals across three
-platforms in ~90 seconds.
+**Stages 1–2 wired; clustering → modeling still stubbed.**
 
-Stages 2–6 (tag → model) and the cluster engine raise
-`NotImplementedError` with a one-line "what to wire next" note in their
-docstrings. See `stage_cluster` for the inline contract style every
-stage will carry.
+Stage 1 ingest produces real signal corpora via `adapters.py`:
 
-Reddit, G2, Capterra, Upwork, LinkedIn — adapters not yet wired (Reddit
-because of post-2023 OAuth setup friction; G2/Capterra because of
-Cloudflare; Upwork/LinkedIn because of anti-bot).
+- Hacker News, Stack Overflow, GitHub Issues — zero-config, free
+- Google Trends — via `trendspy` (pytrends was dropped after Google's
+  2024-2025 backend changes returned HTTP 400 universally)
+- Reddit — application-only OAuth; set `REDDIT_CLIENT_ID` +
+  `REDDIT_CLIENT_SECRET` (one-time, free; register a "web app" at
+  reddit.com/prefs/apps). Soft-skips when creds missing.
+
+Two committed real-data runs: 318 signals from three sources, then 3
+Google Trends signals from the second run.
+
+Stage 2 tag calls Claude via `tagger.py` against `prompts/tagging.md`
+in batches; writes one tag file per signal with verbatim justification
+quotes. Requires `ANTHROPIC_API_KEY`. Resume-safe.
+
+Stages 3–6 (cluster → model) raise `NotImplementedError` with a one-line
+"what to wire next" note. See `stage_cluster` for the inline contract
+style each stage will carry as it lands.
+
+G2, Capterra, Upwork, LinkedIn — adapters not yet wired (Cloudflare /
+anti-bot / paid API).
 
 ## Quick start
 
