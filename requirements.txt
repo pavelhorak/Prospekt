@@ -1,0 +1,6 @@
+pyyaml>=6.0
+# Runtime deps added as stages land:
+# anthropic>=0.40
+# sentence-transformers>=2.7
+# hdbscan>=0.8
+# numpy>=1.26

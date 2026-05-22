@@ -1,0 +1,64 @@
+# pipeline.yaml — autoresearch loop tunes everything in this file.
+# The composite-metric weights are NOT here; they're frozen in prospect.py
+# so longitudinal pipeline_score comparisons remain meaningful.
+# See DESIGN.md §3 and §4.
+
+ingest:
+  sources:
+    reddit:
+      subreddits: [ExperiencedDevs, SaaS, smallbusiness, webdev, devops]
+      queries: ["frustrated with", "waste time", "manual process", "looking for tool"]
+      sort: top
+      time_filter: year
+      max_per_query: 50
+    hackernews:
+      queries: ["ask hn", "painful", "workaround", "built internal"]
+      max_per_query: 30
+    # Add g2, capterra, upwork, linkedin_jobs, google_trends as adapters land.
+
+tagging:
+  prompt_file: prompts/tagging.md
+  batch_size: 15
+  model: claude-sonnet-4-6
+  temperature: 0.2
+
+clustering:
+  prompt_file: prompts/clustering.md
+  method: hdbscan
+  min_cluster_size: 3
+  min_samples: 2
+  merge_threshold: 0.85
+  cross_assign_threshold: 0.70
+  embedding_model: all-MiniLM-L6-v2
+
+enrichment:
+  prompt_file: prompts/enrichment.md
+  triggers:
+    min_signal_count: 10
+    min_source_diversity: 2
+    min_workaround_count: 3
+    min_median_intensity: 3
+
+scoring:
+  prompt_file: prompts/scoring.md
+  weights:
+    market_demand:      0.20
+    distribution:       0.20
+    competition:        0.15
+    founder_market_fit: 0.15
+    solo_feasibility:   0.15
+    revenue_path:       0.10
+    defensibility:      0.05
+  kill_criteria:
+    min_signal_count: 5
+    min_source_diversity: 2
+    max_funded_competitor_rating: 4.0
+    min_feasibility: 2
+
+# Cold-context auditor used for workaround_precision, spend_precision, and
+# coherence_score. Must be a different model from `tagging.model` and
+# `clustering` to break the self-check circularity (DESIGN.md §4).
+audit:
+  model: claude-opus-4-7
+  temperature: 0.0
+  sample_size: 20
