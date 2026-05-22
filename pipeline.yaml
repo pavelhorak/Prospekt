@@ -48,7 +48,10 @@ clustering:
   min_samples: 2
   merge_threshold: 0.85
   cross_assign_threshold: 0.70
+  membership_cap: 3              # max total memberships per signal (primary + cross)
   embedding_model: all-MiniLM-L6-v2
+  # label_model: claude-sonnet-4-6   # defaults to tagging.model
+  label_temperature: 0.2
 
 enrichment:
   prompt_file: prompts/enrichment.md

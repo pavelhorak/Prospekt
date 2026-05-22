@@ -30,9 +30,16 @@ Stage 2 tag calls Claude via `tagger.py` against `prompts/tagging.md`
 in batches; writes one tag file per signal with verbatim justification
 quotes. Requires `ANTHROPIC_API_KEY`. Resume-safe.
 
-Stages 3–6 (cluster → model) raise `NotImplementedError` with a one-line
-"what to wire next" note. See `stage_cluster` for the inline contract
-style each stage will carry as it lands.
+Stage 3 cluster runs `clusterer.py`: sentence-transformers MiniLM
+embeddings (disk-cached), sklearn HDBSCAN, greedy centroid merge,
+stratified representative selection, Claude labeling with an explicit
+`INCOHERENT` escape hatch, capped cross-assignment, and per-cluster
+metrics (primary vs total counts, source/context diversity, temporal
+trend, intensity histogram and competitor mentions when tags exist).
+Emits `runs/{rid}/clusters/clust_NNN.yaml` + `clusters/index.yaml`.
+
+Stages 4–6 (enrich → score → model) raise `NotImplementedError` with
+a one-line "what to wire next" note.
 
 G2, Capterra, Upwork, LinkedIn — adapters not yet wired (Cloudflare /
 anti-bot / paid API).

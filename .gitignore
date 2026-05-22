@@ -8,3 +8,6 @@ venv/
 *.bak
 *.log
 run.log
+
+# Per-run embedding cache; regenerable from signal raw_text
+runs/*/.cache/

@@ -339,12 +339,8 @@ def stage_cluster(config: dict, rid: str) -> None:
       Always record embedding_model in metrics.yaml; flag changes in the
       improvement chart.
     """
-    # TODO(cluster): embed → HDBSCAN with config["clustering"] thresholds →
-    # merge via cosine similarity > merge_threshold → LLM-label via
-    # prompts/clustering.md (stratified reps) → cross-assign per contract
-    # (one-direction, capped at 3 memberships) → emit clusters/{cluster_id}.yaml
-    # + clusters/index.yaml. Persist cluster_fingerprint for cross-run identity.
-    raise NotImplementedError("stage_cluster: embedding+HDBSCAN not yet wired")
+    from clusterer import cluster_signals
+    cluster_signals(config, run_dir(rid))
 
 
 def stage_enrich(config: dict, rid: str) -> None:
