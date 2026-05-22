@@ -249,11 +249,60 @@ def pipeline_score(components: dict, mult: float = 1.0) -> float:
 # stubbed pending Stage-specific implementations.
 # ---------------------------------------------------------------------------
 
+def _walk_prior_source_urls() -> set[str]:
+    """Read source_url from every signal in every prior run for dedup."""
+    urls: set[str] = set()
+    runs = ROOT / "runs"
+    if not runs.exists():
+        return urls
+    for sig_file in runs.glob("*/signals/*/sig_*.yaml"):
+        try:
+            d = read_yaml(sig_file)
+            if isinstance(d, dict) and "source_url" in d:
+                urls.add(d["source_url"])
+        except Exception:
+            continue
+    return urls
+
+
 def stage_ingest(config: dict, rid: str) -> None:
-    # TODO(ingest): per source in config["ingest"]["sources"], dispatch to a
-    # source adapter; normalize to the signal schema; dedup by source_url
-    # against prior runs; write one YAML per signal under signals/{platform}/.
-    raise NotImplementedError("stage_ingest: source adapters not yet wired")
+    """Collect signals from each configured source.
+
+    Skips URLs already present in any prior runs/*/signals/*.yaml.
+    Writes one YAML per signal under runs/{rid}/signals/{platform}/
+    plus runs/{rid}/signals/index.yaml.
+    """
+    from dataclasses import asdict
+    from adapters import ADAPTERS
+
+    sources = (config.get("ingest") or {}).get("sources") or {}
+    if not sources:
+        print("  no sources configured")
+        return
+
+    seen_urls = _walk_prior_source_urls()
+    rdir = run_dir(rid)
+    counts: dict[str, int] = {}
+
+    for name, cfg in sources.items():
+        if name not in ADAPTERS:
+            print(f"  skip: no adapter for '{name}'")
+            continue
+        print(f"  fetching {name}...")
+        n = 0
+        for sig in ADAPTERS[name](cfg or {}, seen_urls):
+            out = rdir / "signals" / name / f"{sig.signal_id}.yaml"
+            write_yaml(out, asdict(sig))
+            n += 1
+        counts[name] = n
+        print(f"    {name}: {n} new signals")
+
+    write_yaml(rdir / "signals" / "index.yaml", {
+        "run_id": rid,
+        "collected_at": utcnow().isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "total": sum(counts.values()),
+        "by_source": counts,
+    })
 
 
 def stage_tag(config: dict, rid: str) -> None:

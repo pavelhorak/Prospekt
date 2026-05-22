@@ -12,13 +12,21 @@ back to the original Reddit post, G2 review, or Upwork job that contributed.
 
 ## Status
 
-Scaffold. The CLI dispatches, the directory layout is created, and all the
-pure-math metrics are implemented. LLM-backed stages (tagging, clustering,
-enrichment, scoring) and source adapters (Reddit, HN, G2, …) raise
-`NotImplementedError` with a one-line "what to wire next" note.
+**Ingest works end-to-end; downstream stages stubbed.** Stage 1 ingest
+produces real signal corpora via `adapters.py` — Hacker News, Stack
+Overflow, GitHub Issues, and Google Trends (the first three are
+zero-config; Google Trends soft-skips while pytrends chases Google's
+backend changes). A first demo run produced 318 signals across three
+platforms in ~90 seconds.
 
-See `prospect.py` `stage_cluster` for the kind of inline contract every
+Stages 2–6 (tag → model) and the cluster engine raise
+`NotImplementedError` with a one-line "what to wire next" note in their
+docstrings. See `stage_cluster` for the inline contract style every
 stage will carry.
+
+Reddit, G2, Capterra, Upwork, LinkedIn — adapters not yet wired (Reddit
+because of post-2023 OAuth setup friction; G2/Capterra because of
+Cloudflare; Upwork/LinkedIn because of anti-bot).
 
 ## Quick start
 

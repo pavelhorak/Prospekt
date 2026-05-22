@@ -37,6 +37,8 @@ The pipeline processes hundreds to low thousands of signals per run. There are n
 
 ```
 prospect/
+├── prospect.py             ← CLI, orchestration, frozen metric math (engine)
+├── adapters.py             ← Stage 1 source adapters (engine — frozen)
 ├── program.md              ← meta-instructions for the agent (human edits this)
 ├── pipeline.yaml           ← all pipeline config (agent edits this)
 ├── results.tsv             ← experiment log: run_id, metrics, status, description

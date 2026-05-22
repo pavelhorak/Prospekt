@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Prospect is a six-stage pipeline (**ingest → tag → cluster → enrich → score → model**) that turns internet pain signals into ranked solo-founder business opportunities, wrapped in a Karpathy-style autoresearch loop that tunes itself via git commits.
 
-**Status: scaffold.** The CLI dispatches, the directory layout is created, all pure-math metrics are implemented; LLM- and network-backed stages raise `NotImplementedError` with a one-line "what to wire next" note in their docstrings or body.
+**Status: ingest works end-to-end; downstream stages are stubbed.** The CLI dispatches, the directory layout is created, all pure-math metrics are implemented. `stage_ingest` produces real signal corpora via the adapters in `adapters.py` (HN, Stack Overflow, GitHub Issues; Google Trends soft-skips when pytrends/Google API mismatch). `stage_tag` through `stage_model` raise `NotImplementedError` with a one-line "what to wire next" note.
 
 Three design docs carry the load. Read in this order before non-trivial work:
 1. `DESIGN.md` §3 (the autoresearch loop) — the heart of the system
