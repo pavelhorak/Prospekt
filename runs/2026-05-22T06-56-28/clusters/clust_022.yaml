@@ -1,0 +1,93 @@
+cluster_id: clust_022
+cluster_label: Analytics event tracking breaks silently when product teams ship updates
+cluster_summary: 'Product and engineering teams at consumer apps have no reliable
+  source of
+
+  truth for what analytics events should exist, what properties they carry, or
+
+  whether implementations across platforms are correct. When a developer ships
+
+  a product change, conversion-funnel events quietly disappear or mutate,
+
+  leaving data scientists chasing stale charts weeks later. The people closest
+
+  to the problem — developers — end up grudgingly maintaining ad-hoc JSON
+
+  schemas or internal validation scripts because no one else will, yet those
+
+  tools are too opaque for PMs or analysts to audit without engineering help.
+
+  '
+cluster_fingerprint: f73a92f1dafd
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_0e165265eb2f
+- sig_5d14758de254
+- sig_80ed654eff9e
+all_signal_ids:
+- sig_0e165265eb2f
+- sig_5d14758de254
+- sig_80ed654eff9e
+- sig_014e974eb6ea
+- sig_0c178f9cf95c
+- sig_0fa93af65caa
+- sig_14bc0f89abbe
+- sig_3e1b0534a5f6
+- sig_467c6fdaa615
+- sig_571ae914ea60
+- sig_8fc56fd7af9e
+- sig_9bdfe5f923ed
+- sig_9d61f3852634
+- sig_acaf9facfefd
+- sig_aedaa459e0a5
+- sig_c4eabea84b81
+- sig_d93b37c194c2
+- sig_e33cd9c452f4
+- sig_e5efada2860d
+- sig_e76fd1fe6c4a
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 20
+  source_diversity: 1
+  context_diversity: 8
+  sources:
+  - hackernews
+  temporal_trend: decreasing
+  intensity_distribution:
+    1: 1
+    2: 6
+    3: 8
+    4: 3
+  intensity_mean: 2.72
+  industries:
+  - cybersecurity
+  - e_commerce
+  - financial_services
+  - logistics
+  - software_development
+  industry_spread: 5
+  workaround_count: 8
+  spend_evidence_count: 1
+  competitor_mentions:
+    Slack: 3
+    Avo: 2
+    Notion: 2
+    Google Analytics: 1
+    Facebook Pixel: 1
+    Hotjar: 1
+    Amplitude: 1
+    ToolJet: 1
+    Zendesk: 1
+    Stripe: 1
+    Amazon S3: 1
+    Okta: 1
+    SCIM: 1
+    JIRA: 1
+    Gsheet: 1
+    Airtable: 1
+    BettyBlocks: 1
+    Zoho Creator: 1
+    Sarus: 1
+    PyCharm Pro: 1

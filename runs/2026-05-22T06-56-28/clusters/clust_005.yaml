@@ -1,0 +1,61 @@
+cluster_id: clust_005
+cluster_label: AI image generation hides significant trial-and-error effort behind
+  polished showcase results
+cluster_summary: 'Hobbyist and creative users of text-to-image models (Stable Diffusion
+  and
+
+  similar) discover that the impressive outputs circulating online conceal
+
+  hours of prompt refinement, mass generation and culling, img2img iteration,
+
+  and manual post-processing — work that is invisible in the final share.
+
+  Compounding the effort problem, models exhibit unpredictable concept gaps
+
+  (e.g. SD2 returning motorcycles for "photorealistic sea") that force users
+
+  to treat generation as a probabilistic search rather than a reliable creative
+
+  tool. Currently these users absorb the cost themselves: hunting parameter
+
+  recipes in forums, running dozens of seeds, and falling back to Photoshop
+
+  for finishing touches.
+
+  '
+cluster_fingerprint: 09dd62cd3466
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_2f5588501efc
+- sig_5c8523bff916
+- sig_efaefccb52b4
+all_signal_ids:
+- sig_2f5588501efc
+- sig_5c8523bff916
+- sig_efaefccb52b4
+- sig_86e7e437fa53
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 4
+  source_diversity: 2
+  context_diversity: 2
+  sources:
+  - github_issues
+  - hackernews
+  temporal_trend: unknown
+  intensity_distribution:
+    1: 2
+    2: 1
+  intensity_mean: 1.33
+  industries: []
+  industry_spread: 0
+  workaround_count: 3
+  spend_evidence_count: 0
+  competitor_mentions:
+    img2img: 1
+    SD1: 1
+    SD2: 1
+    SD2.1: 1
+    Gemini: 1

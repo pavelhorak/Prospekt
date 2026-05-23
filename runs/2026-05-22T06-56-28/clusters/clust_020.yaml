@@ -1,0 +1,82 @@
+cluster_id: clust_020
+cluster_label: iOS developers unsure whether Swift 1.0 is stable enough to adopt in
+  production
+cluster_summary: 'Mobile developers and engineering leads at companies building Apple-platform
+
+  apps are weighing Swift adoption but can''t get a confident read on its
+
+  production readiness. Specific blockers include Objective-C API interop
+
+  friction, slow compilation on larger codebases, and Xcode 6 tooling
+
+  instability. Currently they either stay on Objective-C, limit Swift to
+
+  greenfield small apps, or gather anecdotes from peers before committing.
+
+  '
+cluster_fingerprint: 9a5bc8dfb29c
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_189a5ed30d54
+- sig_68dde6cc2885
+- sig_b9f8f3103105
+- sig_ee6377c9bf1c
+all_signal_ids:
+- sig_189a5ed30d54
+- sig_68dde6cc2885
+- sig_b9f8f3103105
+- sig_ee6377c9bf1c
+- sig_494296ac3949
+- sig_669d95ef1d8c
+- sig_85da07a0c130
+- sig_9c426cb3f391
+- sig_ab8905d2be0e
+- sig_b0bafcb6b1a8
+- sig_c4eabea84b81
+- sig_db4a0749790a
+- sig_dc09cedf0a57
+- sig_e472e07ced1d
+- sig_f5bb5219f787
+metrics:
+  primary_signal_count: 4
+  total_signal_count: 15
+  source_diversity: 1
+  context_diversity: 10
+  sources:
+  - hackernews
+  temporal_trend: decreasing
+  intensity_distribution:
+    1: 3
+    2: 6
+    3: 3
+    4: 1
+  intensity_mean: 2.15
+  industries:
+  - healthcare
+  - software_development
+  industry_spread: 2
+  workaround_count: 3
+  spend_evidence_count: 2
+  competitor_mentions:
+    Swift: 4
+    Firefox: 3
+    WebKit: 2
+    Xcode: 1
+    Objective-C: 1
+    Clang: 1
+    Objective C: 1
+    CUDA: 1
+    AccessOwl: 1
+    Slack: 1
+    Mozilla: 1
+    XULRunner: 1
+    Android: 1
+    Adobe AIR: 1
+    GitHub Copilot: 1
+    Unix: 1
+    C: 1
+    C++: 1
+    Rust: 1
+    Go: 1

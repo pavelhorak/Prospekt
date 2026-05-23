@@ -1,0 +1,56 @@
+cluster_id: clust_002
+cluster_label: Median wages have not kept pace with post-pandemic inflation in essential
+  costs
+cluster_summary: 'Working and middle-class Americans — particularly those earning
+  near the
+
+  median income of ~$28–29K/year — find that rent, car payments, and
+
+  groceries now consume effectively all of their take-home pay, leaving
+
+  nothing for savings, homeownership, or family formation. Headline
+
+  macroeconomic indicators (GDP growth, low unemployment) mask this
+
+  affordability crisis and create a disconnect between official economic
+
+  narratives and lived financial reality. The persona is the median-wage
+
+  earner who is nominally employed but concretely priced out of the life
+
+  trajectory — homeownership, car ownership, children — that prior
+
+  generations at the same income level could achieve; their current
+
+  workaround is frustration and distrust of financial media.
+
+  '
+cluster_fingerprint: abc4fce99018
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_190aa796973c
+- sig_a5f92e916c2f
+- sig_adbad3558708
+all_signal_ids:
+- sig_190aa796973c
+- sig_a5f92e916c2f
+- sig_adbad3558708
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 3
+  source_diversity: 1
+  context_diversity: 2
+  sources:
+  - hackernews
+  temporal_trend: unknown
+  intensity_distribution:
+    3: 1
+    4: 2
+  intensity_mean: 3.67
+  industries: []
+  industry_spread: 0
+  workaround_count: 0
+  spend_evidence_count: 0
+  competitor_mentions: {}

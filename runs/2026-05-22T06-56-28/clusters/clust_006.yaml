@@ -1,0 +1,54 @@
+cluster_id: clust_006
+cluster_label: Local residents frustrated by self-driving car behavior in their neighborhoods
+cluster_summary: 'Residents living near Waymo/Alphabet robotaxi testing zones report
+  negative
+
+  experiences with autonomous vehicles — citing erratic behavior at intersections
+
+  and general annoyance with the cars sharing their streets. The signals are drawn
+
+  from HN headlines and comment threads, where the community debates whether the
+
+  volume of complaints is meaningful or overstated relative to complaints about
+
+  human drivers.
+
+  '
+cluster_fingerprint: 8526d7b963c9
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_5fb4795bce7e
+- sig_902c7a80c86e
+- sig_ac5ec0267a2b
+- sig_b9d21e86cb07
+all_signal_ids:
+- sig_5fb4795bce7e
+- sig_902c7a80c86e
+- sig_ac5ec0267a2b
+- sig_b9d21e86cb07
+- sig_040ed96bbed4
+- sig_cb0bec3000ec
+metrics:
+  primary_signal_count: 4
+  total_signal_count: 6
+  source_diversity: 1
+  context_diversity: 3
+  sources:
+  - hackernews
+  temporal_trend: unknown
+  intensity_distribution:
+    1: 1
+    2: 2
+    3: 1
+  intensity_mean: 2.0
+  industries:
+  - automotive
+  - transportation
+  industry_spread: 2
+  workaround_count: 0
+  spend_evidence_count: 0
+  competitor_mentions:
+    Alphabet's self-driving cars: 1
+    Waymo: 1

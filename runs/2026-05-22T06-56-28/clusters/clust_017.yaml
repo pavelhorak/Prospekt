@@ -1,0 +1,74 @@
+cluster_id: clust_017
+cluster_label: Email marketers lack a reliable, automated way to keep contact lists
+  clean
+cluster_summary: 'Marketers and growth practitioners — particularly at SMBs — struggle
+  to
+
+  systematically identify and remove inactive or invalid contacts from their
+
+  email lists. The current state is manual triage (hand-deleting inactives,
+
+  ad-hoc CSV exports), reliance on whatever defaults the ESP provides, or
+
+  simply ignoring the problem until deliverability degrades. The consequence
+
+  is rising bounce rates, poor response rates, and sender-reputation damage
+
+  from third-party filtering systems.
+
+  '
+cluster_fingerprint: a8226afa521f
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_44d9fe1cbd05
+- sig_a9acc5328c45
+- sig_c2e060867b6e
+all_signal_ids:
+- sig_44d9fe1cbd05
+- sig_a9acc5328c45
+- sig_c2e060867b6e
+- sig_0f7fca5a7696
+- sig_19130d21e358
+- sig_3a17f3e5f09b
+- sig_4824c5d41832
+- sig_738c1bf8d19e
+- sig_934a1f35b80c
+- sig_b29d95861e3c
+- sig_da945b38bdc9
+- sig_e76fd1fe6c4a
+- sig_ee9b1dc98651
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 13
+  source_diversity: 1
+  context_diversity: 10
+  sources:
+  - hackernews
+  temporal_trend: stable
+  intensity_distribution:
+    1: 1
+    2: 5
+    3: 6
+  intensity_mean: 2.42
+  industries:
+  - fintech
+  - healthcare
+  - software_development
+  industry_spread: 3
+  workaround_count: 6
+  spend_evidence_count: 0
+  competitor_mentions:
+    Mailchimp: 1
+    Tally: 1
+    khatabook: 1
+    dukaan: 1
+    WhatsApp: 1
+    UPI: 1
+    OpenAI: 1
+    GPT3: 1
+    AIDungeon: 1
+    chatGPT: 1
+    Microsoft: 1
+    bit.ly: 1

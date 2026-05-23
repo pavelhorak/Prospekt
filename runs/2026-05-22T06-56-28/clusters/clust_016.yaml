@@ -1,0 +1,69 @@
+cluster_id: clust_016
+cluster_label: INCOHERENT
+cluster_summary: 'These signals are scraping artifacts, not substantive user pain
+  signals.
+
+  Three of the five are bare requests for a missing URL ("link to site?",
+
+  "Where is the link to the tool?", a raw hyperlink with no context), and
+
+  the remaining two are HN stub/placeholder comments with no content of
+
+  their own. They clustered together because they share near-zero semantic
+
+  content, not because they describe a shared real-world problem. These
+
+  should be filtered out in pre-processing (e.g., drop comments under a
+
+  word-count threshold or matching stub patterns) rather than labelled as
+
+  a signal cluster.
+
+  '
+cluster_fingerprint: 0334db71be65
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_0fc4b73d8c1b
+- sig_105f295f8350
+- sig_4a697fd6cbf9
+- sig_8e6b783e7c66
+all_signal_ids:
+- sig_0fc4b73d8c1b
+- sig_105f295f8350
+- sig_4a697fd6cbf9
+- sig_8e6b783e7c66
+- sig_4ced447819af
+- sig_d98e6e68c612
+- sig_194503fcc93c
+- sig_1e369df2f921
+- sig_1eebc2e44161
+- sig_52a22b6e3bc3
+- sig_a688900e599a
+- sig_fb9e315a8407
+- sig_ffeff8686695
+metrics:
+  primary_signal_count: 4
+  total_signal_count: 13
+  source_diversity: 2
+  context_diversity: 13
+  sources:
+  - github_issues
+  - hackernews
+  temporal_trend: increasing
+  intensity_distribution:
+    1: 3
+    2: 2
+  intensity_mean: 1.4
+  industries:
+  - software_development
+  industry_spread: 1
+  workaround_count: 2
+  spend_evidence_count: 1
+  competitor_mentions:
+    Restful Fast Request: 1
+    Workday: 1
+    Slack: 1
+    OpenAI: 1
+    formulas: 1

@@ -1,5 +1,5 @@
 run_id: 2026-05-22T06-56-28
-started_at: '2026-05-23T09:46:18Z'
+started_at: '2026-05-23T11:45:36Z'
 config_snapshot:
   ingest:
     sources:
@@ -58,7 +58,7 @@ config_snapshot:
     merge_threshold: 0.85
     cross_assign_threshold: 0.7
     membership_cap: 3
-    embedding_model: all-MiniLM-L6-v2
+    embedding_model: BAAI/bge-base-en-v1.5
     label_temperature: 0.2
   enrichment:
     prompt_file: prompts/enrichment.md
@@ -97,4 +97,4 @@ stages_run:
 - score
 - model
 status: completed
-finished_at: '2026-05-23T09:46:57Z'
+finished_at: '2026-05-23T11:55:07Z'

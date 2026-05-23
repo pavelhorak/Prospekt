@@ -1,0 +1,69 @@
+cluster_id: clust_019
+cluster_label: Job applicants receive no response or feedback after interviews
+cluster_summary: 'Job seekers — particularly in tech — are routinely ghosted after
+  applying
+
+  or interviewing, receiving no rejection notice and no explanation. Hiring
+
+  managers acknowledge the problem but cite legal risk (any specific feedback
+
+  could be construed as discriminatory) and the sheer difficulty of writing
+
+  honest, tactful rejections at scale as reasons they stay silent. The result
+
+  is a structural norm where candidates are left in indefinite limbo, with
+
+  even dedicated job-platform intermediaries sometimes failing to close the
+
+  communication loop.
+
+  '
+cluster_fingerprint: a5b856be85e9
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_38403035a90a
+- sig_4824c5d41832
+- sig_82ca98780407
+all_signal_ids:
+- sig_38403035a90a
+- sig_4824c5d41832
+- sig_82ca98780407
+- sig_19ffa490253a
+- sig_310f99c78fdd
+- sig_5c454f82c70c
+- sig_69b75ab896ff
+- sig_86c826eca435
+- sig_98a2cc89a1c2
+- sig_9d61f3852634
+- sig_afffef0c4d28
+- sig_b62b037da470
+- sig_c2e060867b6e
+- sig_c4a83f18743a
+- sig_d603222a8cdd
+- sig_dd8646488501
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 16
+  source_diversity: 1
+  context_diversity: 11
+  sources:
+  - hackernews
+  temporal_trend: stable
+  intensity_distribution:
+    2: 5
+    3: 4
+    4: 2
+  intensity_mean: 2.73
+  industries:
+  - financial_services
+  - recruiting
+  - software_development
+  industry_spread: 3
+  workaround_count: 5
+  spend_evidence_count: 0
+  competitor_mentions:
+    landing.jobs: 1
+    ideasdb: 1
+    Monzo: 1

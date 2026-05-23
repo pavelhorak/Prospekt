@@ -3,3 +3,4 @@ commit	pipeline_score	tag_quality	cluster_quality	backtest_mult	status	descripti
 778e404	0.1013	0.0000	0.0000	1.0000	eval	run_id=2026-05-22T06-56-28
 92c146d	0.3113	0.4264	0.4990	1.0000	eval	run_id=2026-05-22T06-56-28
 ee9009e	0.3363	0.5514	0.4990	1.0000	eval	run_id=2026-05-22T06-56-28
+65c4ace	0.3788	0.5639	0.6589	1.0000	eval	run_id=2026-05-22T06-56-28

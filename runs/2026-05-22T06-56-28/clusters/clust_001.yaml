@@ -1,50 +1,76 @@
 cluster_id: clust_001
 cluster_label: INCOHERENT
-cluster_summary: 'None of the four signals contain readable content. All representatives
+cluster_summary: 'At least three distinct problems are mixed together here. Signals
 
-  are HN moderation placeholders — two marked [dead] (auto-killed by the
+  sig_e7be3e3535d1, sig_5b9f3b0c1b3f, and sig_d3d54e09ed8e are all
 
-  HN ranking algorithm or low-karma users) and two marked [flagged]
+  cross-browser compatibility issues — web developers hitting inconsistent
 
-  (community-flagged for removal). There is no underlying problem to
+  behaviour in Chrome/Safari/Firefox with JavaScript APIs (window.focus,
 
-  label; this cluster contains zero signal. The scraper captured the
+  jQuery UI modal scrolling, CSS sticky + JS height interaction). Signal
 
-  placeholder strings rather than actual comment text, so the embeddings
+  sig_ba8eaa4662c9 is an entirely different problem: reverse-engineering
 
-  are clustering on formatting artefacts, not meaning. Recommend
+  how anti-bot systems fingerprint and detect headless Selenium sessions,
 
-  filtering [dead] and [flagged] nodes at ingestion time before
+  which is a scraping/automation-evasion question, not a browser quirk.
 
-  embedding.
+  Signal sig_6434970a7928 is a third problem: local developer environment
+
+  setup (geckodriver not on PATH), a one-time tooling configuration
+
+  question with no relation to either browser compatibility or bot
+
+  detection.
 
   '
-cluster_fingerprint: 9a217689e62f
-embedding_model: all-MiniLM-L6-v2
+cluster_fingerprint: e9dadfdff55a
+embedding_model: BAAI/bge-base-en-v1.5
 method: hdbscan+merge+llm_label
 label_method: llm
 primary_signal_ids:
-- sig_36182d32a794
-- sig_b24f46112b5f
-- sig_fb9e315a8407
-- sig_ffeff8686695
+- sig_5b9f3b0c1b3f
+- sig_6434970a7928
+- sig_ba8eaa4662c9
+- sig_d3d54e09ed8e
+- sig_e7be3e3535d1
 all_signal_ids:
-- sig_36182d32a794
-- sig_b24f46112b5f
-- sig_fb9e315a8407
-- sig_ffeff8686695
+- sig_5b9f3b0c1b3f
+- sig_6434970a7928
+- sig_ba8eaa4662c9
+- sig_d3d54e09ed8e
+- sig_e7be3e3535d1
+- sig_cf86c62de9fd
+- sig_be49d422a781
+- sig_fc6a5bc2ff82
 metrics:
-  primary_signal_count: 4
-  total_signal_count: 4
-  source_diversity: 1
-  context_diversity: 3
+  primary_signal_count: 5
+  total_signal_count: 8
+  source_diversity: 3
+  context_diversity: 8
   sources:
+  - github_issues
   - hackernews
-  temporal_trend: unknown
-  intensity_distribution: {}
-  intensity_mean: null
+  - stackoverflow
+  temporal_trend: increasing
+  intensity_distribution:
+    2: 5
+  intensity_mean: 2.0
   industries: []
   industry_spread: 0
-  workaround_count: 0
-  spend_evidence_count: 0
-  competitor_mentions: {}
+  workaround_count: 3
+  spend_evidence_count: 1
+  competitor_mentions:
+    jQuery: 1
+    jQuery UI: 1
+    Selenium: 1
+    Firefox: 1
+    geckodriver: 1
+    LinkHub: 1
+    URLCheck: 1
+    Zapier: 1
+    Intercom: 1
+    Slack: 1
+    LinkedIn: 1
+    Chrome: 1

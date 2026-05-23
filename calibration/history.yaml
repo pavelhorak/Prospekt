@@ -43,3 +43,14 @@ runs:
     model_quality: 0.0
   computed_at: '2026-05-23T09:50:00Z'
   config_hash: 44476154c61a
+- run_id: 2026-05-22T06-56-28
+  pipeline_score: 0.3788
+  components:
+    ingest_quality: 0.6752
+    tag_quality: 0.5639
+    cluster_quality: 0.6589
+    enrichment_quality: 0.0
+    score_quality: 0.0
+    model_quality: 0.0
+  computed_at: '2026-05-23T11:58:45Z'
+  config_hash: f39f140df19e

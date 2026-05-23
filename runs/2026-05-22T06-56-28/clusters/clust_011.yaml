@@ -1,0 +1,56 @@
+cluster_id: clust_011
+cluster_label: Cloudflare bot-detection interstitials break non-Chrome browsers and
+  programmatic API access while misrepresenting their purpose
+cluster_summary: 'Developers, privacy-conscious users, and operators of automated
+  clients
+
+  encounter Cloudflare''s JS challenge ("secure connection check") as an
+
+  opaque wall: it silently fails on non-mainstream browsers, blocks all
+
+  machine-to-machine traffic by design, and is deceptively labelled as a
+
+  security measure when it is actually browser fingerprinting. The pain
+
+  sharpens when the gated resource is a public or government API — a
+
+  context where programmatic access is the entire point — leaving the
+
+  affected party with no workaround short of running a full browser.
+
+  '
+cluster_fingerprint: 6b9eb3ad11ea
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_0ffa1d4edd2f
+- sig_79401352a515
+- sig_aa4cf42a3ebe
+all_signal_ids:
+- sig_0ffa1d4edd2f
+- sig_79401352a515
+- sig_aa4cf42a3ebe
+- sig_222924b108db
+- sig_d300e92e0ed4
+- sig_ce790c98fc64
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 6
+  source_diversity: 2
+  context_diversity: 4
+  sources:
+  - hackernews
+  - stackoverflow
+  temporal_trend: increasing
+  intensity_distribution:
+    2: 2
+    4: 1
+  intensity_mean: 2.67
+  industries:
+  - government
+  industry_spread: 1
+  workaround_count: 1
+  spend_evidence_count: 0
+  competitor_mentions:
+    Cloudflare: 2

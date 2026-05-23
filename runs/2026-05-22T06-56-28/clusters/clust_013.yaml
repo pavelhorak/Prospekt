@@ -1,0 +1,78 @@
+cluster_id: clust_013
+cluster_label: Remote SWE job seekers can't reliably identify genuinely remote-first
+  roles
+cluster_summary: 'Software engineers seeking fully-remote positions are repeatedly
+  misled by job
+
+  listings labelled "remote" that turn out to require in-office attendance. Existing
+
+  aggregators surface these hybrid or location-restricted roles without filtering
+  them
+
+  out, so candidates waste time clicking through mislabelled postings or resort to
+
+  building their own tooling — spreadsheets, custom scrapers, cron-driven boards —
+  just
+
+  to find roles that are actually remote. The core pain is the unreliable signal quality
+
+  of the "remote" label itself, not a shortage of jobs.
+
+  '
+cluster_fingerprint: c8fa035314c1
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_627a3452da57
+- sig_c4a83f18743a
+- sig_c922a0518dac
+all_signal_ids:
+- sig_627a3452da57
+- sig_c4a83f18743a
+- sig_c922a0518dac
+- sig_0981a4862390
+- sig_0f7fca5a7696
+- sig_19ffa490253a
+- sig_5c454f82c70c
+- sig_6bbc9fb47283
+- sig_79ee81dd68e5
+- sig_826d5a14a333
+- sig_82ca98780407
+- sig_8b6a7a4fd872
+- sig_cbb1d273826a
+- sig_d603222a8cdd
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 14
+  source_diversity: 1
+  context_diversity: 10
+  sources:
+  - hackernews
+  temporal_trend: increasing
+  intensity_distribution:
+    1: 1
+    2: 3
+    3: 3
+    4: 3
+  intensity_mean: 2.8
+  industries:
+  - fintech
+  - hr_payroll
+  - recruiting
+  - software_development
+  industry_spread: 4
+  workaround_count: 6
+  spend_evidence_count: 3
+  competitor_mentions:
+    Tally: 1
+    khatabook: 1
+    dukaan: 1
+    Postgres: 1
+    PagerDuty: 1
+    Workday: 1
+    Outlook: 1
+    Slack: 1
+    landing.jobs: 1
+    Xero: 1
+    Google Drive: 1

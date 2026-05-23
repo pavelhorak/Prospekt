@@ -1,0 +1,81 @@
+cluster_id: clust_003
+cluster_label: INCOHERENT
+cluster_summary: "These four signals do not share a single underlying problem. At\
+  \ least three\ndistinct problems are mixed together:\n\n1. ESM/CJS module interop\
+  \ when loading TypeScript plugins (sig_a010122cb0f7):\n   a developer in a large\
+  \ monorepo hits a cascade of Node.js ESM resolver\n   failures — extensionless imports,\
+  \ __dirname, dynamic require — while trying\n   to wire a local TypeScript ESLint\
+  \ plugin into oxlint.\n\n2. Basic JavaScript module system questions (sig_4be3c87f89e3,\n\
+  \   sig_93450337c6c7): a beginner asks how to include functions from another\n \
+  \  file in Node.js/Express, and a separate user asks how to copy a static HTML\n\
+  \   file through webpack. Both are entry-level \"how does JS module/build\n   plumbing\
+  \ work\" questions, not pain around a broken workflow.\n\n3. TypeScript compiler\
+  \ type-predicate limitations (sig_36d4c96376a3): a\n   library maintainer hits TS2677\
+  \ — the TypeScript checker rejecting\n   conditional-type predicates — and must\
+  \ choose between simplifying types or\n   converting to assertion functions. This\
+  \ is a static-analysis / type-system\n   problem unrelated to module loading or\
+  \ build configuration.\n"
+cluster_fingerprint: 7388359a0466
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_36d4c96376a3
+- sig_a010122cb0f7
+- sig_4be3c87f89e3
+- sig_93450337c6c7
+all_signal_ids:
+- sig_36d4c96376a3
+- sig_a010122cb0f7
+- sig_4be3c87f89e3
+- sig_93450337c6c7
+- sig_43b19052b391
+- sig_53d75dbc56ec
+- sig_06df0780afd9
+- sig_0e0311da95ff
+- sig_6c7072ade7c3
+- sig_0c9a8e06afcd
+- sig_4416388f3862
+- sig_be982cca9101
+metrics:
+  primary_signal_count: 4
+  total_signal_count: 12
+  source_diversity: 3
+  context_diversity: 11
+  sources:
+  - github_issues
+  - hackernews
+  - stackoverflow
+  temporal_trend: stable
+  intensity_distribution:
+    1: 2
+    2: 3
+    3: 6
+  intensity_mean: 2.36
+  industries:
+  - finance
+  - software_development
+  industry_spread: 2
+  workaround_count: 9
+  spend_evidence_count: 0
+  competitor_mentions:
+    Node.js: 2
+    TypeScript: 1
+    oxlint: 1
+    ESLint: 1
+    esbuild: 1
+    tsx: 1
+    jiti: 1
+    Webpack: 1
+    html-webpack-plugin: 1
+    Express: 1
+    OpenTofu: 1
+    Mito: 1
+    OpenAI: 1
+    TradingView: 1
+    pynescript: 1
+    formulas: 1
+    PHP: 1
+    Python: 1
+    Ruby: 1
+    jQuery: 1

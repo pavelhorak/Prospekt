@@ -1,0 +1,117 @@
+cluster_id: clust_007
+cluster_label: INCOHERENT
+cluster_summary: 'These signals share GitHub issue "feature request" template boilerplate,
+  but
+
+  they describe at least four unrelated problems: (1) environment-scoped
+
+  configuration and tab-stability in an API testing IDE plugin (sig_d98e6e68c612),
+
+  (2) missing Agentic RAG / MCP capabilities in a knowledge-graph framework
+
+  (sig_10096264adf8), (3) cosmetic audio/video effects in a browser speed-control
+
+  extension (sig_8188b8bccacf), and (4) anonymous, GitHub-account-free feedback
+
+  collection for a movie website (sig_fe6359a6b496). The fifth signal
+
+  (sig_cca75b9ecfac) is an empty stub. The cluster was almost certainly formed
+
+  on surface-level template similarity ("feature request" heading text) rather
+
+  than shared user pain.
+
+  '
+cluster_fingerprint: 56bb8866c554
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_10096264adf8
+- sig_26ac55d6d3c7
+- sig_29d2cbfdd0d2
+- sig_359fac070625
+- sig_4ced447819af
+- sig_7111a0436552
+- sig_8188b8bccacf
+- sig_86e7e437fa53
+- sig_909ab37340ea
+- sig_93ae40ecd3ab
+- sig_cca75b9ecfac
+- sig_d98e6e68c612
+- sig_fe6359a6b496
+all_signal_ids:
+- sig_10096264adf8
+- sig_26ac55d6d3c7
+- sig_29d2cbfdd0d2
+- sig_359fac070625
+- sig_4ced447819af
+- sig_7111a0436552
+- sig_8188b8bccacf
+- sig_86e7e437fa53
+- sig_909ab37340ea
+- sig_93ae40ecd3ab
+- sig_cca75b9ecfac
+- sig_d98e6e68c612
+- sig_fe6359a6b496
+- sig_08d7f9a3b5b5
+- sig_1391aae90527
+- sig_bb80850e81a1
+- sig_c25c18648657
+- sig_c81989ae3388
+- sig_cf86c62de9fd
+- sig_dbe5cb0214d9
+- sig_f733059a770f
+- sig_014e974eb6ea
+- sig_0fc4b73d8c1b
+- sig_173e6922b79d
+- sig_27f219efb4b4
+- sig_3f28e8e16c15
+- sig_4a697fd6cbf9
+- sig_583671ab3dea
+- sig_5c8523bff916
+- sig_80ed654eff9e
+- sig_8fc56fd7af9e
+- sig_9fd78c602445
+- sig_ffc19d78690d
+metrics:
+  primary_signal_count: 13
+  total_signal_count: 33
+  source_diversity: 2
+  context_diversity: 29
+  sources:
+  - github_issues
+  - hackernews
+  temporal_trend: increasing
+  intensity_distribution:
+    1: 14
+    2: 12
+    3: 5
+  intensity_mean: 1.71
+  industries:
+  - managed_services
+  - software_development
+  industry_spread: 2
+  workaround_count: 10
+  spend_evidence_count: 3
+  competitor_mentions:
+    Amplitude: 2
+    RAGFlow: 1
+    Storybook: 1
+    Figma: 1
+    Gemini: 1
+    Restful Fast Request: 1
+    GitHub Issues: 1
+    GitHub Discussions: 1
+    OpenSteamTool: 1
+    GL Stealth Mode: 1
+    Photino: 1
+    InfiniFrame: 1
+    legate-dataframe: 1
+    Legion: 1
+    CUDA: 1
+    LinkHub: 1
+    URLCheck: 1
+    HomeKit: 1
+    Intune: 1
+    CIPP: 1

@@ -1,0 +1,67 @@
+cluster_id: clust_025
+cluster_label: GPU infrastructure moats live in accumulated ops knowledge, not CUDA
+  syntax
+cluster_summary: 'ML infrastructure engineers and technical decision-makers are finding
+  that
+
+  the real cost of switching GPU vendors — or standing up novel model serving
+
+  stacks — is not writing low-level code (AI can do that now), but the years
+
+  of documented failure modes, non-obvious flags, runtime quirks, and
+
+  cross-layer debugging that live in experienced operators'' heads. Concrete
+
+  examples of painful cold-start tuning and multi-layer JSON-streaming patches
+
+  illustrate that even once hardware is procured, the stack remains fragile
+
+  and opaque. These practitioners currently absorb the cost themselves through
+
+  tribal knowledge and manual infra whack-a-mole, with no systematic way to
+
+  capture or transfer it.
+
+  '
+cluster_fingerprint: 3a5f2e860e7b
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_494296ac3949
+- sig_54eb673c0980
+- sig_760eacc37a6c
+all_signal_ids:
+- sig_494296ac3949
+- sig_54eb673c0980
+- sig_760eacc37a6c
+- sig_0de3c06f6fd1
+- sig_183e7757d20e
+- sig_db4a0749790a
+- sig_b39e534cb8be
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 7
+  source_diversity: 2
+  context_diversity: 6
+  sources:
+  - hackernews
+  - stackoverflow
+  temporal_trend: increasing
+  intensity_distribution:
+    1: 1
+    2: 4
+    3: 1
+  intensity_mean: 2.0
+  industries:
+  - software_development
+  industry_spread: 1
+  workaround_count: 2
+  spend_evidence_count: 0
+  competitor_mentions:
+    CUDA: 3
+    AMD: 1
+    Intel: 1
+    Battlemage: 1
+    Postgres: 1
+    Redis: 1

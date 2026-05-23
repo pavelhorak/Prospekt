@@ -1,0 +1,95 @@
+cluster_id: clust_024
+cluster_label: On-call teams are locked into painful incident alerting tools by the
+  reliability moat
+cluster_summary: 'SRE managers and DevOps leads know PagerDuty has serious UX problems
+  —
+
+  on-call rotation scheduling requires a 12-step manual process just to
+
+  take vacation, and integration gaps turn it into yet another dashboard
+
+  to watch. Yet they stay because the cost of a missed alert is
+
+  existential: PagerDuty''s multi-provider, non-AWS infrastructure
+
+  delivers notifications even during cloud provider outages, and no
+
+  competitor has matched that bar. The result is a captive buyer who
+
+  complains loudly but churns slowly — they will switch only when an
+
+  alternative proves equivalent or better reliability, not just better UX.
+
+  '
+cluster_fingerprint: 5b7620a35c61
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_5d12194740b9
+- sig_79ee81dd68e5
+- sig_8a01db1e62fb
+all_signal_ids:
+- sig_5d12194740b9
+- sig_79ee81dd68e5
+- sig_8a01db1e62fb
+- sig_05138fe5dd7a
+- sig_0981a4862390
+- sig_0fa93af65caa
+- sig_0ffa1d4edd2f
+- sig_1440ba1f0ff9
+- sig_19130d21e358
+- sig_3953f37f3549
+- sig_669d95ef1d8c
+- sig_98a2cc89a1c2
+- sig_9fd78c602445
+- sig_a7dc6cee3918
+- sig_cb8b648e193c
+- sig_e33cd9c452f4
+- sig_e70395f7bea8
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 17
+  source_diversity: 1
+  context_diversity: 10
+  sources:
+  - hackernews
+  temporal_trend: increasing
+  intensity_distribution:
+    2: 3
+    3: 8
+    4: 4
+    5: 1
+  intensity_mean: 3.19
+  industries:
+  - cybersecurity
+  - financial_services
+  - government
+  - healthcare
+  - hr_payroll
+  - legal
+  - software_development
+  industry_spread: 7
+  workaround_count: 8
+  spend_evidence_count: 6
+  competitor_mentions:
+    PagerDuty: 4
+    Slack: 2
+    WhatsApp: 2
+    iCloud: 2
+    allquiet: 1
+    Workday: 1
+    Outlook: 1
+    Cloudflare: 1
+    CharlieHR: 1
+    UPI: 1
+    AccessOwl: 1
+    Monzo: 1
+    Bikayi: 1
+    Khatabook: 1
+    OKCredit: 1
+    YouTube: 1
+    Postgres: 1
+    ClickHouse: 1
+    Snowflake: 1
+    Redis: 1

@@ -1,0 +1,59 @@
+cluster_id: clust_009
+cluster_label: Incumbent launch providers struggling to respond to SpaceX's cost disruption
+cluster_summary: 'Established space launch organizations — primarily Ariane Group
+  and NASA — and
+
+  their leadership are facing political and competitive pressure as SpaceX''s
+
+  reusable rocket economics undercut legacy pricing models. Rather than adapting,
+
+  incumbent executives are perceived as deflecting blame onto government subsidies,
+
+  geopolitics, and US tech firms while themselves relying on protectionist support.
+
+  The signals converge on a single pain: institutions built around state-backed
+
+  procurement cannot articulate or execute a credible competitive response to
+
+  commercially-driven reusability.
+
+  '
+cluster_fingerprint: a6d97fa7d34c
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_2097c73d7e5c
+- sig_44fc610763c1
+- sig_8160a47d94b3
+- sig_94958fffc9f0
+- sig_e5e762783ab5
+all_signal_ids:
+- sig_2097c73d7e5c
+- sig_44fc610763c1
+- sig_8160a47d94b3
+- sig_94958fffc9f0
+- sig_e5e762783ab5
+- sig_e0fd68a41bee
+metrics:
+  primary_signal_count: 5
+  total_signal_count: 6
+  source_diversity: 1
+  context_diversity: 3
+  sources:
+  - hackernews
+  temporal_trend: unknown
+  intensity_distribution:
+    1: 1
+    2: 2
+    4: 1
+  intensity_mean: 2.25
+  industries:
+  - aerospace
+  industry_spread: 1
+  workaround_count: 0
+  spend_evidence_count: 0
+  competitor_mentions:
+    SpaceX: 3
+    Ariane: 1
+    NASA: 1

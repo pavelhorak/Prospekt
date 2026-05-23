@@ -1,0 +1,84 @@
+cluster_id: clust_018
+cluster_label: Teams lack a lightweight way to share and remember internal URLs
+cluster_summary: 'Employees at mid-size and non-tech companies have no easy mechanism
+  for
+
+  sharing internal links in a memorable, durable way — no internal go/link
+
+  infrastructure like the kind large tech companies (Google, LinkedIn) built
+
+  themselves. Operations leads and internal-tools teams currently fall back
+
+  on bookmarks, copy-paste in Slack, or leaving browser tabs open
+
+  permanently, while larger enterprises that do invest in a custom solution
+
+  carry the burden of maintaining it and enforcing adoption. The discussion
+
+  also surfaces a real counter-concern — that link-shortening services create
+
+  link-rot and opacity risks — but both the concern and the feature requests
+
+  orbit the same root problem: there is no standard, self-managed solution
+
+  for navigating an organisation''s internal URL space.
+
+  '
+cluster_fingerprint: 52c39efc56d1
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_3a17f3e5f09b
+- sig_52a22b6e3bc3
+- sig_ee9b1dc98651
+all_signal_ids:
+- sig_3a17f3e5f09b
+- sig_52a22b6e3bc3
+- sig_ee9b1dc98651
+- sig_105f295f8350
+- sig_1440ba1f0ff9
+- sig_14bc0f89abbe
+- sig_3be6bf274e6b
+- sig_5867176f91e4
+- sig_a688900e599a
+- sig_acaf9facfefd
+- sig_aedaa459e0a5
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 11
+  source_diversity: 1
+  context_diversity: 7
+  sources:
+  - hackernews
+  temporal_trend: decreasing
+  intensity_distribution:
+    2: 3
+    3: 6
+  intensity_mean: 2.67
+  industries:
+  - e_commerce
+  - insurance
+  - software_development
+  industry_spread: 3
+  workaround_count: 6
+  spend_evidence_count: 1
+  competitor_mentions:
+    Slack: 3
+    Workday: 1
+    bit.ly: 1
+    CharlieHR: 1
+    Okta: 1
+    SCIM: 1
+    JIRA: 1
+    Gsheet: 1
+    Notion: 1
+    Airtable: 1
+    Builder.io: 1
+    Puck: 1
+    Storyblok: 1
+    Wix: 1
+    Squarespace: 1
+    OpenAI: 1
+    formulas: 1
+    Ballerina: 1

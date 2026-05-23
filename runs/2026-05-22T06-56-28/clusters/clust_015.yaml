@@ -1,0 +1,118 @@
+cluster_id: clust_015
+cluster_label: INCOHERENT
+cluster_summary: 'At least three distinct problems are mixed in this cluster. Signals
+
+  sig_77a2a56539e5, sig_86c030b3b498, and sig_da945b38bdc9 share a single
+
+  concern: end-users and developers frustrated that AI content filters are
+
+  too restrictive, with sig_86c030b3b498 being a direct jailbreak attempt
+
+  to circumvent those filters. Signal sig_dc1d36101b0a is about the
+
+  opposite problem — AI being used to generate fake human comments that
+
+  pollute online discussion forums, which is a platform-integrity concern,
+
+  not a filter-frustration concern. Signal sig_53b95f79f8ac is a third
+
+  distinct thread: a meta-commentary on societal and legal responsibility
+
+  for AI-generated harmful content, framing the issue as a public-safety
+
+  and liability question rather than a user-experience one. Grouping these
+
+  together papers over the fact that signals 1/3/4 argue filters are too
+
+  strong, signal 2 implicitly argues AI output needs more gatekeeping on
+
+  platforms, and signal 5 is asking who bears legal blame when filters
+
+  fail — three incompatible framings of AI content moderation.
+
+  '
+cluster_fingerprint: fd341332ebe1
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_05b8b4b979d8
+- sig_53b95f79f8ac
+- sig_77a2a56539e5
+- sig_86c030b3b498
+- sig_da945b38bdc9
+- sig_dc1d36101b0a
+all_signal_ids:
+- sig_05b8b4b979d8
+- sig_53b95f79f8ac
+- sig_77a2a56539e5
+- sig_86c030b3b498
+- sig_da945b38bdc9
+- sig_dc1d36101b0a
+- sig_08d7f9a3b5b5
+- sig_d98e6e68c612
+- sig_0886b7918f8e
+- sig_09fcc2113d79
+- sig_1164a1893e48
+- sig_136cd594e986
+- sig_1e369df2f921
+- sig_222924b108db
+- sig_310f99c78fdd
+- sig_33d2722576b6
+- sig_44d9fe1cbd05
+- sig_4ab5d4d85c18
+- sig_4e38eeca9172
+- sig_5d12194740b9
+- sig_aa4cf42a3ebe
+- sig_ac8a2df3aba8
+- sig_ae794ea93bde
+- sig_bc70a7f05af0
+- sig_d300e92e0ed4
+- sig_e5b1679024d6
+- sig_e64081c0dad8
+- sig_fc6a5bc2ff82
+- sig_feca0e25bad1
+- sig_ce790c98fc64
+metrics:
+  primary_signal_count: 6
+  total_signal_count: 30
+  source_diversity: 3
+  context_diversity: 20
+  sources:
+  - github_issues
+  - hackernews
+  - stackoverflow
+  temporal_trend: stable
+  intensity_distribution:
+    1: 3
+    2: 14
+    3: 7
+  intensity_mean: 2.17
+  industries:
+  - education
+  - software_development
+  - technology
+  industry_spread: 3
+  workaround_count: 10
+  spend_evidence_count: 4
+  competitor_mentions:
+    ChatGPT: 4
+    OpenAI: 3
+    Apple: 2
+    Google: 2
+    Slack: 2
+    Parler: 2
+    Chat GPT: 1
+    Tay: 1
+    GPT3: 1
+    AIDungeon: 1
+    chatGPT: 1
+    Microsoft: 1
+    Restful Fast Request: 1
+    Heroku: 1
+    Reddit: 1
+    FB: 1
+    Voat: 1
+    Ruqqus: 1
+    PagerDuty: 1
+    allquiet: 1

@@ -1,0 +1,63 @@
+cluster_id: clust_010
+cluster_label: Apple's expanding App Store ads feel like a betrayal of the premium,
+  privacy-respecting brand promise
+cluster_summary: 'Apple device owners who pay premium prices for hardware, software,
+  and
+
+  subscriptions are increasingly resentful of ads appearing inside the App
+
+  Store. They frame the expansion of advertising as Apple abandoning the
+
+  differentiation that justified its price premium over Google — and worry
+
+  it signals the same privacy trade-offs they switched to Apple to avoid.
+
+  Currently they have no recourse: they complain publicly, compare Apple
+
+  unfavourably to Google, and quietly reassess whether the ecosystem lock-in
+
+  is still worth it.
+
+  '
+cluster_fingerprint: 1af4e7bb8009
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_09fcc2113d79
+- sig_18bef95ca19c
+- sig_4e38eeca9172
+- sig_732f5eb0e556
+all_signal_ids:
+- sig_09fcc2113d79
+- sig_18bef95ca19c
+- sig_4e38eeca9172
+- sig_732f5eb0e556
+- sig_2d68431078bf
+- sig_4de67f61f608
+- sig_ca4f11a8f9c6
+metrics:
+  primary_signal_count: 4
+  total_signal_count: 7
+  source_diversity: 1
+  context_diversity: 5
+  sources:
+  - hackernews
+  temporal_trend: increasing
+  intensity_distribution:
+    2: 2
+    3: 2
+    4: 1
+  intensity_mean: 2.8
+  industries:
+  - software_development
+  - technology
+  industry_spread: 2
+  workaround_count: 0
+  spend_evidence_count: 2
+  competitor_mentions:
+    Apple: 2
+    Google: 2
+    App Store: 2
+    iCloud: 1
+    Core Data: 1

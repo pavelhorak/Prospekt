@@ -1,0 +1,71 @@
+cluster_id: clust_012
+cluster_label: Unmoderated social platforms are seen as both harmful and commercially
+  unviable
+cluster_summary: 'Critics and experienced platform users argue that "free speech"
+  social networks
+
+  fail on two simultaneous fronts: they attract and amplify genuinely harmful content
+
+  (CSAM, terrorism, organized crime, harassment), and they structurally trap themselves
+
+  in an echo chamber of banned users that makes mainstream growth impossible. The
+  persona
+
+  is a skeptical technologist or long-time community participant who has watched prior
+
+  attempts (Voat, Ruqqus, Parler) collapse under these same dynamics, and who views
+  the
+
+  moderation-vs-free-speech framing as a false choice that ignores product reality.
+
+  '
+cluster_fingerprint: 58ef97d94235
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_1e369df2f921
+- sig_4ab5d4d85c18
+- sig_feca0e25bad1
+all_signal_ids:
+- sig_1e369df2f921
+- sig_4ab5d4d85c18
+- sig_feca0e25bad1
+- sig_105f295f8350
+- sig_44fc610763c1
+- sig_53b95f79f8ac
+- sig_69b75ab896ff
+- sig_77a2a56539e5
+- sig_86c030b3b498
+- sig_8e6b783e7c66
+- sig_dc1d36101b0a
+- sig_fb9e315a8407
+- sig_ffeff8686695
+metrics:
+  primary_signal_count: 3
+  total_signal_count: 13
+  source_diversity: 1
+  context_diversity: 10
+  sources:
+  - hackernews
+  temporal_trend: decreasing
+  intensity_distribution:
+    1: 1
+    2: 6
+    3: 1
+  intensity_mean: 2.0
+  industries:
+  - software_development
+  industry_spread: 1
+  workaround_count: 1
+  spend_evidence_count: 0
+  competitor_mentions:
+    ChatGPT: 3
+    Parler: 2
+    Reddit: 1
+    FB: 1
+    Voat: 1
+    Ruqqus: 1
+    Tay: 1
+    ideasdb: 1
+    OpenAI: 1

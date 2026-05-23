@@ -1,0 +1,61 @@
+cluster_id: clust_004
+cluster_label: Developers new to Git can't discover or understand branch comparison
+  workflows
+cluster_summary: 'Developers transitioning from older version-control systems (SourceSafe,
+  SVN)
+
+  or learning Git from scratch struggle to find the right commands and tools for
+
+  comparing branches — e.g. which `git diff` syntax shows file-level changes,
+
+  what `--no-ff` actually does to merge history, or how to get Git visibility
+
+  inside an IDE. They search Stack Overflow for specific incantations because
+
+  Git''s branch-comparison surface area is large and its output formats are
+
+  non-obvious to newcomers. The workaround is ad-hoc: grepping diff output,
+
+  asking colleagues, or hunting for GUI integrations that make the delta visible.
+
+  '
+cluster_fingerprint: 650c698fe211
+embedding_model: BAAI/bge-base-en-v1.5
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_3316ca61ccfa
+- sig_45f4034ead55
+- sig_d58ddbe6e7f8
+- sig_f5c1824d9748
+all_signal_ids:
+- sig_3316ca61ccfa
+- sig_45f4034ead55
+- sig_d58ddbe6e7f8
+- sig_f5c1824d9748
+- sig_071b0ad6e5e3
+- sig_0d349e93bd43
+- sig_0e84b38d74b5
+metrics:
+  primary_signal_count: 4
+  total_signal_count: 7
+  source_diversity: 2
+  context_diversity: 7
+  sources:
+  - hackernews
+  - stackoverflow
+  temporal_trend: stable
+  intensity_distribution:
+    1: 2
+    2: 3
+  intensity_mean: 1.6
+  industries:
+  - software_development
+  industry_spread: 1
+  workaround_count: 3
+  spend_evidence_count: 0
+  competitor_mentions:
+    git: 3
+    gitk: 1
+    Jira: 1
+    msysgit: 1
