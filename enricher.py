@@ -34,6 +34,7 @@ def enrich_clusters(config: dict, rdir: Path) -> None:
     temperature = float(ecfg.get("temperature", 0.3))
     max_searches = int(ecfg.get("max_searches", 5))
     max_tokens = int(ecfg.get("max_tokens", 6000))
+    max_clusters = int(ecfg.get("max_clusters", 10))  # hard cap on per-run enrichment volume
 
     clusters_dir = rdir / "clusters"
     if not clusters_dir.exists():
@@ -47,11 +48,15 @@ def enrich_clusters(config: dict, rdir: Path) -> None:
     cluster_files = sorted(clusters_dir.glob("clust_*.yaml"))
     all_clusters = [_load(p) for p in cluster_files]
     triggered = [c for c in all_clusters if _passes_triggers(c, triggers)]
-    pending = [c for c in triggered if c["cluster_id"] not in already]
+    # Rank triggered clusters by primary_signal_count desc — densest evidence first.
+    triggered.sort(key=lambda c: -(c.get("metrics") or {}).get("primary_signal_count", 0))
+    fresh = [c for c in triggered if c["cluster_id"] not in already]
+    pending = fresh[:max_clusters]
 
     print(
         f"  {len(all_clusters)} clusters; {len(triggered)} pass triggers; "
-        f"{len(pending)} pending (skipping {len(triggered) - len(pending)} already enriched)"
+        f"{len(triggered) - len(fresh)} already enriched; "
+        f"taking top {len(pending)} (cap = {max_clusters})"
     )
     if not pending:
         return

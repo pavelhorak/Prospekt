@@ -55,11 +55,12 @@ clustering:
 
 enrichment:
   prompt_file: prompts/enrichment.md
+  max_clusters: 5               # hard cap on per-run enrichment volume (top-N by primary count)
   triggers:
-    min_signal_count: 10
-    min_source_diversity: 2
-    min_workaround_count: 3
-    min_median_intensity: 2     # lowered from 3 for this corpus (HN/SO/GH skews low-intensity)
+    min_signal_count: 3         # bge-base produces smaller clusters; pair with max_clusters above
+    min_source_diversity: 1
+    min_workaround_count: 1
+    min_median_intensity: 2     # HN/SO/GH skews low-intensity, but real pain still scores ≥2
 
 modeling:
   top_n: 3                      # model the top-N scored clusters
