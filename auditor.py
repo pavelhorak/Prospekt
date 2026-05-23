@@ -85,7 +85,11 @@ def audit_tag_precision(
         if not sid:
             continue
         d = (t.get("tags") or {}).get(dimension)
-        if isinstance(d, dict) and d.get("value") == "yes":
+        if not isinstance(d, dict):
+            continue
+        v = d.get("value")
+        # Accept yes/True/y/true — YAML's unquoted yes parses to bool True.
+        if v is True or (isinstance(v, str) and v.strip().lower() in {"yes", "y", "true"}):
             yes_signal_ids.append(sid)
 
     if not yes_signal_ids:

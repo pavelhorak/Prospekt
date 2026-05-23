@@ -42,8 +42,8 @@ tagged:
       buyer_persona:    {value: engineering_manager,  quote: "as a manager I…"}
       company_size:     {value: 51-200,               quote: "40 engineers"}
       geography:        {value: unknown,              quote: ""}
-      has_workaround:   {value: yes, description: "manual Google Sheet weekly export"}
-      has_spend:        {value: no,  amount: null}
+      has_workaround:   {value: "yes", description: "manual Google Sheet weekly export"}
+      has_spend:        {value: "no",  amount: null}
       existing_solution_mentioned: [Jira, GitHub]
       date_relevance:   {value: current,              quote: ""}
   - signal_id: sig_yyyyyyyyyyyy

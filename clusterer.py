@@ -446,10 +446,10 @@ def _build_cluster_record(
         metrics["industries"] = sorted({v for v in _extract_tag(tag_records, "industry") if v and v != "unknown"})
         metrics["industry_spread"] = len(metrics["industries"])
         metrics["workaround_count"] = sum(
-            1 for t in tag_records if _get_tag_value(t, "has_workaround") == "yes"
+            1 for t in tag_records if _truthy(_get_tag_value(t, "has_workaround"))
         )
         metrics["spend_evidence_count"] = sum(
-            1 for t in tag_records if _get_tag_value(t, "has_spend") == "yes"
+            1 for t in tag_records if _truthy(_get_tag_value(t, "has_spend"))
         )
         # competitor mentions
         mention_counts: Counter = Counter()
@@ -522,6 +522,21 @@ def _get_tag_value(tag_record: dict, dim: str):
     if isinstance(entry, dict):
         return entry.get("value")
     return entry
+
+
+def _truthy(v) -> bool:
+    """Treat True/'yes'/'y'/'true' as yes; False/'no'/null/'unknown' as no.
+
+    The tagging prompt asks for `yes`/`no` but YAML's unquoted `yes`/`no`
+    parse to Python booleans True/False. Both representations need to count.
+    """
+    if v is True:
+        return True
+    if v is False or v is None:
+        return False
+    if isinstance(v, str):
+        return v.strip().lower() in {"yes", "y", "true"}
+    return False
 
 
 def _histogram(values: list) -> dict:

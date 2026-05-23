@@ -59,7 +59,7 @@ enrichment:
     min_signal_count: 10
     min_source_diversity: 2
     min_workaround_count: 3
-    min_median_intensity: 3
+    min_median_intensity: 2     # lowered from 3 for this corpus (HN/SO/GH skews low-intensity)
 
 modeling:
   top_n: 3                      # model the top-N scored clusters
