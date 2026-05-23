@@ -1,0 +1,34 @@
+signal_id: sig_85da07a0c130
+tags:
+  pain_type:
+    value: switching
+    quote: I started playing with Webkit nightlies a few weeks back and never looked
+      back
+  pain_intensity:
+    value: 2
+    quote: eats less memory
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I use keyboard shortcuts to turn off the location and bookmarks bars most
+      of the time
+  company_size:
+    value: solo
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Firefox
+  - WebKit
+  date_relevance:
+    value: historical
+    quote: ''

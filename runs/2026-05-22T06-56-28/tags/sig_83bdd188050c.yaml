@@ -1,0 +1,34 @@
+signal_id: sig_83bdd188050c
+tags:
+  pain_type:
+    value: complaint
+    quote: opening such CSV files (containing e.g. diacritics, cyrillic letters, Greek
+      letters) in Excel does not achieve the expected results
+  pain_intensity:
+    value: 3
+    quote: The application always uses UTF-8 because of its multilingual nature
+  industry:
+    value: software_development
+    quote: I'm developing a part of an application
+  buyer_persona:
+    value: individual_developer
+    quote: I'm developing a part of an application
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Solutions confirmed via accepted answers (Alex's and Mark's); UTF-8
+      BOM was tried but failed — 'I also tried specifying UTF-8 BOM EF BB BF, but
+      Excel ignores that'
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Excel
+  date_relevance:
+    value: current
+    quote: ''

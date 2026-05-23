@@ -1,0 +1,34 @@
+signal_id: sig_cf86c62de9fd
+tags:
+  pain_type:
+    value: feature_request
+    quote: I hope LinkHub can include a link-opening selector
+  pain_intensity:
+    value: 2
+    quote: I use several different browsers at the same time, and I don't want to
+      have to add bookmarks to each one individually
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: solo
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Using URLCheck to handle link opening across multiple browsers as
+      a substitute for a native selector
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - LinkHub
+  - URLCheck
+  date_relevance:
+    value: current
+    quote: ''

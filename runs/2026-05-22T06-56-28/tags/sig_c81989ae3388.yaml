@@ -1,0 +1,34 @@
+signal_id: sig_c81989ae3388
+tags:
+  pain_type:
+    value: workaround
+    quote: Remove very brittle __half complex hack/workaround!
+  pain_intensity:
+    value: 2
+    quote: This is nauseating of course.  And also definitely very brittle.
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Injecting a legion_hack header that undefines LEGION_REDOP_HALF when
+      LEGION_USE_CUDA is set
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - legate-dataframe
+  - Legion
+  - CUDA
+  date_relevance:
+    value: current
+    quote: ''

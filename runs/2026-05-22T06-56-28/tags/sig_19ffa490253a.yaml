@@ -1,0 +1,30 @@
+signal_id: sig_19ffa490253a
+tags:
+  pain_type:
+    value: complaint
+    quote: salaries have gone DOWN since I last worked as IC!
+  pain_intensity:
+    value: 3
+    quote: salaries have gone DOWN
+  industry:
+    value: software_development
+    quote: senior SWE in SF for Airbnb
+  buyer_persona:
+    value: individual_developer
+    quote: senior SWE in SF
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: senior SWE in SF
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

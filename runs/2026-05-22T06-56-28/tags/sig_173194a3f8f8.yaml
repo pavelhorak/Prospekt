@@ -1,0 +1,31 @@
+signal_id: sig_173194a3f8f8
+tags:
+  pain_type:
+    value: question
+    quote: How to remove rows with duplicate index values?
+  pain_intensity:
+    value: 2
+    quote: I am stuck on figuring out the group_by or pivot
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I'm reading some automated weather data from the web
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - pandas
+  date_relevance:
+    value: older
+    quote: ''

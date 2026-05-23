@@ -1,0 +1,41 @@
+signal_id: sig_faf6388de1c7
+tags:
+  pain_type:
+    value: complaint
+    quote: snip does not handle loops and complex shell commands (for, while, if,
+      case)
+  pain_intensity:
+    value: 3
+    quote: bash produces a cryptic syntax error
+  industry:
+    value: software_development
+    quote: Affects ALL agent integrations (Claude Code, OpenCode, Cursor, Codex, Copilot,
+      Gemini)
+  buyer_persona:
+    value: individual_developer
+    quote: 'Filed by: Maya + Izzat'
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: 'Four workarounds: put snip inside loop body; wrap loop as a shell
+      function; use snip proxy per iteration; manually add keywords to agent plugin
+      UNPROXYABLE_COMMANDS'
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Claude Code
+  - OpenCode
+  - Cursor
+  - Codex
+  - Copilot
+  - Gemini
+  - snip
+  date_relevance:
+    value: current
+    quote: 'Date: 2026-05-21'

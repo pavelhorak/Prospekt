@@ -1,0 +1,38 @@
+signal_id: sig_9c426cb3f391
+tags:
+  pain_type:
+    value: complaint
+    quote: wasted 2 years of my life working heavily with the Mozilla/XULRunner/FF
+      codebase
+  pain_intensity:
+    value: 4
+    quote: wasted 2 years of my life
+  industry:
+    value: software_development
+    quote: engineering team as a whole gets sidetracked
+  buyer_persona:
+    value: individual_developer
+    quote: wasted 2 years of my life working heavily with the Mozilla/XULRunner/FF
+      codebase
+  company_size:
+    value: 1000+
+    quote: too many cooks in the kitchen at mozilla
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Mozilla
+  - XULRunner
+  - Firefox
+  - WebKit
+  - Android
+  - Adobe AIR
+  date_relevance:
+    value: historical
+    quote: ''

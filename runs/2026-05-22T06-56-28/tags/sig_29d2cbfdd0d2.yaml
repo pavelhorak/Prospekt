@@ -1,0 +1,32 @@
+signal_id: sig_29d2cbfdd0d2
+tags:
+  pain_type:
+    value: feature_request
+    quote: Recreate this component(s) in Storybook.
+  pain_intensity:
+    value: 1
+    quote: ''
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Storybook
+  - Figma
+  date_relevance:
+    value: current
+    quote: ''

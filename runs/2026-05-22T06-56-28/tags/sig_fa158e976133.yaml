@@ -1,0 +1,37 @@
+signal_id: sig_fa158e976133
+tags:
+  pain_type:
+    value: feature_request
+    quote: Recommend GUI partition tools first; avoid complex CLI workarounds on desktop
+      systems
+  pain_intensity:
+    value: 3
+    quote: Could have corrupted the partition table if something went wrong
+  industry:
+    value: software_development
+    quote: desktop Linux system
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Used GUI partition manager (KDE Partition Manager / GNOME Disks)
+      — completed successfully in seconds
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - parted
+  - sfdisk
+  - blockdev
+  - KDE Partition Manager
+  - GNOME Disks
+  date_relevance:
+    value: current
+    quote: ''

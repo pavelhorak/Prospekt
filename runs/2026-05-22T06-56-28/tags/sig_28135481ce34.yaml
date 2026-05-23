@@ -1,0 +1,33 @@
+signal_id: sig_28135481ce34
+tags:
+  pain_type:
+    value: workaround
+    quote: 'Workaround Options (being evaluated in #366)'
+  pain_intensity:
+    value: 3
+    quote: The 10KB cap means we need an alternative delivery mechanism for the lead
+      session.
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: file-based delivery, accept auto-filing behavior, skill-based delivery,
+      or splitting into multiple <10KB hooks
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Claude Code
+  date_relevance:
+    value: current
+    quote: ''

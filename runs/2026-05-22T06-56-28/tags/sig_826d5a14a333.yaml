@@ -1,0 +1,31 @@
+signal_id: sig_826d5a14a333
+tags:
+  pain_type:
+    value: workaround
+    quote: throw inexpensive bodies at many of the tasks that are otherwise candidates
+      for automation
+  pain_intensity:
+    value: 1
+    quote: Tools can really slow you down in the early going
+  industry:
+    value: software_development
+    quote: building tools gives more employees experience in building product
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: use inexpensive human labor in place of early-stage automation
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

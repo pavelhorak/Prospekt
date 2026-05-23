@@ -1,0 +1,32 @@
+signal_id: sig_54eb673c0980
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: The moat was never CUDA syntax. It was ten years of documented failure
+      modes
+  pain_intensity:
+    value: 2
+    quote: that&#x27;s not something you can prompt your way out of
+  industry:
+    value: software_development
+    quote: the serving layer
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - CUDA
+  date_relevance:
+    value: current
+    quote: ''

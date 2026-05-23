@@ -1,0 +1,32 @@
+signal_id: sig_ae794ea93bde
+tags:
+  pain_type:
+    value: complaint
+    quote: business users are deterred from creating software because they need to
+      write structured text & use syntax to do it
+  pain_intensity:
+    value: 2
+    quote: some kind of insurmountable barrier that I don't understand
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I've found that business users are deterred from creating software
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: WYSIWYG low-code tools that remove the syntax/text entry barrier
+      for business users
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

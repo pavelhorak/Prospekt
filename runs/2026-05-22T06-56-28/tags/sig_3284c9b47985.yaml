@@ -1,0 +1,33 @@
+signal_id: sig_3284c9b47985
+tags:
+  pain_type:
+    value: complaint
+    quote: False positive (flags valid code)
+  pain_intensity:
+    value: 2
+    quote: '`compareDeeply(''ref'')` is dead code'
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - ESLint
+  - React
+  - TypeScript
+  date_relevance:
+    value: current
+    quote: ''

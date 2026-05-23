@@ -1,0 +1,35 @@
+signal_id: sig_059986ceefcc
+tags:
+  pain_type:
+    value: workaround
+    quote: I've found an apparent workaround
+  pain_intensity:
+    value: 3
+    quote: I'm getting pretty frustrated and am sort of at a stand still in my project
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I am trying to connect to a COM port
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: SerialPortFixer class (Zach's code) that directly invokes Win32 CreateFile
+      to bypass the .NET SerialPort bug
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Visual Studio
+  - Termite
+  - Eclipse
+  - Java
+  date_relevance:
+    value: older
+    quote: ''

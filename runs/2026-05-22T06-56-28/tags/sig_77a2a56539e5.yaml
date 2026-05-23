@@ -1,0 +1,33 @@
+signal_id: sig_77a2a56539e5
+tags:
+  pain_type:
+    value: complaint
+    quote: it drives me insane that such a useful AI is &quot;crippled&quot; and restricted
+      to such extent
+  pain_intensity:
+    value: 3
+    quote: drives me insane
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - ChatGPT
+  - OpenAI
+  date_relevance:
+    value: recent
+    quote: ''

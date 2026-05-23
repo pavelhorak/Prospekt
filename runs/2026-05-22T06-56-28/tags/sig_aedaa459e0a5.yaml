@@ -1,0 +1,33 @@
+signal_id: sig_aedaa459e0a5
+tags:
+  pain_type:
+    value: manual_process
+    quote: working out of spreadsheets and Slack
+  pain_intensity:
+    value: 3
+    quote: tasks slipping through the cracks or data getting out-of-sync
+  industry:
+    value: unknown
+    quote: built specifically for technology companies that have manual work behind
+      the scenes
+  buyer_persona:
+    value: engineering_manager
+    quote: bottlenecked on engineering availability
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Operations teams using spreadsheets and Slack as an interim workaround
+      while waiting for engineering resources to build proper internal tooling
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Slack
+  date_relevance:
+    value: current
+    quote: ''

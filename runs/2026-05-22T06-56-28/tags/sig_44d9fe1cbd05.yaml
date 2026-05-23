@@ -1,0 +1,31 @@
+signal_id: sig_44d9fe1cbd05
+tags:
+  pain_type:
+    value: complaint
+    quote: most companies have their own way of handling it (or not handling it in
+      many cases)
+  pain_intensity:
+    value: 2
+    quote: For most orgs the platform defaults are good enough
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: operations_manager
+    quote: from my perspective is deactivation
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

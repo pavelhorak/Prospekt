@@ -1,0 +1,33 @@
+signal_id: sig_4e38eeca9172
+tags:
+  pain_type:
+    value: price_complaint
+    quote: why should we keep paying Apple the premium it charges
+  pain_intensity:
+    value: 3
+    quote: the same perverse incentives that care nothing for our privacy will almost
+      certainly follow
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: true
+    amount: the premium it charges
+  existing_solution_mentioned:
+  - Apple
+  - Google
+  date_relevance:
+    value: recent
+    quote: ''

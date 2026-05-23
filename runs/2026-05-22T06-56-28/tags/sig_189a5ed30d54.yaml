@@ -1,0 +1,33 @@
+signal_id: sig_189a5ed30d54
+tags:
+  pain_type:
+    value: complaint
+    quote: larger apps have problems with it, especially during slow compilation times
+      and bad xcode 6 support
+  pain_intensity:
+    value: 2
+    quote: slow compilation times and bad xcode 6 support
+  industry:
+    value: software_development
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Swift
+  - Xcode
+  date_relevance:
+    value: historical
+    quote: bad xcode 6 support

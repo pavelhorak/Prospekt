@@ -1,0 +1,31 @@
+signal_id: sig_a5f92e916c2f
+tags:
+  pain_type:
+    value: complaint
+    quote: People think things are bad because the average person can't afford basic
+      things
+  pain_intensity:
+    value: 4
+    quote: The math doesn't add up for most people
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: Average rent in the USA
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: recent
+    quote: post pandemic

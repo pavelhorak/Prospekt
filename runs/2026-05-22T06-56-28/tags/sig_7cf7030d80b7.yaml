@@ -1,0 +1,34 @@
+signal_id: sig_7cf7030d80b7
+tags:
+  pain_type:
+    value: manual_process
+    quote: creating, writing, and optimizing these campaigns consumed a massive chunk
+      of my time
+  pain_intensity:
+    value: 3
+    quote: consumed a massive chunk of my time
+  industry:
+    value: financial_services
+    quote: the complex tax space
+  buyer_persona:
+    value: small_business_owner
+    quote: lets founders maintain lean teams
+  company_size:
+    value: 2-10
+    quote: Hiring a dedicated CRM wasn&#x27;t an option for us
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: built internal tooling to automate email campaigns before productising
+      it as loat
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - Loops
+  - SendGrid
+  date_relevance:
+    value: current
+    quote: ''

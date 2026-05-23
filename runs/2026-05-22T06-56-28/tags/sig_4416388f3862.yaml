@@ -1,0 +1,38 @@
+signal_id: sig_4416388f3862
+tags:
+  pain_type:
+    value: workaround
+    quote: the only thing that has worked for me was to manually generate clean js
+      files from my coffeescript
+  pain_intensity:
+    value: 3
+    quote: I had to abandon Slim entirely for my index file and use straight HTML
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I'm new to it and haven't yet figured out how to do that
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: manually generating clean JS from CoffeeScript, copying files to
+      /dist, and hand-editing paths in dist/index.html
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Grunt
+  - Angular
+  - Yeoman
+  - UglifyJS
+  - CoffeeScript
+  - Slim
+  date_relevance:
+    value: historical
+    quote: ''

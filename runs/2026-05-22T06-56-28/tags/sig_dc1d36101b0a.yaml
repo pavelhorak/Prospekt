@@ -1,0 +1,31 @@
+signal_id: sig_dc1d36101b0a
+tags:
+  pain_type:
+    value: complaint
+    quote: Don&#x27;t post generated comments or AI-edited comments. HN is for conversation
+      between humans.
+  pain_intensity:
+    value: 2
+    quote: could you also direct your chatbot to read the guidelines first
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

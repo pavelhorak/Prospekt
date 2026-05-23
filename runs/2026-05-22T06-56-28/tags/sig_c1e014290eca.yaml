@@ -1,0 +1,30 @@
+signal_id: sig_c1e014290eca
+tags:
+  pain_type:
+    value: question
+    quote: Curious about the backstory here
+  pain_intensity:
+    value: 1
+    quote: Curious
+  industry:
+    value: software_development
+    quote: extension has been out since at least 2017
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: recent
+    quote: ''

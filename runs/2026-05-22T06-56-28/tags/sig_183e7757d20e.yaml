@@ -1,0 +1,33 @@
+signal_id: sig_183e7757d20e
+tags:
+  pain_type:
+    value: workaround
+    quote: I use Postgres to cache some responses from APIs
+  pain_intensity:
+    value: 1
+    quote: latency doesn&#x27;t matter
+  industry:
+    value: software_development
+    quote: building a start-up where moving fast is important
+  buyer_persona:
+    value: individual_developer
+    quote: I use Postgres to cache some responses from APIs
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: using Postgres for API response caching instead of a dedicated Redis
+      cache
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Postgres
+  - Redis
+  date_relevance:
+    value: current
+    quote: ''

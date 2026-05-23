@@ -1,0 +1,37 @@
+signal_id: sig_a010122cb0f7
+tags:
+  pain_type:
+    value: workaround
+    quote: Workaround we ended up with
+  pain_intensity:
+    value: 3
+    quote: Loading a local ESLint plugin written in TypeScript via `jsPlugins` requires
+      workarounds due to how oxlint loads plugins through Node's ESM loader
+  industry:
+    value: unknown
+    quote: Large TypeScript monorepo (Kibana)
+  buyer_persona:
+    value: individual_developer
+    quote: Our custom lint rules live as local packages
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Pre-bundling TypeScript plugins with esbuild, externalizing packages,
+      and injecting a __dirname shim before running oxlint
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - oxlint
+  - ESLint
+  - esbuild
+  - tsx
+  - jiti
+  date_relevance:
+    value: current
+    quote: ''

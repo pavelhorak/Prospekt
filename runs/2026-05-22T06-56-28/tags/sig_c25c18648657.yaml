@@ -1,0 +1,34 @@
+signal_id: sig_c25c18648657
+tags:
+  pain_type:
+    value: feature_request
+    quote: Feature | Add complex notifications
+  pain_intensity:
+    value: 2
+    quote: Applications migrating from Photino expect this behavior and currently
+      need custom handling
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Applications use custom handling for complex notifications in lieu
+      of a first-class API
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Photino
+  - InfiniFrame
+  date_relevance:
+    value: current
+    quote: ''

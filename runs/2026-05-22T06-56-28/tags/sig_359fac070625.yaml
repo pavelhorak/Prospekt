@@ -1,0 +1,30 @@
+signal_id: sig_359fac070625
+tags:
+  pain_type:
+    value: manual_process
+    quote: 需要一个个转换，有点繁琐
+  pain_intensity:
+    value: 2
+    quote: 有点繁琐
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: 我拥有有效的 **Restful Fast Request** **许可证**
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

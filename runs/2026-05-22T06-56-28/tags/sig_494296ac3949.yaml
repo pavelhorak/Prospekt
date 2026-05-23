@@ -1,0 +1,33 @@
+signal_id: sig_494296ac3949
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: years of failure modes that live in the heads of people who built this
+      stuff
+  pain_intensity:
+    value: 2
+    quote: standing up one model still takes hours of cold starts and flag tuning
+      across different layers
+  industry:
+    value: software_development
+    quote: AI writing the code is the easy part
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - CUDA
+  date_relevance:
+    value: current
+    quote: ''

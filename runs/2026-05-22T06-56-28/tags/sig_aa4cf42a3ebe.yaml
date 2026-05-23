@@ -1,0 +1,30 @@
+signal_id: sig_aa4cf42a3ebe
+tags:
+  pain_type:
+    value: complaint
+    quote: What bothers me is the mendacity
+  pain_intensity:
+    value: 2
+    quote: What bothers me is the mendacity
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,36 @@
+signal_id: sig_10bb119d63ee
+tags:
+  pain_type:
+    value: workaround
+    quote: I disable all the plugins I don't need
+  pain_intensity:
+    value: 2
+    quote: How can you make the experience with Eclipse faster?
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I disable all the plugins I don't need (Mylyn, Subclipse, …)
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Disabling unused plugins (Mylyn, Subclipse) and configuring TortoiseHG
+      as an external tool instead of a plugin
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Eclipse
+  - Mylyn
+  - Subclipse
+  - Mercurial
+  - TortoiseHG
+  date_relevance:
+    value: older
+    quote: ''

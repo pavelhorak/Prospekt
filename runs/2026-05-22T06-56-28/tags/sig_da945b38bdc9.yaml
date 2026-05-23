@@ -1,0 +1,36 @@
+signal_id: sig_da945b38bdc9
+tags:
+  pain_type:
+    value: complaint
+    quote: the product became noticeably &quot;worse&quot; at generating prose&#x2F;stories
+  pain_intensity:
+    value: 3
+    quote: Users screamed their privacy concerns
+  industry:
+    value: software_development
+    quote: AIDungeon was built off the back of GPT3
+  buyer_persona:
+    value: individual_developer
+    quote: If you or your product does something they, or Microsoft, dislikes, your
+      access could be revoked anytime
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: alternatives to AIDungeon claiming not to invade user privacy
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - OpenAI
+  - GPT3
+  - AIDungeon
+  - chatGPT
+  - Microsoft
+  date_relevance:
+    value: recent
+    quote: A year or two ago

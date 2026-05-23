@@ -1,0 +1,32 @@
+signal_id: sig_f38258a07f91
+tags:
+  pain_type:
+    value: complaint
+    quote: the rendered link is invalid despite the workarounds
+  pain_intensity:
+    value: 2
+    quote: Clicking on the hyperlink returns a "DOI not found,"
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: Documented workarounds (shortdoi and encoded url) both produce invalid
+      rendered links
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - mystmd
+  date_relevance:
+    value: current
+    quote: ''

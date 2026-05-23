@@ -1,0 +1,36 @@
+signal_id: sig_8b646425f95d
+tags:
+  pain_type:
+    value: complaint
+    quote: you usually have to provide extra read-only iterators that are largely
+      identical to the writeable iterators
+  pain_intensity:
+    value: 1
+    quote: the complexity of the Go approach isn&#x27;t significantly worse that the
+      C++ alternatives
+  industry:
+    value: software_development
+    quote: You know how much code I&#x27;d have to write if this were C++, C#, or
+      Java
+  buyer_persona:
+    value: individual_developer
+    quote: Go look at the C++ standard library
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: declare member variables const and initialize in constructor initializer
+      list; use a helper function that returns the appropriate map type
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - C++
+  - Go
+  date_relevance:
+    value: older
+    quote: ''

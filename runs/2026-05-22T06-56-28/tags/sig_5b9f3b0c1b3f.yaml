@@ -1,0 +1,33 @@
+signal_id: sig_5b9f3b0c1b3f
+tags:
+  pain_type:
+    value: complaint
+    quote: this disables scrolling via the scroll bar and cursor keys
+  pain_intensity:
+    value: 2
+    quote: users on a laptop get frustrated
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I'm using the jQuery UI dialog
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Unbind dialog-overlay mousedown/mouseup events inside a setTimeout
+      in the dialog's open callback
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - jQuery
+  - jQuery UI
+  date_relevance:
+    value: older
+    quote: ''

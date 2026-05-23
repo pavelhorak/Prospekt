@@ -1,0 +1,31 @@
+signal_id: sig_ac5ec0267a2b
+tags:
+  pain_type:
+    value: complaint
+    quote: Locals reportedly frustrated with Waymo's self-driving cars
+  pain_intensity:
+    value: 2
+    quote: frustrated
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Waymo
+  date_relevance:
+    value: current
+    quote: ''

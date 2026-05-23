@@ -1,0 +1,35 @@
+signal_id: sig_9fd78c602445
+tags:
+  pain_type:
+    value: question
+    quote: Where is the catch?
+  pain_intensity:
+    value: 2
+    quote: A couple questions
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: India
+    quote: Indian VCs
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Bikayi
+  - Khatabook
+  - OKCredit
+  - WhatsApp
+  - YouTube
+  date_relevance:
+    value: older
+    quote: ''

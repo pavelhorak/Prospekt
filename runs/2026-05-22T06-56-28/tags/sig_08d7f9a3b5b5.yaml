@@ -1,0 +1,30 @@
+signal_id: sig_08d7f9a3b5b5
+tags:
+  pain_type:
+    value: feature_request
+    quote: Would it be possible to allow `StatusValue` to support newline characters
+  pain_intensity:
+    value: 1
+    quote: Thank you for considering this request.
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

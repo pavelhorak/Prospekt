@@ -1,0 +1,33 @@
+signal_id: sig_e76fd1fe6c4a
+tags:
+  pain_type:
+    value: feature_request
+    quote: Is your multitenancy isolated enough that you would be able to build a
+      JS scripting engine? That is, to enable power users to drop in some custom logic
+      when they need to
+  pain_intensity:
+    value: 2
+    quote: the challenge will be when users need to do something non-standard with
+      the data
+  industry:
+    value: software_development
+    quote: everything is built in JS
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

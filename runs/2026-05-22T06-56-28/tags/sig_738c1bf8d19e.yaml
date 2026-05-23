@@ -1,0 +1,31 @@
+signal_id: sig_738c1bf8d19e
+tags:
+  pain_type:
+    value: price_complaint
+    quote: it doesn&#x27;t even have pricing posted without meeting a sales rep
+  pain_intensity:
+    value: 3
+    quote: We are an org with ~10 users and would like features from your Enterprise
+      plan, and it doesn&#x27;t even have pricing posted without meeting a sales rep
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: team_lead
+    quote: We are an org with ~10 users
+  company_size:
+    value: 2-10
+    quote: org with ~10 users
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: recent
+    quote: ''

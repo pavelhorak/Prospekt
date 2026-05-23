@@ -1,0 +1,30 @@
+signal_id: sig_be639c5ead51
+tags:
+  pain_type:
+    value: complaint
+    quote: Frustrated with Their Slow-Poke Internet
+  pain_intensity:
+    value: 3
+    quote: Frustrated
+  industry:
+    value: telecommunications
+    quote: Slow-Poke Internet
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: DACH
+    quote: Germans
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: unknown
+    quote: ''

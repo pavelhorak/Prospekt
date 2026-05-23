@@ -1,0 +1,30 @@
+signal_id: sig_a951779b90a9
+tags:
+  pain_type:
+    value: complaint
+    quote: illegal dumping and leniency from the state of CA
+  pain_intensity:
+    value: 2
+    quote: ''
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: state of CA
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

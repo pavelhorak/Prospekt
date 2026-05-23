@@ -1,0 +1,32 @@
+signal_id: sig_1050c14ac0d1
+tags:
+  pain_type:
+    value: feature_request
+    quote: I'd like to be able to say something like
+  pain_intensity:
+    value: 2
+    quote: here's the frustrating thing
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I don't know how to stipulate that D f must itself be differentiable
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: 'Functional dependency workaround for the simpler SortContainer case:
+      class Ord w => SortContainer c w | c -> w, but acknowledged as inapplicable
+      to the Differentiable case'
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

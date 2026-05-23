@@ -1,0 +1,33 @@
+signal_id: sig_01baa3dc68c5
+tags:
+  pain_type:
+    value: complaint
+    quote: which is extremely slow
+  pain_intensity:
+    value: 2
+    quote: building takes about 20-30 seconds each time
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: When I press Run in Android Studio
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Android Studio
+  - Gradle
+  - Eclipse
+  date_relevance:
+    value: older
+    quote: ''

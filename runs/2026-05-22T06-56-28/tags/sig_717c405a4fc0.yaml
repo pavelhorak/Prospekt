@@ -1,0 +1,30 @@
+signal_id: sig_717c405a4fc0
+tags:
+  pain_type:
+    value: manual_process
+    quote: They have manual processes held together with spreadsheets and email.
+  pain_intensity:
+    value: 3
+    quote: manual processes held together with spreadsheets and email
+  industry:
+    value: healthcare
+    quote: healthcare, legal, real estate
+  buyer_persona:
+    value: small_business_owner
+    quote: Small businesses don&#x27;t
+  company_size:
+    value: 2-10
+    quote: Small businesses don&#x27;t
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: spreadsheets and email as makeshift workflow management
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

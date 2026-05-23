@@ -1,0 +1,32 @@
+signal_id: sig_bb80850e81a1
+tags:
+  pain_type:
+    value: feature_request
+    quote: Maybe add options in .toml file to point steam and lua dir?
+  pain_intensity:
+    value: 1
+    quote: it's working flawlessly!
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: solo
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - OpenSteamTool
+  - GL Stealth Mode
+  date_relevance:
+    value: current
+    quote: ''

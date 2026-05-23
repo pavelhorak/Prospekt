@@ -1,0 +1,32 @@
+signal_id: sig_86c826eca435
+tags:
+  pain_type:
+    value: complaint
+    quote: in Europe this kind of spying on employees is forbidden by law
+  pain_intensity:
+    value: 3
+    quote: aggregation across all tools and services is kind of control that an employer
+      should be ashamed of
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: EU
+    quote: in Europe this kind of spying on employees is forbidden by law
+  has_workaround:
+    value: true
+    description: count finished tasks instead of surveillance to evaluate employee
+      performance
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

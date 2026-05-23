@@ -1,0 +1,30 @@
+signal_id: sig_604982226c54
+tags:
+  pain_type:
+    value: complaint
+    quote: create status or power rifts between the product people and the tools people
+  pain_intensity:
+    value: 2
+    quote: divisiveness and culture fragmentation
+  industry:
+    value: software_development
+    quote: product people and the tools people
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: historical
+    quote: ''

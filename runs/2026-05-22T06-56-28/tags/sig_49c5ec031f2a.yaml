@@ -1,0 +1,30 @@
+signal_id: sig_49c5ec031f2a
+tags:
+  pain_type:
+    value: manual_process
+    quote: The Surprisingly Manual Process of Building Automotive Wire Harnesses
+  pain_intensity:
+    value: 2
+    quote: Surprisingly Manual Process
+  industry:
+    value: automotive
+    quote: Automotive Wire Harnesses
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

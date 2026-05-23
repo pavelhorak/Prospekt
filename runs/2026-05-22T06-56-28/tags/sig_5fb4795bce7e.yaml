@@ -1,0 +1,31 @@
+signal_id: sig_5fb4795bce7e
+tags:
+  pain_type:
+    value: complaint
+    quote: '''I hate them'''
+  pain_intensity:
+    value: 3
+    quote: '''I hate them'''
+  industry:
+    value: transportation
+    quote: Alphabet's self-driving cars
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Alphabet's self-driving cars
+  date_relevance:
+    value: recent
+    quote: ''

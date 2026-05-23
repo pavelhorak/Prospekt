@@ -1,0 +1,31 @@
+signal_id: sig_477d392778f1
+tags:
+  pain_type:
+    value: question
+    quote: How do the Linux kernel developers test their code locally and after they
+      have it committed?
+  pain_intensity:
+    value: 1
+    quote: How do the Linux kernel developers test their code locally
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

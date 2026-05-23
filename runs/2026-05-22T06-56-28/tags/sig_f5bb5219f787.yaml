@@ -1,0 +1,39 @@
+signal_id: sig_f5bb5219f787
+tags:
+  pain_type:
+    value: switching
+    quote: stopped doing any serious work in it about a year ago
+  pain_intensity:
+    value: 3
+    quote: I found it a chore to maintain Go-based systems
+  industry:
+    value: software_development
+    quote: Go-based systems
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: switched to OpenResty for middleware and Elixir for general backend;
+      We've been doing Elixir for about a year now
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Go
+  - OpenResty
+  - Elixir
+  - Ruby
+  - Node
+  - Java
+  - C#
+  - Erlang
+  date_relevance:
+    value: older
+    quote: ''

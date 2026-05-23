@@ -1,0 +1,33 @@
+signal_id: sig_53d75dbc56ec
+tags:
+  pain_type:
+    value: feature_request
+    quote: Allow factoring out complex expressions in input variable `validation`
+      blocks
+  pain_intensity:
+    value: 3
+    quote: A regex literal written 3× in the same file.
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: abandon locals entirely and triplicate the regex literal inline in
+      the validation block
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - OpenTofu
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,30 @@
+signal_id: sig_1fba4e47edca
+tags:
+  pain_type:
+    value: question
+    quote: Which method (do you think) is best?
+  pain_intensity:
+    value: 1
+    quote: it gets easy to forget which value is where
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I personally tend to carry over the conventions from functional programming
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: recent
+    quote: Python 3.7's new dataclasses

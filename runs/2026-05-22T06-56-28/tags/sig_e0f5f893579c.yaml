@@ -1,0 +1,31 @@
+signal_id: sig_e0f5f893579c
+tags:
+  pain_type:
+    value: complaint
+    quote: jump up and down in public trying to move your investment up or down seems
+      inappropriate
+  pain_intensity:
+    value: 1
+    quote: ''
+  industry:
+    value: finance
+    quote: your investment in a company
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

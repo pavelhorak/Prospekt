@@ -1,0 +1,32 @@
+signal_id: sig_7765ead2693a
+tags:
+  pain_type:
+    value: workaround
+    quote: you could always visit a lawyer
+  pain_intensity:
+    value: 2
+    quote: In all fairness I&#x27;d say it would be good if you take your current
+      salary
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: small_business_owner
+    quote: if you&#x27;re running the business
+  company_size:
+    value: 2-10
+    quote: 50/50 partnership
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: propose share reallocation; consult a lawyer; take a vacation to
+      test whether partner picks up the slack
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: historical
+    quote: ''

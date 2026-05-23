@@ -1,0 +1,33 @@
+signal_id: sig_1319e04cbf5e
+tags:
+  pain_type:
+    value: question
+    quote: What SQL can be used to list the tables, and the rows within those tables
+      in an SQLite database file
+  pain_intensity:
+    value: 1
+    quote: ''
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: once I have attached it with the ATTACH command on the sqlite3 command
+      line tool
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - SQLite
+  date_relevance:
+    value: older
+    quote: ''

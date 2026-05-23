@@ -1,0 +1,33 @@
+signal_id: sig_41c46487b1a0
+tags:
+  pain_type:
+    value: complaint
+    quote: Using _ inside a complex object doesn't display correct result anymore
+  pain_intensity:
+    value: 3
+    quote: the values not displayed
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: pipe jello -s output through fastgron -u to recover correct JSON
+      output
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - jello
+  - fastgron
+  date_relevance:
+    value: current
+    quote: ''

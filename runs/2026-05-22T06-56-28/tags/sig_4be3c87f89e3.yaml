@@ -1,0 +1,33 @@
+signal_id: sig_4be3c87f89e3
+tags:
+  pain_type:
+    value: question
+    quote: How can I do this?
+  pain_intensity:
+    value: 2
+    quote: I am trying to automate assets going into /dist
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I am trying to automate assets going into /dist
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: html-webpack-plugin with a template file — also injects cache-busted
+      JS links automatically
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Webpack
+  - html-webpack-plugin
+  date_relevance:
+    value: older
+    quote: UPDATE 1 2017

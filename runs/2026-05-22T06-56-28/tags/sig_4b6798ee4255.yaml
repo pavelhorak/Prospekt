@@ -1,0 +1,31 @@
+signal_id: sig_4b6798ee4255
+tags:
+  pain_type:
+    value: manual_process
+    quote: template sprawl from manual copy-paste, PDF logic buried in code that eng
+      teams have to maintain
+  pain_intensity:
+    value: 3
+    quote: PDF logic buried in code that eng teams have to maintain
+  industry:
+    value: insurance
+    quote: insurance policy docs, contracts, compliance forms
+  buyer_persona:
+    value: engineering_manager
+    quote: eng teams have to maintain
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: manual copy-paste for managing PDF templates across insurtech teams
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

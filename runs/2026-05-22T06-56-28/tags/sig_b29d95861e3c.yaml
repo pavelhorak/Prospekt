@@ -1,0 +1,31 @@
+signal_id: sig_b29d95861e3c
+tags:
+  pain_type:
+    value: feature_request
+    quote: I would suggest having a bunch of non-trivial examples
+  pain_intensity:
+    value: 1
+    quote: I would suggest
+  industry:
+    value: software_development
+    quote: checking a website at scheduled intervals, processing the contents with
+      some logic, and then sending an email report
+  buyer_persona:
+    value: individual_developer
+    quote: non-trivial examples of the services doing interesting things
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: historical
+    quote: ''

@@ -1,0 +1,32 @@
+signal_id: sig_18bef95ca19c
+tags:
+  pain_type:
+    value: complaint
+    quote: Apple developers are frustrated with gambling ads appearing across the
+      App Store
+  pain_intensity:
+    value: 3
+    quote: frustrated
+  industry:
+    value: software_development
+    quote: Apple developers
+  buyer_persona:
+    value: individual_developer
+    quote: Apple developers
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - App Store
+  date_relevance:
+    value: recent
+    quote: ''

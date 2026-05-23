@@ -1,0 +1,32 @@
+signal_id: sig_8fc56fd7af9e
+tags:
+  pain_type:
+    value: manual_process
+    quote: we often scrambled for resources to empower our operations team
+  pain_intensity:
+    value: 2
+    quote: we were so resource constrained
+  industry:
+    value: software_development
+    quote: I worked with Nick and Omar at Gusto
+  buyer_persona:
+    value: engineering_manager
+    quote: I saw firsthand how much software can help an ops team
+  company_size:
+    value: 201-1000
+    quote: I worked with Nick and Omar at Gusto
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Flowdash
+  - Gusto
+  date_relevance:
+    value: recent
+    quote: ''

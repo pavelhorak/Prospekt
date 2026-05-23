@@ -1,0 +1,31 @@
+signal_id: sig_ffc19d78690d
+tags:
+  pain_type:
+    value: feature_request
+    quote: If this was accessible for Voice Over (the MacOS screen reader), blind
+      developers would literally bless you for this
+  pain_intensity:
+    value: 3
+    quote: Half of those non-coding, web-based tools have huge accessibility problems
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I don't own a Mac and I don't work in a team environment
+  company_size:
+    value: solo
+    quote: I don't work in a team environment
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

@@ -1,0 +1,33 @@
+signal_id: sig_b9f8f3103105
+tags:
+  pain_type:
+    value: workaround
+    quote: painful workarounds to make Objective-C APIs play ball
+  pain_intensity:
+    value: 3
+    quote: painful workarounds
+  industry:
+    value: software_development
+    quote: large-scale app
+  buyer_persona:
+    value: individual_developer
+    quote: found in my own usage
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: workarounds to bridge Swift and Objective-C API incompatibilities,
+      e.g. computing a random CGFloat within a CGFloat range
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Swift
+  - Objective-C
+  date_relevance:
+    value: historical
+    quote: coming out of 1.0

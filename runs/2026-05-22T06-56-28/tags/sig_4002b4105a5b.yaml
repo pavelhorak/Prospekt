@@ -1,0 +1,34 @@
+signal_id: sig_4002b4105a5b
+tags:
+  pain_type:
+    value: trend_data
+    quote: I started reading failure postmortems, dead Product Hunt launches, abandoned
+      GitHub repos
+  pain_intensity:
+    value: 3
+    quote: spend months building things that quietly went nowhere
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: small_business_owner
+    quote: smart founders, including myself
+  company_size:
+    value: solo
+    quote: smart founders, including myself
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: private database of startup ideas filtered through hypothesis-testing
+      questions about existing behaviors and 30-day kill conditions
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Product Hunt
+  - GitHub
+  date_relevance:
+    value: current
+    quote: ''

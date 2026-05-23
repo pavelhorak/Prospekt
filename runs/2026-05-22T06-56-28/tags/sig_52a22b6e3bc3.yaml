@@ -1,0 +1,35 @@
+signal_id: sig_52a22b6e3bc3
+tags:
+  pain_type:
+    value: workaround
+    quote: 'many of us leave tabs open in our browser: we don&#x27;t want to spend
+      the 5 to 10 steps to navigate back to that important page'
+  pain_intensity:
+    value: 2
+    quote: Each day we use and share hundreds of links to get our jobs done, without
+      considering how long it takes to access and share these resources
+  industry:
+    value: software_development
+    quote: built by internal tools engineers in those companies
+  buyer_persona:
+    value: team_lead
+    quote: teams create a short link for any internal URL within a company
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: leaving browser tabs open to avoid re-navigating to important internal
+      pages
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Workday
+  - Slack
+  date_relevance:
+    value: current
+    quote: ''

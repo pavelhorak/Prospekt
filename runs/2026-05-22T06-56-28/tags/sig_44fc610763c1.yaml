@@ -1,0 +1,31 @@
+signal_id: sig_44fc610763c1
+tags:
+  pain_type:
+    value: complaint
+    quote: pointing out the hypocrisy in complaining about government subsidies
+  pain_intensity:
+    value: 2
+    quote: local firms and powerful business people with access to politicians lobbying
+      for protectionism
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: EU
+    quote: Germany
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

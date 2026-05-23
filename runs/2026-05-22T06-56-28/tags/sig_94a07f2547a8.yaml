@@ -1,0 +1,31 @@
+signal_id: sig_94a07f2547a8
+tags:
+  pain_type:
+    value: manual_process
+    quote: manually make invoices on spreadsheets
+  pain_intensity:
+    value: 3
+    quote: The whole process is tedious
+  industry:
+    value: financial_services
+    quote: Simple Billing and Accounting for India
+  buyer_persona:
+    value: small_business_owner
+    quote: local businesses in India to invoice their customers
+  company_size:
+    value: 2-10
+    quote: we're Aditya and Sri Teja, founders of Swipe
+  geography:
+    value: India
+    quote: for India
+  has_workaround:
+    value: true
+    description: manually making invoices on spreadsheets stored locally, then manually
+      consolidating sales on spreadsheets and sending to accountant for tax filing
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

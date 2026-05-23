@@ -1,0 +1,31 @@
+signal_id: sig_94958fffc9f0
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: driving down launch costs
+  pain_intensity:
+    value: 4
+    quote: frustrated with SpaceX for driving down launch costs
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: 1000+
+    quote: Ariane chief
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - SpaceX
+  date_relevance:
+    value: current
+    quote: ''

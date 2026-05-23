@@ -1,0 +1,31 @@
+signal_id: sig_acaf9facfefd
+tags:
+  pain_type:
+    value: manual_process
+    quote: I've spent so much time moving CSV between systems at an ecommerce company
+  pain_intensity:
+    value: 3
+    quote: so much time moving CSV between systems
+  industry:
+    value: e_commerce
+    quote: ecommerce company
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Ballerina
+  date_relevance:
+    value: current
+    quote: ''

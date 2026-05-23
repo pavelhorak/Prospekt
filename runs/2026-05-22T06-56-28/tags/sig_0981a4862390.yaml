@@ -1,0 +1,31 @@
+signal_id: sig_0981a4862390
+tags:
+  pain_type:
+    value: complaint
+    quote: testing being a challenge, particularly when things like multiple backpays,
+      accruals, or one off adjustments were involved
+  pain_intensity:
+    value: 2
+    quote: how complicated award rules can be
+  industry:
+    value: hr_payroll
+    quote: cloud-based payroll and HR platform for the Australian market
+  buyer_persona:
+    value: individual_developer
+    quote: One of my previous stints was with a small team
+  company_size:
+    value: 2-10
+    quote: small team
+  geography:
+    value: AU
+    quote: cloud-based payroll and HR platform for the Australian market
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

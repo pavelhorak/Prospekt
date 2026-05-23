@@ -1,0 +1,33 @@
+signal_id: sig_173e6922b79d
+tags:
+  pain_type:
+    value: feature_request
+    quote: Did you consider writing this as a CLI tool
+  pain_intensity:
+    value: 2
+    quote: would rather keep my focus on the command line
+  industry:
+    value: software_development
+    quote: command line since that&#x27;s where I&#x27;m spending the majority of
+      my time
+  buyer_persona:
+    value: individual_developer
+    quote: command line since that&#x27;s where I&#x27;m spending the majority of
+      my time
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: wrote a personal plugin-based CLI tool to aggregate commands; tab
+      completion not yet tackled
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

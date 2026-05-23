@@ -1,0 +1,34 @@
+signal_id: sig_a7dc6cee3918
+tags:
+  pain_type:
+    value: complaint
+    quote: contacts are getting deleted from her phone and mine at random and so are
+      notes
+  pain_intensity:
+    value: 4
+    quote: she is not using notes any more because --her words-- they disappear within
+      a hour or two of writing them
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: As a developer I managed to avoid iCloud
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Turning off iCloud — but noted as dangerous since it may silently
+      delete data that was synced, requiring the user to re-enable it
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - iCloud
+  date_relevance:
+    value: historical
+    quote: ''

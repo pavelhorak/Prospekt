@@ -1,0 +1,30 @@
+signal_id: sig_5c454f82c70c
+tags:
+  pain_type:
+    value: complaint
+    quote: I don&#x27;t think he deserves the 50% share of the company he has
+  pain_intensity:
+    value: 4
+    quote: it&#x27;s really affecting my ability to focus on the business
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: small_business_owner
+    quote: I&#x27;ve been the one who&#x27;s been running the business
+  company_size:
+    value: 2-10
+    quote: him and I were co-workers
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

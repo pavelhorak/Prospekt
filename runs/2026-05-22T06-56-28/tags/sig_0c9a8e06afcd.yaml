@@ -1,0 +1,35 @@
+signal_id: sig_0c9a8e06afcd
+tags:
+  pain_type:
+    value: question
+    quote: how to decide when to use Node.js
+  pain_intensity:
+    value: 1
+    quote: I am new to this kind of stuff
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I can't help but wonder how to decide when to use Node.js
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Node.js
+  - PHP
+  - Python
+  - Ruby
+  - jQuery
+  date_relevance:
+    value: older
+    quote: ''

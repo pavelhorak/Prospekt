@@ -127,7 +127,12 @@ def fetch_hackernews(config: dict, seen_urls: set[str]) -> Iterable[Signal]:
                 item = _get_json(f"{HN_FIREBASE}/{story_id}.json")
                 for kid in (item or {}).get("kids", [])[:include_comments]:
                     c = _get_json(f"{HN_FIREBASE}/{kid}.json")
-                    if not c or c.get("deleted") or not c.get("text"):
+                    if not c or c.get("deleted") or c.get("dead") or not c.get("text"):
+                        continue
+                    # Strip [dead] / [flagged] moderation placeholders that
+                    # slip past the API's `deleted`/`dead` flags.
+                    text_lower = c["text"].strip().lower()
+                    if text_lower in ("[dead]", "[flagged]") or text_lower.startswith("[dead]") and len(text_lower) < 40:
                         continue
                     curl = f"https://news.ycombinator.com/item?id={kid}"
                     if curl in seen_urls:

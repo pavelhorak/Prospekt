@@ -1,0 +1,35 @@
+signal_id: sig_9bab6f0426d9
+tags:
+  pain_type:
+    value: workaround
+    quote: Resolve metadata_startup_script ignore_changes workaround
+  pain_intensity:
+    value: 2
+    quote: This masks drift detection
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Using ignore_changes on the startup script to prevent Terraform from
+      triggering VM replacement on sensitive value changes
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Terraform
+  - Atlas
+  - GCP
+  date_relevance:
+    value: current
+    quote: ignore_changes was removed and verified unnecessary in provider v7.31.0
+      (2026-05-22)

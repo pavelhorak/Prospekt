@@ -1,0 +1,38 @@
+signal_id: sig_14bc0f89abbe
+tags:
+  pain_type:
+    value: manual_process
+    quote: This quickly becomes a 30m task for a simple access request!
+  pain_intensity:
+    value: 3
+    quote: painfully manual
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: cto
+    quote: the CTO usually gets fed up with manually (de)provisioning
+  company_size:
+    value: 51-200
+    quote: The pain often starts at growing companies with around 50 employees
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: manually documenting user/tool/permission in Gsheet, Notion, or Airtable;
+      ad-hoc requests via email, Slack, or JIRA
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - Okta
+  - SCIM
+  - Slack
+  - JIRA
+  - Gsheet
+  - Notion
+  - Airtable
+  date_relevance:
+    value: recent
+    quote: ''

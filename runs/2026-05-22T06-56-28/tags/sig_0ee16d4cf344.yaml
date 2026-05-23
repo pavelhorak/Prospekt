@@ -1,0 +1,32 @@
+signal_id: sig_0ee16d4cf344
+tags:
+  pain_type:
+    value: question
+    quote: How could a company break its stock up into a 'dividend stock' and a 'capital
+      appreciation' stock?
+  pain_intensity:
+    value: 1
+    quote: How could a company break its stock up into a 'dividend stock' and a 'capital
+      appreciation' stock?
+  industry:
+    value: finance
+    quote: Valuing the 'dividend stock' would be pretty easy
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: historical
+    quote: ''

@@ -1,0 +1,35 @@
+signal_id: sig_be49d422a781
+tags:
+  pain_type:
+    value: manual_process
+    quote: automate tedious typing
+  pain_intensity:
+    value: 2
+    quote: save hours a month of typing
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: operations_manager
+    quote: sales and support reps
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: global
+    quote: European delivery company
+  has_workaround:
+    value: true
+    description: tech-savvy reps built custom scripts to fill automation gaps before
+      Text Blaze
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - Zapier
+  - Intercom
+  - Slack
+  - LinkedIn
+  date_relevance:
+    value: older
+    quote: ''

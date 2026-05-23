@@ -1,0 +1,32 @@
+signal_id: sig_0de3c06f6fd1
+tags:
+  pain_type:
+    value: question
+    quote: Are you including limitations in place to ensure that cycles do not end
+      up in an infinite loop
+  pain_intensity:
+    value: 2
+    quote: detecting n+1 queries(assuming that there is a database component involved)
+  industry:
+    value: software_development
+    quote: assuming that there is a database component involved
+  buyer_persona:
+    value: individual_developer
+    quote: Is there a sandbox where users can test and play with their flow before
+      they decide on proceeding with it
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

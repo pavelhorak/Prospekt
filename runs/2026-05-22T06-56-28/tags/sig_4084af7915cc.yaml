@@ -1,0 +1,32 @@
+signal_id: sig_4084af7915cc
+tags:
+  pain_type:
+    value: complaint
+    quote: Git will not work!
+  pain_intensity:
+    value: 3
+    quote: this happens on every major update
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I navigated to my work's codebase in the command line on my MacBook Pro
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Git
+  - Xcode
+  date_relevance:
+    value: older
+    quote: restart my computer on 2022-09-13

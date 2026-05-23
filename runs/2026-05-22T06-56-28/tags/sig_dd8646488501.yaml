@@ -1,0 +1,33 @@
+signal_id: sig_dd8646488501
+tags:
+  pain_type:
+    value: workaround
+    quote: automating some reports running for 15-20 projects
+  pain_intensity:
+    value: 2
+    quote: saved some time and boredom by automating some reports running for 15-20
+      projects
+  industry:
+    value: software_development
+    quote: elevation prep work
+  buyer_persona:
+    value: individual_developer
+    quote: I built something else that was also for elevation prep work for my second
+      team
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: built automation to batch-run 15-20 reports for elevation prep, saving
+      manual effort
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: recent
+    quote: two of my previous teams

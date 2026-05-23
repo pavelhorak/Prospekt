@@ -1,0 +1,36 @@
+signal_id: sig_854d23d8d55e
+tags:
+  pain_type:
+    value: workaround
+    quote: Retried the same topic with `web_search` as a fallback, which returned
+      results immediately
+  pain_intensity:
+    value: 3
+    quote: Losing the entire result forces redundant queries and wastes time
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: This query was run in parallel with 5 other research_topic and social_search
+      calls
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Fall back to web_search on timeout, then manually retrieve key URLs
+      with content_operations
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - research_topic
+  - web_search
+  - content_operations
+  date_relevance:
+    value: current
+    quote: ''

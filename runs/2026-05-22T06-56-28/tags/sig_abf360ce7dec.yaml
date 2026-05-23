@@ -1,0 +1,35 @@
+signal_id: sig_abf360ce7dec
+tags:
+  pain_type:
+    value: workaround
+    quote: The workaround "split into subpages" is real but undocumented in the UI
+  pain_intensity:
+    value: 3
+    quote: Power users hit this on exactly the workflows where the product matters
+      most (a whole semester's notes, an entire med-school subject)
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Split large Notion exports into subpages before converting, or run
+      the conversion locally
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Notion
+  - 2anki
+  - genanki
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,31 @@
+signal_id: sig_040ed96bbed4
+tags:
+  pain_type:
+    value: complaint
+    quote: people behind me literally yell at me to go faster
+  pain_intensity:
+    value: 2
+    quote: I&#x27;ve been in situations where I&#x27;m waiting to make a tricky left
+      turn safely while people behind me literally yell at me to go faster
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: historical
+    quote: ''

@@ -1,0 +1,16 @@
+run_id: 2026-05-22T06-56-28
+embedding_model: all-MiniLM-L6-v2
+min_cluster_size: 3
+min_samples: 2
+merge_threshold: 0.85
+cross_assign_threshold: 0.7
+membership_cap: 3
+total_signals: 318
+n_clusters: 2
+n_orphans: 2
+n_incoherent: 2
+orphan_rate: 0.006
+cluster_size_distribution:
+  312: 1
+  4: 1
+label_model: claude-sonnet-4-6

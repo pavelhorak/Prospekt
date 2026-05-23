@@ -1,0 +1,31 @@
+signal_id: sig_732f5eb0e556
+tags:
+  pain_type:
+    value: paying_for_bad
+    quote: I pay for the device, I pay for services, I pay for the apps and app subscriptions
+  pain_intensity:
+    value: 4
+    quote: Why the fuck does Apple need to make a buck selling ads to me too?
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: solo
+    quote: I pay for the device
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - App Store
+  date_relevance:
+    value: recent
+    quote: ''

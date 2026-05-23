@@ -1,0 +1,32 @@
+signal_id: sig_0e84b38d74b5
+tags:
+  pain_type:
+    value: question
+    quote: how to fix it
+  pain_intensity:
+    value: 2
+    quote: what's there is different-- a couple of the commits I'd killed in the rebase
+      got pushed
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I always work on a single branch and commit changes
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - git
+  date_relevance:
+    value: older
+    quote: ''

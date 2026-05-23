@@ -1,0 +1,32 @@
+signal_id: sig_6c7072ade7c3
+tags:
+  pain_type:
+    value: complaint
+    quote: I don&#x27;t get why you would throw away all the work done in this space
+      and just offload it to an LLM
+  pain_intensity:
+    value: 2
+    quote: Why would you get an LLM to transpile the formula for you?
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: It&#x27;s a technical problem
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: existing formula-transpilation libraries (formulas.readthedocs.io)
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - formulas
+  date_relevance:
+    value: current
+    quote: ''

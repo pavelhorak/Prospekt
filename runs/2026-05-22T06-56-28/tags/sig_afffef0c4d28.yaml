@@ -1,0 +1,31 @@
+signal_id: sig_afffef0c4d28
+tags:
+  pain_type:
+    value: complaint
+    quote: posting thousands of fake resumes to these jobs
+  pain_intensity:
+    value: 4
+    quote: the chance of a legitimate candidate getting through are less than the
+      chance of winning the lottery
+  industry:
+    value: recruiting
+    quote: fake resumes to these jobs
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

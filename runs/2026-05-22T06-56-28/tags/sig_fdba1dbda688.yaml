@@ -1,0 +1,34 @@
+signal_id: sig_fdba1dbda688
+tags:
+  pain_type:
+    value: complaint
+    quote: 'migrate-type redis-command: complex-key sub-field migration produces MOVED
+      <wrong-slot>'
+  pain_intensity:
+    value: 4
+    quote: Migration aborts with the MOVED error above.
+  industry:
+    value: software_development
+    quote: Apache Kvrocks 2.15.0
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Use migrate-type raw-key-value — transfers keys as RocksDB blobs
+      without decomposing complex keys, avoiding the sub-key slot-hashing path
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Apache Kvrocks
+  - Redis
+  date_relevance:
+    value: current
+    quote: ''

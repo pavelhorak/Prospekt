@@ -1,0 +1,32 @@
+signal_id: sig_5d12194740b9
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: Pagerduty is vulnerable. Their UI is garbage.
+  pain_intensity:
+    value: 2
+    quote: I didn't care much for the UI
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - PagerDuty
+  - allquiet
+  date_relevance:
+    value: recent
+    quote: ''

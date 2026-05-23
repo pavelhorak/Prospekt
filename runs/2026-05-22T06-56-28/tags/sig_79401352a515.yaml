@@ -1,0 +1,31 @@
+signal_id: sig_79401352a515
+tags:
+  pain_type:
+    value: complaint
+    quote: the thing outright does not seem to work with all browsers or setups
+  pain_intensity:
+    value: 2
+    quote: Web seems to slowly fall in to the &quot;just use chrome&quot; hole
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: Web seems to slowly fall in to the &quot;just use chrome&quot; hole
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: use Chrome to pass Cloudflare bot checks
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Cloudflare
+  date_relevance:
+    value: current
+    quote: ''

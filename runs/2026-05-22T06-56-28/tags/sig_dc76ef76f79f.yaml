@@ -1,0 +1,33 @@
+signal_id: sig_dc76ef76f79f
+tags:
+  pain_type:
+    value: manual_process
+    quote: discovery was limited to the few roasters we already knew. There was no
+      easy way to find out
+  pain_intensity:
+    value: 2
+    quote: We knew great coffee existed out there. We just had no map.
+  industry:
+    value: food_beverage
+    quote: specialty coffee
+  buyer_persona:
+    value: small_business_owner
+    quote: We built RoastDB
+  company_size:
+    value: 2-10
+    quote: built by a small team
+  geography:
+    value: EU
+    quote: €5&#x2F;month Hetzner VPS
+  has_workaround:
+    value: true
+    description: manually visiting known cafes, saving empty bags, and reordering
+      beans they'd found by chance
+  has_spend:
+    value: true
+    amount: €5/month
+  existing_solution_mentioned:
+  - Discogs
+  date_relevance:
+    value: current
+    quote: ''

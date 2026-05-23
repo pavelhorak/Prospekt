@@ -1,0 +1,30 @@
+signal_id: sig_adbad3558708
+tags:
+  pain_type:
+    value: price_complaint
+    quote: frustrated with the economy? The answer lies in grocery bills
+  pain_intensity:
+    value: 3
+    quote: frustrated
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: Americans
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

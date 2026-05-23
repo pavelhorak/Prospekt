@@ -1,0 +1,32 @@
+signal_id: sig_05138fe5dd7a
+tags:
+  pain_type:
+    value: price_complaint
+    quote: frustrated with pricing of PagerDuty et al., so made one myself
+  pain_intensity:
+    value: 3
+    quote: frustrated with pricing of PagerDuty et al., so made one myself
+  industry:
+    value: software_development
+    quote: PagerDuty
+  buyer_persona:
+    value: individual_developer
+    quote: so made one myself
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Built a custom replacement for PagerDuty rather than pay the incumbent
+      pricing
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - PagerDuty
+  date_relevance:
+    value: older
+    quote: ''

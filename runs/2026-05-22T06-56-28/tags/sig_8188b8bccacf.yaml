@@ -1,0 +1,31 @@
+signal_id: sig_8188b8bccacf
+tags:
+  pain_type:
+    value: feature_request
+    quote: 'here''s a list of features i would like to request:'
+  pain_intensity:
+    value: 1
+    quote: 'animated vfx (video effects): e.g. speed trails, screen shake, particle
+      bursts, vhs overlay, border glow'
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

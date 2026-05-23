@@ -1,0 +1,30 @@
+signal_id: sig_d88ab20a30da
+tags:
+  pain_type:
+    value: complaint
+    quote: Frustrated with Tesla and GM
+  pain_intensity:
+    value: 2
+    quote: Amps Up Pressure
+  industry:
+    value: automotive
+    quote: Tesla and GM
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: Tesla and GM
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

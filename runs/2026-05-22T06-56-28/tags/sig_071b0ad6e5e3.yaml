@@ -1,0 +1,35 @@
+signal_id: sig_071b0ad6e5e3
+tags:
+  pain_type:
+    value: workaround
+    quote: Store readme markdown files in the sourcerepo along with the code itself
+  pain_intensity:
+    value: 2
+    quote: what the hell is this crap?  Let's rewrite it
+  industry:
+    value: software_development
+    quote: people have not had to trawl through some nonsense wiki to find the hidden
+      nugget of info
+  buyer_persona:
+    value: individual_developer
+    quote: we'll read code but hardly ever go out of our way to find and read wikis
+      etc first
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Co-locate README markdown in source repo, over-communicate surprising
+      choices across README, bug tracker, check-in comments, and code comments with
+      direct links
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Jira
+  date_relevance:
+    value: older
+    quote: ''

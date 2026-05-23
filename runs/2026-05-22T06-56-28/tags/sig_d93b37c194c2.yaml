@@ -1,0 +1,33 @@
+signal_id: sig_d93b37c194c2
+tags:
+  pain_type:
+    value: manual_process
+    quote: felt the pain of &quot;can you pull that data for me?&quot;
+  pain_intensity:
+    value: 2
+    quote: without relying on developers or BI tools
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Google Sheets
+  - CSV
+  - APIs
+  date_relevance:
+    value: current
+    quote: ''

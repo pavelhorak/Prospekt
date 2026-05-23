@@ -1,0 +1,36 @@
+signal_id: sig_5d14758de254
+tags:
+  pain_type:
+    value: question
+    quote: I'm having difficulty understanding how to use this. Is there a demo /
+      example to view?
+  pain_intensity:
+    value: 2
+    quote: I'm having difficulty understanding how to use this
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: team_lead
+    quote: I'm currently managing a team using Google Analytics, Facebook Pixel and
+      Hotjar
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Google Analytics
+  - Facebook Pixel
+  - Hotjar
+  - Avo
+  date_relevance:
+    value: older
+    quote: ''

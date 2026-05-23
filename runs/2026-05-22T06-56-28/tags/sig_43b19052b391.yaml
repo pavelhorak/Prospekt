@@ -1,0 +1,31 @@
+signal_id: sig_43b19052b391
+tags:
+  pain_type:
+    value: complaint
+    quote: '`Array: all` and `Complex: all` cannot be used together'
+  pain_intensity:
+    value: 3
+    quote: Compilation failed while Running module system, 32 error(s).
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: 'use Structures: all instead, which provides both array operations
+      and complex types without conflicts'
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

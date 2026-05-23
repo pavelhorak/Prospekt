@@ -1,0 +1,30 @@
+signal_id: sig_8b83a5731bc6
+tags:
+  pain_type:
+    value: complaint
+    quote: It was heartbreaking. In many areas the iPhone showed &quot;No Service&quot;
+  pain_intensity:
+    value: 3
+    quote: It was heartbreaking
+  industry:
+    value: telecommunications
+    quote: on many, many kilometers we had Edge only
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: DACH
+    quote: Even very close to big cities like Frankfurt
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: recent
+    quote: ''

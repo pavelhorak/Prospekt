@@ -1,0 +1,32 @@
+signal_id: sig_7af56055a55b
+tags:
+  pain_type:
+    value: question
+    quote: I wonder what other people have done in similar situations
+  pain_intensity:
+    value: 1
+    quote: I&#x27;m not sure if it&#x27;s worth the effort though
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I manage a few on premise servers, running docker containers, with ansible
+  company_size:
+    value: solo
+    quote: I manage a few on premise servers
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Ansible playbooks plus a playbook.sh wrapper script for server management
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Docker
+  - Ansible
+  date_relevance:
+    value: older
+    quote: ''

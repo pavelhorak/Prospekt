@@ -1,0 +1,31 @@
+signal_id: sig_e57692d72c30
+tags:
+  pain_type:
+    value: manual_process
+    quote: Earlier we used to spend around 10 minutes just to fill the content
+  pain_intensity:
+    value: 2
+    quote: Earlier we used to spend around 10 minutes just to fill the content
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: operations_manager
+    quote: our SuS weekly updates
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: using Poppins digest to auto-populate SuS weekly update content
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Poppins
+  date_relevance:
+    value: current
+    quote: For the last 4-5 weeks

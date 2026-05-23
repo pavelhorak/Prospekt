@@ -1,0 +1,30 @@
+signal_id: sig_38403035a90a
+tags:
+  pain_type:
+    value: manual_process
+    quote: hard to formulate a pleasant email
+  pain_intensity:
+    value: 2
+    quote: it can be very hard
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: team_lead
+    quote: I was replacing myself and had limited time
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

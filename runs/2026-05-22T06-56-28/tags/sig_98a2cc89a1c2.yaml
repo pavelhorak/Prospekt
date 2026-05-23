@@ -1,0 +1,31 @@
+signal_id: sig_98a2cc89a1c2
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: clear gap in the market
+  pain_intensity:
+    value: 3
+    quote: UK payroll systems are indeed a mess
+  industry:
+    value: financial_services
+    quote: UK payroll systems
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: UK
+    quote: UK payroll systems
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Monzo
+  date_relevance:
+    value: recent
+    quote: ''

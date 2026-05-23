@@ -1,0 +1,31 @@
+signal_id: sig_190aa796973c
+tags:
+  pain_type:
+    value: complaint
+    quote: I deeply suffered from the Great Recession. Couldn&#x27;t find meaningful
+      work for many years.
+  pain_intensity:
+    value: 4
+    quote: deeply suffered
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: sitting POTUS as its CEO
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

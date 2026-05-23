@@ -1,0 +1,33 @@
+signal_id: sig_94aa49750c2e
+tags:
+  pain_type:
+    value: complaint
+    quote: the simulator freezes
+  pain_intensity:
+    value: 2
+    quote: Do you experience the same frustration?
+  industry:
+    value: software_development
+    quote: iOS 6 simulator that comes with Xcode 4.5
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Delete app folder from /Library/Application Support/iPhone Simulator/5.1/Applications
+      (unreliable), or use Reset Contents and Settings (loses all simulator data)
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - iOS 6 simulator
+  - Xcode 4.5
+  date_relevance:
+    value: historical
+    quote: iOS 6 simulator that comes with Xcode 4.5

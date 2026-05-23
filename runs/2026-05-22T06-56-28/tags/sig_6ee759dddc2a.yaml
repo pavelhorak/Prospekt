@@ -1,0 +1,38 @@
+signal_id: sig_6ee759dddc2a
+tags:
+  pain_type:
+    value: question
+    quote: Any suggestions of which one is the 'best'?
+  pain_intensity:
+    value: 2
+    quote: Many of the tools seem incompatible with each others' @NotNull/@NonNull/@Nonnull
+      annotation and listing all of them in my code would be terrible to read
+  industry:
+    value: software_development
+    quote: use tooling like IDE code inspection and/or static code analysis
+  buyer_persona:
+    value: individual_developer
+    quote: I'm looking to make my code more readable
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - FindBugs
+  - SpotBugs
+  - Sonar
+  - SonarQube
+  - IntelliJ IDEA
+  - Lombok
+  - Eclipse
+  date_relevance:
+    value: current
+    quote: ''

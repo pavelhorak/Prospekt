@@ -1,0 +1,32 @@
+signal_id: sig_53b95f79f8ac
+tags:
+  pain_type:
+    value: trend_data
+    quote: hype&#x2F;controversy&#x2F;reprisal loop exists for new technologies
+  pain_intensity:
+    value: 2
+    quote: We&#x27;re still a way off the first chatgpt casualty
+  industry:
+    value: software_development
+    quote: chat AI producing
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - ChatGPT
+  - Tay
+  date_relevance:
+    value: current
+    quote: ''

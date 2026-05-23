@@ -1,0 +1,31 @@
+signal_id: sig_68dde6cc2885
+tags:
+  pain_type:
+    value: unknown
+    quote: ''
+  pain_intensity:
+    value: unknown
+    quote: ''
+  industry:
+    value: healthcare
+    quote: creates medical apps
+  buyer_persona:
+    value: individual_developer
+    quote: I work as a developer in US startup
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: I work as a developer in US startup
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Swift
+  date_relevance:
+    value: historical
+    quote: ''

@@ -1,0 +1,33 @@
+signal_id: sig_86e7e437fa53
+tags:
+  pain_type:
+    value: feature_request
+    quote: 'feature request: Distortion'
+  pain_intensity:
+    value: 1
+    quote: it's not really customizable nor does it look great
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I literally just asked gemini to give me the cheapest possible shader for
+      this
+  company_size:
+    value: solo
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Used Gemini to generate a proof-of-concept wavy shader and applied
+      it directly to Shaders.hpp
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Gemini
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,33 @@
+signal_id: sig_e64081c0dad8
+tags:
+  pain_type:
+    value: workaround
+    quote: had to majorly alter and recompile the stdlib
+  pain_intensity:
+    value: 3
+    quote: the strong opinions of Go authors really stand in the way of getting work
+      done
+  industry:
+    value: software_development
+    quote: proxy written in Go
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: forked and recompiled Go stdlib; published custom transport library
+      on GitHub
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Go
+  date_relevance:
+    value: older
+    quote: ''

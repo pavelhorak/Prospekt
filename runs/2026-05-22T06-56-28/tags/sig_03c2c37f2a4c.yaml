@@ -1,0 +1,33 @@
+signal_id: sig_03c2c37f2a4c
+tags:
+  pain_type:
+    value: question
+    quote: What is the benefit of this over something that works system-wide, such
+      as Textexpander?
+  pain_intensity:
+    value: 1
+    quote: What is the benefit of this over something that works system-wide, such
+      as Textexpander?
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Already using TextExpander as a system-wide text expansion tool
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Textexpander
+  date_relevance:
+    value: older
+    quote: ''

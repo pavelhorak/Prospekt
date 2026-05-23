@@ -1,0 +1,30 @@
+signal_id: sig_7111a0436552
+tags:
+  pain_type:
+    value: feature_request
+    quote: list out the features you want it can/ should have
+  pain_intensity:
+    value: 1
+    quote: ''
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

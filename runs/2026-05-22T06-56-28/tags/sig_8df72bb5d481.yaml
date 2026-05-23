@@ -1,0 +1,33 @@
+signal_id: sig_8df72bb5d481
+tags:
+  pain_type:
+    value: question
+    quote: How do I declare custom exception classes in modern Python?
+  pain_intensity:
+    value: 2
+    quote: I was tripped up by the following deprecation warning in Python 2.6.2
+  industry:
+    value: software_development
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Python 2.5
+  - Python 2.6
+  - Python 3
+  date_relevance:
+    value: older
+    quote: Python 2.6.2

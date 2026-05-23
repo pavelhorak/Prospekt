@@ -1,0 +1,33 @@
+signal_id: sig_136cd594e986
+tags:
+  pain_type:
+    value: workaround
+    quote: simple (but bare-bones) self-hosted version of this service
+  pain_intensity:
+    value: 2
+    quote: simple (but bare-bones)
+  industry:
+    value: education
+    quote: MIT for HackMIT and the MIT Pokerbots competition
+  buyer_persona:
+    value: individual_developer
+    quote: open source version I made a couple years back
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: MIT
+  has_workaround:
+    value: true
+    description: self-hosted open-source Redis URL-shortener built as free alternative
+      to a paid service; deployed via Heroku
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Slack
+  - Heroku
+  date_relevance:
+    value: older
+    quote: ''

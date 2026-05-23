@@ -1,0 +1,31 @@
+signal_id: sig_db4a0749790a
+tags:
+  pain_type:
+    value: trend_data
+    quote: AI means the price is far better aligned to value for small things
+  pain_intensity:
+    value: 2
+    quote: spending tens or hundreds of thousands of pounds to get them was too much,
+      so they lived without
+  industry:
+    value: software_development
+    quote: Engineering Manager in a small tech company
+  buyer_persona:
+    value: engineering_manager
+    quote: as an Engineering Manager in a small tech company
+  company_size:
+    value: 11-50
+    quote: small tech company
+  geography:
+    value: UK
+    quote: hundreds of thousands of pounds
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,32 @@
+signal_id: sig_b6f6727ef0b8
+tags:
+  pain_type:
+    value: workaround
+    quote: I am building a service no one can silence
+  pain_intensity:
+    value: 4
+    quote: a service no one can silence
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I am building
+  company_size:
+    value: solo
+    quote: I am building
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: building own censorship-resistant service as alternative to deplatformed
+      Parler
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Parler
+  date_relevance:
+    value: older
+    quote: Parler deplatforming

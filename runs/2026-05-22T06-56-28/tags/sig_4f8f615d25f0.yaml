@@ -1,0 +1,32 @@
+signal_id: sig_4f8f615d25f0
+tags:
+  pain_type:
+    value: complaint
+    quote: complex systems of sprites are a mess
+  pain_intensity:
+    value: 4
+    quote: the workaround of programming everything to be aware of each other gets
+      increasingly messier
+  industry:
+    value: gaming
+    quote: Space Station 14
+  buyer_persona:
+    value: individual_developer
+    quote: I'd propose a hierarchical sprite layering solution
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: manual index math and explicit cross-awareness programming between
+      competing components and systems
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

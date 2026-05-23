@@ -1,0 +1,34 @@
+signal_id: sig_0e165265eb2f
+tags:
+  pain_type:
+    value: complaint
+    quote: we repeatedly "broke" conversion funnels and retention charts we relied
+      on when we shipped product updates
+  pain_intensity:
+    value: 4
+    quote: It was driving everyone involved mad
+  industry:
+    value: software_development
+    quote: maintaining tracking for cross platform consumer products
+  buyer_persona:
+    value: engineering_manager
+    quote: There was no one that really wanted to maintain this – but developers ended
+      up agreeing to maintain it because it was better than the alternative
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: 'Built internal dev tools: code gen or server-side validation based
+      on JSON schemas for analytics tracking — clunky to update and unmaintained but
+      better than nothing'
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

@@ -1,0 +1,35 @@
+signal_id: sig_ac8a2df3aba8
+tags:
+  pain_type:
+    value: manual_process
+    quote: tasks that took hours manually
+  pain_intensity:
+    value: 3
+    quote: tasks that took hours manually
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: So we built an internal tool
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Built an internal tool that accepts a file and task description,
+      previews results, then processes the full spreadsheet row by row via LLM — replacing
+      both manual work and broken add-in attempts
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - ChatGPT
+  - Excel
+  - Google Sheets
+  date_relevance:
+    value: current
+    quote: We've used it daily for months

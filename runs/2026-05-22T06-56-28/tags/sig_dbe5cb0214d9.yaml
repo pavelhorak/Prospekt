@@ -1,0 +1,31 @@
+signal_id: sig_dbe5cb0214d9
+tags:
+  pain_type:
+    value: feature_request
+    quote: 'Feature Request:'
+  pain_intensity:
+    value: 2
+    quote: My unit only has a Cool mode, yet HomeKit shows Auto and Heat as well.
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: solo
+    quote: My unit only has a Cool mode
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - HomeKit
+  date_relevance:
+    value: current
+    quote: ''

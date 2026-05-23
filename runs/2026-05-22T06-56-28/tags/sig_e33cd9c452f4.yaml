@@ -1,0 +1,40 @@
+signal_id: sig_e33cd9c452f4
+tags:
+  pain_type:
+    value: complaint
+    quote: chasing SQL coverage was a daily challenge for 10 years
+  pain_intensity:
+    value: 3
+    quote: logical replication is ETL! It is painful to manage logical replication
+  industry:
+    value: software_development
+    quote: I&#x27;m a huge Postgres proponent and have spent 10 years helping customers
+      implement it
+  buyer_persona:
+    value: cto
+    quote: Please think carefully before choosing the right technology as you scale
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: 'use purpose-built alternatives: ClickHouse for analytics, Redis
+      for caching, Kafka for queues'
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Postgres
+  - ClickHouse
+  - Snowflake
+  - Redis
+  - Kafka
+  - Citus
+  - Vertica
+  - PeerDB
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,32 @@
+signal_id: sig_0886b7918f8e
+tags:
+  pain_type:
+    value: workaround
+    quote: Write write write and keep writing
+  pain_intensity:
+    value: 3
+    quote: all of them have struggled heavily with losing institutional knowledge
+  industry:
+    value: software_development
+    quote: Every employee can read every RFC going back to the first sketch of terraform
+  buyer_persona:
+    value: individual_developer
+    quote: I want all future employers to at least pretend they're remote-first as
+      that seems to be the forcing function for writing everything down
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: 'Mandate exhaustive prose: RFCs, live mailing lists, PR descriptions
+      often longer than the code, every decision recorded somewhere even if unformatted'
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

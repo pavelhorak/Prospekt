@@ -1,0 +1,30 @@
+signal_id: sig_4ced447819af
+tags:
+  pain_type:
+    value: feature_request
+    quote: 可以有下载邮件和导入邮件
+  pain_intensity:
+    value: 1
+    quote: ''
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

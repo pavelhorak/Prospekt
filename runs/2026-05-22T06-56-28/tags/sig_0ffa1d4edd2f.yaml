@@ -1,0 +1,31 @@
+signal_id: sig_0ffa1d4edd2f
+tags:
+  pain_type:
+    value: complaint
+    quote: you literally cannot use machine-to-machine APIs without a browser
+  pain_intensity:
+    value: 4
+    quote: you literally cannot access them without a browser
+  industry:
+    value: government
+    quote: government API services that have been put behind Cloudflare
+  buyer_persona:
+    value: individual_developer
+    quote: you literally cannot use machine-to-machine APIs without a browser
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Cloudflare
+  date_relevance:
+    value: recent
+    quote: ''

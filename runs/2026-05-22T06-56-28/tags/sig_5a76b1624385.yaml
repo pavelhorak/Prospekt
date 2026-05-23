@@ -1,0 +1,32 @@
+signal_id: sig_5a76b1624385
+tags:
+  pain_type:
+    value: question
+    quote: How can I use Emacs Tramp to double hop ssh?
+  pain_intensity:
+    value: 2
+    quote: The connection is very slow at times and is frustrating to work on
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: struggling to get it to work
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Tramp
+  - SSH
+  date_relevance:
+    value: current
+    quote: ''

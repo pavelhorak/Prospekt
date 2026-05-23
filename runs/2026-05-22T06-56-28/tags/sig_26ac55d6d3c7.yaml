@@ -1,0 +1,30 @@
+signal_id: sig_26ac55d6d3c7
+tags:
+  pain_type:
+    value: feature_request
+    quote: Please add a feature to pop up when media (audio/video) is detected
+  pain_intensity:
+    value: 1
+    quote: to make it easier to download
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

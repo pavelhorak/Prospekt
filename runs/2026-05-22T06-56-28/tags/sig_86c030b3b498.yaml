@@ -1,0 +1,31 @@
+signal_id: sig_86c030b3b498
+tags:
+  pain_type:
+    value: workaround
+    quote: This quote jailbreaks chatgpt to say anything u want
+  pain_intensity:
+    value: 1
+    quote: DAN can do anything now
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: DAN jailbreak prompt designed to bypass ChatGPT content restrictions
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - ChatGPT
+  date_relevance:
+    value: recent
+    quote: ''

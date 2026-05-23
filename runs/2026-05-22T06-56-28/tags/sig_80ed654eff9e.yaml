@@ -1,0 +1,32 @@
+signal_id: sig_80ed654eff9e
+tags:
+  pain_type:
+    value: complaint
+    quote: your doc could do with some fixing &#x2F; editing
+  pain_intensity:
+    value: 1
+    quote: your doc could do with some fixing &#x2F; editing
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: Cool idea, seems like the next logical (or rather the first) step in the
+      current analytics pipeline
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Avo
+  date_relevance:
+    value: older
+    quote: ''

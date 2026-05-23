@@ -1,0 +1,32 @@
+signal_id: sig_83559732580e
+tags:
+  pain_type:
+    value: question
+    quote: How can I save an activity state using the save instance state?
+  pain_intensity:
+    value: 2
+    quote: I've been poking away in the documentation for 30 minutes or so and haven't
+      found anything obvious
+  industry:
+    value: software_development
+    quote: Android SDK platform
+  buyer_persona:
+    value: individual_developer
+    quote: I've been working on the Android SDK platform
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Android SDK
+  date_relevance:
+    value: current
+    quote: ''

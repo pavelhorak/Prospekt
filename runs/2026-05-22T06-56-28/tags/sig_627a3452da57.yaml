@@ -1,0 +1,31 @@
+signal_id: sig_627a3452da57
+tags:
+  pain_type:
+    value: manual_process
+    quote: the manual process of driving to the office every day
+  pain_intensity:
+    value: 2
+    quote: I'd get rid of the manual process of driving to the office every day
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Collaboration tools are in use but a no-remote-workers policy prevents
+      them from replacing the daily commute entirely
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

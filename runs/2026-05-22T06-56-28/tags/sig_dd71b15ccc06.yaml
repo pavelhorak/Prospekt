@@ -1,0 +1,30 @@
+signal_id: sig_dd71b15ccc06
+tags:
+  pain_type:
+    value: complaint
+    quote: The so-called &quot;professionals&quot; are simply useless
+  pain_intensity:
+    value: 2
+    quote: people are figuring that out too
+  industry:
+    value: finance
+    quote: economy that the professionals say is doing pretty well
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

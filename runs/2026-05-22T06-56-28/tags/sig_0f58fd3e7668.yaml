@@ -1,0 +1,31 @@
+signal_id: sig_0f58fd3e7668
+tags:
+  pain_type:
+    value: question
+    quote: What are some successful methods you have used or seen used to accomplish
+      this transition?
+  pain_intensity:
+    value: 4
+    quote: is about to lose key personnel, and is looking to prepare
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: operations_manager
+    quote: I am involved with an organization that is slowly growing
+  company_size:
+    value: 11-50
+    quote: slowly growing
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

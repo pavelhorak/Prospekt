@@ -1,0 +1,32 @@
+signal_id: sig_36d4c96376a3
+tags:
+  pain_type:
+    value: workaround
+    quote: forces awkward refactors (assertion functions, simpler predicates)
+  pain_intensity:
+    value: 2
+    quote: forces awkward refactors
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: convert type predicates to assertion functions or simplify to predicates
+      TypeScript accepts
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - TypeScript
+  date_relevance:
+    value: current
+    quote: ''

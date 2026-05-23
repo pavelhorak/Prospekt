@@ -1,0 +1,30 @@
+signal_id: sig_6e3767f0d537
+tags:
+  pain_type:
+    value: manual_process
+    quote: Document the Manual Process Before Automation
+  pain_intensity:
+    value: unknown
+    quote: ''
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: unknown
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

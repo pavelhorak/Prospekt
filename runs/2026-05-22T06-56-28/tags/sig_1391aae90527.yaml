@@ -1,0 +1,31 @@
+signal_id: sig_1391aae90527
+tags:
+  pain_type:
+    value: feature_request
+    quote: I would like SSH account management to be integrated directly into 3X-UI.
+  pain_intensity:
+    value: 3
+    quote: makes management more complicated and less centralized
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: small_business_owner
+    quote: server owners have to manage SSH users separately
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: using separate SSH management scripts and panels alongside 3X-UI
+      for Xray protocols
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

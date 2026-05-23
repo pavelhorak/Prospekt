@@ -1,0 +1,31 @@
+signal_id: sig_4c6d6508d1b9
+tags:
+  pain_type:
+    value: question
+    quote: Is there a way?
+  pain_intensity:
+    value: 2
+    quote: I want to automate my project deployment as much as possible
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I'm running Ansible playbook like this
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Ansible
+  date_relevance:
+    value: current
+    quote: ''

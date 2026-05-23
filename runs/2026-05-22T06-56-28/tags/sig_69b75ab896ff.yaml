@@ -1,0 +1,32 @@
+signal_id: sig_69b75ab896ff
+tags:
+  pain_type:
+    value: question
+    quote: Who is paying?
+  pain_intensity:
+    value: 2
+    quote: Do people who are already fully convinced with their own idea, listen to
+      you saying otherwise?
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - ideasdb
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,5 +1,5 @@
 run_id: 2026-05-22T06-56-28
-started_at: '2026-05-22T06:56:28Z'
+started_at: '2026-05-23T09:46:18Z'
 config_snapshot:
   ingest:
     sources:
@@ -30,6 +30,21 @@ config_snapshot:
         - developer productivity tool
         timeframe: today 24-m
         geo: ''
+      reddit:
+        subreddits:
+        - ExperiencedDevs
+        - SaaS
+        - smallbusiness
+        - webdev
+        - devops
+        queries:
+        - frustrated with
+        - waste time
+        - manual process
+        - looking for tool
+        sort: top
+        time_filter: year
+        max_per_query: 25
   tagging:
     prompt_file: prompts/tagging.md
     batch_size: 15
@@ -42,14 +57,21 @@ config_snapshot:
     min_samples: 2
     merge_threshold: 0.85
     cross_assign_threshold: 0.7
+    membership_cap: 3
     embedding_model: all-MiniLM-L6-v2
+    label_temperature: 0.2
   enrichment:
     prompt_file: prompts/enrichment.md
     triggers:
       min_signal_count: 10
       min_source_diversity: 2
       min_workaround_count: 3
-      min_median_intensity: 3
+      min_median_intensity: 2
+  modeling:
+    top_n: 3
+    horizon_months: 24
+    target_mrr: 10000
+    monthly_cost: 600
   scoring:
     prompt_file: prompts/scoring.md
     weights:
@@ -69,5 +91,10 @@ config_snapshot:
     model: claude-opus-4-7
     temperature: 0.0
     sample_size: 20
-stages_run: []
-status: in_progress
+stages_run:
+- cluster
+- enrich
+- score
+- model
+status: completed
+finished_at: '2026-05-23T09:46:57Z'

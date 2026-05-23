@@ -1,0 +1,31 @@
+signal_id: sig_11aae6e0872b
+tags:
+  pain_type:
+    value: question
+    quote: how to call a function every 5 seconds
+  pain_intensity:
+    value: 1
+    quote: ''
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I'd rather not install any other 3rd party plugins if possible
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - jQuery
+  date_relevance:
+    value: older
+    quote: ''

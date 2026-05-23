@@ -1,0 +1,31 @@
+signal_id: sig_3a17f3e5f09b
+tags:
+  pain_type:
+    value: feature_request
+    quote: Have pages listing available links
+  pain_intensity:
+    value: 2
+    quote: been burned hard on content migrations
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: engineering_manager
+    quote: In the enterprise noone is going to set up a .htaccess redirect
+  company_size:
+    value: 1000+
+    quote: In the enterprise
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: .htaccess redirects used ad-hoc for link management, but only for
+      high-priority cases like the CEO's repository
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

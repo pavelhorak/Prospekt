@@ -1,0 +1,30 @@
+signal_id: sig_3be6bf274e6b
+tags:
+  pain_type:
+    value: manual_process
+    quote: the pain of processing piles of forms, invoices, or applications
+  pain_intensity:
+    value: 3
+    quote: Reduces hours of manual effort into seconds
+  industry:
+    value: insurance
+    quote: seeing traction in industries like insurance and healthcare
+  buyer_persona:
+    value: operations_manager
+    quote: helps businesses automate their document-heavy workflows
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,34 @@
+signal_id: sig_9bce48c22e7d
+tags:
+  pain_type:
+    value: workaround
+    quote: built a small proxy that sits between my client and Ollama
+  pain_intensity:
+    value: 3
+    quote: exactly as painful as it sounds
+  industry:
+    value: software_development
+    quote: I build a lot of small AI tools locally
+  buyer_persona:
+    value: individual_developer
+    quote: I build a lot of small AI tools locally
+  company_size:
+    value: solo
+    quote: I build a lot of small AI tools locally
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: custom proxy between client and Ollama that embeds recent interactions,
+      stores them locally, and injects relevant chunks on session start; separate
+      directories per project for scoping
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Ollama
+  - MCP
+  date_relevance:
+    value: current
+    quote: ''

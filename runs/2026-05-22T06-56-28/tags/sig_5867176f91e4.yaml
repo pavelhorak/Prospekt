@@ -1,0 +1,36 @@
+signal_id: sig_5867176f91e4
+tags:
+  pain_type:
+    value: workaround
+    quote: we built an internal tool to deal with this
+  pain_intensity:
+    value: 3
+    quote: Campaign pages come in, engineers get pulled in, and tickets stack up
+  industry:
+    value: software_development
+    quote: engineers get pulled in, and tickets stack up
+  buyer_persona:
+    value: individual_developer
+    quote: A few years ago, at a startup I worked at, we built an internal tool
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: built internal drag-and-drop tool that registered existing React
+      components as blocks, letting marketing compose pages without filing tickets
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Builder.io
+  - Puck
+  - Storyblok
+  - Wix
+  - Squarespace
+  date_relevance:
+    value: current
+    quote: ''

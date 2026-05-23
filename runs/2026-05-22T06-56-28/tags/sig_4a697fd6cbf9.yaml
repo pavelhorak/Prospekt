@@ -1,0 +1,30 @@
+signal_id: sig_4a697fd6cbf9
+tags:
+  pain_type:
+    value: question
+    quote: link to site?
+  pain_intensity:
+    value: 1
+    quote: link to site?
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: unknown
+    quote: ''

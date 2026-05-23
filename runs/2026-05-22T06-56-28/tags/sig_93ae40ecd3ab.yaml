@@ -1,0 +1,31 @@
+signal_id: sig_93ae40ecd3ab
+tags:
+  pain_type:
+    value: feature_request
+    quote: I think the repo should have a category "Visa sponsorship" with values
+      "Yes" or "No"
+  pain_intensity:
+    value: 2
+    quote: easier for international students to navigate
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

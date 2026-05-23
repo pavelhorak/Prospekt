@@ -1,0 +1,32 @@
+signal_id: sig_82ca98780407
+tags:
+  pain_type:
+    value: complaint
+    quote: I had no reply on a job posting on landing.jobs after talking directly
+      with landing.jobs too
+  pain_intensity:
+    value: 2
+    quote: landing.jobs hasn&#x27;t communicated since that feedback
+  industry:
+    value: recruiting
+    quote: job posting on landing.jobs
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: left feedback directly through the site about the unresponsive company
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - landing.jobs
+  date_relevance:
+    value: older
+    quote: ''

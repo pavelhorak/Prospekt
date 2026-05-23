@@ -1,0 +1,715 @@
+cluster_id: clust_000
+cluster_label: INCOHERENT
+cluster_summary: "These five signals do not converge on a single problem. At least\
+  \ four\ndistinct problems are mixed together:\n\n1. **Internal ops tooling gap**\
+  \ (sig_aedaa459e0a5 — Flowdash): Operations\n   teams at tech companies are stuck\
+  \ in spreadsheet/Slack workarounds\n   because engineering bandwidth is consumed\
+  \ by user-facing features,\n   leaving internal tooling perpetually under-resourced.\n\
+  \n2. **Developer context-switching overhead** (sig_583671ab3dea — Raycast):\n  \
+  \ Software engineers lose time navigating slow, click-heavy web apps\n   (Jira,\
+  \ GitHub, Amplitude) for non-coding tasks, fragmenting their\n   focus during the\
+  \ workday.\n\n3. **Browser security curiosity** (sig_2584ab178bc0): A developer\
+  \ asks\n   how Facebook prevents execution of JavaScript pasted into the browser\n\
+  \   console — a narrow, one-off technical question about self-XSS\n   mitigation,\
+  \ unrelated to workflow pain.\n\n4. **IDE performance tuning / AI framework feature\
+  \ requests**\n   (sig_10bb119d63ee, sig_10096264adf8): Two unrelated signals — one\n\
+  \   asking how to make Eclipse run faster, one requesting Agentic RAG\n   and MCP\
+  \ support in LightRAG. Neither is connected to the other\n   signals or to each\
+  \ other.\n\nSignals 1 and 2 share a surface theme of \"developer tooling friction\"\
+  \nbut describe fundamentally different buyers (ops teams vs. individual\nengineers)\
+  \ and different failure modes. Signals 3–5 share no coherent\ntheme with each other\
+  \ or with 1–2.\n"
+cluster_fingerprint: b59c224a360e
+embedding_model: all-MiniLM-L6-v2
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_08d7f9a3b5b5
+- sig_10096264adf8
+- sig_1391aae90527
+- sig_26ac55d6d3c7
+- sig_28135481ce34
+- sig_29d2cbfdd0d2
+- sig_3284c9b47985
+- sig_359fac070625
+- sig_36d4c96376a3
+- sig_41c46487b1a0
+- sig_43b19052b391
+- sig_4ced447819af
+- sig_4f8f615d25f0
+- sig_53d75dbc56ec
+- sig_7111a0436552
+- sig_8188b8bccacf
+- sig_854d23d8d55e
+- sig_86e7e437fa53
+- sig_909ab37340ea
+- sig_93ae40ecd3ab
+- sig_9bab6f0426d9
+- sig_9e98b61ef63c
+- sig_a010122cb0f7
+- sig_abf360ce7dec
+- sig_bb80850e81a1
+- sig_c25c18648657
+- sig_c4dea6d9232d
+- sig_c81989ae3388
+- sig_cca75b9ecfac
+- sig_cf86c62de9fd
+- sig_d98e6e68c612
+- sig_dbe5cb0214d9
+- sig_f38258a07f91
+- sig_f733059a770f
+- sig_fa158e976133
+- sig_fab93babf8ef
+- sig_faf6388de1c7
+- sig_fdba1dbda688
+- sig_fe6359a6b496
+- sig_014e974eb6ea
+- sig_03c2c37f2a4c
+- sig_040ed96bbed4
+- sig_05138fe5dd7a
+- sig_05adce84f5dd
+- sig_05b8b4b979d8
+- sig_06df0780afd9
+- sig_071b0ad6e5e3
+- sig_0886b7918f8e
+- sig_0981a4862390
+- sig_09fcc2113d79
+- sig_0c178f9cf95c
+- sig_0de3c06f6fd1
+- sig_0e0311da95ff
+- sig_0e165265eb2f
+- sig_0ee16d4cf344
+- sig_0f58fd3e7668
+- sig_0f7fca5a7696
+- sig_0fa93af65caa
+- sig_0fc4b73d8c1b
+- sig_0ffa1d4edd2f
+- sig_105f295f8350
+- sig_1164a1893e48
+- sig_126eef76d642
+- sig_136cd594e986
+- sig_1440ba1f0ff9
+- sig_14bc0f89abbe
+- sig_16c6ee3aab4e
+- sig_173e6922b79d
+- sig_183e7757d20e
+- sig_189a5ed30d54
+- sig_18bef95ca19c
+- sig_190aa796973c
+- sig_19130d21e358
+- sig_194503fcc93c
+- sig_19ffa490253a
+- sig_1cf4d5108857
+- sig_1e369df2f921
+- sig_1eebc2e44161
+- sig_2097c73d7e5c
+- sig_222924b108db
+- sig_2633da476714
+- sig_27f219efb4b4
+- sig_2b3975252b90
+- sig_2d68431078bf
+- sig_2f5588501efc
+- sig_310f99c78fdd
+- sig_315abaf589f3
+- sig_33d2722576b6
+- sig_341b8d994927
+- sig_36c3b38ca7f6
+- sig_38108dc62990
+- sig_38403035a90a
+- sig_3953f37f3549
+- sig_395fef28c82f
+- sig_3a17f3e5f09b
+- sig_3be6bf274e6b
+- sig_3c6f489df5ee
+- sig_3ce196c213ab
+- sig_3e1b0534a5f6
+- sig_3f28e8e16c15
+- sig_4002b4105a5b
+- sig_44d9fe1cbd05
+- sig_44fc610763c1
+- sig_467c6fdaa615
+- sig_4824c5d41832
+- sig_494296ac3949
+- sig_49c5ec031f2a
+- sig_4a697fd6cbf9
+- sig_4ab5d4d85c18
+- sig_4b6798ee4255
+- sig_4de67f61f608
+- sig_4e38eeca9172
+- sig_52a22b6e3bc3
+- sig_53b95f79f8ac
+- sig_54eb673c0980
+- sig_571ae914ea60
+- sig_583671ab3dea
+- sig_5867176f91e4
+- sig_5c454f82c70c
+- sig_5c8523bff916
+- sig_5d12194740b9
+- sig_5d14758de254
+- sig_5fb4795bce7e
+- sig_604982226c54
+- sig_61d60bc53cad
+- sig_627a3452da57
+- sig_62c16da1c221
+- sig_634fae777342
+- sig_669d95ef1d8c
+- sig_68dadfdf6cfd
+- sig_68dde6cc2885
+- sig_69b75ab896ff
+- sig_6aa8f5e2274d
+- sig_6bbc9fb47283
+- sig_6c7072ade7c3
+- sig_6e3767f0d537
+- sig_717c405a4fc0
+- sig_732f5eb0e556
+- sig_738c1bf8d19e
+- sig_760eacc37a6c
+- sig_7765ead2693a
+- sig_77741d0051ca
+- sig_77a2a56539e5
+- sig_79401352a515
+- sig_79ee81dd68e5
+- sig_7af56055a55b
+- sig_7cf7030d80b7
+- sig_80ed654eff9e
+- sig_811100b996aa
+- sig_8160a47d94b3
+- sig_826d5a14a333
+- sig_82ca98780407
+- sig_85da07a0c130
+- sig_86c030b3b498
+- sig_86c826eca435
+- sig_87c64c1c1022
+- sig_8a01db1e62fb
+- sig_8b646425f95d
+- sig_8b6a7a4fd872
+- sig_8b83a5731bc6
+- sig_8df6e0284920
+- sig_8e6b783e7c66
+- sig_8fc56fd7af9e
+- sig_902c7a80c86e
+- sig_934a1f35b80c
+- sig_94958fffc9f0
+- sig_94a07f2547a8
+- sig_94f78a55fb8c
+- sig_98a2cc89a1c2
+- sig_9bce48c22e7d
+- sig_9bdfe5f923ed
+- sig_9c426cb3f391
+- sig_9c6d424128a4
+- sig_9d61f3852634
+- sig_9ee7642c2138
+- sig_9fa63152f95a
+- sig_9fd78c602445
+- sig_a3a2c1d26189
+- sig_a5f92e916c2f
+- sig_a688900e599a
+- sig_a7dc6cee3918
+- sig_a951779b90a9
+- sig_a9acc5328c45
+- sig_aa4cf42a3ebe
+- sig_ab8905d2be0e
+- sig_ac5ec0267a2b
+- sig_ac8a2df3aba8
+- sig_acaf9facfefd
+- sig_adbad3558708
+- sig_adf37cd9933b
+- sig_ae794ea93bde
+- sig_aedaa459e0a5
+- sig_afffef0c4d28
+- sig_b0bafcb6b1a8
+- sig_b29d95861e3c
+- sig_b62b037da470
+- sig_b6f6727ef0b8
+- sig_b9d21e86cb07
+- sig_b9f8f3103105
+- sig_bc70a7f05af0
+- sig_bdd0039c07aa
+- sig_be49d422a781
+- sig_be639c5ead51
+- sig_c14e0b1e277f
+- sig_c1e014290eca
+- sig_c2a70a497f8a
+- sig_c2e060867b6e
+- sig_c4a83f18743a
+- sig_c4d799b973a5
+- sig_c4eabea84b81
+- sig_c53ae1727f84
+- sig_c922a0518dac
+- sig_ca4f11a8f9c6
+- sig_cb0bec3000ec
+- sig_cb8b648e193c
+- sig_cbb1d273826a
+- sig_cbe5fffff031
+- sig_d198fd406164
+- sig_d300e92e0ed4
+- sig_d603222a8cdd
+- sig_d85200af4f17
+- sig_d88ab20a30da
+- sig_d93b37c194c2
+- sig_da945b38bdc9
+- sig_db4a0749790a
+- sig_dc09cedf0a57
+- sig_dc1d36101b0a
+- sig_dc76ef76f79f
+- sig_dd71b15ccc06
+- sig_dd8646488501
+- sig_e0f5f893579c
+- sig_e0fd68a41bee
+- sig_e1fd538f438f
+- sig_e33cd9c452f4
+- sig_e472e07ced1d
+- sig_e57692d72c30
+- sig_e5b1679024d6
+- sig_e5e762783ab5
+- sig_e5efada2860d
+- sig_e64081c0dad8
+- sig_e70395f7bea8
+- sig_e76fd1fe6c4a
+- sig_ee6377c9bf1c
+- sig_ee9b1dc98651
+- sig_efaefccb52b4
+- sig_f5bb5219f787
+- sig_f8fe0c7d9854
+- sig_fb039e5cc186
+- sig_fbb9f117f33a
+- sig_fc6a5bc2ff82
+- sig_feca0e25bad1
+- sig_ffc19d78690d
+- sig_01378fa38c93
+- sig_01baa3dc68c5
+- sig_059986ceefcc
+- sig_0c9a8e06afcd
+- sig_0d349e93bd43
+- sig_0e84b38d74b5
+- sig_1050c14ac0d1
+- sig_10bb119d63ee
+- sig_10d888fe3eda
+- sig_11aae6e0872b
+- sig_1319e04cbf5e
+- sig_173194a3f8f8
+- sig_18a4d04692e1
+- sig_1fba4e47edca
+- sig_21de0015aef3
+- sig_2584ab178bc0
+- sig_31b409bf9560
+- sig_3316ca61ccfa
+- sig_3f8d04ab5576
+- sig_4084af7915cc
+- sig_4416388f3862
+- sig_45f4034ead55
+- sig_477d392778f1
+- sig_4be3c87f89e3
+- sig_4c6d6508d1b9
+- sig_512d9546d481
+- sig_58c96886e3b0
+- sig_5a76b1624385
+- sig_5b9f3b0c1b3f
+- sig_6434970a7928
+- sig_68523b2c269e
+- sig_6ee759dddc2a
+- sig_7a18e21d5e07
+- sig_7c2de06eb4d2
+- sig_7cdb89731efb
+- sig_83559732580e
+- sig_83bdd188050c
+- sig_8d609cfde800
+- sig_8df72bb5d481
+- sig_91682e95e15d
+- sig_93450337c6c7
+- sig_94aa49750c2e
+- sig_9f67d756bb54
+- sig_a33c4180ff39
+- sig_a7220b9e6cff
+- sig_a7ee76927b94
+- sig_b39e534cb8be
+- sig_b916bb310a98
+- sig_ba8eaa4662c9
+- sig_be982cca9101
+- sig_bffda685d0e8
+- sig_cbd5c7a8d7e5
+- sig_ce790c98fc64
+- sig_d3d54e09ed8e
+- sig_d58ddbe6e7f8
+- sig_e7be3e3535d1
+- sig_e865925085b7
+- sig_f5c1824d9748
+- sig_f929dd076f9e
+- sig_fee5251c8024
+all_signal_ids:
+- sig_08d7f9a3b5b5
+- sig_10096264adf8
+- sig_1391aae90527
+- sig_26ac55d6d3c7
+- sig_28135481ce34
+- sig_29d2cbfdd0d2
+- sig_3284c9b47985
+- sig_359fac070625
+- sig_36d4c96376a3
+- sig_41c46487b1a0
+- sig_43b19052b391
+- sig_4ced447819af
+- sig_4f8f615d25f0
+- sig_53d75dbc56ec
+- sig_7111a0436552
+- sig_8188b8bccacf
+- sig_854d23d8d55e
+- sig_86e7e437fa53
+- sig_909ab37340ea
+- sig_93ae40ecd3ab
+- sig_9bab6f0426d9
+- sig_9e98b61ef63c
+- sig_a010122cb0f7
+- sig_abf360ce7dec
+- sig_bb80850e81a1
+- sig_c25c18648657
+- sig_c4dea6d9232d
+- sig_c81989ae3388
+- sig_cca75b9ecfac
+- sig_cf86c62de9fd
+- sig_d98e6e68c612
+- sig_dbe5cb0214d9
+- sig_f38258a07f91
+- sig_f733059a770f
+- sig_fa158e976133
+- sig_fab93babf8ef
+- sig_faf6388de1c7
+- sig_fdba1dbda688
+- sig_fe6359a6b496
+- sig_014e974eb6ea
+- sig_03c2c37f2a4c
+- sig_040ed96bbed4
+- sig_05138fe5dd7a
+- sig_05adce84f5dd
+- sig_05b8b4b979d8
+- sig_06df0780afd9
+- sig_071b0ad6e5e3
+- sig_0886b7918f8e
+- sig_0981a4862390
+- sig_09fcc2113d79
+- sig_0c178f9cf95c
+- sig_0de3c06f6fd1
+- sig_0e0311da95ff
+- sig_0e165265eb2f
+- sig_0ee16d4cf344
+- sig_0f58fd3e7668
+- sig_0f7fca5a7696
+- sig_0fa93af65caa
+- sig_0fc4b73d8c1b
+- sig_0ffa1d4edd2f
+- sig_105f295f8350
+- sig_1164a1893e48
+- sig_126eef76d642
+- sig_136cd594e986
+- sig_1440ba1f0ff9
+- sig_14bc0f89abbe
+- sig_16c6ee3aab4e
+- sig_173e6922b79d
+- sig_183e7757d20e
+- sig_189a5ed30d54
+- sig_18bef95ca19c
+- sig_190aa796973c
+- sig_19130d21e358
+- sig_194503fcc93c
+- sig_19ffa490253a
+- sig_1cf4d5108857
+- sig_1e369df2f921
+- sig_1eebc2e44161
+- sig_2097c73d7e5c
+- sig_222924b108db
+- sig_2633da476714
+- sig_27f219efb4b4
+- sig_2b3975252b90
+- sig_2d68431078bf
+- sig_2f5588501efc
+- sig_310f99c78fdd
+- sig_315abaf589f3
+- sig_33d2722576b6
+- sig_341b8d994927
+- sig_36c3b38ca7f6
+- sig_38108dc62990
+- sig_38403035a90a
+- sig_3953f37f3549
+- sig_395fef28c82f
+- sig_3a17f3e5f09b
+- sig_3be6bf274e6b
+- sig_3c6f489df5ee
+- sig_3ce196c213ab
+- sig_3e1b0534a5f6
+- sig_3f28e8e16c15
+- sig_4002b4105a5b
+- sig_44d9fe1cbd05
+- sig_44fc610763c1
+- sig_467c6fdaa615
+- sig_4824c5d41832
+- sig_494296ac3949
+- sig_49c5ec031f2a
+- sig_4a697fd6cbf9
+- sig_4ab5d4d85c18
+- sig_4b6798ee4255
+- sig_4de67f61f608
+- sig_4e38eeca9172
+- sig_52a22b6e3bc3
+- sig_53b95f79f8ac
+- sig_54eb673c0980
+- sig_571ae914ea60
+- sig_583671ab3dea
+- sig_5867176f91e4
+- sig_5c454f82c70c
+- sig_5c8523bff916
+- sig_5d12194740b9
+- sig_5d14758de254
+- sig_5fb4795bce7e
+- sig_604982226c54
+- sig_61d60bc53cad
+- sig_627a3452da57
+- sig_62c16da1c221
+- sig_634fae777342
+- sig_669d95ef1d8c
+- sig_68dadfdf6cfd
+- sig_68dde6cc2885
+- sig_69b75ab896ff
+- sig_6aa8f5e2274d
+- sig_6bbc9fb47283
+- sig_6c7072ade7c3
+- sig_6e3767f0d537
+- sig_717c405a4fc0
+- sig_732f5eb0e556
+- sig_738c1bf8d19e
+- sig_760eacc37a6c
+- sig_7765ead2693a
+- sig_77741d0051ca
+- sig_77a2a56539e5
+- sig_79401352a515
+- sig_79ee81dd68e5
+- sig_7af56055a55b
+- sig_7cf7030d80b7
+- sig_80ed654eff9e
+- sig_811100b996aa
+- sig_8160a47d94b3
+- sig_826d5a14a333
+- sig_82ca98780407
+- sig_85da07a0c130
+- sig_86c030b3b498
+- sig_86c826eca435
+- sig_87c64c1c1022
+- sig_8a01db1e62fb
+- sig_8b646425f95d
+- sig_8b6a7a4fd872
+- sig_8b83a5731bc6
+- sig_8df6e0284920
+- sig_8e6b783e7c66
+- sig_8fc56fd7af9e
+- sig_902c7a80c86e
+- sig_934a1f35b80c
+- sig_94958fffc9f0
+- sig_94a07f2547a8
+- sig_94f78a55fb8c
+- sig_98a2cc89a1c2
+- sig_9bce48c22e7d
+- sig_9bdfe5f923ed
+- sig_9c426cb3f391
+- sig_9c6d424128a4
+- sig_9d61f3852634
+- sig_9ee7642c2138
+- sig_9fa63152f95a
+- sig_9fd78c602445
+- sig_a3a2c1d26189
+- sig_a5f92e916c2f
+- sig_a688900e599a
+- sig_a7dc6cee3918
+- sig_a951779b90a9
+- sig_a9acc5328c45
+- sig_aa4cf42a3ebe
+- sig_ab8905d2be0e
+- sig_ac5ec0267a2b
+- sig_ac8a2df3aba8
+- sig_acaf9facfefd
+- sig_adbad3558708
+- sig_adf37cd9933b
+- sig_ae794ea93bde
+- sig_aedaa459e0a5
+- sig_afffef0c4d28
+- sig_b0bafcb6b1a8
+- sig_b29d95861e3c
+- sig_b62b037da470
+- sig_b6f6727ef0b8
+- sig_b9d21e86cb07
+- sig_b9f8f3103105
+- sig_bc70a7f05af0
+- sig_bdd0039c07aa
+- sig_be49d422a781
+- sig_be639c5ead51
+- sig_c14e0b1e277f
+- sig_c1e014290eca
+- sig_c2a70a497f8a
+- sig_c2e060867b6e
+- sig_c4a83f18743a
+- sig_c4d799b973a5
+- sig_c4eabea84b81
+- sig_c53ae1727f84
+- sig_c922a0518dac
+- sig_ca4f11a8f9c6
+- sig_cb0bec3000ec
+- sig_cb8b648e193c
+- sig_cbb1d273826a
+- sig_cbe5fffff031
+- sig_d198fd406164
+- sig_d300e92e0ed4
+- sig_d603222a8cdd
+- sig_d85200af4f17
+- sig_d88ab20a30da
+- sig_d93b37c194c2
+- sig_da945b38bdc9
+- sig_db4a0749790a
+- sig_dc09cedf0a57
+- sig_dc1d36101b0a
+- sig_dc76ef76f79f
+- sig_dd71b15ccc06
+- sig_dd8646488501
+- sig_e0f5f893579c
+- sig_e0fd68a41bee
+- sig_e1fd538f438f
+- sig_e33cd9c452f4
+- sig_e472e07ced1d
+- sig_e57692d72c30
+- sig_e5b1679024d6
+- sig_e5e762783ab5
+- sig_e5efada2860d
+- sig_e64081c0dad8
+- sig_e70395f7bea8
+- sig_e76fd1fe6c4a
+- sig_ee6377c9bf1c
+- sig_ee9b1dc98651
+- sig_efaefccb52b4
+- sig_f5bb5219f787
+- sig_f8fe0c7d9854
+- sig_fb039e5cc186
+- sig_fbb9f117f33a
+- sig_fc6a5bc2ff82
+- sig_feca0e25bad1
+- sig_ffc19d78690d
+- sig_01378fa38c93
+- sig_01baa3dc68c5
+- sig_059986ceefcc
+- sig_0c9a8e06afcd
+- sig_0d349e93bd43
+- sig_0e84b38d74b5
+- sig_1050c14ac0d1
+- sig_10bb119d63ee
+- sig_10d888fe3eda
+- sig_11aae6e0872b
+- sig_1319e04cbf5e
+- sig_173194a3f8f8
+- sig_18a4d04692e1
+- sig_1fba4e47edca
+- sig_21de0015aef3
+- sig_2584ab178bc0
+- sig_31b409bf9560
+- sig_3316ca61ccfa
+- sig_3f8d04ab5576
+- sig_4084af7915cc
+- sig_4416388f3862
+- sig_45f4034ead55
+- sig_477d392778f1
+- sig_4be3c87f89e3
+- sig_4c6d6508d1b9
+- sig_512d9546d481
+- sig_58c96886e3b0
+- sig_5a76b1624385
+- sig_5b9f3b0c1b3f
+- sig_6434970a7928
+- sig_68523b2c269e
+- sig_6ee759dddc2a
+- sig_7a18e21d5e07
+- sig_7c2de06eb4d2
+- sig_7cdb89731efb
+- sig_83559732580e
+- sig_83bdd188050c
+- sig_8d609cfde800
+- sig_8df72bb5d481
+- sig_91682e95e15d
+- sig_93450337c6c7
+- sig_94aa49750c2e
+- sig_9f67d756bb54
+- sig_a33c4180ff39
+- sig_a7220b9e6cff
+- sig_a7ee76927b94
+- sig_b39e534cb8be
+- sig_b916bb310a98
+- sig_ba8eaa4662c9
+- sig_be982cca9101
+- sig_bffda685d0e8
+- sig_cbd5c7a8d7e5
+- sig_ce790c98fc64
+- sig_d3d54e09ed8e
+- sig_d58ddbe6e7f8
+- sig_e7be3e3535d1
+- sig_e865925085b7
+- sig_f5c1824d9748
+- sig_f929dd076f9e
+- sig_fee5251c8024
+metrics:
+  primary_signal_count: 312
+  total_signal_count: 312
+  source_diversity: 3
+  context_diversity: 158
+  sources:
+  - github_issues
+  - hackernews
+  - stackoverflow
+  temporal_trend: stable
+  intensity_distribution:
+    1: 44
+    2: 99
+    3: 75
+    4: 22
+    5: 1
+  intensity_mean: 2.32
+  industries:
+  - aerospace
+  - automotive
+  - cybersecurity
+  - e_commerce
+  - education
+  - finance
+  - financial_services
+  - fintech
+  - food_beverage
+  - gaming
+  - government
+  - healthcare
+  - hr_payroll
+  - insurance
+  - legal
+  - logistics
+  - managed_services
+  - recruiting
+  - software_development
+  - technology
+  - telecommunications
+  - transportation
+  industry_spread: 22
+  workaround_count: 109
+  spend_evidence_count: 24
+  competitor_mentions:
+    Slack: 9
+    Firefox: 5
+    OpenAI: 5
+    CUDA: 4
+    Redis: 4
+    PagerDuty: 4
+    Swift: 4
+    ChatGPT: 4
+    Go: 4
+    Eclipse: 4
+    Claude Code: 3
+    Notion: 3
+    Postgres: 3
+    GitHub: 3
+    Parler: 3
+    iCloud: 3
+    Workday: 3
+    SpaceX: 3
+    jQuery: 3
+    git: 3

@@ -1,0 +1,33 @@
+signal_id: sig_dc09cedf0a57
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: GitHub Copilot is a much better tool that&#x27;s actually made for coding
+  pain_intensity:
+    value: 2
+    quote: There a probably 1,000 lines of code or more in my 30k line TS codebase
+      where I knew what I would have to type -- and I didn&#x27;t have to
+  industry:
+    value: software_development
+    quote: 30k line TS codebase
+  buyer_persona:
+    value: individual_developer
+    quote: In my use of Copilot, I never ask how to do something because I already
+      know
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - GitHub Copilot
+  date_relevance:
+    value: recent
+    quote: Not free

@@ -1,0 +1,34 @@
+signal_id: sig_4de67f61f608
+tags:
+  pain_type:
+    value: complaint
+    quote: All the talk about "iCloud is broken" is about one specific part, Core
+      Data syncing
+  pain_intensity:
+    value: 2
+    quote: The rest, like online backup and document syncing and calendars, seems
+      to work most of the time
+  industry:
+    value: software_development
+    quote: the users and the developers
+  buyer_persona:
+    value: individual_developer
+    quote: bad developers who can&#x27;t get it to work
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - iCloud
+  - Core Data
+  date_relevance:
+    value: older
+    quote: ''

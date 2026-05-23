@@ -1,0 +1,36 @@
+signal_id: sig_9e98b61ef63c
+tags:
+  pain_type:
+    value: workaround
+    quote: A code workaround would be to ensure finalizers are removed from test namespaces
+      upon timeout
+  pain_intensity:
+    value: 2
+    quote: Test namespaces should always be deleted successfully at the end of functional
+      tests
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Remove finalizers from test namespaces on timeout and add diagnostics
+      for stuck namespace terminations
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Flux
+  - Kubernetes
+  - rad
+  date_relevance:
+    value: current
+    quote: ''

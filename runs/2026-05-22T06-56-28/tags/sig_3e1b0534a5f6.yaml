@@ -1,0 +1,33 @@
+signal_id: sig_3e1b0534a5f6
+tags:
+  pain_type:
+    value: feature_request
+    quote: need to create hooks allowing a different engineering team to integrate
+      it
+  pain_intensity:
+    value: 2
+    quote: tightly coupled to a product
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: engineering_manager
+    quote: engineering team
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - BettyBlocks
+  - Zoho Creator
+  date_relevance:
+    value: older
+    quote: ''

@@ -1,0 +1,33 @@
+signal_id: sig_0fa93af65caa
+tags:
+  pain_type:
+    value: complaint
+    quote: the operators often times have to deal with so called "alarm/alert fatigue"
+  pain_intensity:
+    value: 3
+    quote: mission critical (onboarding of customers, triage of risk transactions,
+      etc.)
+  industry:
+    value: cybersecurity
+    quote: dealing mainly with triage of security & abuse incidents
+  buyer_persona:
+    value: operations_manager
+    quote: your solution doesn't really help the operators (=humans) to resolve the
+      problem faster
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Many teams have established flows and homebrew solutions that already
+      handle triage — incumbents viewed as working well enough despite imperfections
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

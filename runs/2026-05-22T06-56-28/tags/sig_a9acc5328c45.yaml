@@ -1,0 +1,34 @@
+signal_id: sig_a9acc5328c45
+tags:
+  pain_type:
+    value: manual_process
+    quote: I used to do periodically clean our email db by hand, but it quickly became
+      time consuming
+  pain_intensity:
+    value: 3
+    quote: it quickly became time consuming
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I built an internal tool to easily run list cleaning
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Built an internal tool that connects to the Mailchimp API to identify
+      inactives, segment or archive them, and validate new email addresses before
+      first send
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Mailchimp
+  date_relevance:
+    value: current
+    quote: ''

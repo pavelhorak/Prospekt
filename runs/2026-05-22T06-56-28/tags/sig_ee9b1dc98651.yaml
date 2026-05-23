@@ -1,0 +1,33 @@
+signal_id: sig_ee9b1dc98651
+tags:
+  pain_type:
+    value: complaint
+    quote: If the company goes out of business, then our documentation and business
+      logs have a lot of dead, useless links that can't be fixed after the fact
+  pain_intensity:
+    value: 2
+    quote: If it's a business critical use case, then you just shot yourself in the
+      foot
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: company-wide policy against using shortened URLs entirely
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - bit.ly
+  date_relevance:
+    value: older
+    quote: ''

@@ -1,0 +1,31 @@
+signal_id: sig_c14e0b1e277f
+tags:
+  pain_type:
+    value: complaint
+    quote: Frustrated with Go
+  pain_intensity:
+    value: 3
+    quote: Frustrated
+  industry:
+    value: software_development
+    quote: Frustrated with Go
+  buyer_persona:
+    value: individual_developer
+    quote: Why I'm Frustrated
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Go
+  date_relevance:
+    value: current
+    quote: ''

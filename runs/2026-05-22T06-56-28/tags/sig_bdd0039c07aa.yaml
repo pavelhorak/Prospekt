@@ -1,0 +1,31 @@
+signal_id: sig_bdd0039c07aa
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: I have seen lot of general purpose automation tools pitch this but I think
+      domain specific automation like this gives you much better value for money
+  pain_intensity:
+    value: 2
+    quote: much better value for money
+  industry:
+    value: software_development
+    quote: SOC2 compliant org
+  buyer_persona:
+    value: operations_manager
+    quote: SOC2 compliant org
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: recent
+    quote: ''

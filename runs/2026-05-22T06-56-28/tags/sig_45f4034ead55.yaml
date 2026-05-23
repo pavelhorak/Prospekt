@@ -1,0 +1,32 @@
+signal_id: sig_45f4034ead55
+tags:
+  pain_type:
+    value: question
+    quote: Was wondering if there's something I missed
+  pain_intensity:
+    value: 1
+    quote: Was wondering if there's something I missed
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I want to merge two branches that have been separated for a while
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: piping git diff through grep '^diff' to list changed filenames, with
+      the caveat of duplicate entries for multiply-modified files
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - git
+  date_relevance:
+    value: current
+    quote: ''

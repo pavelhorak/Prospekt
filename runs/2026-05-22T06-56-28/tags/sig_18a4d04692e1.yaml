@@ -1,0 +1,35 @@
+signal_id: sig_18a4d04692e1
+tags:
+  pain_type:
+    value: question
+    quote: How do I fix it?
+  pain_intensity:
+    value: 2
+    quote: I think the problem here is about versions; some versions of Java may be
+      old or too new
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I have JRE installed, and I have setup my path variable to the .../bin
+      directory
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Notepad++
+  - JRE
+  - JDK
+  date_relevance:
+    value: current
+    quote: ''

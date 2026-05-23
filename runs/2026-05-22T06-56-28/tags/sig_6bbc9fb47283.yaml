@@ -1,0 +1,33 @@
+signal_id: sig_6bbc9fb47283
+tags:
+  pain_type:
+    value: workaround
+    quote: investing significant resources internally to fix
+  pain_intensity:
+    value: 3
+    quote: investing significant resources internally to fix
+  industry:
+    value: software_development
+    quote: especially in a startup
+  buyer_persona:
+    value: cto
+    quote: the missing problem we've found (and are investing significant resources
+      internally to fix)
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Building proprietary internal tooling to handle human-automation
+      hybrid workflows since no adequate external tooling exists
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - Postgres
+  date_relevance:
+    value: recent
+    quote: ''

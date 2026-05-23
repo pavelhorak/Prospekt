@@ -1,0 +1,31 @@
+signal_id: sig_3953f37f3549
+tags:
+  pain_type:
+    value: wish
+    quote: In the perfect world this would be an automated computer program
+  pain_intensity:
+    value: 4
+    quote: time-consuming and expensive to get decent terms of service
+  industry:
+    value: legal
+    quote: other common legal document
+  buyer_persona:
+    value: small_business_owner
+    quote: personal projects
+  company_size:
+    value: solo
+    quote: personal projects
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: $5 legal document templates found via Google search, with no accountable
+      party if things go wrong
+  has_spend:
+    value: true
+    amount: $5
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

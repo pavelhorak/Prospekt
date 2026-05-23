@@ -1,0 +1,34 @@
+signal_id: sig_19130d21e358
+tags:
+  pain_type:
+    value: manual_process
+    quote: There often is no inventory management system - it&#x27;s a manual check
+  pain_intensity:
+    value: 3
+    quote: was a PITA
+  industry:
+    value: healthcare
+    quote: ordering medicines
+  buyer_persona:
+    value: small_business_owner
+    quote: the local store in Mumbai
+  company_size:
+    value: 2-10
+    quote: the person at the store
+  geography:
+    value: India
+    quote: Mumbai
+  has_workaround:
+    value: true
+    description: 'WhatsApp-based ordering flow: manual paper invoice photographed
+      and sent over WhatsApp, QR code payment panel photographed and sent, order dispatched
+      on SMS bank confirmation'
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - WhatsApp
+  - UPI
+  date_relevance:
+    value: older
+    quote: ''

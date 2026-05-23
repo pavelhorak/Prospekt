@@ -1,0 +1,37 @@
+signal_id: sig_467c6fdaa615
+tags:
+  pain_type:
+    value: question
+    quote: A couple questions I have are
+  pain_intensity:
+    value: 4
+    quote: this has been a barrier for us more times than I can count
+  industry:
+    value: financial_services
+    quote: sensitive trading data
+  buyer_persona:
+    value: engineering_manager
+    quote: in my teams case
+  company_size:
+    value: 1000+
+    quote: large enterprises
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Sarus
+  - PyCharm Pro
+  - DataGrip
+  - StackDriver
+  - Splunk
+  - Cloudtrail
+  - Terraform
+  date_relevance:
+    value: recent
+    quote: ''

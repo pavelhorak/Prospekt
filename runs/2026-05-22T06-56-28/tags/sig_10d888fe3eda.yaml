@@ -1,0 +1,32 @@
+signal_id: sig_10d888fe3eda
+tags:
+  pain_type:
+    value: question
+    quote: How do I pass a password to psql in a non-interactive way?
+  pain_intensity:
+    value: 2
+    quote: I've hit a road block with passing a password to psql
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I am trying to automate database creation process with a shell script
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - psql
+  - PostgreSQL
+  date_relevance:
+    value: older
+    quote: ''

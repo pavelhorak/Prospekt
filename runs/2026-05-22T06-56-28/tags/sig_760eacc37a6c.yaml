@@ -1,0 +1,37 @@
+signal_id: sig_760eacc37a6c
+tags:
+  pain_type:
+    value: trend_data
+    quote: 'This is how moats erode: not via a single replacement, but through many
+      small workarounds that become standard.'
+  pain_intensity:
+    value: 3
+    quote: getting a novel model to serve reliably was painful. It took me ~12–13
+      minutes of cold starts (many!), random restarts, non-obvious flags
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: In my recent GLM 5.1 deployment on 8xB200s
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: evaluating AMD and Intel as CUDA alternatives; using AI codegen to
+      lower switching cost to new accelerators
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - CUDA
+  - AMD
+  - Intel
+  - Battlemage
+  date_relevance:
+    value: current
+    quote: ''

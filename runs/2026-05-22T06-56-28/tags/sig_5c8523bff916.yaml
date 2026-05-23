@@ -1,0 +1,32 @@
+signal_id: sig_5c8523bff916
+tags:
+  pain_type:
+    value: workaround
+    quote: I put it into img2img and it worked on like the third try
+  pain_intensity:
+    value: 1
+    quote: it worked on like the third try
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Used img2img with iterative prompt tuning after initial approach
+      did not produce the desired result
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - img2img
+  date_relevance:
+    value: recent
+    quote: ''

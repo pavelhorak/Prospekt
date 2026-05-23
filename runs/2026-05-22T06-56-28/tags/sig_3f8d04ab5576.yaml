@@ -1,0 +1,31 @@
+signal_id: sig_3f8d04ab5576
+tags:
+  pain_type:
+    value: question
+    quote: Can anyone shed an light on what a Binder Callback is and how to code it
+      up
+  pain_intensity:
+    value: 3
+    quote: the one thing that's defeating me
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I have most of it nailed but the one thing that's defeating me
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: historical
+    quote: the Google I/O presentation by Virgil Dobjanschi

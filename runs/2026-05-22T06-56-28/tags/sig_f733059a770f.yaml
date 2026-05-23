@@ -1,0 +1,34 @@
+signal_id: sig_f733059a770f
+tags:
+  pain_type:
+    value: manual_process
+    quote: the only way to configure this is manually by logging into the tenant
+  pain_intensity:
+    value: 3
+    quote: Reduces the manual work of logging into each tenant to configure
+  industry:
+    value: managed_services
+    quote: Benefits for MSPs
+  buyer_persona:
+    value: operations_manager
+    quote: Benefits for MSPs
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Manually logging into each tenant to configure Windows Hello for
+      Business settings
+  has_spend:
+    value: true
+    amount: $99
+  existing_solution_mentioned:
+  - Intune
+  - CIPP
+  - Windows Hello for Business
+  date_relevance:
+    value: current
+    quote: ''

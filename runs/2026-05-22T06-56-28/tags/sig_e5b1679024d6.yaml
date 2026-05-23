@@ -1,0 +1,34 @@
+signal_id: sig_e5b1679024d6
+tags:
+  pain_type:
+    value: workaround
+    quote: getting rid of 13 google docs that were being used to manage 1:1 meetings
+  pain_intensity:
+    value: 2
+    quote: not allow important items to get lost in the barrage of messages on Slack
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: small_business_owner
+    quote: I and my co-founder built an internal tool
+  company_size:
+    value: 2-10
+    quote: I and my co-founder
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: 13 Google Docs used to manage 1:1 meetings; Poppins Slack app built
+      in-house as replacement
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Slack
+  - Google Docs
+  - Zoom
+  date_relevance:
+    value: current
+    quote: ''

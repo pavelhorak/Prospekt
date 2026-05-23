@@ -1,0 +1,32 @@
+signal_id: sig_4824c5d41832
+tags:
+  pain_type:
+    value: workaround
+    quote: It&#x27;s sadly safer to just not reject candidates at all.
+  pain_intensity:
+    value: 2
+    quote: your company could lose lots of money&#x2F;time and potentially go bankrupt
+      due to a discrimination lawsuit
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: in the US anyways
+  has_workaround:
+    value: true
+    description: not rejecting candidates at all to avoid triggering discrimination
+      lawsuits
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

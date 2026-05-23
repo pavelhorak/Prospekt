@@ -1,0 +1,35 @@
+signal_id: sig_a3a2c1d26189
+tags:
+  pain_type:
+    value: workaround
+    quote: I tend to assemble the input files using a templating engine and then use
+      the compiler in a subprocess
+  pain_intensity:
+    value: 2
+    quote: The output is much easier to manage than with packages like reportlab
+  industry:
+    value: legal
+    quote: contracts and other legal documents
+  buyer_persona:
+    value: individual_developer
+    quote: I tend to assemble the input files using a templating engine and then use
+      the compiler in a subprocess
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Typst compiler invoked in a subprocess, with input assembled via
+      a separate templating engine
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Typst
+  - reportlab
+  date_relevance:
+    value: current
+    quote: ''

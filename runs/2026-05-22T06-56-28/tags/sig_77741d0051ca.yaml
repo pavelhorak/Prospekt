@@ -1,0 +1,35 @@
+signal_id: sig_77741d0051ca
+tags:
+  pain_type:
+    value: workaround
+    quote: I spent a few days hacking on workarounds for this and eventually pulled
+      them together into Ghost
+  pain_intensity:
+    value: 3
+    quote: You start a new chat, re-explain the architecture, and watch it make the
+      same mistake it made last week
+  industry:
+    value: software_development
+    quote: Claude Code is doing most of the heavy lifting on your codebase
+  buyer_persona:
+    value: individual_developer
+    quote: I spent a few days hacking on workarounds for this
+  company_size:
+    value: solo
+    quote: I spent a few days hacking on workarounds for this
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: 'Ghost: hooks into Claude Code sessions, summarises them, indexes
+      into QMD for semantic search, and auto-injects context at session start'
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Claude Code
+  - QMD
+  date_relevance:
+    value: current
+    quote: ''

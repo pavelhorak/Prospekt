@@ -1,0 +1,35 @@
+signal_id: sig_c4dea6d9232d
+tags:
+  pain_type:
+    value: workaround
+    quote: I believe I have something working now, but it involves a "workaround"
+      which seem weird or unnecessary
+  pain_intensity:
+    value: 3
+    quote: I've failed to achieve that over several hours of work and debugging
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: homebridge-balboa-spa plugin
+  company_size:
+    value: solo
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Manually setting thermostatBehavior.cluster.supportedFeatures equal
+      to thermostatBehavior.features
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - homebridge
+  - Matter
+  - homebridge-balboa-spa
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,30 @@
+signal_id: sig_909ab37340ea
+tags:
+  pain_type:
+    value: feature_request
+    quote: Art/mesh duplicator and mirror tool for easier rigging of symmetrical objects
+  pain_intensity:
+    value: 2
+    quote: Trying to streamline rigging for speed and ease
+  industry:
+    value: unknown
+    quote: making vtuber models
+  buyer_persona:
+    value: solo_practitioner
+    quote: making vtuber models
+  company_size:
+    value: solo
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

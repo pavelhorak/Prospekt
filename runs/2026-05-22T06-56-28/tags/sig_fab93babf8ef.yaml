@@ -1,0 +1,33 @@
+signal_id: sig_fab93babf8ef
+tags:
+  pain_type:
+    value: workaround
+    quote: there's a useful workaround pattern that isn't documented in the allium
+      skills
+  pain_intensity:
+    value: 2
+    quote: Allium behaviors are too complex to express as trigger/ensures rules
+  industry:
+    value: software_development
+    quote: Allium behaviors
+  buyer_persona:
+    value: individual_developer
+    quote: 'Discovered during wemble issue #109'
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Use invariant Name { true } with an @guidance annotation block to
+      express complex behaviors in prose
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Allium
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,40 @@
+signal_id: sig_395fef28c82f
+tags:
+  pain_type:
+    value: manual_process
+    quote: going through a long manual validation process
+  pain_intensity:
+    value: 4
+    quote: getting access can be a huge pain
+  industry:
+    value: healthcare
+    quote: past lives in healthtech, finance, and marketing
+  buyer_persona:
+    value: engineering_manager
+    quote: data governance has taken a huge part in data operations
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: manual data anonymization and validation process taking weeks to
+      months before analysts can access data
+  has_spend:
+    value: true
+    amount: $600/month
+  existing_solution_mentioned:
+  - tensorflow-privacy
+  - Google Differential Privacy
+  - OpenDP
+  - Smartnoise
+  - pandas
+  - numpy
+  - Metabase
+  - Redash
+  - Tableau
+  date_relevance:
+    value: recent
+    quote: YC W22

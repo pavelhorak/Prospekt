@@ -1,0 +1,30 @@
+signal_id: sig_b62b037da470
+tags:
+  pain_type:
+    value: workaround
+    quote: An email template for candidates
+  pain_intensity:
+    value: 3
+    quote: frustrated with unresponsive employers
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: email template for candidates to follow up with unresponsive employers
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

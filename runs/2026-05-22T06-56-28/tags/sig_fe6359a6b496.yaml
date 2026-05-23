@@ -1,0 +1,34 @@
+signal_id: sig_fe6359a6b496
+tags:
+  pain_type:
+    value: feature_request
+    quote: Provide users of the website an option to provide feedback and requests
+      new features.
+  pain_intensity:
+    value: 1
+    quote: Provide a link that will permit a user to open a new feature request or
+      report a bug
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Considered using GitHub Discussions as an alternative feedback channel
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - GitHub Issues
+  - GitHub Discussions
+  date_relevance:
+    value: current
+    quote: ''

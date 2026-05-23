@@ -1,0 +1,33 @@
+signal_id: sig_8160a47d94b3
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: Europe needs a serious competitor to American space-launch to retain independent
+      capability
+  pain_intensity:
+    value: 2
+    quote: part of me feels that this dominance is entirely deserved
+  industry:
+    value: aerospace
+    quote: era of launch vehicle re-usability
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: EU
+    quote: Europe needs a serious competitor to American space-launch
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - SpaceX
+  - Ariane
+  date_relevance:
+    value: older
+    quote: ''

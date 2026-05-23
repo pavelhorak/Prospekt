@@ -1,0 +1,36 @@
+signal_id: sig_79ee81dd68e5
+tags:
+  pain_type:
+    value: complaint
+    quote: I found PagerDuty to be grossly underwhelming when our team moved to it
+  pain_intensity:
+    value: 4
+    quote: The amount of manual schedule adjustment when someone actually wanted to
+      take their 1 week vacation was insane
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: engineering_manager
+    quote: when our team moved to it
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: schedule overrides on top of overrides in PagerDuty to handle vacations
+      and holidays
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - PagerDuty
+  - Workday
+  - Outlook
+  - Slack
+  date_relevance:
+    value: recent
+    quote: ''

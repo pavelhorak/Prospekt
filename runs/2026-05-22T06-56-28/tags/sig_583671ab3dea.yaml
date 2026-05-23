@@ -1,0 +1,38 @@
+signal_id: sig_583671ab3dea
+tags:
+  pain_type:
+    value: manual_process
+    quote: we were spending less time coding and more time managing the software development
+      process
+  pain_intensity:
+    value: 3
+    quote: This feels broken! This kind of interaction shouldn&#x27;t take that long
+  industry:
+    value: software_development
+    quote: Both of us are software engineers
+  buyer_persona:
+    value: individual_developer
+    quote: Both of us are software engineers
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Jira
+  - GitHub
+  - Amplitude
+  - Zoom
+  - Workday
+  - Spotlight
+  - Alfred
+  date_relevance:
+    value: current
+    quote: ''

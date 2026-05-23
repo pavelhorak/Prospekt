@@ -1,0 +1,33 @@
+signal_id: sig_e0fd68a41bee
+tags:
+  pain_type:
+    value: question
+    quote: How can NASA be frustrated by their success in fulfilling their statutory
+      obligations?
+  pain_intensity:
+    value: 1
+    quote: ''
+  industry:
+    value: aerospace
+    quote: commercial human space flight
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: US
+    quote: NASA
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - NASA
+  - SpaceX
+  date_relevance:
+    value: recent
+    quote: support commercial human space flight

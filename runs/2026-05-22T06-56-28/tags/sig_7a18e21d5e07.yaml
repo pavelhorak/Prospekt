@@ -1,0 +1,35 @@
+signal_id: sig_7a18e21d5e07
+tags:
+  pain_type:
+    value: complaint
+    quote: it's really frustrating not to have something better to start with
+  pain_intensity:
+    value: 3
+    quote: it took me over an hour of googling to get it to give me any kind of information
+      about the crashed I was having
+  industry:
+    value: software_development
+    quote: started by writing a simple tile puzzle as a portable library and writing
+      UI's for different target platforms
+  buyer_persona:
+    value: individual_developer
+    quote: I'm doing my first steps in C#
+  company_size:
+    value: solo
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Visual Studio
+  - WPF
+  - Windows Store
+  date_relevance:
+    value: older
+    quote: Windows Store Apps

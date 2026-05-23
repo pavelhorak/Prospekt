@@ -1,0 +1,34 @@
+signal_id: sig_01378fa38c93
+tags:
+  pain_type:
+    value: workaround
+    quote: I've considered a few options, but maybe I'm missing something
+  pain_intensity:
+    value: 3
+    quote: for some hideously frustrating reason, recompiled a subset of that same
+      third-party library
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I have a C++ application that needs to link
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Attempting to recompile OpenSSL with g++ and place it in a namespace
+      to avoid symbol collisions when linking both libs
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - OpenSSL
+  - Opsec
+  date_relevance:
+    value: older
+    quote: ''

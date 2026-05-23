@@ -1,0 +1,31 @@
+signal_id: sig_10096264adf8
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: RAGFlow 已经支持了
+  pain_intensity:
+    value: 2
+    quote: RAGFlow 已经支持了
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - RAGFlow
+  date_relevance:
+    value: current
+    quote: ''

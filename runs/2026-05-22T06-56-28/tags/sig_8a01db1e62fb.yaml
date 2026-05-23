@@ -1,0 +1,31 @@
+signal_id: sig_8a01db1e62fb
+tags:
+  pain_type:
+    value: competitive_gap
+    quote: from your page I&#x27;m not sure how you&#x27;re better than Pagerduty
+  pain_intensity:
+    value: 3
+    quote: peace of mind knowing that someone will get notified when there is an outage
+  industry:
+    value: software_development
+    quote: making sure the right people actually get the alerts
+  buyer_persona:
+    value: engineering_manager
+    quote: making sure the right people actually get the alerts
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - PagerDuty
+  date_relevance:
+    value: recent
+    quote: ''

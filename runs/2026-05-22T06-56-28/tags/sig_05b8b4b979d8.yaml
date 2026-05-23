@@ -1,0 +1,31 @@
+signal_id: sig_05b8b4b979d8
+tags:
+  pain_type:
+    value: paying_for_bad
+    quote: even a paid subscription doesn&#x27;t override the character limit
+  pain_intensity:
+    value: 3
+    quote: it&#x27;s very painful to see code get cut off, some times mid function
+  industry:
+    value: software_development
+    quote: Chat GPT writes code
+  buyer_persona:
+    value: individual_developer
+    quote: I love how well Chat GPT writes code
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Manual workaround for the character limit exists but is inconvenient
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - Chat GPT
+  date_relevance:
+    value: older
+    quote: ''

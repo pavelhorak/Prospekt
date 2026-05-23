@@ -1,0 +1,32 @@
+signal_id: sig_d98e6e68c612
+tags:
+  pain_type:
+    value: feature_request
+    quote: '[Feature Request]:'
+  pain_intensity:
+    value: 2
+    quote: 通过脚本动态设置，很多个if 操作不直观
+  industry:
+    value: software_development
+    quote: Restful Fast Request
+  buyer_persona:
+    value: individual_developer
+    quote: 我拥有有效的 **Restful Fast Request** **许可证**
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Script-based dynamic header setting with multiple if conditions,
+      though noted as non-intuitive
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - Restful Fast Request
+  date_relevance:
+    value: current
+    quote: ''

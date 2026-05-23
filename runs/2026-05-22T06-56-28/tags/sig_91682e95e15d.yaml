@@ -1,0 +1,32 @@
+signal_id: sig_91682e95e15d
+tags:
+  pain_type:
+    value: question
+    quote: is it possible to match lines that do not contain a specific word
+  pain_intensity:
+    value: 1
+    quote: ''
+  industry:
+    value: software_development
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Invert regex matches using an external tool flag instead of pure
+      regex
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - grep
+  date_relevance:
+    value: current
+    quote: ''

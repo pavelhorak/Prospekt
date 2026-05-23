@@ -1,0 +1,31 @@
+signal_id: sig_1164a1893e48
+tags:
+  pain_type:
+    value: complaint
+    quote: very uncool that you don
+  pain_intensity:
+    value: 2
+    quote: very uncool
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - OpenAI
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,31 @@
+signal_id: sig_902c7a80c86e
+tags:
+  pain_type:
+    value: complaint
+    quote: hated the cars, which often struggle to cross a T-intersection near the
+      company&#x27;s office
+  pain_intensity:
+    value: 1
+    quote: Pretty good result, if I may say
+  industry:
+    value: automotive
+    quote: hated the cars, which often struggle to cross a T-intersection
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

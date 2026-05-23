@@ -1,0 +1,33 @@
+signal_id: sig_06df0780afd9
+tags:
+  pain_type:
+    value: manual_process
+    quote: Ideally, Pyoneer helps you automate your manual Excel processes
+  pain_intensity:
+    value: 3
+    quote: it's going to be a hassle for you to just rewrite it from scratch
+  industry:
+    value: software_development
+    quote: Developers who know Python, primarily!
+  buyer_persona:
+    value: individual_developer
+    quote: Developers who know Python, primarily!
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Built Pyoneer to compile Excel files to Python via dependency-graph
+      traversal and OpenAI-assisted formula translation, outputting a Jupyter notebook
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Mito
+  - OpenAI
+  date_relevance:
+    value: recent
+    quote: ''

@@ -1,0 +1,31 @@
+signal_id: sig_05adce84f5dd
+tags:
+  pain_type:
+    value: complaint
+    quote: Deeply frustrated with Firefox.
+  pain_intensity:
+    value: 2
+    quote: Deeply frustrated with Firefox.
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Firefox
+  date_relevance:
+    value: older
+    quote: ''

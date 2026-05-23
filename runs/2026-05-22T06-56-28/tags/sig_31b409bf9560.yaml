@@ -1,0 +1,31 @@
+signal_id: sig_31b409bf9560
+tags:
+  pain_type:
+    value: question
+    quote: Can anyone help with this?
+  pain_intensity:
+    value: 2
+    quote: I don't know how to accept the user input without having it echo to the
+      terminal
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I am a reasonably competent shell programmer in Bourne/Bash
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

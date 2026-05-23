@@ -1,0 +1,33 @@
+signal_id: sig_0f7fca5a7696
+tags:
+  pain_type:
+    value: complaint
+    quote: its a really really tough space to monetise profitably
+  pain_intensity:
+    value: 3
+    quote: its a tough nut to crack
+  industry:
+    value: fintech
+    quote: SMB billing and accounting space
+  buyer_persona:
+    value: individual_developer
+    quote: Having worked on the SMB billing and accounting space for 2 years in India
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: India
+    quote: SMB billing and accounting space for 2 years in India
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Tally
+  - khatabook
+  - dukaan
+  date_relevance:
+    value: older
+    quote: ''

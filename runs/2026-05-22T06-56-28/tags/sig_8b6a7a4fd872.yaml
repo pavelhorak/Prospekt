@@ -1,0 +1,35 @@
+signal_id: sig_8b6a7a4fd872
+tags:
+  pain_type:
+    value: manual_process
+    quote: A typical process is run on spreadsheets pulled out of HR softwares or
+      emails to accountants. No validation, data keyed in on the other end
+  pain_intensity:
+    value: 4
+    quote: Some of the payroll products in the UK have 0 automated tests in their
+      software
+  industry:
+    value: hr_payroll
+    quote: payroll in the UK is pretty backward
+  buyer_persona:
+    value: small_business_owner
+    quote: a bunch of startups on board
+  company_size:
+    value: 2-10
+    quote: we're Naz and Charlie
+  geography:
+    value: UK
+    quote: Modern HR and Payroll in One Place (For the UK)
+  has_workaround:
+    value: true
+    description: payroll run via spreadsheet exports from HR software and manual email
+      exchanges with accountants
+  has_spend:
+    value: true
+    amount: £8/employee/month
+  existing_solution_mentioned:
+  - Xero
+  - Google Drive
+  date_relevance:
+    value: recent
+    quote: ''

@@ -1,0 +1,37 @@
+signal_id: sig_8d609cfde800
+tags:
+  pain_type:
+    value: question
+    quote: I cannot seem to make the @RolesAllowed annotation to work in my RESTful
+      Web Service
+  pain_intensity:
+    value: 3
+    quote: I am already working on this problem for a few days
+  industry:
+    value: software_development
+    quote: I am making a Web application
+  buyer_persona:
+    value: individual_developer
+    quote: I am (relatively) new to Web development
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Using @PermitAll instead of @RolesAllowed makes the endpoint accessible
+      but disables authorization entirely
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - WildFly
+  - RESTEasy
+  - NetBeans
+  - Backbone.js
+  - Bootstrap
+  date_relevance:
+    value: older
+    quote: WildFly server 8.1.0

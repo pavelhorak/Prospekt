@@ -1,0 +1,33 @@
+signal_id: sig_9bdfe5f923ed
+tags:
+  pain_type:
+    value: workaround
+    quote: allowed our business owners to create and edit the logic
+  pain_intensity:
+    value: 2
+    quote: no longer depends on engineering resources to modify
+  industry:
+    value: logistics
+    quote: selecting a driver for delivery from the pool
+  buyer_persona:
+    value: engineering_manager
+    quote: the engineering team thinks it is cool and wants to productize it
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: versioned diagram of business logic that compiles to Lambda + API
+      gateway endpoint, editable by business owners without engineering involvement
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Lambda
+  - Evernote
+  date_relevance:
+    value: current
+    quote: ''

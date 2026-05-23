@@ -1,0 +1,50 @@
+cluster_id: clust_001
+cluster_label: INCOHERENT
+cluster_summary: 'None of the four signals contain readable content. All representatives
+
+  are HN moderation placeholders — two marked [dead] (auto-killed by the
+
+  HN ranking algorithm or low-karma users) and two marked [flagged]
+
+  (community-flagged for removal). There is no underlying problem to
+
+  label; this cluster contains zero signal. The scraper captured the
+
+  placeholder strings rather than actual comment text, so the embeddings
+
+  are clustering on formatting artefacts, not meaning. Recommend
+
+  filtering [dead] and [flagged] nodes at ingestion time before
+
+  embedding.
+
+  '
+cluster_fingerprint: 9a217689e62f
+embedding_model: all-MiniLM-L6-v2
+method: hdbscan+merge+llm_label
+label_method: llm
+primary_signal_ids:
+- sig_36182d32a794
+- sig_b24f46112b5f
+- sig_fb9e315a8407
+- sig_ffeff8686695
+all_signal_ids:
+- sig_36182d32a794
+- sig_b24f46112b5f
+- sig_fb9e315a8407
+- sig_ffeff8686695
+metrics:
+  primary_signal_count: 4
+  total_signal_count: 4
+  source_diversity: 1
+  context_diversity: 3
+  sources:
+  - hackernews
+  temporal_trend: unknown
+  intensity_distribution: {}
+  intensity_mean: null
+  industries: []
+  industry_spread: 0
+  workaround_count: 0
+  spend_evidence_count: 0
+  competitor_mentions: {}

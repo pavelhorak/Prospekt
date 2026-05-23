@@ -1,0 +1,30 @@
+signal_id: sig_934a1f35b80c
+tags:
+  pain_type:
+    value: question
+    quote: does this model still work?
+  pain_intensity:
+    value: 3
+    quote: how is it privacy compliant
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: EU
+    quote: EU countries
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

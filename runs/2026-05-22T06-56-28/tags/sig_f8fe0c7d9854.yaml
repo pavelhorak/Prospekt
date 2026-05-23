@@ -1,0 +1,31 @@
+signal_id: sig_f8fe0c7d9854
+tags:
+  pain_type:
+    value: question
+    quote: What does integration with Loat look like for a typical SaaS product?
+  pain_intensity:
+    value: 1
+    quote: What does integration with Loat look like for a typical SaaS product?
+  industry:
+    value: software_development
+    quote: typical SaaS product
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Loat
+  date_relevance:
+    value: current
+    quote: ''

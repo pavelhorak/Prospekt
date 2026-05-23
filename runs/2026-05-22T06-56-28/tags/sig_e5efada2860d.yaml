@@ -1,0 +1,31 @@
+signal_id: sig_e5efada2860d
+tags:
+  pain_type:
+    value: manual_process
+    quote: The amount of time wasted on menial tasks was astounding. Things like cleaning
+      data, generating custom reports
+  pain_intensity:
+    value: 3
+    quote: The amount of time wasted on menial tasks was astounding
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: operations_manager
+    quote: Non-technical people have to rely on doing things manually
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: fragile spreadsheets used as partial solutions for data workflows
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

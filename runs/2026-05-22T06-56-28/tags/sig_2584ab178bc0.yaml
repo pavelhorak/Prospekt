@@ -1,0 +1,31 @@
+signal_id: sig_2584ab178bc0
+tags:
+  pain_type:
+    value: question
+    quote: How did they do that??
+  pain_intensity:
+    value: 2
+    quote: I can't even use the console
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I can't even use the console
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Facebook
+  date_relevance:
+    value: older
+    quote: because of the recent scams, the developer tools are exploited

@@ -1,0 +1,37 @@
+signal_id: sig_4ab5d4d85c18
+tags:
+  pain_type:
+    value: trend_data
+    quote: a platform cannot host large amounts of sexist content and attract women,
+      it cannot stop taking action against content that is racist and expect a multicultural
+      user base
+  pain_intensity:
+    value: 2
+    quote: I&#x27;m not sure how viable this will end up being
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Reddit
+  - FB
+  - Parler
+  - Voat
+  - Ruqqus
+  date_relevance:
+    value: recent
+    quote: ''

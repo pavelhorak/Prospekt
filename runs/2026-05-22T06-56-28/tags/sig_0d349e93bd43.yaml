@@ -1,0 +1,33 @@
+signal_id: sig_0d349e93bd43
+tags:
+  pain_type:
+    value: question
+    quote: Can anyone help me out?
+  pain_intensity:
+    value: 2
+    quote: none of them work
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I have a directory structure like this
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Partial fix using explicit top-level prefix (e.g. /main/**/bin/**/*)
+      but requires a separate entry per top-level directory
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - git
+  - msysgit
+  date_relevance:
+    value: older
+    quote: ''

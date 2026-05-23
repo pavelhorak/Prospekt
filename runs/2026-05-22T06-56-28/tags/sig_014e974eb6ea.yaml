@@ -1,0 +1,32 @@
+signal_id: sig_014e974eb6ea
+tags:
+  pain_type:
+    value: feature_request
+    quote: Is this something on your radar?
+  pain_intensity:
+    value: 3
+    quote: I&#x27;ve been frustrated at the absence of any integration with my eng
+      teams build&#x2F;CI systems
+  industry:
+    value: software_development
+    quote: my eng teams build&#x2F;CI systems
+  buyer_persona:
+    value: engineering_manager
+    quote: my eng teams
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Amplitude
+  date_relevance:
+    value: older
+    quote: ''

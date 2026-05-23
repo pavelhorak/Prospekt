@@ -1,0 +1,33 @@
+signal_id: sig_ee6377c9bf1c
+tags:
+  pain_type:
+    value: complaint
+    quote: the compiler crashing on valid code is annoying
+  pain_intensity:
+    value: 1
+    quote: the compiler crashing on valid code is annoying
+  industry:
+    value: software_development
+    quote: no-longer-writing-iPhone-apps
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Swift
+  - Clang
+  - Objective C
+  date_relevance:
+    value: historical
+    quote: ''

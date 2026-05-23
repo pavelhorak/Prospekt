@@ -1,0 +1,34 @@
+signal_id: sig_58c96886e3b0
+tags:
+  pain_type:
+    value: complaint
+    quote: the most frustrating bug ever in MySQL
+  pain_intensity:
+    value: 3
+    quote: the most frustrating bug ever in MySQL
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I really need those microseconds
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: BIGINT field to store microsecond timestamp values, though with concerns
+      about Doctrine compatibility and SQL date-function breakage
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - MySQL
+  - PHP
+  - Doctrine
+  date_relevance:
+    value: historical
+    quote: ''

@@ -1,0 +1,34 @@
+signal_id: sig_0e0311da95ff
+tags:
+  pain_type:
+    value: workaround
+    quote: TradingView doesn't support multi-file projects
+  pain_intensity:
+    value: 3
+    quote: 1000+ line files that are painful to maintain
+  industry:
+    value: finance
+    quote: TradingView's scripting language
+  buyer_persona:
+    value: individual_developer
+    quote: I built a module bundler for PineScript
+  company_size:
+    value: solo
+    quote: I built a module bundler for PineScript
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Built PineCone to split PineScript across multiple .pine files with
+      import/export directives, then bundles into a single TradingView-compatible
+      script with automatic namespacing
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - TradingView
+  - pynescript
+  date_relevance:
+    value: current
+    quote: ''

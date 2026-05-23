@@ -1,0 +1,35 @@
+signal_id: sig_0c178f9cf95c
+tags:
+  pain_type:
+    value: manual_process
+    quote: bridge the gap between developers and non-developers, making it easier
+      for teams to build internal tools swiftly
+  pain_intensity:
+    value: 3
+    quote: bridge the gap between developers and non-developers
+  industry:
+    value: software_development
+    quote: making it easier for teams to build internal tools swiftly
+  buyer_persona:
+    value: engineering_manager
+    quote: making it easier for teams to build internal tools swiftly
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - ToolJet
+  - Zendesk
+  - Stripe
+  - Amazon S3
+  date_relevance:
+    value: recent
+    quote: ''

@@ -1,0 +1,31 @@
+signal_id: sig_3ce196c213ab
+tags:
+  pain_type:
+    value: manual_process
+    quote: removed with manual process
+  pain_intensity:
+    value: unknown
+    quote: ''
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Twitter
+  date_relevance:
+    value: older
+    quote: ''

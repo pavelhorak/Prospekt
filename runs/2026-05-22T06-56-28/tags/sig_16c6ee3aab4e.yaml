@@ -1,0 +1,33 @@
+signal_id: sig_16c6ee3aab4e
+tags:
+  pain_type:
+    value: complaint
+    quote: Germany&#x27;s internet is slow because it relies heavily on unbundling,
+      implemented poorly
+  pain_intensity:
+    value: 2
+    quote: implemented poorly
+  industry:
+    value: telecommunications
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: DACH
+    quote: Germany
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Telekom
+  - BT
+  date_relevance:
+    value: older
+    quote: ''

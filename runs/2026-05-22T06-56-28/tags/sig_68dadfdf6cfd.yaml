@@ -1,0 +1,32 @@
+signal_id: sig_68dadfdf6cfd
+tags:
+  pain_type:
+    value: price_complaint
+    quote: I pay 10 euros a month for a _monthly_ quota of 1.5 GB with O2
+  pain_intensity:
+    value: 3
+    quote: I was horrified to learn that (urban) India has way better internet than
+      Germany
+  industry:
+    value: telecommunications
+    quote: I pay 10 euros a month for a _monthly_ quota of 1.5 GB with O2
+  buyer_persona:
+    value: individual_developer
+    quote: I used to work as a software dev in India
+  company_size:
+    value: solo
+    quote: ''
+  geography:
+    value: DACH
+    quote: I recently moved to Germany
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: true
+    amount: 10 euros a month
+  existing_solution_mentioned:
+  - O2
+  date_relevance:
+    value: older
+    quote: ''

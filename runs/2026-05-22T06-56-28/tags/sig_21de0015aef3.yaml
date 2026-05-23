@@ -1,0 +1,34 @@
+signal_id: sig_21de0015aef3
+tags:
+  pain_type:
+    value: question
+    quote: How do I print a specific field (denoted by the -v k=text)?
+  pain_intensity:
+    value: 2
+    quote: I'm trying to parse JSON returned from a curl request
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I'm trying to parse JSON returned from a curl request
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: sed/awk pipeline that splits JSON into fields but cannot reliably
+      extract a specific key
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - curl
+  - sed
+  - awk
+  date_relevance:
+    value: older
+    quote: curl 'http://twitter.com/users/username.json'

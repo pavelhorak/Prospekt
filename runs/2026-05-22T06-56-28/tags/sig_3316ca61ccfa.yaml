@@ -1,0 +1,31 @@
+signal_id: sig_3316ca61ccfa
+tags:
+  pain_type:
+    value: question
+    quote: How can I observe the difference
+  pain_intensity:
+    value: 1
+    quote: I could not spot a difference between the effect of
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I could not spot a difference
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - gitk
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,32 @@
+signal_id: sig_6aa8f5e2274d
+tags:
+  pain_type:
+    value: workaround
+    quote: What I mostly see in the wild are workarounds
+  pain_intensity:
+    value: 3
+    quote: every team reinventing the same fragile patterns
+  industry:
+    value: software_development
+    quote: running autonomous or semi-autonomous agents
+  buyer_persona:
+    value: individual_developer
+    quote: I'm curious how people are actually doing this in production
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: 'Multiple fragile patterns in use: API keys with hard caps, proxy
+      re-billing services, framework-specific hacks in side branches, alert-only or
+      manual approval modes, or blocking agents from spending directly'
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

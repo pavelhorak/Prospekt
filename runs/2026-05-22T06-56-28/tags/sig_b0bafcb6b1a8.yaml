@@ -1,0 +1,31 @@
+signal_id: sig_b0bafcb6b1a8
+tags:
+  pain_type:
+    value: question
+    quote: I&#x27;m curious to hear what others think about this
+  pain_intensity:
+    value: 1
+    quote: I find myself coming back to this question
+  industry:
+    value: software_development
+    quote: software engineering stack
+  buyer_persona:
+    value: individual_developer
+    quote: one programming language to use throughout your entire software engineering
+      stack
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: current
+    quote: ''

@@ -1,0 +1,34 @@
+signal_id: sig_6434970a7928
+tags:
+  pain_type:
+    value: question
+    quote: I think I need to set the path for geckodriver, but I am not sure how,
+      so how would I do this?
+  pain_intensity:
+    value: 2
+    quote: Whenever I tried to run the webdriver function, I get this
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: I am going over Sweigart's Automate the Boring Stuff with Python text
+  company_size:
+    value: solo
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - Selenium
+  - Firefox
+  - geckodriver
+  date_relevance:
+    value: older
+    quote: ''

@@ -1,0 +1,34 @@
+signal_id: sig_9ee7642c2138
+tags:
+  pain_type:
+    value: paying_for_bad
+    quote: image generation costs were eating all the margin
+  pain_intensity:
+    value: 4
+    quote: prevent a runaway loop from draining the credit card
+  industry:
+    value: e_commerce
+    quote: my print-on-demand setup
+  buyer_persona:
+    value: small_business_owner
+    quote: my print-on-demand setup
+  company_size:
+    value: solo
+    quote: my print-on-demand setup
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: treating every agent action as a transaction against a Redis counter
+      — worker acquires a lock and deducts credits atomically before calling external
+      provider; task fails immediately if balance hits zero
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - Redis
+  - Celery
+  date_relevance:
+    value: current
+    quote: ''

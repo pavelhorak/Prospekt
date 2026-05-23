@@ -1,0 +1,40 @@
+signal_id: sig_68523b2c269e
+tags:
+  pain_type:
+    value: question
+    quote: a community wiki on producing latex tables in R
+  pain_intensity:
+    value: 1
+    quote: ''
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: individual_developer
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - xtable
+  - memisc
+  - Hmisc
+  - miscFuncs
+  - texreg
+  - reporttools
+  - tables
+  - stargazer
+  - R
+  - LaTeX
+  date_relevance:
+    value: older
+    quote: ''

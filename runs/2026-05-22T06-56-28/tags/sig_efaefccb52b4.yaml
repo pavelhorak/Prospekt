@@ -1,0 +1,34 @@
+signal_id: sig_efaefccb52b4
+tags:
+  pain_type:
+    value: complaint
+    quote: SD2 literally doesn't know what the sea is
+  pain_intensity:
+    value: 2
+    quote: SD2 literally doesn't know what the sea is
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: tried multiple prompt variations; v2.1 partially handles 'ocean'
+      keyword sometimes
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned:
+  - SD1
+  - SD2
+  - SD2.1
+  date_relevance:
+    value: recent
+    quote: ''

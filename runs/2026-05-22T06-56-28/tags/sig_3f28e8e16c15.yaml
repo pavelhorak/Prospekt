@@ -1,0 +1,30 @@
+signal_id: sig_3f28e8e16c15
+tags:
+  pain_type:
+    value: complaint
+    quote: going to confuse people
+  pain_intensity:
+    value: 1
+    quote: I almost skipped by this post when I saw the name at a glance
+  industry:
+    value: unknown
+    quote: ''
+  buyer_persona:
+    value: unknown
+    quote: ''
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: false
+    description: null
+  has_spend:
+    value: false
+    amount: null
+  existing_solution_mentioned: []
+  date_relevance:
+    value: older
+    quote: ''

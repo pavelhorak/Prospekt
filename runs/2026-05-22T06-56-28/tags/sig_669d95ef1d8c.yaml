@@ -1,0 +1,34 @@
+signal_id: sig_669d95ef1d8c
+tags:
+  pain_type:
+    value: workaround
+    quote: need to keep track of where you're at outside of the product
+  pain_intensity:
+    value: 3
+    quote: it's extremely slow and cumbersome and much worse than our previous method
+  industry:
+    value: software_development
+    quote: searching for something to help with SOC 2
+  buyer_persona:
+    value: operations_manager
+    quote: came across them via the Slack app store while searching for something
+      to help with SOC 2
+  company_size:
+    value: unknown
+    quote: ''
+  geography:
+    value: unknown
+    quote: ''
+  has_workaround:
+    value: true
+    description: Manually tracking which apps have been provisioned outside AccessOwl
+      when onboarding new employees due to single-template limitation
+  has_spend:
+    value: true
+    amount: null
+  existing_solution_mentioned:
+  - AccessOwl
+  - Slack
+  date_relevance:
+    value: recent
+    quote: ''
