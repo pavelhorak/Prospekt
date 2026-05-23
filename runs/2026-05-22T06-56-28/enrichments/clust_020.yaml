@@ -1,0 +1,43 @@
+cluster_id: clust_020
+enrichment_status: parse_error
+parse_error: "mapping values are not allowed here\n  in \"<unicode string>\", line\
+  \ 108, column 10:\n        notes: >\n             ^"
+raw_response: "I now have enough data to compile the enrichment. Let me produce the\
+  \ output.\n\n---\n\n```yaml\ncluster_id: clust_020\nenrichment_date: 2026-05-23\n\
+  \n# ── IMPORTANT CONTEXT ───────────────────────────────────────────────────────\n\
+  # This cluster captures a HISTORICAL pain point. Swift 1.0 shipped in June 2014;\n\
+  # the adoption-uncertainty signal peaked on HackerNews circa 2014–2015.\n# Swift\
+  \ is now at v6.3 (March 2026), supports Android/Windows/embedded, and\n# ranks 9th\
+  \ globally by developer usage. temporal_trend: decreasing reflects\n# the pain being\
+  \ fully resolved. Enrichment below covers the CURRENT iOS\n# developer-tooling market\
+  \ (the adjacent opportunity space) rather than a\n# signal that no longer exists.\n\
+  # ────────────────────────────────────────────────────────────────────────────\n\
+  \ndirect_competitors:\n  - name: Bitrise\n    url: https://bitrise.io\n    founded_year:\
+  \ 2014\n    pricing:\n      tiers:\n        - name: Starter\n          price_per_seat:\
+  \ null\n          flat_monthly: 99\n          flat_annual_monthly: 89\n        \
+  \  billing: monthly or annual\n          notes: single concurrency, standard build\
+  \ machines\n        - name: Pro\n          flat_monthly: 218\n          flat_annual_monthly:\
+  \ 200\n          billing: monthly or annual\n        - name: Enterprise\n      \
+  \    flat_monthly: 600\n          notes: 10 seats included, 200 invocations/seat,\
+  \ 100 GB storage; scales per seat beyond 10\n          billing: monthly\n      pricing_model:\
+  \ concurrency + build-minutes + machine type (not per-seat)\n    estimated_revenue:\
+  \ null\n    team_size: null\n    funding: null\n    source: https://getpulsesignal.com/pricing/bitrise\n\
+  \    source_retrieved: 2026-05-23\n    notes: >\n      Bitrise serves 45,000+ mobile\
+  \ app developers per its own marketing copy\n      (surfaced via Capterra/Bitrise.io).\
+  \ Exact ARR and funding not surfaced in\n      search results; Crunchbase profile\
+  \ exists but paywalled.\n\n  - name: Codemagic\n    url: https://codemagic.io\n\
+  \    founded_year: 2019\n    pricing:\n      tiers:\n        - name: Pay-as-you-go\n\
+  \          flat_monthly: 0\n          notes: free tier, usage-billed beyond included\
+  \ minutes\n          billing: usage\n        - name: Teams (fixed annual)\n    \
+  \      flat_annual: 3990\n          notes: 3 concurrencies, unlimited minutes, unlimited\
+  \ users\n          billing: annual\n      pricing_model: concurrency + build-minutes;\
+  \ per-seat pricing not offered\n    estimated_revenue: null\n    team_size: null\n\
+  \    funding: null\n    source: https://codemagic.io/pricing/\n    source_retrieved:\
+  \ 2026-05-23\n\n  - name: Emerge Tools (acquired by Sentry)\n    url: https://www.emergetools.com\n\
+  \    founded_year: null\n    pricing:\n      tiers: null\n      notes: \"no public\
+  \ pricing; acquired by Sentry on 2025-05-06 — pricing now bundled with Sentry plans\"\
+  \n    estimated_revenue: null\n    team_size: null\n    funding: \"acquired by Sentry,\
+  \ May 2025 (acquisition price undisclosed)\"\n    source: https://pitchbook.com/profiles/company/463291-93\n\
+  \    source_retrieved: 2026-05-23\n    notes: >\n      Emerge Too"
+citations: []
+enrichment_model: claude-sonnet-4-6

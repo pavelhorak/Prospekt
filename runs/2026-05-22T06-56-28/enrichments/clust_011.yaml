@@ -1,0 +1,43 @@
+cluster_id: clust_011
+enrichment_status: parse_error
+parse_error: "while parsing a block collection\n  in \"<unicode string>\", line 134,\
+  \ column 3:\n      - entity: Kasada\n      ^\nexpected <block end>, but found '?'\n\
+  \  in \"<unicode string>\", line 156, column 3:\n      note: >\n      ^"
+raw_response: "I now have sufficient data to compile the enrichment. Let me assemble\
+  \ the YAML.\n\n```yaml\ncluster_id: clust_011\nenrichment_date: 2026-05-23\n\ndirect_competitors:\n\
+  \  - name: DataDome\n    url: https://datadome.co\n    founded_year: 2017\n    pricing:\n\
+  \      tiers:\n        - name: \"Starter\"\n          price_per_seat: null\n   \
+  \       billing: \"request-volume-based; Vendr market data shows typical contracts\
+  \ $50K–$120K/year\"\n        - name: \"Enterprise\"\n          price_per_seat: null\n\
+  \          billing: \"custom; $1K–$50K/month (Capterra/Moonito benchmark range)\"\
+  \n      notes: \"No public tier pricing page; all plans sold via sales motion\"\n\
+  \    estimated_revenue: \"$5M–$25M ARR (Owler/Tracxn estimate)\"\n    team_size:\
+  \ 100–250\n    funding: \"$82M total; Series C $42M led by InfraVia Growth, March\
+  \ 2023\"\n    source: https://techcrunch.com/2023/03/30/datadome-raises-42m-series-c-bot-detection/\n\
+  \n  - name: HUMAN Security (formerly PerimeterX)\n    url: https://www.humansecurity.com\n\
+  \    founded_year: 2012\n    pricing:\n      tiers:\n        - name: \"Enterprise\
+  \ (Bot Defender)\"\n          price_per_seat: null\n          billing: \"custom;\
+  \ no public pricing\"\n      notes: \"Enterprise-only; pricing by request volume\
+  \ and product bundle\"\n    estimated_revenue: \">$100M ARR (stated at time of PerimeterX\
+  \ merger, 2022)\"\n    team_size: 450+\n    funding: \"$200M total; $100M growth\
+  \ round (WestCap/NightDragon, 2022) + $100M Blackstone debt facility\"\n    source:\
+  \ https://techcrunch.com/2022/07/27/human-security-merges-with-perimeterx-to-thwart-bots-and-automated-fraud/\n\
+  \n  - name: Kasada\n    url: https://www.kasada.io\n    founded_year: 2017\n   \
+  \ pricing:\n      tiers:\n        - name: \"Enterprise\"\n          price_per_seat:\
+  \ null\n          billing: \"custom; positioned at premium vs. DataDome\"\n    \
+  \  notes: \"No public pricing; sold through direct enterprise sales\"\n    estimated_revenue:\
+  \ \"$50M–$100M ARR (LeadIQ/Tracxn range)\"\n    team_size: 112\n    funding: \"\
+  $63M+ total; most recent: $20M round led by EQT, February 2026\"\n    source: https://www.businesswire.com/news/home/20260203042748/en/Kasada-Secures-US$20-Million-to-Accelerate-Global-Expansion-and-Broaden-Platform-Offerings\n\
+  \n  - name: Akamai Bot Manager\n    url: https://www.akamai.com/products/bot-manager\n\
+  \    founded_year: 1998  # as a company; Bot Manager product ~2016\n    pricing:\n\
+  \      tiers:\n        - name: \"Enterprise\"\n          price_per_seat: null\n\
+  \          billing: \"custom; bundled into Akamai platform contracts; typically\
+  \ $50K–$500K/year\"\n      notes: \"No public pricing; part of broader Akamai security\
+  \ platform\"\n    estimated_revenue: \"not isolable (Akamai Security division ~$1.7B\
+  \ revenue FY2024)\"\n    team_size: 10000+  # full company\n    funding: \"public\
+  \ company (NASDAQ: AKAM)\"\n    source: https://www.g2.com/products/akamai-bot-manager/competitors/alternatives\n\
+  \ncompetitor_weaknesses:\n  # The cluster describes Cloudflare as the pain source;\
+  \ weaknesses below apply\n  # to Cloudflare's bot-detection approach specifically,\
+  \ then the alternatives.\n "
+citations: []
+enrichment_model: claude-sonnet-4-6

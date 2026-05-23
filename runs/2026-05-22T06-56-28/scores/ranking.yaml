@@ -1,0 +1,18 @@
+run_id: 2026-05-22T06-56-28
+weights:
+  market_demand: 0.2
+  distribution: 0.2
+  competition: 0.15
+  founder_market_fit: 0.15
+  solo_feasibility: 0.15
+  revenue_path: 0.1
+  defensibility: 0.05
+scored_count: 0
+killed_count: 0
+error_count: 1
+clusters:
+- cluster_id: clust_023
+  cluster_label: Operational teams burdened by repetitive manual business processes
+  weighted_total: null
+  status: parse_error
+  kill_reasons: []

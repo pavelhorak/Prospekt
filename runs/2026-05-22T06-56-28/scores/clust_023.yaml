@@ -1,0 +1,32 @@
+cluster_id: clust_023
+cluster_label: Operational teams burdened by repetitive manual business processes
+status: parse_error
+parse_error: "mapping values are not allowed here\n  in \"<unicode string>\", line\
+  \ 7, column 34:\n          - signal_count: 17 (primary: 6)\n                   \
+  \                  ^"
+raw_response: "```yaml\ncluster_id: clust_023\nscores:\n  market_demand:\n    value:\
+  \ 3\n    confidence: medium\n    evidence:\n      - signal_count: 17 (primary: 6)\n\
+  \      - context_diversity: 7\n      - temporal_trend: increasing\n      - idp_market_cagr:\
+  \ \"26–35% across multiple analyst sources\"\n      - funding_proxy: \"$204M+ raised\
+  \ by named competitors signals investor-validated demand\"\n      - workaround_count:\
+  \ 5\n    contradicting: \"source_diversity is 1 — all cluster signals originate\
+  \ from a single source, severely undermining breadth of demand evidence; intensity_mean\
+  \ of 2.33 is low-moderate; no hard search-volume figures (Ahrefs/SEMrush data absent);\
+  \ TAM range of $3.2B–$14.2B reflects analyst disagreement on scope\"\n\n  distribution:\n\
+  \    value: 2\n    confidence: medium\n    evidence:\n      - plg_free_tier_fit:\
+  \ high\n      - seo_content_fit: high\n      - app_marketplace_fit: \"high (Zapier\
+  \ directory, Make templates, G2/Capterra)\"\n    contradicting: \"Zapier and Make\
+  \ have years of compounded SEO dominance and marketplace entrenchment; no keyword\
+  \ difficulty numbers were retrievable, making SEO viability unquantifiable; direct\
+  \ sales (required above ~$1K ACV) is not viable for a solo founder; PLG channels\
+  \ are already owned by incumbents with free tiers and massive template libraries\"\
+  \n\n  competition:\n    value: 1\n    confidence: high\n    evidence:\n      - zapier:\
+  \ \"~$300M ARR, ~700 employees, bootstrapped — dominant general-purpose automation\"\
+  \n      - make: \"~$100M ARR, acquired by Celonis ($11B valuation), ~400 employees\"\
+  \n      - rossum: \"$100M Series B (General Catalyst), ~250 employees; $1,500+/month\
+  \ entry\"\n      - nanonets: \"$29M Series B (Accel), ~200 employees\"\n      -\
+  \ scribe: \"$75M Series C, $1.3B valuation — directly targets ops workflow mapping\"\
+  \n      - sector_funding: \"$1.5B cumulative notable funding in trailing 24 months\"\
+  \n    contradicting: \"All named competitors have documented weaknesses: Zapier/Make\
+  \ lack native IDP, Rossum prices out SMBs ($1,500/month floor), Nanonets has per-page "
+scoring_model: claude-sonnet-4-6

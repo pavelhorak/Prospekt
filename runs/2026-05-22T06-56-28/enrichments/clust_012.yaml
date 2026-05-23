@@ -1,0 +1,44 @@
+cluster_id: clust_012
+enrichment_status: parse_error
+parse_error: "while parsing a block collection\n  in \"<unicode string>\", line 71,\
+  \ column 5:\n        - \"ARPU of $0.46 vs YouTube's ~$ ... \n        ^\nexpected\
+  \ <block end>, but found '?'\n  in \"<unicode string>\", line 75, column 5:\n  \
+  \      source: https://stocktitan.net/n ... \n        ^"
+raw_response: "I have enough data from 5 searches. Compiling the enrichment output\
+  \ now.\n\n---\n\n```yaml\ncluster_id: clust_012\nenrichment_date: 2026-05-23\n\n\
+  # ─── NOTES ON CLUSTER SCOPE ────────────────────────────────────────────────────\n\
+  # This cluster expresses an analytical opinion, not a product. The \"competitors\"\
+  \n# below are the live platforms whose failure mode the cluster describes.\n# Fields\
+  \ intended for B2B SaaS (ARR, seat pricing) are adapted to consumer\n# social platforms\
+  \ where appropriate.\n# ───────────────────────────────────────────────────────────────────────────────\n\
+  \ndirect_competitors:\n  - name: Rumble\n    url: https://rumble.com\n    founded_year:\
+  \ 2013\n    pricing:\n      tiers:\n        - {name: Free, price_per_seat: 0, billing:\
+  \ ad-supported}\n        - {name: \"Rumble Premium (approx.)\", price_per_seat:\
+  \ 4.99, billing: monthly}\n      note: >\n        Exact current Premium tier price\
+  \ not surfaced by search; $4.99/mo is\n        widely cited but should be verified\
+  \ at rumble.com before use.\n    estimated_revenue: >\n      $100.7M FY2025 (Q1\
+  \ $23.7M + Q2 $25.1M + Q3 $24.8M + Q4 $27.1M per SEC\n      8-K filings). ARPU $0.46;\
+  \ MAUs 52M (Q4 2025). Net loss $32.7M in Q4 2025\n      alone.\n    team_size: 156\
+  \  # as of Dec 31, 2024 per MacroTrends/SEC data\n    funding: >\n      Went public\
+  \ via SPAC merger (NASDAQ: RUM) 2022. Tether strategic\n      agreement of up to\
+  \ $775M announced Dec 2023.\n    source: https://stocktitan.net/news/RUM/rumble-reports-fourth-quarter-and-full-year-2025-5d8i2od83326.html\n\
+  \n  - name: Gab\n    url: https://gab.com\n    founded_year: 2016\n    pricing:\n\
+  \      tiers:\n        - {name: Free, price_per_seat: 0, billing: ad-supported}\n\
+  \        - {name: GabPRO, price_per_seat: 14.99, billing: monthly}\n        - {name:\
+  \ GabPRO Annual, price_per_seat: 149.99, billing: annual}\n    estimated_revenue:\
+  \ >\n      Not publicly disclosed. Sacra benchmarks ARPU at ~$4.01 for platforms\
+  \ in\n      this category. With ~5M registered users this implies <$20M annual revenue,\n\
+  \      likely far less given low engagement rates. Revenue heavily dependent on\n\
+  \      direct user payments (ad networks refuse the platform).\n    team_size: null\n\
+  \      # note: \"No public headcount data. Self-funded/bootstrapped operation;\n\
+  \      #  estimated <25 employees based on $6.09M total funding (Tracxn).\"\n  \
+  \  funding: \"$6.09M total over 3 rounds, 1 investor (Tracxn)\"\n    source: https://tracxn.com/d/companies/gab/__b0yFfHFKzMDSzu7i1tefZGmy7YvegDdd3libXAwRyRQ\n\
+  \n  - name: Truth Social (Trump Media & Technology Group)\n    url: https://truthsocial.com\n\
+  \    founded_year: 2021\n    pricing:\n      tiers:\n        - {name: Free, price_per_seat:\
+  \ 0, billing: ad-supported}\n      note: \"No paid tier found.\"\n    estimated_revenue:\
+  \ >\n      $3.7M FY2025 per TMTG SEC filing. Net loss $712.1M FY2025. ARPU ~$4.19\n\
+  \      (Sacra benchmark). Effectively a brand-value vehicle for Trump, not a\n \
+  \     self-sustaining media business.\n    team_size: null\n      # note: \"TMTG\
+  \ does not break out Truth Social headcount; no public figu"
+citations: []
+enrichment_model: claude-sonnet-4-6

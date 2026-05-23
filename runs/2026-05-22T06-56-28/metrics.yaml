@@ -1,11 +1,11 @@
 run_id: 2026-05-22T06-56-28
-computed_at: '2026-05-23T11:58:45Z'
-pipeline_score: 0.3788
+computed_at: '2026-05-23T12:55:18Z'
+pipeline_score: 0.4231
 components:
   ingest_quality: 0.6752
-  tag_quality: 0.5639
-  cluster_quality: 0.6589
-  enrichment_quality: 0.0
+  tag_quality: 0.5571
+  cluster_quality: 0.6055
+  enrichment_quality: 0.3937
   score_quality: 0.0
   model_quality: 0.0
 backtest_multiplier: 1.0
@@ -30,8 +30,8 @@ stage_details:
       1: 44
       4: 22
       5: 1
-    workaround_precision: 0.3
-    spend_precision: 0.25
+    workaround_precision: 0.25
+    spend_precision: 0.2727272727272727
   cluster:
     n_clusters: 26
     cluster_count: 26
@@ -65,11 +65,22 @@ stage_details:
     orphan_rate: 0.553
     cross_platform_rate: 1.0
     overlap_rate: 0.472
-    coherence_score: 0.32
+    coherence_score: 0.0
   enrich:
-    status: no_enrichments
+    n_enriched: 5
+    n_ok: 1
+    avg_completeness: 1.4
+    competitor_discovery_rate: 0.2
+    pricing_availability: 0.2
+    data_recency_score: 1.0
   score:
-    status: no_scores
+    n_records: 1
+    n_scored: 0
+    n_killed: 0
+    evidence_linkage: 0.0
+    range_utilization: 0.0
+    confidence_coverage: 0.0
+    top_3_weighted_totals: []
   model:
     status: no_models
 audits:

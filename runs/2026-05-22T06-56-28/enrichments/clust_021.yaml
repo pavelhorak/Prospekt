@@ -1,0 +1,45 @@
+cluster_id: clust_021
+enrichment_status: parse_error
+parse_error: "while parsing a block collection\n  in \"<unicode string>\", line 105,\
+  \ column 5:\n        - \"Non-native to Swift/Apple eco ... \n        ^\nexpected\
+  \ <block end>, but found '?'\n  in \"<unicode string>\", line 110, column 5:\n \
+  \       source: https://medium.com/the-l ... \n        ^"
+raw_response: "Now I have enough to compile the full enrichment. Here is the output:\n\
+  \n```yaml\ncluster_id: clust_021\nenrichment_date: 2026-05-23\n\n# ──────────────────────────────────────────────\n\
+  # DIRECT COMPETITORS\n# Defined as: alternative cross-device sync/data-persistence\
+  \ backends\n# that iOS/macOS developers adopt when abandoning iCloud Core Data.\n\
+  # ──────────────────────────────────────────────\ndirect_competitors:\n\n  - name:\
+  \ Firebase (Google Firestore)\n    url: https://firebase.google.com\n    founded_year:\
+  \ 2011  # Firebase Inc. founded; acquired by Google 2014\n    pricing:\n      tiers:\n\
+  \        - name: Spark (Free)\n          price_per_seat: 0\n          billing: free\n\
+  \          notes: >\n            50,000 reads/day, 20,000 writes/day, 20,000 deletes/day,\n\
+  \            1 GB stored, no charge.\n        - name: Blaze (Pay-as-you-go)\n  \
+  \        price_per_seat: null  # usage-based, no fixed per-seat price\n        \
+  \  billing: usage-based\n          notes: >\n            $0.18 per 100,000 reads;\
+  \ $0.18 per 100,000 writes;\n            $0.02 per 100,000 deletes; $0.26 per GB\
+  \ stored.\n    estimated_revenue: >\n      Not disclosed separately. Firebase is\
+  \ a component of Google Cloud\n      ($43 B+ total revenue FY2025). Firebase-specific\
+  \ ARR is not public.\n    team_size: null  # not reported as a separate headcount\
+  \ unit\n    funding: >\n      Internal Google product since 2014 acquisition (~$300\
+  \ M reported\n      acquisition price). No independent funding rounds.\n    source:\
+  \ https://firebase.google.com/pricing\n    retrieved: 2026-05-23\n\n  - name: CloudKit\
+  \ (Apple)\n    url: https://developer.apple.com/icloud/cloudkit/\n    founded_year:\
+  \ 2014  # launched at WWDC 2014\n    pricing:\n      tiers:\n        - name: Default\
+  \ (bundled with Apple Developer Program)\n          price_per_seat: 0\n        \
+  \  billing: free\n          notes: >\n            Per-app allotment: 100 GB storage,\
+  \ 1 M requests/day, 10 GB\n            asset storage. Scales automatically with\
+  \ active user count at\n            no direct charge to developer.\n        - name:\
+  \ Paid overage\n          price_per_seat: null\n          billing: usage-based\n\
+  \          notes: \"~$0.03 per GB for storage overages (back4app benchmark).\"\n\
+  \    estimated_revenue: >\n      Part of Apple Services segment ($26 B+ FY2025).\
+  \ CloudKit-specific\n      revenue not disclosed; most usage is free to developers.\n\
+  \    team_size: null  # internal Apple team, headcount not public\n    funding:\
+  \ \"Internal Apple product; no external funding.\"\n    source: https://blog.back4app.com/cloudkit-vs-firebase-what-are-the-differences/\n\
+  \    retrieved: 2026-05-23\n\n  - name: MongoDB Atlas Device Sync (formerly Realm)\n\
+  \    url: https://www.mongodb.com/atlas/device-sync\n    founded_year: 2014  # Realm\
+  \ Inc. founded; acquired by MongoDB 2019 for $39 M\n    pricing:\n      tiers: null\n\
+  \      notes: >\n        Moot. MongoDB announced deprecation of Atlas Device Sync\
+  \ in\n        September 2024 with a sunset deadline of 2025-09-30. New signups\n\
+  \        are not accepted. Existing users must migrate.\n    estim"
+citations: []
+enrichment_model: claude-sonnet-4-6
