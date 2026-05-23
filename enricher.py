@@ -15,7 +15,7 @@ enrichment.triggers thresholds AND its label isn't INCOHERENT/PARSE_ERROR.
 
 from __future__ import annotations
 
-import re
+import json
 from pathlib import Path
 
 import yaml
@@ -23,7 +23,48 @@ import yaml
 from llm import Anthropic, APIError
 
 
-_YAML_FENCE = re.compile(r"```(?:yaml)?\s*\n(.*?)```", re.DOTALL)
+# JSON Schema enforced by claude --json-schema. Loose by design — the model
+# is free to skip fields it can't research, but the top-level shape is fixed.
+ENRICHMENT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "direct_competitors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "url": {"type": ["string", "null"]},
+                    "founded_year": {"type": ["integer", "null"]},
+                    "pricing": {"type": ["object", "null"]},
+                    "estimated_revenue": {"type": ["string", "null"]},
+                    "team_size": {"type": ["integer", "string", "null"]},
+                    "funding": {"type": ["string", "null"]},
+                    "source": {"type": ["string", "null"]},
+                },
+                "required": ["name"],
+            },
+        },
+        "competitor_weaknesses": {"type": ["object", "null"]},
+        "market_size_estimate": {"type": ["object", "null"]},
+        "search_demand": {"type": ["object", "null"]},
+        "funding_activity": {"type": ["array", "object", "null"]},
+        "regulatory_context": {"type": ["string", "null"]},
+        "distribution_channels": {"type": ["object", "array", "null"]},
+        "citations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "url": {"type": "string"},
+                    "title": {"type": ["string", "null"]},
+                },
+                "required": ["url"],
+            },
+        },
+    },
+    "required": ["direct_competitors"],
+}
 
 
 def enrich_clusters(config: dict, rdir: Path) -> None:
@@ -119,8 +160,10 @@ def _research_cluster(
     user_msg += (
         "\nUse the WebSearch tool freely to fill the enrichment fields. "
         f"Aim for at most {max_searches} searches total. "
-        "Cite the URL you found each fact at in the output's `source:` fields. "
-        "If a field is genuinely unknown after a reasonable search, set it to null with a note explaining why."
+        "Return ONLY valid JSON matching the enforced schema — no prose, "
+        "no markdown fences. For every URL you cite, include {url, title} "
+        "in the `citations` array. If a field is genuinely unknown after a "
+        "reasonable search, set it to null."
     )
 
     try:
@@ -129,6 +172,7 @@ def _research_cluster(
             max_tokens=max_tokens,
             temperature=temperature,
             messages=[{"role": "user", "content": user_msg}],
+            json_schema=ENRICHMENT_SCHEMA,
         )
     except APIError as e:
         return {
@@ -138,38 +182,23 @@ def _research_cluster(
             "enrichment_model": model,
         }
 
-    text_parts: list[str] = []
-    citations: list[dict] = []
-    for block in resp.content:
-        if getattr(block, "type", None) == "text":
-            text_parts.append(block.text)
-            # Anthropic web_search attaches citation objects when grounded.
-            for cit in getattr(block, "citations", None) or []:
-                url = getattr(cit, "url", None) or (cit.get("url") if isinstance(cit, dict) else None)
-                title = getattr(cit, "title", None) or (cit.get("title") if isinstance(cit, dict) else None)
-                if url:
-                    citations.append({"url": url, "title": title})
-    text = "\n".join(text_parts).strip()
-
-    m = _YAML_FENCE.search(text)
-    body = m.group(1) if m else text
+    text = "".join(b.text for b in resp.content if getattr(b, "type", None) == "text").strip()
     try:
-        parsed = yaml.safe_load(body)
+        parsed = json.loads(text)
         if not isinstance(parsed, dict):
-            raise ValueError("non-dict")
+            raise ValueError("non-dict top-level")
     except Exception as e:
         return {
             "cluster_id": cluster["cluster_id"],
             "enrichment_status": "parse_error",
             "parse_error": str(e),
             "raw_response": text[:3000],
-            "citations": citations,
             "enrichment_model": model,
         }
 
     parsed["cluster_id"] = cluster["cluster_id"]
     parsed["enrichment_status"] = "ok"
-    parsed.setdefault("citations", citations)
+    parsed.setdefault("citations", [])
     parsed["enrichment_model"] = model
     return parsed
 

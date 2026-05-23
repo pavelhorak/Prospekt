@@ -34,6 +34,7 @@ Implementation notes:
 
 from __future__ import annotations
 
+import json
 import os
 import shutil
 import subprocess
@@ -103,6 +104,7 @@ class _Messages:
         temperature: float | None = None,
         system: str | None = None,
         tools: list | None = None,
+        json_schema: dict | None = None,
         **_kwargs: Any,
     ) -> Response:
         # Collapse the messages list into a single user prompt. The stage
@@ -133,6 +135,11 @@ class _Messages:
         ]
         if system:
             cmd.extend(["--append-system-prompt", system])
+        if json_schema:
+            # --json-schema enforces schema-valid JSON output. The model
+            # cannot mix prose with JSON or break the structure. Used by
+            # enricher + scorer where free-form YAML was failing to parse.
+            cmd.extend(["--json-schema", json.dumps(json_schema)])
 
         timeout = int(os.environ.get("CLAUDE_TIMEOUT_SEC", "900"))
         # Run from a clean tempdir so Claude Code doesn't auto-load the

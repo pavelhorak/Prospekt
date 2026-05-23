@@ -489,6 +489,155 @@ def cmd_history(_args: argparse.Namespace) -> None:
     print(tsv.read_text(), end="")
 
 
+def cmd_ranking(args: argparse.Namespace) -> None:
+    """Show the ranked cluster table for a run — the 'outcome' view."""
+    rid = getattr(args, "run_id", None) or latest_run_id()
+    if not rid:
+        sys.exit("no runs found")
+    rdir = run_dir(rid)
+
+    clusters = _load_all(rdir / "clusters", "clust_*.yaml")
+    if not clusters:
+        sys.exit(f"no clusters in {rid}")
+
+    enrich = {e["cluster_id"]: e for e in _load_all(rdir / "enrichments", "clust_*.yaml") if "cluster_id" in e}
+    scores = {s["cluster_id"]: s for s in _load_all(rdir / "scores", "clust_*.yaml") if "cluster_id" in s}
+    models = {m["cluster_id"]: m for m in _load_all(rdir / "models", "clust_*.yaml") if "cluster_id" in m}
+
+    rows = []
+    for c in clusters:
+        cid = c["cluster_id"]
+        label = c.get("cluster_label") or ""
+        if label in ("INCOHERENT", "ERROR", "PARSE_ERROR"):
+            continue
+        m = c.get("metrics") or {}
+        e = enrich.get(cid)
+        s = scores.get(cid)
+        rows.append({
+            "cid": cid,
+            "label": label,
+            "sigs": m.get("primary_signal_count", 0),
+            "srcs": m.get("source_diversity", 0),
+            "WAs": m.get("workaround_count", 0),
+            "int": m.get("intensity_mean"),
+            "enrich": (e or {}).get("enrichment_status") or "—",
+            "score": (s or {}).get("weighted_total"),
+            "modeled": "✓" if cid in models else "—",
+        })
+
+    # Sort: scored > enriched-ok > by primary_signal_count desc
+    def key(r):
+        sc = r["score"] if r["score"] is not None else -1
+        en = 1 if r["enrich"] == "ok" else 0
+        return (-sc, -en, -r["sigs"])
+    rows.sort(key=key)
+
+    rid_short = rid
+    print(f"\nRANKED OPPORTUNITIES — run {rid_short}\n")
+    print(f"{'cluster':<11}{'sigs':>6}{'srcs':>6}{'WAs':>5}{'int':>6}  {'enriched':<13}{'score':>7}  {'mdl':<4}label")
+    print("-" * 110)
+    for r in rows:
+        intensity = f"{r['int']:.2f}" if r['int'] else "  — "
+        score_str = f"{r['score']:.2f}" if r['score'] is not None else "  — "
+        print(f"{r['cid']:<11}{r['sigs']:>6}{r['srcs']:>6}{r['WAs']:>5}{intensity:>6}  {r['enrich']:<13}{score_str:>7}  {r['modeled']:<4}{r['label'][:60]}")
+
+    # Footer summary
+    n_all = len(clusters)
+    n_coherent = len(rows)
+    n_enr_ok = sum(1 for v in enrich.values() if v.get("enrichment_status") == "ok")
+    n_enr_err = sum(1 for v in enrich.values() if v.get("enrichment_status") not in (None, "ok"))
+    n_scored = sum(1 for s in scores.values() if s.get("status") == "scored")
+    metrics_yaml = _load_yaml_if_exists(rdir / "metrics.yaml") or {}
+    score_value = metrics_yaml.get("pipeline_score")
+    print(f"\n  total {n_all}  coherent {n_coherent}  enriched_ok {n_enr_ok}  enrich_err {n_enr_err}  scored {n_scored}  modeled {len(models)}")
+    if score_value is not None:
+        print(f"  pipeline_score: {score_value:.4f}")
+    print()
+
+
+def cmd_trace(args: argparse.Namespace) -> None:
+    """Show full evidence chain for one cluster: signals → enrichment → score → model."""
+    cid = args.cluster_id
+    rid = getattr(args, "run_id", None) or latest_run_id()
+    if not rid:
+        sys.exit("no runs found")
+    rdir = run_dir(rid)
+
+    cluster_file = rdir / "clusters" / f"{cid}.yaml"
+    if not cluster_file.exists():
+        sys.exit(f"{cid} not found in {rid}")
+    cluster = read_yaml(cluster_file)
+    m = cluster.get("metrics") or {}
+
+    print(f"\n{cid}  —  {cluster.get('cluster_label')}")
+    print(f"fingerprint: {cluster.get('cluster_fingerprint')}")
+    summary = (cluster.get("cluster_summary") or "").strip()
+    if summary:
+        print("\n" + summary + "\n")
+    print(f"primary={m.get('primary_signal_count')}  total={m.get('total_signal_count')}  "
+          f"sources={m.get('sources')}  intensity_mean={m.get('intensity_mean')}")
+    print(f"workaround_count={m.get('workaround_count')}  spend_evidence_count={m.get('spend_evidence_count')}  "
+          f"temporal_trend={m.get('temporal_trend')}")
+
+    enrich_file = rdir / "enrichments" / f"{cid}.yaml"
+    if enrich_file.exists():
+        e = read_yaml(enrich_file)
+        print(f"\n— enrichment ({e.get('enrichment_status')}) —")
+        comps = e.get("direct_competitors") or []
+        if isinstance(comps, list) and comps:
+            print(f"competitors ({len(comps)}):")
+            for c in comps[:5]:
+                if isinstance(c, dict):
+                    print(f"  - {c.get('name')}  ({c.get('founded_year','?')}, {c.get('funding','?')[:50] if c.get('funding') else '?'})")
+        if e.get("market_size_estimate"):
+            print(f"market_size: {e['market_size_estimate']}")
+        cits = e.get("citations") or []
+        if cits:
+            print(f"citations: {len(cits)}")
+
+    score_file = rdir / "scores" / f"{cid}.yaml"
+    if score_file.exists():
+        s = read_yaml(score_file)
+        print(f"\n— scoring (status={s.get('status')}) —")
+        if s.get("weighted_total") is not None:
+            print(f"weighted_total: {s['weighted_total']}")
+        for crit, sc in (s.get("scores") or {}).items():
+            if isinstance(sc, dict):
+                v = sc.get("value")
+                conf = sc.get("confidence")
+                print(f"  {crit:<20} {v}  ({conf})")
+
+    model_file = rdir / "models" / f"{cid}.yaml"
+    if model_file.exists():
+        mod = read_yaml(model_file)
+        print(f"\n— model —")
+        for name, sc in (mod.get("scenarios") or {}).items():
+            print(f"  {name:<14} m2target={sc.get('months_to_target')}  steady={sc.get('steady_state_mrr')}  viable={sc.get('viable')}")
+    print()
+
+
+def _load_all(directory: pathlib.Path, glob_: str) -> list[dict]:
+    if not directory.exists():
+        return []
+    out = []
+    for p in sorted(directory.glob(glob_)):
+        try:
+            with p.open() as f:
+                d = yaml.safe_load(f)
+            if isinstance(d, dict):
+                out.append(d)
+        except Exception:
+            continue
+    return out
+
+
+def _load_yaml_if_exists(path: pathlib.Path):
+    if not path.exists():
+        return None
+    with path.open() as f:
+        return yaml.safe_load(f)
+
+
 _NOT_YET = lambda name: lambda _a: (_ for _ in ()).throw(
     NotImplementedError(f"cmd_{name}: not yet wired")
 )
@@ -500,13 +649,13 @@ COMMANDS: dict[str, Callable[[argparse.Namespace], None]] = {
     "eval":         cmd_eval,
     "chart":        cmd_chart,
     "history":      cmd_history,
+    "ranking":      cmd_ranking,
+    "trace":        cmd_trace,
     # stubbed:
     "loop":         _NOT_YET("loop"),
     "signals":      _NOT_YET("signals"),
     "clusters":     _NOT_YET("clusters"),
     "cluster":      _NOT_YET("cluster"),
-    "ranking":      _NOT_YET("ranking"),
-    "trace":        _NOT_YET("trace"),
     "backtest":     _NOT_YET("backtest"),
     "forward-test": _NOT_YET("forward-test"),
     "calibrate":    _NOT_YET("calibrate"),
@@ -533,8 +682,15 @@ def main(argv: list[str] | None = None) -> None:
     sub.add_parser("chart", help="render improvement chart")
     sub.add_parser("history", help="print results.tsv")
 
+    rank_p = sub.add_parser("ranking", help="ranked cluster outcome for a run")
+    rank_p.add_argument("--run-id", dest="run_id", help="defaults to latest")
+
+    trace_p = sub.add_parser("trace", help="show evidence chain for one cluster")
+    trace_p.add_argument("cluster_id")
+    trace_p.add_argument("--run-id", dest="run_id", help="defaults to latest")
+
     for name in COMMANDS:
-        if name in {"init", "run", "eval", "chart", "history"}:
+        if name in {"init", "run", "eval", "chart", "history", "ranking", "trace"}:
             continue
         sub.add_parser(name, help="(stub)")
 

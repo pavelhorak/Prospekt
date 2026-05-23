@@ -13,7 +13,7 @@ Emits scores/{cluster_id}.yaml per cluster + scores/ranking.yaml.
 
 from __future__ import annotations
 
-import re
+import json
 from pathlib import Path
 
 import yaml
@@ -21,12 +21,35 @@ import yaml
 from llm import Anthropic, APIError
 
 
-_YAML_FENCE = re.compile(r"```(?:yaml)?\s*\n(.*?)```", re.DOTALL)
-
 CRITERIA = [
     "market_demand", "distribution", "competition", "founder_market_fit",
     "solo_feasibility", "revenue_path", "defensibility",
 ]
+
+
+_CRITERION_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "value": {"type": "integer", "minimum": 1, "maximum": 5},
+        "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
+        "evidence": {"type": ["array", "object", "string"]},
+        "contradicting": {"type": ["string", "null"]},
+    },
+    "required": ["value", "confidence"],
+}
+
+
+SCORING_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "scores": {
+            "type": "object",
+            "properties": {c: _CRITERION_SCHEMA for c in CRITERIA},
+            "required": CRITERIA,
+        },
+    },
+    "required": ["scores"],
+}
 
 
 def score_clusters(config: dict, rdir: Path) -> None:
@@ -142,18 +165,17 @@ def _score_one(client, model, temperature, max_tokens, prompt_template,
         resp = client.messages.create(
             model=model, max_tokens=max_tokens, temperature=temperature,
             messages=[{"role": "user", "content": user_msg}],
+            json_schema=SCORING_SCHEMA,
         )
     except APIError as e:
         return {"cluster_id": cid, "cluster_label": cluster.get("cluster_label"),
                 "status": "api_error", "error": str(e), "scoring_model": model}
 
-    text = "".join(b.text for b in resp.content if getattr(b, "type", None) == "text")
-    m = _YAML_FENCE.search(text)
-    body = m.group(1) if m else text
+    text = "".join(b.text for b in resp.content if getattr(b, "type", None) == "text").strip()
     try:
-        parsed = yaml.safe_load(body)
+        parsed = json.loads(text)
         if not isinstance(parsed, dict):
-            raise ValueError("non-dict")
+            raise ValueError("non-dict top-level")
     except Exception as e:
         return {"cluster_id": cid, "cluster_label": cluster.get("cluster_label"),
                 "status": "parse_error", "parse_error": str(e),
